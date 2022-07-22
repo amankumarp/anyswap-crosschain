@@ -1,15 +1,15 @@
-import React, {  useCallback, useState } from "react"
+import React,{useState} from "react"
 // import { createBrowserHistory } from 'history'
 import { NavLink } from "react-router-dom"
 // import { AlertCircle } from "react-feather"
 // import {useNonApproveCallback} from '../../hooks/useApproveCallback'
-import {useAllApproved} from './hooks'
+// import {useAllApproved} from './hooks'
 
 // import { ButtonConfirmed } from '../Button'
 import ModalContent from '../Modal/ModalContent'
 import { BottomGrouping } from '../swap/styleds'
 
-import useInterval from '../../hooks/useInterval'
+// import useInterval from '../../hooks/useInterval'
 import styled from "styled-components"
 
 
@@ -62,17 +62,17 @@ const PageInfo = styled.div`
   font-weight:normal;
 `
 export default function NonApprove () {
-  const [isSaveUrl, setIsSaveUrl] = useState<any>(false)
-  const {approvedList} = useAllApproved()
-  const getUrl = useCallback(() => {
-    const url = window.location.href
-    if (approvedList.length > 0 && url.indexOf('/approvals') === -1) {
-      setIsSaveUrl(true)
-    } else {
-      setIsSaveUrl(false)
-    }
-  }, [approvedList])
-  useInterval(getUrl, 1000)
+  const [isSaveUrl, ] = useState<any>(false)
+  // const {approvedList} = useAllApproved()
+  // const getUrl = useCallback(() => {
+  //   const url = window.location.href
+  //   if (approvedList.length > 0 && url.indexOf('/approvals') === -1) {
+  //     setIsSaveUrl(true)
+  //   } else {
+  //     setIsSaveUrl(false)
+  //   }
+  // }, [approvedList])
+  // useInterval(getUrl, 1000)
   return (
     <>
       <ModalContent

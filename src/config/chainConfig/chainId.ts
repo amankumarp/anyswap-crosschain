@@ -65,4 +65,6 @@ export enum ChainId {
   TT = '108',
   KAVA = '2222',
   KLAY = '8217',
+  TARAL_TEST ='4369',
+  RABBIT_TEST ='1807',
 }

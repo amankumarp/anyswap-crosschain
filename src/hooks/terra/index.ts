@@ -134,8 +134,8 @@ export function useTerraSend () {
 
       return _.map(AssetNativeDenomEnum, (denom) => {
         const amount = new BigNumber(gasPricesFromServer[denom])
-          .multipliedBy(gas)
-          .dp(0, BigNumber.ROUND_UP)
+          .mul(gas)
+          .dp()
           .toString(10)
         const gasFee = new Coins({ [denom]: amount })
         const fee = new Fee(gas, gasFee)

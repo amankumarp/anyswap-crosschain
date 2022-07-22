@@ -70,7 +70,7 @@ export function useFetchMergeTokenListCallback(): () => Promise<any> {
 
   const curList = chainId && lists && lists[chainId] ? lists[chainId] : {}
 
-  // console.log(lists)
+  console.log("lists::",lists);
   return useCallback(
     async () => {
       if (!chainId) return
@@ -79,6 +79,7 @@ export function useFetchMergeTokenListCallback(): () => Promise<any> {
       } else {
         const url = `${config.bridgeApi}/merge/tokenlist/${chainId}`
         // const url = `${config.bridgeApi}/v4/tokenlistv2/${chainId}`
+        console.log("useFetchMergeTokenListCallback=>url:: ",url);
         return getUrlData(url)
           .then((tokenList:any) => {
             // console.log(tokenList)
@@ -114,7 +115,8 @@ export function useFetchTokenListCallback(): () => Promise<any> {
       } else {
         const UV:any = USE_VERSION
         const version:any = [VERSION.V5, VERSION.V6, VERSION.V7].includes(UV) ? 'all' : USE_VERSION
-        const url = `${config.bridgeApi}/v3/serverinfoV4?chainId=${chainId}&version=${version}`
+        const url = `${config.bridgeApi}/v3/serverinfoV4?chainId=${chainId}&version=${version}`;
+        console.log("useFetchTokenListCallback->url::",url)
         return getUrlData(url)
           .then((tokenList:any) => {
             // console.log(tokenList)
@@ -150,6 +152,7 @@ export function useFetchTokenListCallback(): () => Promise<any> {
                 }
               }
             }
+            console.log("tokenList::",list);
             dispatch(routerTokenList({ chainId, tokenList:list }))
             return list
           })
@@ -181,6 +184,7 @@ export function useFetchTokenList1Callback(): () => Promise<any> {
       ) {
         return
       } else {
+        console.log("useFetchTokenList1Callback->url::",config.getCurConfigInfo().showChain,bridgeApi + '/v2/tokenlist');
         return GetTokenListByChainID({
           srcChainID: chainId,
           chainList: config.getCurConfigInfo().showChain,
