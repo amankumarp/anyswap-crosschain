@@ -54,10 +54,11 @@ import hoo from './hoo'
 import tt from './tt'
 import kava from './kava'
 import klay from './klay'
+// import bsctest from './bsctest'
 
 import { ChainId } from './chainId'
 
-import {VERSION, USE_VERSION} from '../constant'
+import {VERSION,USE_VERSION} from '../constant'
 
 interface ConFig {
   [key: string]: any
@@ -179,8 +180,7 @@ const testChainList = [
   ChainId.BNB_TEST,
   ChainId.MATIC_TEST,
   ChainId.AVAX_TEST,
-  ChainId.ARBITRUM_TEST,
-  ChainId.BAS_TEST,
+  ChainId.ARBITRUM_TEST
 ]
 
 const useChain:any = {

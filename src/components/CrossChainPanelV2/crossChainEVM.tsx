@@ -118,7 +118,7 @@ export default function CrossChain({
     }
     return false
   }, [selectDestCurrency])
-  // console.log(destConfig)
+  console.log("destConfig::",destConfig);
   const isRouter = useMemo(() => {
     // console.log(destConfig)
     if (['swapin', 'swapout'].includes(destConfig?.type)) {

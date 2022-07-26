@@ -67,4 +67,5 @@ export enum ChainId {
   KLAY = '8217',
   TARAL_TEST ='4369',
   RABBIT_TEST ='1807',
+  KOVAN = '42'
 }

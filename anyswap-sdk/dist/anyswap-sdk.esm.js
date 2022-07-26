@@ -16,17 +16,13 @@ var _FACTORY_ADDRESS, _INIT_CODE_HASH, _SOLIDITY_TYPE_MAXIMA;
 var ChainId;
 
 (function (ChainId) {
-  ChainId[ChainId["MAINNET"] = 1] = "MAINNET";
   ChainId[ChainId["ROPSTEN"] = 3] = "ROPSTEN";
   ChainId[ChainId["RINKEBY"] = 4] = "RINKEBY";
-  ChainId[ChainId["G\xD6RLI"] = 5] = "G\xD6RLI";
   ChainId[ChainId["KOVAN"] = 42] = "KOVAN";
-  ChainId[ChainId["BNBMAIN"] = 56] = "BNBMAIN";
   ChainId[ChainId["BNBTEST"] = 97] = "BNBTEST";
-  ChainId[ChainId["MATICMAIN"] = 137] = "MATICMAIN";
-  ChainId[ChainId["MATICTEST"] = 80001] = "MATICTEST"
+  ChainId[ChainId["MATICTEST"] = 80001] = "MATICTEST";
   ChainId[ChainId["TARALTEST"] = 4369] = "TARALTEST";
-  ChainId[ChainId["RABBITTEST"]= 1807] = "RABBITTEST";
+  ChainId[ChainId["RABBITTEST"] = 1807] = "RABBITTEST";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -51,9 +47,8 @@ var Rounding;
 // export const INIT_CODE_HASH = '0xec98d1c1effef474f0f28b71824109c8f50ec6e9eb7e62724f6fcdd7aa966ba0'
 
 
-var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[exports.ChainId.MAINNET] = '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac', _FACTORY_ADDRESS[exports.ChainId.ROPSTEN] = '0x5C487A8a1915655bB9863d59D2519c01C1A427d7', _FACTORY_ADDRESS[exports.ChainId.RINKEBY] = '0x5C487A8a1915655bB9863d59D2519c01C1A427d7', _FACTORY_ADDRESS[exports.ChainId.GÖRLI] = '0x5C487A8a1915655bB9863d59D2519c01C1A427d7', _FACTORY_ADDRESS[exports.ChainId.KOVAN] = '0x5C487A8a1915655bB9863d59D2519c01C1A427d7', _FACTORY_ADDRESS[exports.ChainId.BNBMAIN] = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4', _FACTORY_ADDRESS[exports.ChainId.BNBTEST] = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4', _FACTORY_ADDRESS[exports.ChainId.MATICMAIN] = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4', _FACTORY_ADDRESS);
-var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[exports.ChainId.MAINNET] = '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303', _INIT_CODE_HASH[exports.ChainId.ROPSTEN] = '0x114c9724259a17666131b2946e9649a7a5556f4be0899ae8fa0e3adc5d7ac247', _INIT_CODE_HASH[exports.ChainId.RINKEBY] = '0x114c9724259a17666131b2946e9649a7a5556f4be0899ae8fa0e3adc5d7ac247', _INIT_CODE_HASH[exports.ChainId.GÖRLI] = '0x114c9724259a17666131b2946e9649a7a5556f4be0899ae8fa0e3adc5d7ac247', _INIT_CODE_HASH[exports.ChainId.KOVAN] = '0x114c9724259a17666131b2946e9649a7a5556f4be0899ae8fa0e3adc5d7ac247',  _INIT_CODE_HASH[exports.ChainId.BNBMAIN] = '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303', _INIT_CODE_HASH[exports.ChainId.BNBTEST] = '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303', _INIT_CODE_HASH[exports.ChainId.MATICMAIN] = '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303', _INIT_CODE_HASH);
-; //ftm,matic,xdai,bsc
+var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[ChainId.ROPSTEN] = '0xe0A8cDE7CE50188E80AC21f08FF362b6E3185504', _FACTORY_ADDRESS[ChainId.RINKEBY] = '0x9C88330C8aB3Cf53EeF61F4b2E7b2eC8c1e7E164', _FACTORY_ADDRESS[ChainId.KOVAN] = '0xb3Aa9fc60D60Da5E10F325306611120e6d172eE4', _FACTORY_ADDRESS[ChainId.BNBTEST] = '0x52Fed0350d106a0CF4BC154D9B79957D3a1211De', _FACTORY_ADDRESS[ChainId.MATICTEST] = '0xe0A8cDE7CE50188E80AC21f08FF362b6E3185504', _FACTORY_ADDRESS[ChainId.TARALTEST] = '0x13AC32a59E9635DD1fcD7873d2390Ff5D3C61dAe', _FACTORY_ADDRESS[ChainId.RABBITTEST] = '0x8c17207Aa628E940A40613C3Cb13534a9fb0e7d5', _FACTORY_ADDRESS);
+var INIT_CODE_HASH = (_INIT_CODE_HASH = {}, _INIT_CODE_HASH[ChainId.ROPSTEN] = '0xd4aa1c36ae23c448b7dedb8e388618cc5a4ed50d7d9ed022cbec1aca4f7ac863', _INIT_CODE_HASH[ChainId.RINKEBY] = '0xd4aa1c36ae23c448b7dedb8e388618cc5a4ed50d7d9ed022cbec1aca4f7ac863', _INIT_CODE_HASH[ChainId.KOVAN] = '0xd4aa1c36ae23c448b7dedb8e388618cc5a4ed50d7d9ed022cbec1aca4f7ac863', _INIT_CODE_HASH[ChainId.BNBTEST] = '0xd4aa1c36ae23c448b7dedb8e388618cc5a4ed50d7d9ed022cbec1aca4f7ac863', _INIT_CODE_HASH[ChainId.MATICTEST] = '0xd4aa1c36ae23c448b7dedb8e388618cc5a4ed50d7d9ed022cbec1aca4f7ac863', _INIT_CODE_HASH[ChainId.TARALTEST] = '0xd4aa1c36ae23c448b7dedb8e388618cc5a4ed50d7d9ed022cbec1aca4f7ac863', _INIT_CODE_HASH[ChainId.RABBITTEST] = '0xd4aa1c36ae23c448b7dedb8e388618cc5a4ed50d7d9ed022cbec1aca4f7ac863', _INIT_CODE_HASH); //ftm,matic,xdai,bsc
 // export const FACTORY_ADDRESS = '0xc35DADB65012eC5796536bD9864eD8773aBc74C4'
 // export const INIT_CODE_HASH = '0xe18a34eb0e04b04f7a0ac29a6e80748dca96319b42c54d679cb821dca90c6303'
 // eth-test
@@ -474,7 +469,7 @@ function currencyEquals(currencyA, currencyB) {
     return currencyA === currencyB;
   }
 }
-var WETH = (_WETH = {}, _WETH[ChainId.MAINNET] = /*#__PURE__*/new Token(ChainId.MAINNET, '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.ROPSTEN] = /*#__PURE__*/new Token(ChainId.ROPSTEN, '0xc778417E063141139Fce010982780140Aa0cD5Ab', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.RINKEBY] = /*#__PURE__*/new Token(ChainId.RINKEBY, '0xe41c4939D2CB35A4DD61e852e2aa00D493AF87A3', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.GÖRLI] = /*#__PURE__*/new Token(ChainId.GÖRLI, '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.KOVAN] = /*#__PURE__*/new Token(ChainId.KOVAN, '0xd0A1E359811322d97991E03f863a0C30C2cF029C', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.HTTEST] = /*#__PURE__*/new Token(ChainId.HTTEST, '0xa5a3c93776ba2e1a78c79e88a2cb5abab2a0097f', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.HTMAIN] = /*#__PURE__*/new Token(ChainId.HTMAIN, '0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.BNBMAIN] = /*#__PURE__*/new Token(ChainId.BNBMAIN, '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.BNBTEST] = /*#__PURE__*/new Token(ChainId.BNBTEST, '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.MATICMAIN] = /*#__PURE__*/new Token(ChainId.MATICMAIN, '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.XDAIMAIN] = /*#__PURE__*/new Token(ChainId.XDAIMAIN, '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.FTMMAIN] = /*#__PURE__*/new Token(ChainId.FTMMAIN, '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.OKEX] = /*#__PURE__*/new Token(ChainId.OKEX, '0x8F8526dbfd6E38E3D8307702cA8469Bae6C56C15', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.HARMONY] = /*#__PURE__*/new Token(ChainId.HARMONY, '0x6983D1E6DEf3690C4d616b13597A09e6193EA013', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.AVALANCHE] = /*#__PURE__*/new Token(ChainId.AVALANCHE, '0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15', 18, 'WETH', 'Wrapped Ether'), _WETH);
+var WETH = (_WETH = {}, _WETH[ChainId.ROPSTEN] = /*#__PURE__*/new Token(ChainId.ROPSTEN, '0xc778417E063141139Fce010982780140Aa0cD5Ab', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.RINKEBY] = /*#__PURE__*/new Token(ChainId.RINKEBY, '0xe41c4939D2CB35A4DD61e852e2aa00D493AF87A3', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.KOVAN] = /*#__PURE__*/new Token(ChainId.KOVAN, '0xd0A1E359811322d97991E03f863a0C30C2cF029C', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.BNBTEST] = /*#__PURE__*/new Token(ChainId.BNBTEST, '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.MATICTEST] = /*#__PURE__*/new Token(ChainId.MATICTEST, '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.TARALTEST] = /*#__PURE__*/new Token(ChainId.TARALTEST, '0x0DB2FB46d693Fb50F4591Ef8D558eb05d8cd3dFa', 18, 'WETH', 'Wrapped Ether'), _WETH[ChainId.RABBITTEST] = /*#__PURE__*/new Token(ChainId.RABBITTEST, '0x9C88330C8aB3Cf53EeF61F4b2E7b2eC8c1e7E164', 18, 'WETH', 'Wrapped Ether'), _WETH);
 
 var _toSignificantRoundin, _toFixedRounding;
 var Decimal = /*#__PURE__*/toFormat(_Decimal);
@@ -1294,10 +1289,9 @@ var Trade = /*#__PURE__*/function () {
         amountOut = _pair$getOutputAmount2[0];
       } catch (error) {
         // input too low
-        if (error.isInsufficientInputAmountError) {
-          continue;
-        }
-
+        // if (error.isInsufficientInputAmountError) {
+        //   continue
+        // }
         throw error;
       } // we have arrived at the output token, so this is the final trade of one of the paths
 
@@ -1376,10 +1370,9 @@ var Trade = /*#__PURE__*/function () {
         amountIn = _pair$getInputAmount2[0];
       } catch (error) {
         // not enough liquidity in this pair
-        if (error.isInsufficientReservesError) {
-          continue;
-        }
-
+        // if (error.isInsufficientReservesError) {
+        //   continue
+        // }
         throw error;
       } // we have arrived at the input token, so this is the first trade of one of the paths
 
@@ -1533,8 +1526,8 @@ var ERC20 = [
 ];
 
 var _TOKEN_DECIMALS_CACHE;
-var TOKEN_DECIMALS_CACHE = (_TOKEN_DECIMALS_CACHE = {}, _TOKEN_DECIMALS_CACHE[ChainId.MAINNET] = {
-  '0xE0B7927c4aF23765Cb51314A0E0521A9645F0E2A': 9 // DGD
+var TOKEN_DECIMALS_CACHE = (_TOKEN_DECIMALS_CACHE = {}, _TOKEN_DECIMALS_CACHE[ChainId.KOVAN] = {
+  '0x62aeEC5fb140bb233b1c5612a8747Ca1Dc56dc1B': 9 // DGD
 
 }, _TOKEN_DECIMALS_CACHE);
 /**

@@ -246,4 +246,5 @@ export default {
     isSwitch: 1,
     suffix: 'ERC20'
   },
+
 }
