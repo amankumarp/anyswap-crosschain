@@ -44,10 +44,10 @@ export enum WrapType {
 
 const NOT_APPLICABLE = { wrapType: WrapType.NOT_APPLICABLE }
 /**
- * 跨链any token
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * Cross-chain any token
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
 export function useBridgeCallback(
   routerToken: string | undefined,
@@ -138,10 +138,10 @@ export function useBridgeCallback(
 
 
 /**
- * 跨链underlying
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * Cross-chain underlyinging
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
  export function useBridgeUnderlyingCallback(
   routerToken: string | undefined,
@@ -234,12 +234,11 @@ export function useBridgeCallback(
 }
 
 
-
 /**
- * 跨链native
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * Cross-chain native
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
 export function useBridgeNativeCallback(
   routerToken: string | undefined,
@@ -324,10 +323,10 @@ export function useBridgeNativeCallback(
 }
 
 /**
- * any token 充值与提现underlying
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * any token deposit and withdrawal underlying
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency selected input currency
+ * @param typedValue User input value
  */
  export function useSwapUnderlyingCallback(
   inputCurrency: Currency | undefined,
@@ -380,10 +379,10 @@ export function useBridgeNativeCallback(
 
 
 /**
- * any token 充值与提现native
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * any token deposit and withdrawal native
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
  export function useSwapNativeCallback(
   routerToken: string | undefined,
@@ -448,10 +447,10 @@ export function useBridgeNativeCallback(
 
 
 /**
- * 跨链交易 native swap to native
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * Cross-chain transaction native swap to native
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
  export function useBridgeSwapNativeCallback(
   routerToken: string | undefined,
@@ -474,7 +473,7 @@ export function useBridgeNativeCallback(
   const balance = useCurrencyBalance(account ?? undefined, inputCurrency)
   // console.log(balance)
   // console.log(inputCurrency)
-  // 我们总是可以解析输入货币的金额，因为包装是1:1
+ // We can always parse the amount of the input currency because the wrapping is 1:1
   const inputAmount = useMemo(() => tryParseAmount(typedValue, inputCurrency), [inputCurrency, typedValue])
   const addTransaction = useTransactionAdder()
   return useMemo(() => {
@@ -549,10 +548,10 @@ export function useBridgeNativeCallback(
 }
 
 /**
- * 跨链交易native swap to underlying
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * Cross-chain transaction native swap to underlying
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
  export function useBridgeSwapUnderlyingCallback(
   routerToken: string | undefined,
@@ -575,7 +574,7 @@ export function useBridgeNativeCallback(
   const balance = useCurrencyBalance(account ?? undefined, inputCurrency)
   // console.log(balance)
   // console.log(inputCurrency)
-  // 我们总是可以解析输入货币的金额，因为包装是1:1
+  // We can always parse the amount of the input currency because the wrapping is 1:1
   const inputAmount = useMemo(() => tryParseAmount(typedValue, inputCurrency), [inputCurrency, typedValue])
   const addTransaction = useTransactionAdder()
   return useMemo(() => {
@@ -650,10 +649,10 @@ export function useBridgeNativeCallback(
 
 
 /**
- * 跨链桥
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * Cross-chain bridge
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
  export function useCrossBridgeCallback(
   inputCurrency: Currency | undefined,
@@ -676,7 +675,7 @@ export function useBridgeNativeCallback(
   const balance = inputCurrency ? tokenBalance : ethBalance
   // console.log(library)
   // console.log(inputCurrency)
-  // 我们总是可以解析输入货币的金额，因为包装是1:1
+// We can always parse the amount of the input currency because the wrapping is 1:1 
   const inputAmount = useMemo(() => inputCurrency ? tryParseAmount(typedValue, inputCurrency) : tryParseAmount1(typedValue, 18), [inputCurrency, typedValue])
   const addTransaction = useTransactionAdder()
   const contractBTC = useSwapBTCContract(isAddress(inputToken) ? inputToken : undefined)
@@ -785,11 +784,12 @@ export function useBridgeNativeCallback(
   }, [chainId, inputCurrency, inputAmount, balance, addTransaction, t, txnsType, toAddress, inputToken, toChainID, pairid, library, receiveAddress])
 }
 
+
 /**
- * 跨链桥
- * 给定选定的输入和输出货币，返回一个wrap回调
- * @param inputCurrency 选定的输入货币
- * @param typedValue 用户输入值
+ * Cross-chain bridge
+ * Returns a wrap callback given the selected input and output currencies
+ * @param inputCurrency the selected input currency
+ * @param typedValue User input value
  */
  export function useTerraCrossBridgeCallback(
   inputCurrency: Currency | undefined,
@@ -832,7 +832,8 @@ export function useBridgeNativeCallback(
 
   
   // console.log(balance)
-  // 我们总是可以解析输入货币的金额，因为包装是1:1
+
+// We can always parse the amount of the input currency because the wrapping is 1:1
   const inputAmount = useMemo(() => inputCurrency ? tryParseAmount3(typedValue, inputCurrency?.decimals) : undefined, [inputCurrency, typedValue])
   // console.log(inputCurrency)
   // console.log(inputAmount?.toSignificant(6))
