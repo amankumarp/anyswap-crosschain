@@ -117,13 +117,11 @@ export default {
     tokenListUrl: tokenListUrl + BNB_MAIN_CHAINID,
     tokenList: formatSwapTokenList(symbol, tokenList),
     ...bridgeToken[USE_VERSION],
-    swapRouterToken: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
     swapInitToken: '0x55d398326f99059ff775485246999027b3197955',
     // multicalToken: '0xe348b292e8eA5FAB54340656f3D374b259D658b8',
     multicalToken: '0xa9193376D09C7f31283C54e56D013fCF370Cd9D9',
-    v1FactoryToken: '',
+    
     v2FactoryToken: '0xc35DADB65012eC5796536bD9864eD8773aBc74C4',
-    timelock: '0x9a8541Ddf3a932a9A922B607e9CF7301f1d47bD1',
     nodeRpc: BNB_MAINNET,
     nodeRpcList: [
       'https://bsc-dataseed1.defibit.io/',
@@ -158,12 +156,10 @@ export default {
     tokenListUrl: tokenListUrl + BNB_TEST_CHAINID,
     tokenList: formatSwapTokenList(symbol, testTokenList),
     ...bridgeToken[USE_VERSION],
-    swapRouterToken: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
     swapInitToken: '0x461d52769884ca6235b685ef2040f47d30c94eb5',
     multicalToken: '0xe348b292e8eA5FAB54340656f3D374b259D658b8',
-    v1FactoryToken: '',
+    
     v2FactoryToken: '0xc35DADB65012eC5796536bD9864eD8773aBc74C4',
-    timelock: '0x1a9C8182C09F50C8318d769245beA52c32BE35BC',
     nodeRpc: BNB_TESTNET,
     nodeRpcList: [
       BNB_TESTNET

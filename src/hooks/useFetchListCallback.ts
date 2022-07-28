@@ -7,9 +7,7 @@ import { getNetworkLibrary, NETWORK_CHAIN_ID } from '../connectors'
 import { AppDispatch } from '../state'
 import { fetchTokenList, routerTokenList, bridgeTokenList, mergeTokenList } from '../state/lists/actions'
 import { AppState } from '../state'
-
 import {useActiveReact} from './useActiveReact'
-
 import getTokenList from '../utils/getTokenList'
 import resolveENSContentHash from '../utils/resolveENSContentHash'
 import { useActiveWeb3React } from './index'
@@ -113,7 +111,7 @@ export function useFetchTokenListCallback(): () => Promise<any> {
         return
       } else {
         const UV:any = USE_VERSION
-        const version:any = [VERSION.V5, VERSION.V6, VERSION.V7].includes(UV) ? 'all' : USE_VERSION
+        const version:any = [VERSION.V1_T1,VERSION.V2_T1,VERSION.V3_T1].includes(UV) ? 'test':'all'
         const url = `${config.bridgeApi}/v3/serverinfoV4?chainId=${chainId}&version=${version}`;
         console.log("useFetchTokenListCallback->url::",url)
         return getUrlData(url)

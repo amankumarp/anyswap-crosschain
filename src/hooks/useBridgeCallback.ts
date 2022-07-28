@@ -66,7 +66,7 @@ export function useBridgeCallback(
   const {onChangeViewErrorTip} = useTxnsErrorTipOpen()
   const { t } = useTranslation()
   const balance = useCurrencyBalance(account ?? undefined, selectCurrency?.tokenType === "NATIVE" ? selectCurrency?.tokenType : inputCurrency)
-  // console.log(balance?.raw.toString(16))
+  // console.log("routerToken:",routerToken," inputCurrency:",inputCurrency," inputToken:",inputToken);
   // console.log(inputCurrency)
   // 我们总是可以解析输入货币的金额，因为包装是1:1
   const inputAmount = useMemo(() => tryParseAmount(typedValue, inputCurrency), [inputCurrency, typedValue])

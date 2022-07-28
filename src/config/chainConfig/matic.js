@@ -88,13 +88,11 @@ export default {
     tokenListUrl: tokenListUrl + MATIC_MAIN_CHAINID,
     tokenList: formatSwapTokenList(symbol, tokenList),
     ...bridgeToken[USE_VERSION],
-    swapRouterToken: '0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506',
     swapInitToken: '0x8f3cf7ad23cd3cadbd9735aff958023239c6a063',
     // multicalToken: '0x95028E5B8a734bb7E2071F96De89BABe75be9C8E',
     multicalToken: '0x02817C1e3543c2d908a590F5dB6bc97f933dB4BD',
-    v1FactoryToken: '',
+    
     v2FactoryToken: '0xc35DADB65012eC5796536bD9864eD8773aBc74C4',
-    timelock: '0x9a8541Ddf3a932a9A922B607e9CF7301f1d47bD1',
     nodeRpc: MATIC_MAINNET,
     nodeRpcList: [
       MATIC_MAINNET,
@@ -124,12 +122,12 @@ export default {
     tokenListUrl: tokenListUrl + MATIC_TEST_CHAINID,
     tokenList: formatSwapTokenList(symbol, tokenList),
     ...bridgeToken[USE_VERSION],
-    swapRouterToken: '',
+    
     swapInitToken: '',
     multicalToken: '0xE9058a6685fB99b1dDA6a8aab2865b59f7095C3d',
-    v1FactoryToken: '',
+    
     v2FactoryToken: '',
-    timelock: '',
+    
     nodeRpc: MATIC_TESTNET,
     nodeRpcList: [
       MATIC_TESTNET,

@@ -1,5 +1,5 @@
 import { MATIC_MAIN_CHAINID } from './chainConfig/matic'
-import { FTM_MAIN_CHAINID } from './chainConfig/ftm'
+// import { FTM_MAIN_CHAINID } from './chainConfig/ftm'
 import { BNB_MAIN_CHAINID } from './chainConfig/bsc'
 
 interface FarmConfig {
@@ -37,25 +37,25 @@ const config: FarmConfig = {
     key: 'ANY',
     farmtype: 'noany'
   },
-  'FTM': {
-    chainId: FTM_MAIN_CHAINID,
-    farmToken: '0xdccd7b567da13a11cde232522be708b2d1a14498',
-    lpToken: '0x95bf7e307bc1ab0ba38ae10fc27084bc36fcd605',
-    blockNumber: 86393,
-    lpTokenIno: {
-      '0x95bf7e307bc1ab0ba38ae10fc27084bc36fcd605': {
-        list: {
-          symbol: "USDC",
-          name: "USDCoin",
-          decimals: 6
-        }
-      }
-    },
-    url: 'farm/ftm',
-    logoUrl: 'https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png',
-    key: 'ANY',
-    farmtype: 'noany'
-  },
+  // 'FTM': {
+  //   chainId: FTM_MAIN_CHAINID,
+  //   farmToken: '0xdccd7b567da13a11cde232522be708b2d1a14498',
+  //   lpToken: '0x95bf7e307bc1ab0ba38ae10fc27084bc36fcd605',
+  //   blockNumber: 86393,
+  //   lpTokenIno: {
+  //     '0x95bf7e307bc1ab0ba38ae10fc27084bc36fcd605': {
+  //       list: {
+  //         symbol: "USDC",
+  //         name: "USDCoin",
+  //         decimals: 6
+  //       }
+  //     }
+  //   },
+  //   url: 'farm/ftm',
+  //   logoUrl: 'https://assets.coingecko.com/coins/images/6319/small/USD_Coin_icon.png',
+  //   key: 'ANY',
+  //   farmtype: 'noany'
+  // },
   'BSC': {
     chainId: BNB_MAIN_CHAINID,
     farmToken: '0x411f3e09c66b30e7facfec45cd823b2e19dfad2d',

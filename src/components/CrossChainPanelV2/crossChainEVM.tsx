@@ -118,7 +118,8 @@ export default function CrossChain({
     }
     return false
   }, [selectDestCurrency])
-  console.log("destConfig::",destConfig);
+
+
   const isRouter = useMemo(() => {
     // console.log(destConfig)
     if (['swapin', 'swapout'].includes(destConfig?.type)) {
@@ -177,6 +178,7 @@ export default function CrossChain({
   }, [destConfig])
   // console.log(isDestUnderlying)
   const [bridgeAnyToken, setBridgeAnyToken] = useState<any>()
+
   const approveSpender = useMemo(() => {
     setBridgeAnyToken('')
     if (isRouter) {
@@ -358,6 +360,7 @@ export default function CrossChain({
     destConfig?.type,
     selectCurrency
   )
+
 
   const { wrapType: wrapTypeNative, execute: onWrapNative, inputError: wrapInputErrorNative } = useBridgeNativeCallback(
     isRouter ? useDestAddress : undefined,
@@ -668,6 +671,7 @@ export default function CrossChain({
                 !isNativeToken && selectCurrency && isUnderlying && inputBridgeValue && (approval === ApprovalState.NOT_APPROVED || approval === ApprovalState.PENDING)? (
                   <ButtonConfirmed
                     onClick={() => {
+  
                       onDelay()
                       approveCallback().then(() => {
                         onClear(1)
@@ -694,7 +698,7 @@ export default function CrossChain({
                     onDelay()
                     if (isRouter) {
                       if (!selectCurrency || !isUnderlying) {
-                        console.log('onWrap')
+                        console.log('onWrap',onWrap,"ROuter::",isRouter);
                         if (onWrap) onWrap().then(() => {
                           onClear()
                         })

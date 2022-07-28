@@ -10,7 +10,7 @@ import { wrappedCurrency } from '../utils/wrappedCurrency'
 function useAllCommonPairs(chainId?: ChainId, currencyA?: Currency, currencyB?: Currency): Pair[] {
 
   const bases: Token[] = chainId ? BASES_TO_CHECK_TRADES_AGAINST[chainId] : []
-  // console.log(bases)
+  console.log("bases:",bases)
   const [tokenA, tokenB] = chainId
     ? [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)]
     : [undefined, undefined]

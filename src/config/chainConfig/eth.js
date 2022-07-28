@@ -164,13 +164,11 @@ export default {
     tokenListUrl: tokenListUrl + ETH_MAIN_CHAINID,
     tokenList: formatSwapTokenList(symbol, tokenList),
     ...bridgeToken[USE_VERSION],
-    swapRouterToken: '0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F',
     swapInitToken: '0x2260fac5e5542a773aa44fbcfedf7c193bc2c599',
     // multicalToken: '0xeefBa1e63905eF1D7ACbA5a8513c70307C1cE441',
     multicalToken: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696',
     v1FactoryToken: '0xc0a47dFe034B400B47bDaD5FecDa2621de6c4d95',
     v2FactoryToken: '0xC0AEe478e3658e2610c5F7A4A2E1777cE9e4f2Ac',
-    timelock: '0x9a8541Ddf3a932a9A922B607e9CF7301f1d47bD1',
     nodeRpc: ETH_MAINNET,
     nodeRpcList: [
       ETH_MAINNET
@@ -193,12 +191,12 @@ export default {
     tokenListUrl: tokenListUrl + ETH_TEST_CHAINID,
     tokenList: formatSwapTokenList(symbol, testTokenList),
     ...bridgeToken[USE_VERSION],
-    swapRouterToken: '',
+    
     swapInitToken: '0xb09bad01684f6d47fc7dc9591889cc77eaed8d22',
     multicalToken: '0x42Ad527de7d4e9d9d011aC45B31D8551f8Fe9821',
-    v1FactoryToken: '',
+    
     v2FactoryToken: '',
-    timelock: '',
+    
     nodeRpc: ETH_TESTNET,
     nodeRpcList: [
       ETH_TESTNET,
@@ -223,12 +221,12 @@ export default {
     tokenList: formatSwapTokenList(symbol, testTokenList),
     ...bridgeToken[USE_VERSION],
     crossBridgeInitToken: '0x639a647fbe20b6c8ac19e48e2de44ea792c62c5c',
-    swapRouterToken: '',
+    
     swapInitToken: '',
     multicalToken: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696',
-    v1FactoryToken: '',
+    
     v2FactoryToken: '',
-    timelock: '',
+    
     nodeRpc: ETH_TEST1NET,
     nodeRpcList: [
       ETH_TEST1NET

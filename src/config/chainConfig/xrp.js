@@ -31,9 +31,9 @@ export default {
     tokenList: formatSwapTokenList(symbol, tokenList),
     ...bridgeToken[USE_VERSION],
     multicalToken: '',
-    v1FactoryToken: '',
+    
     v2FactoryToken: '',
-    timelock: '',
+    
     nodeRpc: XRP_MAINNET,
     chainID: XRP_MAIN_CHAINID,
     lookHash: XRP_MAIN_EXPLORER + '/tx/',
