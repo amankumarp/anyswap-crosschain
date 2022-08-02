@@ -96,15 +96,14 @@ export default function CrossChain() {
   // console.log(selectCurrency)
 
   const destConfig = useMemo(() => {
-    // console.log(selectCurrency)
+    console.log("selectCurrency:",selectCurrency)
     if (selectCurrency && selectCurrency?.destChains && selectCurrency?.destChains[selectChain]) {
       return selectCurrency?.destChains[selectChain]
     }
     return false
   }, [selectCurrency, selectChain])
 
-  // console.log(selectCurrency)
-  // console.log(destConfig)
+
   
   const isNativeToken = useMemo(() => {
     if (

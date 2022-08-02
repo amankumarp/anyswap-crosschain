@@ -5,8 +5,8 @@ import { useActiveWeb3React } from '../../hooks'
 import { useActiveReact } from '../../hooks/useActiveReact'
 import { useAddPopup, useBlockNumber } from '../application/hooks'
 import { AppDispatch, AppState } from '../index'
-import { checkedTransaction, finalizeTransaction, updateTransaction } from './actions'
-import {useHashSwapInfo} from './hooks'
+import { checkedTransaction, finalizeTransaction,updateTransaction } from './actions'
+ import {useHashSwapInfo} from './hooks'
 
 import useInterval from '../../hooks/useInterval'
 

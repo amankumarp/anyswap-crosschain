@@ -60,6 +60,7 @@ export function useBridgeCallback(
   selectCurrency: any
 // ): { execute?: undefined | (() => Promise<void>); inputError?: string } {
 ): { wrapType: WrapType; execute?: undefined | (() => Promise<any>); inputError?: string } {
+  console.log("routerToken::",routerToken,"inputCurrency",inputCurrency,"selectCurrency",selectCurrency,"toChainID",toChainID)
   const { chainId, account } = useActiveWeb3React()
   const bridgeContract = useBridgeContract(routerToken)
   const {onChangeViewDtil} = useTxnsDtilOpen()

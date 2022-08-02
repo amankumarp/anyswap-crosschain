@@ -74,7 +74,7 @@ export default function CrossChain({
   const allTokensList:any = useAllMergeBridgeTokenList(bridgeKey, chainId)
   const theme = useContext(ThemeContext)
   const toggleWalletModal = useWalletModalToggle()
-  
+
 
   const [inputBridgeValue, setInputBridgeValue] = useState<any>('')
   const [selectCurrency, setSelectCurrency] = useState<any>()
@@ -405,7 +405,6 @@ export default function CrossChain({
             setInputBridgeValue(value)
           }}
           onCurrencySelect={(inputCurrency) => {
-            // console.log(inputCurrency)
             setSelectCurrency(inputCurrency)
           }}
           onMax={(value) => {

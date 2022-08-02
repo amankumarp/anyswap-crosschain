@@ -81,7 +81,7 @@ export function useApproveCallback(
       useExact = true
       return tokenContract.estimateGas.approve(spender, amountToApprove.raw.toString())
     })
-
+console.log("use Approve ::",tokenContract ,"spender::",spender," amount::",amountToApprove.raw.toString(),"gas::",estimatedGas)
     return tokenContract
       .approve(spender, useExact ? amountToApprove.raw.toString() : MaxUint256, {
         gasLimit: calculateGasMargin(estimatedGas)

@@ -102,7 +102,7 @@ const useChain:any = {
     ChainId.TERRA,
     ChainId.AURORA,
     ChainId.ASTAR,
-    ChainId.NAS
+    ChainId.NAS,
   ]
 }
 
