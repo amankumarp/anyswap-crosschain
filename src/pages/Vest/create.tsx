@@ -182,7 +182,7 @@ export default function CreateLock () {
       lockValue: new BigNumber(inputValue).times(parseInt(dayToExpire + '')+1).div(1460).toFixed(18),
       lockEnds: expiry.unix()
     }
-    console.log(tmpNFT)
+    // console.log(tmpNFT)
     return tmpNFT
   }, [lockDuration, inputValue])
 
@@ -224,7 +224,7 @@ export default function CreateLock () {
                         })
                       }
                       selectNetwork(item).then((res: any) => {
-                        console.log(res)
+                        // console.log(res)
                         if (res.msg === 'Error') {
                           alert(t('changeMetamaskNetwork', {label: config.getCurChainInfo(item).networkName}))
                         }
@@ -314,7 +314,7 @@ export default function CreateLock () {
           <LockDuration
             lockEnds={lockDuration}
             updateLockDuration={(date:any) => {
-              console.log(date)
+              // console.log(date)
               // const expiry = moment(date)
               // console.log(expiry.unix())
               setLockDuration(date)

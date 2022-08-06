@@ -485,7 +485,7 @@ export default function Vest () {
             }
           })
         )
-        console.log(nfts)
+        // console.log(nfts)
         setvestNFTs(nfts)
       } catch (error) {
         console.log(error)
@@ -718,7 +718,7 @@ export default function Vest () {
         // console.log(res)
         setTotalPower(res.toString())
       }).catch((err:any) => {
-        console.log(err)
+        // console.log(err)
         setTotalPower('')
       })
       
@@ -882,7 +882,7 @@ export default function Vest () {
                       })
                     }
                     selectNetwork(item).then((res: any) => {
-                      console.log(res)
+                      // console.log(res)
                       if (res.msg === 'Error') {
                         alert(t('changeMetamaskNetwork', {label: config.getCurChainInfo(item).networkName}))
                       }

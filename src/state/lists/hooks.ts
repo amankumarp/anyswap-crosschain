@@ -203,7 +203,6 @@ export function useTokenList(url: string | undefined): TokenAddressMap {
 
 export function useBridgeTokenList(key?: string | undefined, chainId?:any): any {
   const lists:any = useSelector<AppState, AppState['lists']>(state => state.lists)
-  // console.log("lists::",lists)
   const init = {}
   return useMemo(() => {
     if (!key || !chainId) return init

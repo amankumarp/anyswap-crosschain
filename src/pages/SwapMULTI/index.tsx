@@ -332,8 +332,8 @@ export default function SwapMULTI () {
   const inputAmount = useMemo(() => anyCurrency ? tryParseAmount(inputValue, anyCurrency) : '', [anyCurrency, inputValue])
 
   useEffect(() => {
-    console.log(approval)
-    console.log(ApprovalState)
+    // console.log(approval)
+    // console.log(ApprovalState)
     if (approval === ApprovalState.PENDING) {
       setApprovalSubmitted(false)
     }

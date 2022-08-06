@@ -31,7 +31,7 @@ export async function fetchChunk(
   chunk: Call[],
   minBlockNumber: number
 ): Promise<{ results: string[]; blockNumber: number }> {
-  console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber)
+  // console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber)
   let resultsBlockNumber, returnData
   // console.log('chunk')
   // console.log(chunk)
@@ -62,7 +62,7 @@ export async function fetchChunk(
   chunk: Call[],
   minBlockNumber: number
 ): Promise<{ results: string[]; blockNumber: number }> {
-  console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber)
+  // console.debug('Fetching chunk', multicallContract, chunk, minBlockNumber)
   let resultsBlockNumber, returnData
   // console.log(multicallContract)
   try {

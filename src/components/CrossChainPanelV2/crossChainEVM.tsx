@@ -140,14 +140,13 @@ export default function CrossChain({
 
   const useDestAddress = useMemo(() => {
     if (isRouter) {
-      console.log("destConfig?.routerToken",destConfig)
       return destConfig?.routerToken
     }
     return destConfig?.DepositAddress
   }, [destConfig, isRouter])
 
   const isNativeToken = useMemo(() => {
-    console.log(selectCurrency)
+    // console.log(selectCurrency)
     if (
       selectCurrency
       && selectCurrency.address
@@ -170,8 +169,6 @@ export default function CrossChain({
   }, [selectCurrency])
 
   const isDestUnderlying = useMemo(() => {
-    console.log("destConfig",destConfig)
-    console.log("destConfig::un",destConfig?.underlying)
     if (destConfig?.underlying) {
       return true
     }
@@ -218,7 +215,6 @@ export default function CrossChain({
   const formatCurrency = useLocalToken(selectCurrency ?? undefined)
   const formatInputBridgeValue = tryParseAmount(inputBridgeValue, (formatCurrency && isApprove) ? formatCurrency : undefined)
   // const [approval, approveCallback] = useApproveCallback((formatInputBridgeValue && isApprove) ? formatInputBridgeValue : undefined, isRouter ? useDestAddress : formatCurrency0?.address)
-  console.log("approve address::",approveSpender)
   const [approval, approveCallback] = useApproveCallback((formatInputBridgeValue && isApprove) ? formatInputBridgeValue : undefined, approveSpender)
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {

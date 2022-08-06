@@ -124,7 +124,7 @@ export default {
     ...bridgeToken[USE_VERSION],
     
     swapInitToken: '',
-    multicalToken: '0xE9058a6685fB99b1dDA6a8aab2865b59f7095C3d',
+    multicalToken: '0x5e03C203b081c06097DD6F0084c70Fdb9d16DdD1',
     
     v2FactoryToken: '',
     

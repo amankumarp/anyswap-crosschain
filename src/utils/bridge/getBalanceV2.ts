@@ -153,7 +153,8 @@ export function getNodeTotalsupply(token?:string, chainId?:any, dec?:any, accoun
       && chainId
       && !isNaN(chainId)
     ) {
-      const lObj = getLocalConfig(SRCTOTALSUPPLY, SRCTOTALSUPPLY, chainId, SRCTOTALSUPPLY, 1000 * 10)
+      const lObj = getLocalConfig(SRCTOTALSUPPLY, SRCTOTALSUPPLY, chainId, SRCTOTALSUPPLY, 1000 * 10);
+      console.log("lOBJ::",lObj);
       if (lObj && lObj.totalsupply) {
         resolve(lObj)
       } else {

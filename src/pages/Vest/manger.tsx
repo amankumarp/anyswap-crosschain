@@ -270,7 +270,7 @@ export default function CreateLock () {
                         })
                       }
                       selectNetwork(item).then((res: any) => {
-                        console.log(res)
+                        // console.log(res)
                         if (res.msg === 'Error') {
                           alert(t('changeMetamaskNetwork', {label: config.getCurChainInfo(item).networkName}))
                         }
@@ -343,7 +343,7 @@ export default function CreateLock () {
             lockEnds={lockDuration}
             minDate={lockData?.lockEnds ? moment.unix(lockData?.lockEnds).add(7, 'days').format('YYYY-MM-DD') : undefined}
             updateLockDuration={(date:any) => {
-              console.log(date)
+              // console.log(date)
               const expiry = moment(date)
               console.log(expiry.unix())
               setLockDuration(date)

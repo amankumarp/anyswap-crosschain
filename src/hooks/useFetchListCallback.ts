@@ -67,7 +67,6 @@ export function useFetchMergeTokenListCallback(): () => Promise<any> {
 
   const curList = chainId && lists && lists[chainId] ? lists[chainId] : {}
 
-  console.log("lists::",lists);
   return useCallback(
     async () => {
       if (!chainId) return
@@ -76,7 +75,7 @@ export function useFetchMergeTokenListCallback(): () => Promise<any> {
       } else {
         const url = `${config.bridgeApi}/merge/tokenlist/${chainId}`
         // const url = `${config.bridgeApi}/v4/tokenlistv2/${chainId}`
-        console.log("useFetchMergeTokenListCallback=>url:: ",url);
+        // console.log("useFetchMergeTokenListCallback=>url:: ",url);
         return getUrlData(url)
           .then((tokenList:any) => {
             // console.log(tokenList)
@@ -113,7 +112,7 @@ export function useFetchTokenListCallback(): () => Promise<any> {
         const UV:any = USE_VERSION
         const version:any = [VERSION.V1_T1,VERSION.V2_T1,VERSION.V3_T1].includes(UV) ? 'test':'all'
         const url = `${config.bridgeApi}/v3/serverinfoV4?chainId=${chainId}&version=${version}`;
-        console.log("useFetchTokenListCallback->url::",url)
+        // console.log("useFetchTokenListCallback->url::",url)
         return getUrlData(url)
           .then((tokenList:any) => {
             // console.log(tokenList)
@@ -149,7 +148,7 @@ export function useFetchTokenListCallback(): () => Promise<any> {
                 }
               }
             }
-            console.log("tokenList::",list);
+            // console.log("tokenList::",list);
             dispatch(routerTokenList({ chainId, tokenList:list }))
             return list
           })
@@ -181,7 +180,7 @@ export function useFetchTokenList1Callback(): () => Promise<any> {
       ) {
         return
       } else {
-        console.log("useFetchTokenList1Callback->url::",config.getCurConfigInfo().showChain,bridgeApi + '/v2/tokenlist');
+        // console.log("useFetchTokenList1Callback->url::",config.getCurConfigInfo().showChain,bridgeApi + '/v2/tokenlist');
         return GetTokenListByChainID({
           srcChainID: chainId,
           chainList: config.getCurConfigInfo().showChain,

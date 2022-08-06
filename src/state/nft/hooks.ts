@@ -293,7 +293,7 @@ export function useNFT1155GetAllTokenidListCallback(
         // console.log(list)
         setTokenidInfo1155(list)
       }).catch((err:any) => {
-        console.log(err)
+        // console.log(err)
         setTokenidInfo1155({})
       })
     }
@@ -301,7 +301,7 @@ export function useNFT1155GetAllTokenidListCallback(
 
   useEffect(() => {
     if (!library || !chainId) return undefined
-    console.log(tokenlist)
+    // console.log(tokenlist)
     // getTokenidList()
     library
       .getBlockNumber()

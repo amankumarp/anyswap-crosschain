@@ -60,7 +60,6 @@ export function useBridgeCallback(
   selectCurrency: any
 // ): { execute?: undefined | (() => Promise<void>); inputError?: string } {
 ): { wrapType: WrapType; execute?: undefined | (() => Promise<any>); inputError?: string } {
-  console.log("routerToken::",routerToken,"inputCurrency",inputCurrency,"selectCurrency",selectCurrency,"toChainID",toChainID)
   const { chainId, account } = useActiveWeb3React()
   const bridgeContract = useBridgeContract(routerToken)
   const {onChangeViewDtil} = useTxnsDtilOpen()
@@ -89,7 +88,7 @@ export function useBridgeCallback(
               try {
                 // console.log(bridgeContract)
                 // console.log(inputAmount.raw.toString(16))
-                const txReceipt = await bridgeContract.anySwapOut(
+                const txReceipt = await bridgeContract.xtringSwapOut(
                   inputToken,
                   toAddress,
                   `0x${inputAmount.raw.toString(16)}`,
@@ -184,8 +183,8 @@ export function useBridgeCallback(
                 // console.log(inputAmount.raw.toString(16))
                 // console.log(inputAmount.raw.toString())
                 // console.log(inputAmount?.toSignificant(6))
-                
-                const txReceipt = await bridgeContract.anySwapOutUnderlying(
+                console.log("inputToken::",inputToken,"toAddress::",toAddress,"inputAmount.raw.toString(16)",inputAmount.raw.toString(16),toChainID);
+                const txReceipt = await bridgeContract.xtringSwapOutUnderlying(
                   inputToken,
                   toAddress,
                   `0x${inputAmount.raw.toString(16)}`,
@@ -277,7 +276,7 @@ export function useBridgeNativeCallback(
               try {
                 // console.log(bridgeContract.anySwapOutNative)
                 // console.log(inputAmount.raw.toString(16))
-                const txReceipt = await bridgeContract.anySwapOutNative(
+                const txReceipt = await bridgeContract.xtringSwapOutNative(
                   ...[inputToken,
                   toAddress,
                   toChainID],
@@ -497,7 +496,7 @@ export function useBridgeNativeCallback(
                 // console.log(toAddress)
                 // console.log(parseInt((Date.now()/1000 + deadline).toString()))
                 // console.log(toChainID)
-                const txType = isUnderlying ? 'anySwapOutExactTokensForNativeUnderlying' : 'anySwapOutExactTokensForNative'
+                const txType = isUnderlying ? 'xtringSwapOutExactTokensForNativeUnderlying' : 'xtringSwapOutExactTokensForNative'
                 // console.log(txType)
                 // const txReceipt = await bridgeContract.anySwapOutExactTokensForNative(
                 const txReceipt = await bridgeContract[txType](
@@ -599,7 +598,7 @@ export function useBridgeNativeCallback(
                 // console.log(parseInt((Date.now()/1000 + deadline).toString()))
                 // console.log(toChainID)
                 // const txReceipt = await bridgeContract.anySwapOutExactTokensForNativeUnderlying(
-                const txType = isUnderlying ? 'anySwapOutExactTokensForTokensUnderlying' : 'anySwapOutExactTokensForTokens'
+                const txType = isUnderlying ? 'xtringSwapOutExactTokensForTokensUnderlying' : 'xtringSwapOutExactTokensForTokens'
                 const txReceipt = await bridgeContract[txType](
                   `0x${inputAmount.raw.toString(16)}`,
                   outputAmount,
