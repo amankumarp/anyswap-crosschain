@@ -50,143 +50,13 @@ export default function Updater(): null {
   const updateNonEVMTxns = useCallback(() => {
     // console.log(library)
     if (!chainId) return
-    // if (chainId === TERRA_MAIN_CHAINID) {
-    //   Object.keys(transactions)
-    //   .filter(hash => {
-    //     const tx = transactions[hash]
-    //     // if (tx.receipt) return false
-    //     if (tx.info && END_STATUS.includes(tx.info.status)) return false
-    //     return true
-    //   })
-    //   .forEach(hash => {
-    //     // console.log(hash)
-    //     const tx = transactions[hash]
-    //     if (!tx.receipt) {
-    //       updateTerraHash(hash).then((receipt:any) => {
-    //         // console.log(receipt)
-    //         if (receipt && !receipt.error) {
-    //           dispatch(
-    //             finalizeTransaction({
-    //               chainId,
-    //               hash,
-    //               receipt: {
-    //                 blockHash: '',
-    //                 blockNumber: receipt.height,
-    //                 contractAddress: '',
-    //                 from: tx.from,
-    //                 status: receipt.code ? 0 : 1,
-    //                 to: tx.toAddress,
-    //                 transactionHash: hash,
-    //                 transactionIndex: ''
-    //               }
-    //             })
-    //           )
-    //           if (!tx?.version) {
-    //             addPopup(
-    //               {
-    //                 txn: {
-    //                   hash,
-    //                   success: !receipt.code,
-    //                   summary: transactions[hash]?.summary
-    //                 }
-    //               },
-    //               hash
-    //             )
-    //           }
-    //         }
-    //       })
-    //     } else if (
-    //       !(tx.info && END_STATUS.includes(tx?.info?.status))
-    //       && (tx.receipt.status === 1 || typeof tx.receipt?.status === 'undefined')
-    //       && tx?.version
-    //     )  {
-    //       useHashSwapInfo(hash).then((receipt:any) => {
-    //         if (receipt && receipt.msg === 'Success' && receipt.info) {
-    //           dispatch(
-    //             updateTransaction({
-    //               chainId,
-    //               hash,
-    //               info: {
-    //                 ...receipt.info
-    //               }
-    //             })
-    //           )
-    //         }
-    //       })
-    //     }
-    //   })
-    // } else if (chainId === NAS_MAIN_CHAINID) {
-    //   Object.keys(transactions)
-    //   .filter(hash => {
-    //     const tx = transactions[hash]
-    //     // if (tx.receipt) return false
-    //     if (tx.info && END_STATUS.includes(tx.info.status)) return false
-    //     return true
-    //   })
-    //   .forEach(hash => {
-    //     // console.log(hash)
-    //     const tx = transactions[hash]
-    //     if (!tx.receipt) {
-    //       updateNasHash(hash).then((receipt:any) => {
-    //         console.log(receipt)
-    //         if (receipt) {
-    //           dispatch(
-    //             finalizeTransaction({
-    //               chainId,
-    //               hash,
-    //               receipt: {
-    //                 blockHash: '',
-    //                 blockNumber: receipt?.data?.block?.height,
-    //                 contractAddress: '',
-    //                 from: tx.from,
-    //                 status: receipt.msg === "success" ? 1 : 0,
-    //                 to: tx.toAddress,
-    //                 transactionHash: hash,
-    //                 transactionIndex: ''
-    //               }
-    //             })
-    //           )
-    //           if (!tx?.version) {
-    //             addPopup(
-    //               {
-    //                 txn: {
-    //                   hash,
-    //                   success: receipt.msg === "success" ? true : false,
-    //                   summary: transactions[hash]?.summary
-    //                 }
-    //               },
-    //               hash
-    //             )
-    //           }
-    //         }
-    //       })
-    //     } else if (
-    //       !(tx.info && END_STATUS.includes(tx?.info?.status))
-    //       && (tx.receipt.status === 1 || typeof tx.receipt?.status === 'undefined')
-    //       && tx?.version
-    //     )  {
-    //       useHashSwapInfo(hash).then((receipt:any) => {
-    //         if (receipt && receipt.msg === 'Success' && receipt.info) {
-    //           dispatch(
-    //             updateTransaction({
-    //               chainId,
-    //               hash,
-    //               info: {
-    //                 ...receipt.info
-    //               }
-    //             })
-    //           )
-    //         }
-    //       })
-    //     }
-    //   })
-    // } 
-    // else {
       if (!chainId || !library || !lastBlockNumber || isNaN(chainId)) return
       Object.keys(transactions)
         .filter(hash => shouldCheck(lastBlockNumber, transactions[hash]))
         .forEach(hash => {
-          const tx = transactions[hash]
+        
+          const tx = transactions[hash];
+          console.log("transcation::",tx);  
           if (!tx.receipt) {
             library
               .getTransactionReceipt(hash)
@@ -227,12 +97,10 @@ export default function Updater(): null {
               .catch(error => {
                 console.error(`failed to check transaction hash: ${hash}`, error)
               })
-          } else if (
-            !(tx.info && END_STATUS.includes(tx?.info?.status))
-            && (tx.receipt.status === 1 || typeof tx.receipt?.status === 'undefined')
-            && tx?.version
-          )  {
+          } else  {
+            console.log("useHashSwapInfo:",hash);
             useHashSwapInfo(hash).then((receipt:any) => {
+              console.log("useHashSwapInfo:->receipt",receipt);
               if (receipt && receipt.msg === 'Success' && receipt.info) {
                 dispatch(
                   updateTransaction({
@@ -247,7 +115,6 @@ export default function Updater(): null {
             })
           }
         })
-    // }
   }, [chainId, library, transactions, lastBlockNumber, dispatch, addPopup])
 
   useInterval(updateNonEVMTxns, 1000 * 10)

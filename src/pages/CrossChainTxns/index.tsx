@@ -363,7 +363,7 @@ export default function CrossChain() {
 
   useEffect(() => {
     if (inputBridgeValue && destConfig) {
-      const fee = Number(inputBridgeValue) * Number(destConfig.SwapFeeRatePerMillion) / 100
+      const fee = Number(inputBridgeValue) * Number(destConfig.SwapFeeRatePerMillion) / 100;
       let value = Number(inputBridgeValue) - fee
       if (fee < Number(destConfig.MinimumSwapFee)) {
         value = Number(inputBridgeValue) - Number(destConfig.MinimumSwapFee)
