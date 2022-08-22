@@ -108,7 +108,7 @@ const LinkBox = styled.div`
       margin:0px 0 0;
       h3 {
         color: #fff;
-        font-size:18px;
+        font-size:16px;
         margin:0;
         font-weight: 800;
       }
@@ -165,7 +165,7 @@ const StyledNavLink = styled(NavLink)`
       margin:0px 0 0;
       h3 {
         color: #fff;
-        font-size:18px;
+        font-size:16px;
         margin:0;
         font-weight: 800;
       }

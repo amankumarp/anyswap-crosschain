@@ -76,7 +76,7 @@ const AccountGroupingRow = styled.div`
 `
 
 const AccountSection = styled.div`
-  background: ${({ theme }) => theme.bg1};
+  background: ${({ theme }) => theme.bg6};
   padding: 0rem 1rem;
   ${({ theme }) => theme.mediaWidth.upToMedium`padding: 0rem 1rem 1.5rem 1rem;`};
 `
@@ -114,7 +114,6 @@ const AccountControl = styled.div`
   justify-content: space-between;
   min-width: 0;
   width: 100%;
-
   font-weight: 500;
   font-size: 1.25rem;
 
@@ -133,7 +132,7 @@ const AccountControl = styled.div`
 
 const AddressLink = styled(ExternalLink)<{ hasENS: boolean; isENS: boolean }>`
   font-size: 0.825rem;
-  color: ${({ theme }) => theme.text3};
+  color: ${({ theme }) => theme.text7};
   margin-left: 1rem;
   font-size: 0.825rem;
   display: flex;
@@ -162,7 +161,7 @@ const WalletName = styled.div`
   width: initial;
   font-size: 0.825rem;
   font-weight: 500;
-  color: ${({ theme }) => theme.text3};
+  color: ${({ theme }) => theme.text7};
 `
 
 const IconWrapper = styled.div<{ size?: number }>`
@@ -270,7 +269,7 @@ export default function AccountDetails({
                 <div>
                   {connector !== injected && (
                     <WalletAction
-                      style={{ fontSize: '.825rem', fontWeight: 400, marginRight: '8px' }}
+                      style={{ fontSize: '.825rem', fontWeight: 400, marginRight: '8px'}}
                       onClick={() => {
                         ;(connector as any).close()
                       }}

@@ -7,12 +7,13 @@ import BulbIcon from '../../assets/images/icon/bulb.svg'
 import config from '../../config'
 
 const SubCurrencySelectBox = styled.div`
-  width: 100%;
+  width: 96%;
   object-fit: contain;
   border-radius: 0.5625rem;
-  border: solid 0.5px ${({ theme }) => theme.tipBorder};
-  background-color: ${({ theme }) => theme.tipBg};
+  border: solid 0.5px ${({ theme }) => theme.selectedBorder1};
+  background: ${({ theme }) => theme.tipBg1};
   padding: 1rem 1.25rem;
+  margin:auto;
   margin-top: 0.625rem;
 
   .tip {
@@ -70,6 +71,7 @@ const SubCurrencySelectBox = styled.div`
     }
   }
   ${({ theme }) => theme.mediaWidth.upToLarge`
+  width: 100%;
     padding: 1rem 0.5rem;
     .list {
       dd {

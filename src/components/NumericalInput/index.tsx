@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { escapeRegExp } from '../../utils'
 
+// 0.0625rem solid ${({ theme }) => theme.inputBorder};
+//margin-right: 1.875rem;
 const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: string }>`
   color: ${({ error, theme }) => (error ? 'rgb(255, 104, 113)' : theme.textColorBold)};
   width: 100%;
@@ -11,17 +13,19 @@ const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: s
   border: none;
   flex: 1 1 auto;
   background-color: ${({ theme }) => theme.bg1};
-  font-size: ${({ fontSize }) => fontSize ?? '44px'};
+  font-size: ${({ fontSize }) => fontSize ?? '24px'};
   text-align: ${({ align }) => align && align};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0px;
   -webkit-appearance: textfield;
-  height: 70px;
+  height: 35px;
   background: none;
-  border-bottom: 0.0625rem solid ${({ theme }) => theme.inputBorder};
-  margin-right: 1.875rem;
+  
+  margin-top:10px;
+  margin-bottom:10px;
+  
 
   ::-webkit-search-decoration {
     -webkit-appearance: none;

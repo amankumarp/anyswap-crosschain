@@ -730,6 +730,7 @@ export default function CrossChain({
         </ConfirmContent>
       </ModalContent>
 
+            <div className='border' style={{border:`1px solid ${theme.borderBg}`, padding:"10px 10px 30px 10px", borderRadius:"10px"}}>
       <AutoColumn gap={'sm'}>
 
         <SelectCurrencyInputPanel
@@ -776,17 +777,20 @@ export default function CrossChain({
             </>
           ) : ''
         }
+        {/* theme.text2 */}
 
-        <AutoRow justify="center" style={{ padding: '0 1rem' }}>
+        <AutoRow justify="center" style={{ padding: '.5rem 2rem' }}>
           <ArrowWrapper clickable={false} style={{cursor:'pointer'}} onClick={() => {
             // toggleNetworkModal()
             changeNetwork(selectChain)
           }}>
-            <ArrowDown size="16" color={theme.text2} />
+            <div style={{height:"40px", width:"40px", border:"1px solid rgba(255,255,255,.2)", display:"flex", justifyContent:"center", alignItems:"center", borderRadius:"50%", backgroundColor:`${theme.bg6}`}}>
+            <ArrowDown size="24" color={"#54b2b3"} />
+            </div>
           </ArrowWrapper>
           {
             destConfig?.type !== 'swapin' && !isNaN(selectChain) ? (
-              <ArrowWrapper clickable={false} style={{cursor:'pointer', position: 'absolute', right: 0}} onClick={() => {
+              <ArrowWrapper clickable={false} style={{cursor:'pointer', position: 'absolute', left: "20px"}} onClick={() => {
                 if (swapType === 'swap') {
                   setSwapType('send')
                 } else {
@@ -799,11 +803,11 @@ export default function CrossChain({
                 {
                   swapType === 'swap' ? (
                     <FlexEC>
-                      <Plus size="16" color={theme.text2} /> <span style={{fontSize: '12px', lineHeight:'12px'}}>{t('sendto')}</span>
+                      <Plus size="16" color={theme.text2} /> <span style={{fontSize: '12px', lineHeight:'12px', color:`${theme.text2}`}}>{t('sendto')}</span>
                     </FlexEC>
                   ) : (
                     <FlexEC>
-                      <Minus size="16" color={theme.text2} /> <span style={{fontSize: '12px', lineHeight:'12px'}}>{t('sendto')}</span>
+                      <Minus size="16" color={theme.text2} /> <span style={{fontSize: '12px', lineHeight:'12px', color:`${theme.text2}`}}>{t('sendto')}</span>
                     </FlexEC>
                   )
                 }
@@ -851,7 +855,7 @@ export default function CrossChain({
           ) : ''
         }
       </AutoColumn>
-
+      
       <Reminder destConfig={destConfig} bridgeType='bridgeAssets' currency={selectCurrency} selectChain={selectChain}/>
 
       <ErrorTip errorTip={errorTip} />
@@ -900,8 +904,10 @@ export default function CrossChain({
               )
             }
           </BottomGrouping>
+          
         )
       }
+      </div>
     </>
   )
 }

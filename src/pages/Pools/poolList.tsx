@@ -438,6 +438,7 @@ export default function PoolLists ({
       // console.log(ts)
       listView = <ChainCardList className='l'>
           <div className="chain">
+           
             <TokenLogo symbol={config.getCurChainInfo(c).networkLogo ?? config.getCurChainInfo(c).symbol} size={'1.2rem'} ></TokenLogo>
             <span className="label">{config.getCurChainInfo(c).name}</span>
           </div>

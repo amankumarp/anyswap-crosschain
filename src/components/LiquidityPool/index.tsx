@@ -11,10 +11,12 @@ import {thousandBit} from '../../utils/tools/tools'
 
 export const LiquidityView = styled.div`
   ${({theme}) => theme.flexSC};
+  width:96%;
   flex-wrap: wrap;
-  border: solid 0.5px ${({ theme }) => theme.tipBorder};
-  background-color: ${({ theme }) => theme.tipBg};
+  border: solid 0.5px ${({ theme }) => theme.selectedBorder1};
+  background: ${({ theme }) => theme.tipBg1};
   border-radius: 0.5625rem;
+  margin:auto;
   padding: 8px 16px;
   color: ${({ theme }) => theme.tipColor};
   font-size: 12px;
@@ -40,6 +42,7 @@ export const LiquidityView = styled.div`
   `};
   ${({ theme }) => theme.mediaWidth.upToLarge`
     padding: 8px 12px;
+    width:100%
   `};
 `
 

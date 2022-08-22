@@ -7,13 +7,17 @@ import config from '../../config'
 
 import initPath from '../../assets/images/question.svg'
 
+//width: ${({ size }) => size};
+//height: ${({ size }) => size};
+//border-radius: ${({ size }) => size};
 const Image = styled.img<{ size?: any }>`
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
+  width:30px;
+  height:30px;
   max-width: 100%;
   max-height: 100%;
+  border-radius:50%;
   background-color: white;
-  border-radius: ${({ size }) => size};
+  
 `
 
 // const initPath = require('../../assets/images/question.svg')

@@ -1,18 +1,19 @@
 import React from "react"
 import styled from "styled-components"
 
+//  background: ${({ theme }) => theme.birdgeStateBg2};
 const ErrorTipBox = styled.div`
   ${({ theme }) => theme.flexC};
   width: 100%;
   margin-top: 10px;
   .txt {
-    dispaly:inline-block;
+    display:inline-block;
     // width: 100%;
     // max-width: 300px;
     // border: 1px solid ${({ theme }) => theme.birdgeStateBorder};
     // background: ${({ theme }) => theme.birdgeStateBg};
     border: 1px solid ${({ theme }) => theme.birdgeStateBorder2};
-    background: ${({ theme }) => theme.birdgeStateBg2};
+  
     color: ${({ theme }) => theme.red1};
     // color: ${({ theme }) => theme.textColor};
     padding: 8px 12px;

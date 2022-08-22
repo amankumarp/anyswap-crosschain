@@ -26,6 +26,7 @@ const Base = styled(RebassButton)<{
   outline: none;
   border: 1px solid transparent;
   color: white;
+  background:#01b2b1;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -42,9 +43,11 @@ const Base = styled(RebassButton)<{
     user-select: none;
   }
 `
-
+//${({ theme }) => theme.primary1};
+//theme.primary1\
+//theme.bg3
 export const ButtonPrimary = styled(Base)`
-  background: ${({ theme }) => theme.primary1};
+  background: #54b2b3;
   color: white;
   &:focus {
     opacity: 0.91;
@@ -56,7 +59,7 @@ export const ButtonPrimary = styled(Base)`
     opacity: 0.93;
   }
   &:disabled {
-    background-color: ${({ theme, altDisabledStyle }) => (altDisabledStyle ? theme.primary1 : theme.bg3)};
+    background-color: ${({ theme, altDisabledStyle }) => (altDisabledStyle ? "#54b2b3"  : "#54b2b3")};
     color: ${({ theme, altDisabledStyle }) => (altDisabledStyle ? 'white' : theme.text3)};
     cursor: auto;
     box-shadow: none;

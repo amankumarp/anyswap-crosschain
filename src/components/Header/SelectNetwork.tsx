@@ -37,11 +37,20 @@ export const WalletLogoBox = styled.div`
 
 export const WalletLogoBox2 = styled.div`
   width:100%;
+  position:relative;
   ${({theme}) => theme.flexBC}
   .left {
     ${({theme}) => theme.flexSC};
     width: 100%;
+   
   }
+ &:hover{
+   .tick{
+    display:block !important;
+   }
+  }
+ 
+
 `
 
 export const IconWrapper = styled.div`
@@ -174,7 +183,7 @@ export const NetWorkList = styled.div`
 `
 
 export const InfoCard = styled.button`
-  background-color: ${({ theme }) => theme.contentBg};
+  background-color: ${({ theme }) => theme.activeGray1};
   padding: 1rem;
   outline: none;
   border: 0.0625rem solid transparent;
@@ -182,8 +191,9 @@ export const InfoCard = styled.button`
   cursor:pointer;
   border-bottom: 0.0625rem solid ${({ theme }) => theme.placeholderGray};
   &.active {
-    background-color: ${({ theme }) => theme.activeGray};
+    background-color: ${({ theme }) => theme.activeGray1};
   }
+
 `
 
 export const OptionCard = styled(InfoCard)`
@@ -328,6 +338,7 @@ export function Option ({
       <WalletLogoBox>
         <WalletLogoBox2>
           <div className="left">
+          <i className="fa-solid fa-check tick" style={{color:"#01b2b1", position:"absolute", right:"45px" , paddingTop:"3px", display:"none", fontSize:"24px"}}></i>
             <IconWrapper>
               {/* <img src={icon} alt={'Icon'} /> */}
               <TokenLogo symbol={item?.networkLogo ?? item?.symbol} size={'46px'}></TokenLogo>
@@ -341,11 +352,12 @@ export function Option ({
                   && selectChainId
                   && curChainId.toString() === selectChainId.toString()
                 ) ? (
-                  <CircleWrapper>
-                    <GreenCircle>
-                      <div />
-                    </GreenCircle>
-                  </CircleWrapper>
+                  // <CircleWrapper>
+                  //   <GreenCircle>
+                  //     <div />
+                  //   </GreenCircle>
+                  // </CircleWrapper>
+                  <i className="fa-solid fa-check" style={{color:"#01b2b1", position:"absolute", right:"45px" , paddingTop:"3px", fontSize:"24px"}}></i>
                 ) : (
                   ''
                 )}
@@ -533,6 +545,7 @@ export default function SelectNetwork () {
               onChange={handleInput}
               // onKeyDown={handleEnter}
             />
+            
           </PaddedColumn>
           <Separator />
           <div style={{ flex: '1' }}>

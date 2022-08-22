@@ -12,6 +12,9 @@ export interface Colors {
   text3: Color
   text4: Color
   text5: Color
+  text6:Color
+  text7:Color
+  text8:Color
   textNav: Color
   textColor: Color
   textColorBold: Color
@@ -22,7 +25,16 @@ export interface Colors {
   bg3: Color
   bg4: Color
   bg5: Color
+  bg6: Color
+  bg7: Color
+  bluecolor:Color
   contentBg: Color
+  contentBg1: Color
+  contentBg2: Color
+  borderBg:Color
+  anchorColor:color
+  search:color
+ 
   navIconBg: Color
   navBg: Color
   navBg2: Color
@@ -33,8 +45,12 @@ export interface Colors {
   tabActiveBg: Color
   tabColor: Color
   tabActiveColor: Color
+  tabActiveColor1: Color
   tabBdColor: Color
+  hoverEffect:Color
+  
   tipBg: Color
+  tipBg1: Color
   tipBorder: Color
   tipColor: Color
   
@@ -45,6 +61,7 @@ export interface Colors {
   selectedHoverBg: Color
 
   selectedBorder: Color
+  selectedBorder1: Color
   selectedHoverBorder: Color
 
   selectedBgNo: Color
@@ -65,6 +82,7 @@ export interface Colors {
   royalBlue: Color
   placeholderGray: Color
   activeGray: Color
+  activeGray1: Color
 
   modalBG: Color
   advancedBG: Color

@@ -52,7 +52,7 @@ import {selectNetwork} from '../../config/tools/methods'
 
 
 const ContentBody = styled.div`
-  background-color: ${({ theme }) => theme.contentBg};
+  background-color: ${({ theme }) => theme.contentBg1};
   // background:transparent radial-gradient(closest-side at 50% 50%, #6CA5FF 0%, #524DFB 100%) 0% 0% no-repeat padding-box;
   box-shadow: 0 0.25rem 8px 0 ${({ theme }) => transparentize(0.95, theme.shadow1)};
   // background: rgba(255,255,255,.5);
@@ -61,6 +61,7 @@ const ContentBody = styled.div`
   max-width: 600px;
   margin: auto;
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 `
 
 const ContentTitle = styled.h3`

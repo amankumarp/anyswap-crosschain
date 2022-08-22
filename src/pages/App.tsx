@@ -38,6 +38,9 @@ import QueryNonApprove from '../components/NonApprove/queryIsNeedNonApprove'
 
 import config from '../config'
 import farmlist from '../config/farmlist'
+import Explorer from './explorer/Explorer'
+import Details from './explorer/Details'
+
 
 // import '../hooks/xrp'
 
@@ -61,7 +64,7 @@ const HeaderWrapper = styled.div`
   // justify-content: space-between;
   justify-content: center;
   box-shadow: ${({ theme }) => theme.contentShadow};
-  background: ${({ theme }) => theme.contentBg};
+  background: ${({ theme }) => theme.contentBg1};
   position: absolute;
   top: 0;
   left: 0;
@@ -91,7 +94,7 @@ const NavBottom = styled.div`
   padding-top: 0px;
   width: 100%;
   box-shadow: ${({ theme }) => theme.contentShadow};
-  background: ${({ theme }) => theme.contentBg};
+  background: ${({ theme }) => theme.contentBg1};
   overflow: auto;
   display: none;
   ${({ theme }) => theme.mediaWidth.upToMedium`
@@ -122,6 +125,10 @@ const BodyWrapper = styled.div`
     padding: 16px;
     padding-top: 2rem;
   `};
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  padding: 0px;
+  padding-top: 2rem;
+`};
 
   z-index: 1;
 `
@@ -168,6 +175,8 @@ export default function App() {
             <Switch>
               <Route exact strict path="/dashboard" component={() => <Dashboard />} />
               <Route exact strict path="/pool" component={() => <PoolList />} />
+              <Route exact strict path="/explorer" component={() => <Explorer />} />
+              <Route exact strict path="/explorer/details" component={() => <Details/>} />
               <Route exact strict path="/pool/add" component={() => <Pools />} />
               <Route exact strict path="/farm" component={() => <FarmList />} />
               <Route exact strict path="/nft" component={() => <CrossNFT />} />

@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const LogoBox = styled.div`
   ${({ theme }) => theme.flexC};
-  width: 46px;
-  height: 46px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.04);
   border: solid 0.5px rgba(0, 0, 0, 0.1);

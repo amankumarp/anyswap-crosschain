@@ -5,10 +5,10 @@ import { ReactComponent as DropDown } from '../../assets/images/dropdown.svg'
 
 
 export const InputRow = styled.div<{ selected: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap};
+  ${({ theme }) => theme.flexColumnNoWrap};
   
   align-items: center;
-  padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0rem 0.75rem')};
+  padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0')};
   ${({ theme }) => theme.mediaWidth.upToLarge`
     flex-wrap:wrap;
     padding: 0;
@@ -19,31 +19,34 @@ export const CurrencySelectBox = styled.div`
   ${({ theme }) => theme.flexBC};
   width: 100%;
   overflow:hidden;
+  margin-top:10px;
   ${({ theme }) => theme.mediaWidth.upToLarge`
     margin-top:10px;
   `};
 `
-
+//#031a6e
+// width: 220px;
 export const CurrencySelect = styled.button<{ selected: boolean }>`
   align-items: center;
-  color: ${({ selected, theme }) => (selected ? theme.textColor : '#031a6e')};
+  color: ${({ selected, theme }) => (selected ? theme.textColor : theme.textColor)};
   font-size: ${({ selected }) => (selected ? '1rem' : '12px')};
-  height: 70px;
+  height: 50px;
   font-family: 'Manrope';
-  width: 220px;
-  border: 0.0625rem solid ${({ theme }) => theme.selectedBorder};
+ width:100%
+  border: 0.0625rem solid ${({ theme }) => theme.selectedBorder1};
   border-radius: 0.75rem;
-  background-color: ${({ theme }) => theme.selectedBg};
+  background-color: transparent;
+  font-weight:400;
   outline: none;
   cursor: pointer;
   user-select: none;
   padding: 0 1.25rem;
   position: relative;
-  margin: 0 5px;
+  margin: 0 5px 0 0px;
 
   :hover {
-    border: 0.0625rem solid ${({ theme }) => theme.selectedHoverBorder};
-    background: ${({ theme }) => theme.selectedHoverBg};
+    border:rgba(58,175,175,0.8);
+    background: rgba(58,175,175,0.1);
   }
 
   :focus {
@@ -130,7 +133,7 @@ export const Aligner = styled.span`
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 0px 1.625rem 0 51px;
+  padding: 0px 1.625rem 0 40px;
   width: 100%;
   height: 100%;
   &.pl-0 {
@@ -143,8 +146,8 @@ export const Aligner = styled.span`
 
 export const TokenLogoBox = styled.div`
   ${({ theme }) => theme.flexC};
-  width: 46px;
-  height: 46px;
+  width: 32px;
+  height: 32px;
   background: ${({ theme }) => theme.white};
   box-sizing: border-box;
   border-radius: 100%;
@@ -164,8 +167,8 @@ export const StyledDropDownBox = styled.div`
   background: ${({ theme }) => theme.arrowBg};
   border-radius: 100%;
   position: absolute;
-  top: 1.25rem;
-  right: 0px;
+  top:0.7rem;
+  right: -6px;
   ${({ theme }) => theme.mediaWidth.upToLarge`
     top: 1rem;
   `};
@@ -186,41 +189,43 @@ export const InputPanel = styled.div<{ hideInput?: boolean }>`
   background-color: ${({ theme }) => theme.bg2};
   z-index: 1;
   width:100%;
-  &.error {
-    border: 1px solid ${({ theme }) => theme.red1};
-  }
+  // &.error {
+  //   border: 1px solid ${({ theme }) => theme.red1};
+  // }
 `
-
+ // background-color: ${({ theme }) =>theme.bg7};
 export const Container = styled.div<{ hideInput: boolean }>`
   // border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  // border: 1px solid ${({ theme }) => theme.bg2};
+  // border: 1px solid ${({ theme }) => theme.bg7};
   width:100%;
-  background-color: ${({ theme }) => theme.contentBg};
+ 
   box-shadow: 0 0.25rem 8px 0 ${({ theme }) => transparentize(0.95, theme.shadow1)};
   border-radius: 1.25rem;
-  border: 1px solid rgb (255, 92, 177);
-  padding: 1.25rem 2.5rem;
+  
+  padding: 10px 1rem 15px;
   ${({ theme }) => theme.mediaWidth.upToLarge`
     padding: 1rem 1rem;
   `}
 `
-
+//font-size: 1rem;
 export const StyledTokenName = styled.span<{ active?: boolean }>`
   text-align:left;
   width: 100%;
+  font-size: 16px;
+  padding-left:7px;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     font-size: 12px;
   `}
   h3 {
     font-family: 'Manrope';
-    font-size: 1rem;
-    font-weight: 800;
+    font-size:16px;
+    font-weight: 400;
     font-stretch: normal;
     font-style: normal;
     line-height: 1;
     letter-spacing: normal;
     color: ${({ theme }) => theme.selectTextColor};
-    margin:0 0 2px;
+   
     white-space:nowrap;
     text-overflow:ellipsis;
     overflow:hidden;
@@ -230,6 +235,21 @@ export const StyledTokenName = styled.span<{ active?: boolean }>`
     `}
   }
   p {
+    width: 100%;
+    font-family: 'Manrope';
+    font-size: 0.75rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: ${({ theme }) => theme.selectTextColor};
+    margin:8px 0 0;
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+      display:none;
+    `}
+  }
+  span {
     width: 100%;
     font-family: 'Manrope';
     font-size: 0.75rem;

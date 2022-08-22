@@ -39,38 +39,56 @@ export function colors(darkMode: boolean): Colors {
     // base
     white,
     black,
+   
 
     // text
+    //C3C5CB
     text1: darkMode ? '#FFFFFF' : '#96989e',
-    text2: darkMode ? '#C3C5CB' : '#565A69',
-    text3: darkMode ? '#ddd' : '#999',
+    text2: darkMode ? '#54b2b3' : '#565A69',
+    text3: darkMode ? '#ddd' : '#fff',
     text4: darkMode ? '#565A69' : '#C3C5CB',
     text5: darkMode ? 'rgb(21, 26, 47)' : '#EDEEF2',
+    text6: darkMode ? '#ddd' : '#999',
+    text7: darkMode ? '#fff' : '#000',
+    text8: darkMode ? "#000" :"#fff",
     textNav: darkMode ? '#979dac' : '#062536',
     textColor: darkMode ? '#979dac' : '#031a6e',
     textColorBold: darkMode ? white : '#062536',
 
     // backgrounds / greys
+    // rgb(21, 26, 47)
+    // navBg: darkMode ? '#21263e' : '#031a6e',
+   // contentBg: darkMode ? '#21263e' : white,
     bg1: darkMode ? '#212429' : '#FFFFFF',
-    bg2: darkMode ? 'rgb(21, 26, 47)' : '#F7F8FA',
+   
+    bg2: darkMode ? '#0b090e' : '#F7F8FA',
     bg3: darkMode ? '#40444F' : '#EDEEF2',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#ddd' : '#999',
+    bg6: darkMode ? "#000" : white,
+    bg7: darkMode ? '#141313' : '#F7F8FA',
     contentBg: darkMode ? '#21263e' : white,
+    contentBg1: darkMode ? '#0b090e' : white,
+    contentBg2: darkMode ? "#0b090e"  : white,  
+    
     navIconBg: darkMode ? '#363d5f' : 'rgba(0,0,0,0.05)',
     navBg: darkMode ? '#21263e' : '#031a6e',
     navBg2: darkMode ? '#363d5f' : '#031a6e',
-    bgColorLinear: 'linear-gradient(to right, #734ce2 , #606bfb)',
+    bgColorLinear: 'linear-gradient(to right,#54b2b3 ,#2a8b8b)',
     outLinkIconBg: darkMode ? '#2b314f' : '#ecf6ff',
     bodyBg: darkMode ? '#151a2f' : '#f9fafb',
     tabBg: darkMode ? '#2b314f' : white,
     tabActiveBg: darkMode ? '#6725fc' : 'none',
     tabColor: darkMode ? white : '#96989e',
-    tabActiveColor: darkMode ? white : '#734be2',
+    tabActiveColor: darkMode ? white : '#01b2b1',
+    tabActiveColor1: darkMode ? "#01b2b1" : 'white',
     tabBdColor: darkMode ? 'none' : '#734be2',
     tipBg: darkMode ? '#2b314f' : '#f2edff',
+    tipBg1: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : 'rgba(58,175,175,0.1)',
+    search: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : white,
     tipBorder: darkMode ? '#2b314f' : '#b398f9',
     tipColor: darkMode ? white : '#734be2',
+    hoverEffect: darkMode ?'#231f2a' :"rgb(87 188 188 / 10%)",
 
     lightPuroleBg: darkMode ? '#2b314f' : 'rgb(246, 244, 255)',
     viewMoreBtn: darkMode ? '#2b314f' : '#f9fafb',
@@ -79,6 +97,7 @@ export function colors(darkMode: boolean): Colors {
     selectedHoverBg: darkMode ? '#252b49' : '#deefff',
 
     selectedBorder: darkMode ? '#363d5f' : '#c0d6ea',
+    selectedBorder1: darkMode ? 'rgba(255,255,255,0.2)' : '#c0d6ea',
     selectedHoverBorder: darkMode ? '#4a5482' : '#6d9cc6',
 
     selectedBgNo: darkMode ? '#2b314f' : '#f8f8f9',
@@ -99,24 +118,28 @@ export function colors(darkMode: boolean): Colors {
     royalBlue: darkMode ? '#734be2' : '#734be2',
     placeholderGray: darkMode ? '#5F5F5F' : '#E1E1E1',
     activeGray: darkMode ? '#363d5f' : '#F7F8FA',
+    activeGray1: darkMode ? '#120f0f' : '#F7F8FA',
+    borderBg:darkMode ? 'rgb(255,255,255,0.1)' : 'rgb(0,0,0,0.1)',
+    bluecolor:darkMode ? '#c9c9c9':`#2172E5`,
+    anchorColor:darkMode ? "#01b2b1": "#2172E5",
 
     // backgrounds
     // bgc1: darkMode ? '#21263e' : '#FFFFFF',
 
     // // borders
     // bsd1: darkMode ? '7px 2px 26px 0 rgba(5, 6, 13, 0.24)' : '7px 2px 26px 0 rgba(0, 0, 0, 0.06)',
-
+    //primary1: 'linear-gradient(to right, #734ce2 , #606bfb)',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
-
+//primary4: darkMode ? '#5f6bfb' : '#5f6bfb',
     //primary colors
-    primary1: 'linear-gradient(to right, #734ce2 , #606bfb)',
+    primary1: 'linear-gradient(to right,#54b2b3 ,#2a8b8b)',
     primary2: darkMode ? '#3680E7' : '#FF8CC3',
     primary3: darkMode ? '#4D8FEA' : '#5f6bfb',
-    primary4: darkMode ? '#5f6bfb' : '#5f6bfb',
-    primary5: darkMode ? '#5f6bfb' : '#5f6bfb',
+    primary4: darkMode ? '#3db2b2' : '#3db2b2',
+    primary5: darkMode ? '3db2b2' : '#3db2b2',
 
     // color text
     primaryText1: darkMode ? '#fff' : '#fff',

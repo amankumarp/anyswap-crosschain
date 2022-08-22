@@ -13,7 +13,9 @@ const SubCurrencySelectBox = styled.div`
   border: solid 0.5px ${({ theme }) => theme.tipBorder};
   background-color: ${({ theme }) => theme.tipBg};
   padding: 1rem 1.25rem;
+ 
   margin-top: 0.625rem;
+ 
 
   .tip {
     ${({ theme }) => theme.flexSC};

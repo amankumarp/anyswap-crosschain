@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom'
 
 export const MyBalanceBox = styled.div`
   width: 100%;
-
   border-radius: 0.5625rem;
   box-shadow: 0.4375rem 0.125rem 1.625rem 0 rgba(0, 0, 0, 0.06);
-  background-color: ${({ theme }) => theme.contentBg};
+  border:1px solid rgba(255,255,255,.2);
+  background-color: ${({ theme }) => theme.contentBg1};
   padding: 1rem 2.5rem;
   margin-bottom: 20px;
   overflow:auto;
@@ -125,7 +125,7 @@ export const DBThead = styled.thead`
 `
 export const DBTh = styled.th`
   color: ${({ theme }) => theme.textColorBold};
-  background-color: ${({ theme }) => theme.contentBg};
+  background: ${({ theme }) => theme.tipBg1};
   padding: 12px 8px;
   white-space: nowrap;
   font-size: 0.875rem;
@@ -166,7 +166,7 @@ export const DBTbody = styled.tbody`
 `
 
 export const DBTd = styled.td`
-  background-color: ${({ theme }) => theme.contentBg};
+  background-color: ${({ theme }) => theme.bg2};
   padding: 8px 8px;
   white-space: nowrap;
   font-size: 0.875rem;

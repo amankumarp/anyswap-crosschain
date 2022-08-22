@@ -7,6 +7,7 @@ const TitleBox = styled.div`
   margin-bottom:1rem;
   position:relative;
   height: 38px;
+  display:none;
 `
 const TitleTxt = styled.div`
   height: 38px;

@@ -214,7 +214,7 @@ export default function SelectCurrencyInputPanel({
         {!hideInput && (
           <LabelRow>
             <RowBetween>
-              <TYPE.body color={theme.text2} fontWeight={500} fontSize={14}>
+              <TYPE.body color={theme.text7} fontWeight={300} fontSize={14}>
                 {label}
               </TYPE.body>
               
@@ -250,27 +250,27 @@ export default function SelectCurrencyInputPanel({
                   <>
                     <TYPE.body
                       onClick={handleMax}
-                      color={theme.text2}
-                      fontWeight={500}
+                      color={theme.text7}
+                      fontWeight={300}
                       fontSize={14}
                       style={{ display: 'inline', cursor: 'pointer' }}
                     >
                       {!hideBalance && !!currency && viewBalance
                         ? (customBalanceText ?? (t('balanceTxt') + ': ')) + thousandBit(viewBalance, 2)
-                        : t('balanceTxt') + ': ' + '-'}
+                        : t('balanceTxt') + ': ' + ''}
                     </TYPE.body>
                   </>
                 ) : (
                   <>
                     <TYPE.body
-                      color={theme.text2}
+                      color={theme.text7}
                       fontWeight={500}
                       fontSize={14}
                       style={{ display: 'inline', cursor: 'pointer' }}
                     >
                       {!hideBalance && !!currency && viewBalance && account
                         ? (customBalanceText ?? (t('balanceTxt') + ': ')) + thousandBit(viewBalance, 2)
-                        : t('balanceTxt') + ': ' + '-'}
+                        : t('balanceTxt') + ': ' + ''}
                     </TYPE.body>
                     {/* <HideSmallBox>
                     </HideSmallBox> */}
@@ -281,7 +281,7 @@ export default function SelectCurrencyInputPanel({
           </LabelRow>
         )}
         <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
-          {!hideInput && (
+        {!hideInput && (
             <>
               <NumericalInput
                 className={isError ? 'error' : ''}
@@ -297,7 +297,7 @@ export default function SelectCurrencyInputPanel({
 
             <CurrencySelect
               selected={!!currency}
-              className="open-currency-select-button"
+              className="open-currency-select-button btn11"
               onClick={() => {
                 if (!disableCurrencySelect) {
                   setModalOpen(true)
@@ -322,10 +322,11 @@ export default function SelectCurrencyInputPanel({
                           )
                       ) || t('selectToken')
                     }
+                    {(currency && <span>
+                  ({currency && currency.name && !CROSS_BRIDGE_LIST.includes(bridgeKey) ? (isRouter === false ? currency.name : config.getBaseCoin(currency.symbol, useChainId, 1, currency.name)) : currency?.name})
+                  </span>)}
                   </h3>
-                  <p>
-                  {currency && currency.name && !CROSS_BRIDGE_LIST.includes(bridgeKey) ? (isRouter === false ? currency.name : config.getBaseCoin(currency.symbol, useChainId, 1, currency.name)) : currency?.name}
-                  </p>
+                 
                 </StyledTokenName>
                 {!disableCurrencySelect && !!currency && (
                   <StyledDropDownBox>
@@ -377,6 +378,7 @@ export default function SelectCurrencyInputPanel({
               )
             }
           </CurrencySelectBox>
+         
         </InputRow>
       </Container>
       {!disableCurrencySelect && onCurrencySelect && modalOpen && (

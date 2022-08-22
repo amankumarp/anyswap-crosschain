@@ -1,14 +1,14 @@
 import config from '../../config'
 
 export const LinkList = [
-  {
-    path: '/multi',
-    textKey: 'MULTI',
-    regex: /\/multi/,
-    className: 'otherInfo',
-    isOutLink: false,
-    isView: config.getCurConfigInfo().isOpenMerge,
-  },
+  // {
+  //   path: '/multi',
+  //   textKey: 'MULTI',
+  //   regex: /\/multi/,
+  //   className: 'otherInfo',
+  //   isOutLink: false,
+  //   isView: config.getCurConfigInfo().isOpenMerge,
+  // },
   {
     path: '/router',
     textKey: 'router',
@@ -34,15 +34,16 @@ export const LinkList = [
     isView: 1,
     isActive: ['/add', '/remove']
   },
-  {
-    path: '/vest',
-    textKey: 'veMULTI',
-    regex: /\/vest/,
-    className: 'otherInfo',
-    isOutLink: false,
-    isView: config.getCurConfigInfo().isOpenMerge && Date.now() > 1652090400000 ? true : false,
-    // isView: config.getCurConfigInfo().isOpenMerge && Date.now() > 1652077736000 ? true : false,
-  },
+  // {
+  //   path: '/vest',
+  //   textKey: 'veMULTI',
+  //   regex: /\/vest/,
+  //   className: 'otherInfo',
+  //   isOutLink: false,
+  //   isView: config.getCurConfigInfo().isOpenMerge && Date.now() > 1652090400000 ? true : false,
+   
+  // },
+   // isView: config.getCurConfigInfo().isOpenMerge && Date.now() > 1652077736000 ? true : false,
   {
     path: '/v1/router',
     textKey: 'router',
@@ -84,19 +85,28 @@ export const LinkList = [
   //   isView: 1
   // },
   {
-    path: config.explorer,
+    path:"/explorer",
     textKey: 'explorer',
-    regex: '',
+    regex: /\/explorer/,
     className: 'otherInfo',
-    isOutLink: true,
+    isOutLink: false,
     isView: 1,
   },
-  {
-    path: 'https://multichain.zendesk.com/hc/en-us',
-    textKey: 'support',
-    regex: '',
-    className: 'otherInfo',
-    isOutLink: true,
-    isView: 1,
-  },
+
+  // {
+  //   path: config.explorer,
+  //   textKey: 'explorer',
+  //   regex: '',
+  //   className: 'otherInfo',
+  //   isOutLink: true,
+  //   isView: 1,
+  // },
+  // {
+  //   path: 'https://multichain.zendesk.com/hc/en-us',
+  //   textKey: 'support',
+  //   regex: '',
+  //   className: 'otherInfo',
+  //   isOutLink: true,
+  //   isView: 1,
+  // },
 ]

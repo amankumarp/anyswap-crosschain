@@ -31,7 +31,7 @@ const ContainerRow = styled.div<{ error: boolean }>`
   border: 1px solid ${({ error, theme }) => (error ? theme.red1 : theme.bg2)};
   transition: border-color 300ms ${({ error }) => (error ? 'step-end' : 'step-start')},
     color 500ms ${({ error }) => (error ? 'step-end' : 'step-start')};
-  background: ${({ theme }) => theme.contentBg};
+  background: ${({ theme }) => theme.bg6};
 `
 
 const InputContainer = styled.div`
@@ -43,12 +43,12 @@ const InputContainer = styled.div`
 `
 
 const Input = styled.input<{ error?: boolean }>`
-  font-size: 1.25rem;
+  font-size: 1rem;
   outline: none;
   border: none;
   flex: 1 1 auto;
   width: 0;
-  background: ${({ theme }) => theme.contentBg};
+  background: ${({ theme }) => theme.bg2};
   transition: color 300ms ${({ error }) => (error ? 'step-end' : 'step-start')};
   color: ${({ error, theme }) => (error ? theme.red1 : theme.textColorBold)};
   overflow: hidden;
@@ -153,14 +153,14 @@ export default function AddressInputPanel({
                 </TYPE.black>
                 {
                   labelTip ? (
-                    <TYPE.black color={theme.red1} fontWeight={500} fontSize={14}>
+                    <TYPE.black color={theme.red1} fontWeight={500} fontSize={12}>
                       {labelTip}
                     </TYPE.black>
                   ) : ''
                 }
               </LabelBox>
               {address && useChainId && (
-                <ExternalLink href={getEtherscanLink(useChainId, name ?? address, 'address')} style={{ fontSize: '14px' }}>
+                <ExternalLink href={getEtherscanLink(useChainId, name ?? address, 'address')} style={{ fontSize: '12px' }}>
                   ({t('ViewOn')} {config.getCurChainInfo(useChainId).name})
                 </ExternalLink>
               )}

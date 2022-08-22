@@ -179,12 +179,12 @@ export default function SelectChainIdInputPanel({
           {!hideInput && (
             <LabelRow>
               <RowBetween>
-                <TYPE.body color={theme.text2} fontWeight={500} fontSize={14}>
+                <TYPE.body color={theme.text2} fontWeight={300} fontSize={14}>
                   {label}
                 </TYPE.body>
                 <TYPE.body
                   color={theme.text2}
-                  fontWeight={500}
+                  fontWeight={300}
                   fontSize={14}
                   style={{ display: 'inline', cursor: 'pointer' }}
                 >
@@ -233,12 +233,15 @@ export default function SelectChainIdInputPanel({
                         ) : t('selectToken')
                       }
                       {/* {selectChainId ? '-' + config.chainInfo[selectChainId].suffix : ''} */}
-                    </h3>
-                    <p>
                       {
-                        destChainInfo ? config.getBaseCoin(destChainInfo?.symbol, selectChainId, 1, destChainInfo?.name) : ''
+                       destChainInfo && (<span>
+                        ({
+                          destChainInfo ? config.getBaseCoin(destChainInfo?.symbol, selectChainId, 1, destChainInfo?.name) : ''
+                        })
+                      </span>)
                       }
-                    </p>
+                    </h3>
+                    
                   </StyledTokenName>
                   {!disableCurrencySelect && !!selectChainId && (
                     <StyledDropDownBox>

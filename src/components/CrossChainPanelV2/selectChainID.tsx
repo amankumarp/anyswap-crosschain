@@ -216,22 +216,22 @@ export default function SelectChainIdInputPanel({
           {!hideInput && (
             <LabelRow>
               <RowBetween>
-                <TYPE.body color={theme.text2} fontWeight={500} fontSize={14}>
+                <TYPE.body color={theme.text7} fontWeight={300} fontSize={14}>
                   {label}
                 </TYPE.body>
                 <TYPE.body
-                  color={theme.text2}
-                  fontWeight={500}
+                  color={theme.text7}
+                  fontWeight={300}
                   fontSize={14}
                   style={{ display: 'inline', cursor: 'pointer' }}
                 >
-                  {t('balanceTxt') + ': '}{useBalance !== '' ? thousandBit(useBalance, 2) : '-'}
+                  {t('balanceTxt') + ': '}{useBalance !== '' ? thousandBit(useBalance, 2) : ''}
                 </TYPE.body>
               </RowBetween>
             </LabelRow>
           )}
           <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
-            {!hideInput && (
+          {!hideInput && (
               <>
                 <NumericalInput
                   className="token-amount-input"
@@ -247,7 +247,7 @@ export default function SelectChainIdInputPanel({
 
               <CurrencySelect
                 selected={!!selectChainId}
-                className="open-currency-select-button"
+                className="open-currency-select-button btn11"
                 onClick={() => {
                   if (!disableCurrencySelect) {
                     if (onOpenModalView) {
@@ -260,7 +260,7 @@ export default function SelectChainIdInputPanel({
               >
                 <Aligner>
                   <TokenLogoBox>
-                    <TokenLogo symbol={bridgeConfig?.symbol} logoUrl={bridgeConfig?.logoUrl} size={'24px'} />
+                    <TokenLogo symbol={bridgeConfig?.symbol} logoUrl={bridgeConfig?.logoUrl} size={'12px'} />
                   </TokenLogoBox>
                   <StyledTokenName className="token-symbol-container" active={Boolean(bridgeConfig && bridgeConfig.symbol)}>
                     <h3>
@@ -274,12 +274,21 @@ export default function SelectChainIdInputPanel({
                         ) : t('selectToken')
                       }
                       {/* {selectChainId ? '-' + config.chainInfo[selectChainId].suffix : ''} */}
-                    </h3>
-                    <p>
-                      {
+                     
+                      
+                       { destChainInfo && (
+                        <>
+                       <span>
+                      ({
                         destChainInfo ? config.getBaseCoin(destChainInfo?.symbol, selectChainId, 1, destChainInfo?.name) : ''
-                      }
-                    </p>
+                      })
+                    </span>
+                    </>
+                    )
+                    }
+                      
+                    </h3>
+                   
                   </StyledTokenName>
                   {!disableCurrencySelect && !!selectChainId && (
                     <StyledDropDownBox>
@@ -313,6 +322,7 @@ export default function SelectChainIdInputPanel({
                 </Aligner>
               </CurrencySelect>
             </CurrencySelectBox>
+          
           </InputRow>
         </Container>
       </InputPanel>

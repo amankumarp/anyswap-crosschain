@@ -55,7 +55,7 @@ export default function LockAmount ({
               onClick={() => onMax(balance?.toExact())}
               className="balance"
             >
-              {t('balanceTxt') + ': ' + (balance ? thousandBit(balance?.toSignificant(6), 'no') : '-')}
+              {t('balanceTxt') + ': ' + (balance ? thousandBit(balance?.toSignificant(6), 'no') : '')}
             </TYPE.body>
           </SwapInputLabel>
           <VeNumericalInput
