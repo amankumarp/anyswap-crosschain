@@ -18,6 +18,7 @@ export interface Colors {
   textNav: Color
   textColor: Color
   textColorBold: Color
+  drop:Color
 
   // backgrounds / greys
   bg1: Color

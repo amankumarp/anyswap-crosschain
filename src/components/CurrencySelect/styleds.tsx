@@ -164,7 +164,7 @@ export const StyledDropDownBox = styled.div`
   ${({ theme }) => theme.flexC}
   width: 1.625rem;
   height: 1.625rem;
-  background: ${({ theme }) => theme.arrowBg};
+  background: ${({ theme }) => theme.drop};
   border-radius: 100%;
   position: absolute;
   top:0.7rem;
@@ -196,13 +196,14 @@ export const InputPanel = styled.div<{ hideInput?: boolean }>`
  // background-color: ${({ theme }) =>theme.bg7};
 export const Container = styled.div<{ hideInput: boolean }>`
   // border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  // border: 1px solid ${({ theme }) => theme.bg7};
+  //  border: 1px solid ${({ theme }) => theme.bg7};
   width:100%;
  
   box-shadow: 0 0.25rem 8px 0 ${({ theme }) => transparentize(0.95, theme.shadow1)};
   border-radius: 1.25rem;
   
   padding: 10px 1rem 15px;
+  border:1px solid rgba(255,255,255,.1);
   ${({ theme }) => theme.mediaWidth.upToLarge`
     padding: 1rem 1rem;
   `}

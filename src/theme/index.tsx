@@ -52,7 +52,7 @@ export function colors(darkMode: boolean): Colors {
     text7: darkMode ? '#fff' : '#000',
     text8: darkMode ? "#000" :"#fff",
     textNav: darkMode ? '#979dac' : '#062536',
-    textColor: darkMode ? '#979dac' : '#031a6e',
+    textColor: darkMode ? 'white' : '#031a6e',
     textColorBold: darkMode ? white : '#062536',
 
     // backgrounds / greys
@@ -70,6 +70,7 @@ export function colors(darkMode: boolean): Colors {
     contentBg: darkMode ? '#21263e' : white,
     contentBg1: darkMode ? '#0b090e' : white,
     contentBg2: darkMode ? "#0b090e"  : white,  
+    drop:darkMode ? "#0b090e" : white,
     
     navIconBg: darkMode ? '#363d5f' : 'rgba(0,0,0,0.05)',
     navBg: darkMode ? '#21263e' : '#031a6e',

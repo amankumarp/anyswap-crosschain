@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
+
 
 export default function Details() {
+  const [data, setData] =useState([])
+
     const Wrap = styled.div`
     width: 1000px;
     padding: 20px;
@@ -69,6 +73,27 @@ export default function Details() {
     `}
     `
  
+    console.log(window.location.hash.substring(17),"window.location.search");
+
+   async function fetchDetails(){
+      const query = window.location.hash.substring(17);
+      const data = await axios.post("http://localhost:3000/v2/transctionDetail",{address:query})
+     setData(data.data)
+
+
+    }
+    useEffect(()=>{
+      fetchDetails()
+     
+      // console.log(apidata.),"apiData")
+    },[])
+    console.log(data,"datatata")
+    const {srcChainTx,destChainTx,from,to,pairId,status,srcAmount,destAmount,destChainTimestamp , srcChainTimestamp}:any = data;
+    const destdate = new Date(destChainTimestamp*1000).toUTCString();
+    const srcdate = new Date(srcChainTimestamp*1000).toUTCString();
+    console.log(destdate,srcdate,"hola")
+
+ 
   return (
     <div>
       <Wrap>
@@ -76,15 +101,15 @@ export default function Details() {
         <div className="col3">
            <p className='bold'>Source Hash:</p>
         </div>
-        <div className="col9 anchor"> <p><a href="#">0x3644e3758227cbcb888859a9a586136b4766af40a35e14e045f1ada845873f7b</a></p></div>
+        <div className="col9 anchor"> <p><a href="#">{srcChainTx}</a></p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>Dest Hash:</p>
         </div>
-        <div className="col9 anchor"> <p> <a href="#">0xdd19856612b4be36a1294444b8240e6883876714d3dfcc3e643fd701e4aff419</a> </p></div>
+        <div className="col9 anchor"> <p> <a href="#">{status==1?destChainTx:<span style={{color:"#fff"}}>-</span>} </a> </p></div>
       </div>
-      <div className="row">
+      {/* <div className="row">
         <div className="col3">
            <p className='bold'>Source Chain:</p>
         </div>
@@ -95,48 +120,48 @@ export default function Details() {
            <p className='bold'>Dest Chain:</p>
         </div>
         <div className="col9"> <p>Fantom Mainnet</p></div>
-      </div>
+      </div> */}
       <div className="row">
         <div className="col3">
            <p className='bold'>From:</p>
         </div>
-        <div className="col9 anchor"> <p> <a href="#">0x6a435bcd8ec93346d558b84cbb213a31da52222b</a> </p></div>
+        <div className="col9 anchor"> <p> <a href="#">{from}</a> </p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>To:</p>
         </div>
-        <div className="col9 anchor"> <p><a href="#">0x6a435bcd8ec93346d558b84cbb213a31da52222b</a> </p></div>
+        <div className="col9 anchor"> <p><a href="#">{to}</a> </p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>Date:</p>
         </div>
-        <div className="col9"> <p>2022/08/20 14:41</p></div>
+        <div className="col9"> <p>{status==1 ? destdate :srcdate}</p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>CoinType:</p>
         </div>
-        <div className="col9"> <p>USDT</p></div>
+        <div className="col9"> <p>{pairId}</p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>Send Value:</p>
         </div>
-        <div className="col9"> <p>57,298.41</p></div>
+        <div className="col9"> <p>{srcAmount/1e18}</p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>Receive Value:</p>
         </div>
-        <div className="col9"> <p>57,297.91</p></div>
+        <div className="col9"> <p>{destAmount/1e18}</p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>Status:</p>
         </div>
-        <div className="col9"> <p>Success</p></div>
+        <div className="col9"> <p>{status==1?"Success":"Pending"}</p></div>
       </div>
       </Wrap>
     </div>

@@ -108,7 +108,7 @@ const BodyWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   // max-width: 1440px;
-  max-width: 1100px;
+  max-width: 1000px;
   height: 100%;
   // height: 100vh;
   padding-top: 70px;
@@ -176,7 +176,7 @@ export default function App() {
               <Route exact strict path="/dashboard" component={() => <Dashboard />} />
               <Route exact strict path="/pool" component={() => <PoolList />} />
               <Route exact strict path="/explorer" component={() => <Explorer />} />
-              <Route exact strict path="/explorer/details" component={() => <Details/>} />
+              <Route exact strict path="/details" component={() => <Details/>} />
               <Route exact strict path="/pool/add" component={() => <Pools />} />
               <Route exact strict path="/farm" component={() => <FarmList />} />
               <Route exact strict path="/nft" component={() => <CrossNFT />} />
