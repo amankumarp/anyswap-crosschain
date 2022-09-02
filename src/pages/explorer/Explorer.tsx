@@ -1,132 +1,140 @@
 import axios from 'axios'
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import Pagination from '@material-ui/lab/Pagination'
-import moment from 'moment';
-
+import moment from 'moment'
+import BeatLoader from 'react-spinners/BeatLoader'
 
 // import ClipLoader from "react-spinners/ClipLoader";
 
 // import { math } from 'polished'
 
 export default function Explorer() {
-  
   const [tab1, setTab1] = useState(true)
   const [tab2, setTab2] = useState(false)
   const [tab3, setTab3] = useState(false)
   const [dropdown, setDropdown] = useState(false)
   const [dropdown1, setDropdown1] = useState(false)
-  const [selectBox1, setSelectBox1] = useState("")
-  const [selectBox, setSelectBox] = useState("");
-  const [apiStatus,setApiStatus] = useState(1);
+  const [selectBox1, setSelectBox1] = useState('')
+  const [selectBox, setSelectBox] = useState('')
+  const [apiStatus, setApiStatus] = useState(1)
   // const [transactionData,setTransactionData] = useState([]);
-  const [successData,setSuccessData] = useState([]);
-  const [pendingData,setPendingData] = useState([]);
-  const [page, setPage] = useState(1);
-    const[pagination,setPagination] = useState(1);
-   const[pPagination,setPPagination] = useState(1);
-  //  const [loading,setLoading] =useState(true);
-   const[search,setSearch] = useState("");
-   const[pagiStatus,setPagiStatus] = useState(true);
-   
- 
-  const handleChange = (e:any , p:number) => {
-    setPage(p);
-    
-  };
-  console.log(page,"page")
+  const [successData, setSuccessData] = useState([])
+  const [pendingData, setPendingData] = useState([])
+  const [page, setPage] = useState(1)
+  const [pagination, setPagination] = useState(1)
+  const [pPagination, setPPagination] = useState(1)
+  const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
+  const [pagiStatus, setPagiStatus] = useState(false);
+  const [pPagiStatus, setPPagiStatus] = useState(false);
+  const[content,setContent] = useState(false);
+  const[content2,setContent2] = useState(false);
+  const[chain, setChain] = useState([]);
 
-  function selectBoxFunc(text1:string){
-    setSelectBox1(text1)
-    setDropdown1(false);
-   
-   };
-   function selectBoxFunc1(text1:string){
-    setSelectBox(text1);
-    setDropdown(false);
-   };
-  //  async function filterStatus(){
-  //   const transaction = transactionData.
-  //   });
-  //   console.log(transaction,"filterdfsf")
-  // }
-   async function api(){
-      const data = await axios.get(`http://localhost:3000/v2/history?page=${page}&status=${apiStatus}`);
-      console.log(data,"datatatattttttttttttttttt")
-      if(data.status=200){
-        // setLoading(false);
-      };
-      
-
-      
-       const transactionSuccess = data?.data?.trx.filter((sucess:any)=>{
-        const {status}:any = sucess;
-       return status ==1
-      })
-      const pendingTransaction = data?.data?.trx.filter((sucess:any)=>{
-        const {status}:any = sucess;
-       return status == 0;
-      })
-      const successLength=transactionSuccess.length;
-      const pendingLength=pendingTransaction.length;
-      console.log(pendingLength,successLength,"successLengthsuccessLength")
-      setSuccessData(transactionSuccess);
-      setPendingData(pendingTransaction);
-      const sp = Number.isInteger(data?.data?.tr1/8) == false ? Math.floor(data?.data?.tr1/8) + 1  : data?.data?.tr1/8 ;
-      const pp = Number.isInteger(data?.data?.tr0/8) == false ? Math.floor(data?.data?.tr0/8) +1  : data?.data?.tr0/8 ;;
-      console.log(sp,pp,"sp pp")
-      setPagination(sp)
-      setPPagination(pp)
-  }
-  // async function apiLength(){
-  //   const dataLength = await axios.get(`http://localhost:3000/v2/history`);
-  //   const transactionL = dataLength?.data?.trx.filter((sucess:any)=>{
-  //     const {status}:any = sucess;
-  //    return status ==1
-  //   })
-  //   const pendingL = dataLength?.data?.trx.filter((sucess:any)=>{
-  //     const {status}:any = sucess;
-  //    return status == 0;
-
-  //   });
-  //   const sLength=transactionL.lenght;
-  //   const pLength=pendingL.lenght;
-  //   console.log(sLength,pLength,"transactiondhvfvjdfjvdcv jhxcvjvcxjhcvj")
-
-  // }
-  // const override: CSSProperties = {
-  //   display: "block",
-  //   margin: "0 auto",
-  //   borderColor: "#00b2b0",
-  //   position:"absolute",
-  //   left:"50%"
-  // };
-  
- useEffect(()=>{
-  api();
-  
-  // apiLength();
-  // filterStatus()
- 
- },[page]);
-
- async function fetchOnClick(){
-  console.log(search,"searchsearchsearchsearchsearch")
-
-    const fetchedData:any = await axios.post(`http://localhost:3000/v2/transactionSearch`,{data:search.trim()});
-    if(fetchedData.status===200){
-      setPage(1);
-      setSuccessData(fetchedData.data.trx)
-      setSearch("");
-      setPagiStatus(false);
+  const handleChange = (e:any,p: number) => {
+    setPage(p)
+    if(p!=page){
+      setLoading(true)
     }
-     
- }
+   
+  }
+  console.log(page, 'page')
 
- 
+  function selectBoxFunc(text1: string,id:number) {
+    console.log(id,"iddd")
+    setSelectBox1(text1)
+    setDropdown1(false)
+  }
+  function selectBoxFunc1(text1: string,id:number) {
+
+    console.log(id,"idddddd")
+    setSelectBox(text1)
+    setDropdown(false)
+  }
+
+  const override: CSSProperties = {
+    display: 'block',
+    margin: '0 auto',
+    borderColor: 'red',
+    position: 'relative',
+    left: '50%',
+    top: '280px'
+  }
+  async function api() {
+    const data = await axios.get(`http://localhost:3000/v2/history?page=${page}&status=${apiStatus}`)
+   
+    if ((data.status = 200)) {
+      setLoading(false);
+      setPagiStatus(true);
+      
+      if(data?.data?.trx.length==0){
+      
+        setContent(true);
+        setPagiStatus(false)
+      }else if(data?.data?.trx[0].length==0){
+        setPPagiStatus(false)
+      }
+    }else if(data.status==400){
+      setLoading(false);
+      setContent(true);
+    };
+
+    const transactionSuccess = data?.data?.trx;
+    const pendingTransaction = data?.data?.trx0;
+    if(pendingTransaction.length==0){
+      setContent2(true)
+      
+    }else{
+      setContent2(false)
+    }
+    const successLength = transactionSuccess.length
+    const pendingLength = pendingTransaction.length
+    console.log(pendingLength, successLength, 'successLengthsuccessLength')
+    setSuccessData(transactionSuccess)
+    setPendingData(pendingTransaction)
+    const sp =
+      Number.isInteger(data?.data?.tr1 / 10) == false ? Math.floor(data?.data?.tr1 / 10) + 1 : data?.data?.tr1 / 10
+    const pp =
+      Number.isInteger(data?.data?.tr0 / 10) == false ? Math.floor(data?.data?.tr0 / 10) + 1 : data?.data?.tr0 / 10
+    console.log(sp, pp, 'sp pp')
+    setPagination(sp)
+    setPPagination(pp)
+    if(sp<=1){
+      setPagiStatus(false)
+    }
+    if(pp<=1){
+      setPPagiStatus(false)
+    }
+  }
+
+   const fetchChainRecord = async ()=>{
+    const chainData = await axios.get(`http://localhost:3000/v2/chainConfig`);
+    console.log(chainData.data,"chainDatachainDatachainData")
+    setChain(chainData.data)
 
 
+  }
 
+
+  useEffect(() => {
+    api()
+    fetchChainRecord()
+  }, [page])
+
+  async function fetchOnClick() {
+    // console.log(search, 'searchsearchsearchsearchsearch')
+
+    const fetchedData: any = await axios.post(`http://localhost:3000/v2/transactionSearch`, { data: search.trim() })
+    if (fetchedData.status === 200) {
+      setTab1(true)
+      setTab2(false)
+      setPage(1)
+      setSuccessData(fetchedData.data.trx)
+      setSearch('')
+      setPagiStatus(false)
+    }
+  }
 
   const Wrap = styled.div`
     width: 1440px;
@@ -150,7 +158,8 @@ export default function Explorer() {
     .tab-container {
       padding: 20px 0px;
       .tab {
-        font-size: 16px;
+        font-size: 15px;
+        font-Weight:600;
         padding: 10px 10px;
         cursor: pointer;
         color: ${({ theme }) => theme.text7};
@@ -165,8 +174,9 @@ export default function Explorer() {
         `}
       }
       .active {
-        font-size: 16px;
+        font-size: 15px;
         padding: 10px 10px;
+        font-Weight:600;
         cursor: pointer;
         color: ${({ theme }) => theme.text7};
         // background: ${({ theme }) => theme.tabActiveColor1};
@@ -187,10 +197,18 @@ export default function Explorer() {
       overflow: auto;
       max-height: 70vh;
     }
-    ${({ theme }) => theme.mediaWidth.upToLarge`
-            width:100%;
+    .notFound{
+      color: ${({ theme }) => theme.text7};
+    }
+    
+    ${({ theme }) => theme.mediaWidth.upToExtraLarge`
+            width:1000px;
             padding:5px;
         `}
+        ${({ theme }) => theme.mediaWidth.upToLarge`
+        width:100%
+        padding:5px;
+    `}
     ${({ theme }) => theme.mediaWidth.upToMedium`
             width:100%;
             padding:5px;
@@ -198,7 +216,7 @@ export default function Explorer() {
   `
   const Table = styled.table`
     width: 100%;
-    
+
     padding: 10px;
     overflow: auto;
     border-radius: 10px;
@@ -206,12 +224,12 @@ export default function Explorer() {
     color: ${({ theme }) => theme.text7};
     border: 1px solid;
     border-color: ${({ theme }) => theme.borderBg};
-    border-spacing:0px;
-    
-    .record-message{
-      color:#fff;
-      text-align:center;
-      position:relative
+    border-spacing: 0px;
+
+    .record-message {
+      color: #fff;
+      text-align: center;
+      position: relative;
     }
     thead {
       vertical-align: bottom;
@@ -224,8 +242,8 @@ export default function Explorer() {
       text-decoration: none;
       color: blue;
     }
-    td{
-      border:none;
+    td {
+      border: none;
     }
 
     .tdhead {
@@ -235,6 +253,9 @@ export default function Explorer() {
       padding-right: 5px;
       font-weight: bold;
     }
+    .tbody{
+      min-width:100px;
+    }
     .tdbody {
       padding-top: 5px;
       padding-bottom: 5px;
@@ -243,6 +264,7 @@ export default function Explorer() {
       font-size: 14px;
       font-weight: 400;
       height: 50px;
+     
       ${({ theme }) => theme.mediaWidth.upToMedium`
       font-size: 12px;
    
@@ -257,12 +279,11 @@ export default function Explorer() {
     .address {
       color: ${({ theme }) => theme.anchorColor};
     }
-    .tdRow{
-      &:hover{
-        background:${({ theme }) => theme.hoverEffect};
+    .tdRow {
+      &:hover {
+        background: ${({ theme }) => theme.hoverEffect};
       }
     }
-
   `
   const InputWrapper = styled.div`
     width: 70%;
@@ -296,7 +317,7 @@ export default function Explorer() {
 
 `
   const ToolSection = styled.div`
-    width: 850px;
+    width: 1000px;
     margin: auto;
     margin-top: 30px;
     border: 1px solid;
@@ -312,7 +333,7 @@ export default function Explorer() {
 `}
   `
   const Para = styled.p`
-    font-size:14px;
+    font-size: 14px;
     color: ${({ theme }) => theme.text7};
   `
 
@@ -329,6 +350,8 @@ export default function Explorer() {
       line-height:28px;
       min-height:28px;
       border-radius:6px
+      border:1px solid ;
+      border-color: ${({ theme }) => theme.borderBg};
     }
     .content1{
       background:#fff;
@@ -339,6 +362,7 @@ export default function Explorer() {
       border-radius:6px;
       max-height:158px;
       overflow-y:scroll;
+      background:#fff;
       box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
       ul{
         padding:0px;
@@ -360,10 +384,11 @@ export default function Explorer() {
       background:#fff;
       width:100%
       position: absolute;
-      z-index:2;
+      z-index:200;
       top: 33px;
       max-height:158px;
       overflow-y:scroll;
+      
       border-radius:6px;
       box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
       ul{
@@ -387,6 +412,7 @@ export default function Explorer() {
     }
     .sendButton{
       background:#01b2b1;
+      color
       border:none;
       outline:none;
       border-radius:10px;
@@ -403,15 +429,17 @@ export default function Explorer() {
     
   `
 
-
   return (
     <Wrap>
-      <InputWrapper>
-        <InputText type="text" placeholder="Hash/Address" onChange={(e)=>setSearch(e.target.value)} value={search} />
-        <button className="btn" onClick={fetchOnClick}>
-          <i className="fa-solid fa-magnifying-glass" style={{ color: '#fff', fontSize: '20px' }}></i>
-        </button>
-      </InputWrapper>
+      <BeatLoader color="#01b2b1" loading={loading} cssOverride={override} size={20} />
+      {!tab3 && (
+        <InputWrapper>
+          <InputText type="text" placeholder="Hash/Address" onChange={e => setSearch(e.target.value)} value={search} />
+          <button className="btn" onClick={fetchOnClick}>
+            <i className="fa-solid fa-magnifying-glass" style={{ color: '#fff', fontSize: '20px' }}></i>
+          </button>
+        </InputWrapper>
+      )}
       <div className="tab-container">
         <span
           className={tab1 ? 'active' : 'tab'}
@@ -419,11 +447,10 @@ export default function Explorer() {
             setTab1(true)
             setTab2(false)
             setTab3(false)
-            setApiStatus(1);
-            setPage(1);
-            api();
-            setPagiStatus(true);
-            
+            setApiStatus(1)
+            setPage(1)
+            api()
+            setPagiStatus(true)
           }}
         >
           View Txns
@@ -434,11 +461,9 @@ export default function Explorer() {
             setTab2(true)
             setTab1(false)
             setTab3(false)
-            setApiStatus(0);
-            setPage(1);
-            api();
-           
-
+            setApiStatus(0)
+            setPage(1)
+            api()
           }}
         >
           Pending Txns
@@ -455,86 +480,130 @@ export default function Explorer() {
         </span>
       </div>
       <div className="table-responsive">
-      
-        {tab1 &&  
-        (
+        {tab1 && (
           // <Pagination count={10} />
-          <Table className="table">
-            <thead>
-              <tr>
-                <td scope="col" className="tdhead">
-                  #
-                </td>
-                <td scope="col" className="tdhead">
-                  CoinType
-                </td>
-                <td scope="col" className="tdhead">
-                  Value
-                </td>
-                <td scope="col" className="tdhead">
-                  From
-                </td>
-                <td scope="col" className="tdhead">
-                  To
-                </td>
-                <td scope="col" className="tdhead">
-                  Date
-                </td>
-                <td scope="col" className="tdhead">
-                  Status
-                </td>
-              </tr>
-            </thead>
-             <tbody>
-              {successData && successData.map((data, i) => {
-               
-                const {from, to, pairId, srcAmount, destAmount, destChainTimestamp, status}:any= data;
-        
-                const date:any = destChainTimestamp * 1000;
-                 const Updateddate  = moment(date).fromNow()
-               
-                return (
-                  <>
-                    <tr key={i} className="tdRow">
-                      <td className="tdbody tdbodyhead">{(page - 1) * 10 + (i+1)}</td>
-                      <td className="tdbody">{pairId}</td>
-                      <td className="tdbody">
-                        Sent:{srcAmount / 1e18} <br />
-                        <span className="recieved">Recieved:{destAmount /1e18}</span>
-                      </td>
-                      <td className="tdbody">
-                        {/* {data.From} <br /> */}
-                        <a href={`/#/details?params=${from}`} className="address">
-                          {from.substring(0, 6)}...{from.slice(-3)}
-                        </a>
-                      </td>
-                      <td className="tdbody">
-                        {/* {data.to} <br /> */}
-                        <a href={`/#/details?params=${to}`} className="address">
-                          {to.substring(0, 6)}...{to.slice(-3)}
-                        </a>
-                      </td>
-                      <td className="tdbody">{Updateddate}</td>
-                      <td className="tdbody">{status==1?"Success":"Pending"}</td>
-                    </tr>
-                  </>
-                )
-              })}
-            </tbody>
-           
-
-
+          <div className="table1">
              
+              <Table className="table">
+                <thead>
+                  <tr>
+                    <td scope="col" className="tdhead">
+                      #
+                    </td>
+                    <td scope="col" className="tdhead">
+                      CoinType
+                    </td>
+                    <td scope="col" className="tdhead">
+                      Value
+                    </td>
+                    <td scope="col" className="tdhead">
+                      From
+                    </td>
+                    <td scope="col" className="tdhead">
+                      To
+                    </td>
+                    <td scope="col" className="tdhead">
+                      Date
+                    </td>
+                    <td scope="col" className="tdhead">
+                      Status
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {successData &&
+                    successData.map((data, i) => {
+                      const {
+                        from,
+                        to,
+                        pairId,
+                        srcAmount,
+                        destAmount,
+                        destChainTimestamp,
+                        status,
+                        destChainTx,
+                        srcChainTx,
+                        srcChainID,
+                        destChainID
+                      }: any = data
+                      const srcChainName =
+                        srcChainID == 97
+                          ? 'Binance TestNet'
+                          : srcChainID == 1807
+                          ? 'Tarality Testnet'
+                          : srcChainID == 4369
+                          ? 'Rabbit Testnet'
+                          : srcChainID == 80001
+                          ? 'Matic Testnet'
+                          : ''
+                      const destChainName =
+                        destChainID == 97
+                          ? 'Binance TestNet'
+                          : destChainID == 1807
+                          ? 'Tarality Testnet'
+                          : destChainID == 4369
+                          ? 'Rabbit Testnet'
+                          : destChainID == 80001
+                          ? 'Matic Testnet'
+                          : ''
 
-           
-           
-          </Table>
-          
+                      const date: any = destChainTimestamp * 1000
+                      const Updateddate = moment(date).fromNow()
 
-        )
-        }
+                      return (
+                        <>
+                          <tr key={i} className="tdRow">
+                            <td className="tdbody tdbodyhead">{(page - 1) * 10 + (i + 1)}</td>
+                            <td className="tdbody tbody">{pairId.substring(6)}</td>
+                            <td className="tdbody tbody">
+                              Sent:{srcAmount / 1e18} <br />
+                              <span className="recieved">Recieved:{destAmount / 1e18}</span>
+                            </td>
+                            <td className="tdbody tbody">
+                              {srcChainName} <br />
+                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}`} className="address">
+                                {from.substring(0, 6)}...{from.slice(-3)}
+                              </a>
+                            </td>
+                            <td className="tdbody tbody">
+                              {destChainName} <br />
+                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}`} className="address">
+                                {to.substring(0, 6)}...{to.slice(-3)}
+                              </a>
+                            </td>
+                            <td className="tdbody tbody">{Updateddate}</td>
+                            <td className="tdbody ">
+                              {status == 1 ? (
+                                <span
+                                  style={{ border: '1px solid green', padding: '0px 10px', borderRadius: '10px', color:"green", fontWeight:"600" }}
+                                >
+                                  Success
+                                </span>
+                              ) : (
+                                <span
+                                  style={{ border: '1px solid red', padding: '0px 10px', borderRadius: '10px', color:"red", fontWeight:"600" }}
+                                >
+                                  Failed
+                                </span>
+                              )}
+                            </td>
+                          </tr>
+                        </>
+                      )
+                    })}
+                </tbody>
+              </Table>
+            
+            {content && 
+              <p className="notFound" style={{ textAlign: 'center' }}>
+                No Transactions Found.
+              </p>
+            }
+          </div>
+        )}
 
         {tab2 && (
+          <div className="table2">
           <Table className="table">
             <thead>
               <tr>
@@ -562,52 +631,116 @@ export default function Explorer() {
               </tr>
             </thead>
             <tbody>
-               {pendingData && pendingData.map((data, i) => {
-               
-                const {from, to, pairId, srcAmount, destAmount, srcChainTimestamp, status}:any= data;
-        
-                const date:any = srcChainTimestamp * 1000;
-                 const Updateddate  = moment(date).fromNow()
-               
-                return (
-                  <>
-                    <tr key={i} className="tdRow">
-                      <td className="tdbody tdbodyhead">{i+1}</td>
-                      <td className="tdbody">{pairId}</td>
-                      <td className="tdbody">
-                        Sent:{srcAmount / 1e18} <br />
-                        <span className="recieved">Recieved:{destAmount /1e18}</span>
-                      </td>
-                      <td className="tdbody">
-                        {/* {data.From} <br /> */}
-                        <a href={`/#/details?params=${from}`} className="address">
-                          {from.substring(0, 6)}...{to.slice(-3)}
-                        </a>
-                      </td>
-                      <td className="tdbody">
-                        {/* {data.to} <br /> */}
-                        <a href={`/#/details?params=${to}`} className="address">
-                          {to?.substring(0, 6)}...{to.slice(-3)}
-                        </a>
-                      </td>
-                      <td className="tdbody">{Updateddate}</td>
-                      <td className="tdbody">{status==1?"Success":"Pending"}</td>
-                    </tr>
-                    
-                    
+              {pendingData &&
+                pendingData.map((data, i) => {
+                  const {
+                    from,
+                    to,
+                    pairId,
+                    srcAmount,
+                    destAmount,
+                    srcChainTimestamp,
+                    status,
+                    srcChainTx,
+                    srcChainID,
+                    destChainID
+                  }: any = data
 
-                  </>
-                )
-              })}
+                  const srcChainName =
+                    srcChainID == 97
+                      ? 'Binance TestNet'
+                      : srcChainID == 1807
+                      ? 'Tarality Testnet'
+                      : srcChainID == 4369
+                      ? 'Rabbit Testnet'
+                      : srcChainID == 80001
+                      ? 'Matic Testnet'
+                      : ''
+                  const destChainName =
+                    destChainID == 97
+                      ? 'Binance TestNet'
+                      : destChainID == 1807
+                      ? 'Tarality Testnet'
+                      : destChainID == 4369
+                      ? 'Rabbit Testnet'
+                      : destChainID == 80001
+                      ? 'Matic Testnet'
+                      : ''
+
+                  const date: any = srcChainTimestamp * 1000
+                  const Updateddate = moment(date).fromNow()
+
+                  return (
+                    <>
+                      <tr key={i} className="tdRow">
+                        <td className="tdbody tdbodyhead">{i + 1}</td>
+                        <td className="tdbody tbody">{pairId.substring(6)}</td>
+                        <td className="tdbody tbody">
+                          Sent:{srcAmount / 1e18} <br />
+                          <span className="recieved">Recieved:{destAmount / 1e18}</span>
+                        </td>
+                        <td className="tdbod tbodyy">
+                          {srcChainName} <br />
+                          <a href={`/#/details?params=${srcChainTx}`} className="address">
+                            {from.substring(0, 6)}...{to.slice(-3)}
+                          </a>
+                        </td>
+                        <td className="tdbody tbody">
+                          {destChainName} <br />
+                          <a href={`/#/details?params=${srcChainTx}`} className="address">
+                            {to?.substring(0, 6)}...{to.slice(-3)}
+                          </a>
+                        </td>
+                        <td className="tdbody tbody">{Updateddate}</td>
+                        <td className="tdbody">
+                          {status == 1 ? (
+                            <span style={{ border: '1px solid green', padding: '0px 10px', borderRadius: '10px',color:"green" }}>
+                              Success
+                            </span>
+                          ) : (
+                            <span style={{ border: '1px solid red', padding: '0px 10px', borderRadius: '10px',color:"red" }}>
+                             Pending
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    </>
+                  )
+                })}
             </tbody>
           </Table>
+          {content2 && 
+              <p className="notFound" style={{ textAlign: 'center' }}>
+                No Transactions Found.
+              </p>
+            }
+          </div>
         )}
-       
       </div>
-      <div className="pagination" style={{display:"flex",justifyContent:"center", marginTop:"25px" }}>
-        {tab1 && pagiStatus && <Pagination count={pagination} variant="outlined" shape="rounded" color="secondary" onChange={handleChange} page={page} style={{margin:"auto"}}/>}
-        {tab2 && <Pagination count={pPagination} variant="outlined" shape="rounded" color="secondary" onChange={handleChange} page={page} style={{margin:"auto"}}/>}
-        </div>
+      <div className="pagination" style={{ display: 'flex', justifyContent: 'center', marginTop: '25px' }}>
+        {tab1 && pagiStatus && (
+          <Pagination
+            count={pagination}
+            variant="outlined"
+            shape="rounded"
+            color="secondary"
+            onChange={handleChange}
+            page={page}
+            style={{ margin: 'auto' }}
+          />
+        )}
+        {tab2 && pPagiStatus && (
+          <Pagination
+            count={pPagination}
+            variant="outlined"
+            shape="rounded"
+            color="secondary"
+            onChange={handleChange}
+            page={page}
+            style={{ margin: 'auto' }}
+          />
+        )}
+      </div>
       {tab3 && (
         <>
           <ToolSection>
@@ -628,7 +761,16 @@ export default function Explorer() {
             <span className="chain">TXN Hash</span>
             <input
               type="text"
-              style={{ width: '100%', lineHeight: '28px', border: 'none', outline: 'none', marginTop: '15px', borderRadius:"6px"}}
+              placeholder='Enter Transaction Hash'
+              style={{
+                width: '100%',
+                lineHeight: '28px',
+                border: 'none',
+                outline: 'none',
+                marginTop: '15px',
+                borderRadius: '6px',
+                paddingLeft:"10px"
+              }}
             />
           </ToolSectionBottom>
           <ToolSectionBottom>
@@ -636,11 +778,11 @@ export default function Explorer() {
             <br />
             <div className="dropdown">
               <div
-                className="dropdown-btn"
-                style={{ position: 'relative', cursor: 'pointer', color:"#000", paddingLeft:"10px"  }}
+                className="dropdown-btn "
+                style={{ position: 'relative', cursor: 'pointer', color: '#000', paddingLeft: '10px' }}
                 onClick={() => setDropdown(!dropdown)}
               >
-                 {selectBox.length==0 ? "Select Chain Name":selectBox.toUpperCase()}
+                {selectBox.length == 0 ? 'Select Chain Name' : selectBox.toUpperCase()}
                 <i
                   className="fa-solid fa-caret-down"
                   style={{ position: 'absolute', right: '10px', top: '6px', color: '#000' }}
@@ -649,8 +791,18 @@ export default function Explorer() {
               <div className="content1">
                 {dropdown && (
                   <ul>
-                    <li onClick={()=>selectBoxFunc1("text1")}>text1</li>
-                    <li onClick={()=>selectBoxFunc1("text1")}>text1</li>
+                    {
+                      chain && chain.map((element,index)=>{
+                        console.log(element,"elementelementelement")
+                        const {blockChainName,chainId}:any=element;
+                          return (
+                            <>
+                            <li onClick={() => selectBoxFunc1(blockChainName,chainId)}>{blockChainName}</li>
+                            </>
+                          )
+                      })
+                    }
+                    
                   </ul>
                 )}
               </div>
@@ -661,29 +813,34 @@ export default function Explorer() {
             <div className="dropdown" style={{ marginBottom: '20px' }}>
               <div
                 className="dropdown-btn"
-                style={{ position: 'relative', cursor: 'pointer', color:"#000", paddingLeft:"10px" }}
+                style={{ position: 'relative', cursor: 'pointer', color: '#000', paddingLeft: '10px' }}
                 onClick={() => setDropdown1(!dropdown1)}
               >
-                {selectBox1.length==0 ? "Select Chain Name":selectBox1.toUpperCase()}
+                {selectBox1.length == 0 ? 'Select Chain Name' : selectBox1.toUpperCase()}
                 <i
                   className="fa-solid fa-caret-down"
                   style={{ position: 'absolute', right: '10px', top: '6px', color: '#000' }}
                 ></i>
               </div>
-              <div className="content2" style={{marginBottom:"20px"}}>
+              <div className="content2" style={{ marginBottom: '20px' }}>
                 {dropdown1 && (
                   <ul>
-                    <li onClick={()=>selectBoxFunc("text1")}>text1</li>
-                    <li onClick={()=>selectBoxFunc("text2")}>text2</li>
-                    <li onClick={()=>selectBoxFunc("text1")}>text1</li>
-                    <li onClick={()=>selectBoxFunc("text1")}>text1</li>
-                    <li onClick={()=>selectBoxFunc("text1")}>text1</li>
+                    {
+                      chain && chain.map((element,index)=>{
+                        console.log(element,"elementelementelement")
+                        const {blockChainName,chainId}:any=element;
+                          return (
+                            <>
+                            <li onClick={() => selectBoxFunc(blockChainName,chainId)}>{blockChainName}</li>
+                            </>
+                          )
+                      })
+                    }
                   </ul>
                 )}
               </div>
             </div>
-                <button className='sendButton'>Send</button>
-            
+            <button className="sendButton">Send</button>
           </ToolSectionBottom>
         </>
       )}

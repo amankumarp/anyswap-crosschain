@@ -73,7 +73,7 @@ export default function Details() {
     `}
     `
  
-    console.log(window.location.hash.substring(17),"window.location.search");
+    console.log(window.location,"window.location.search");
 
    async function fetchDetails(){
       const query = window.location.hash.substring(17);
@@ -88,10 +88,12 @@ export default function Details() {
       // console.log(apidata.),"apiData")
     },[])
     console.log(data,"datatata")
-    const {srcChainTx,destChainTx,from,to,pairId,status,srcAmount,destAmount,destChainTimestamp , srcChainTimestamp}:any = data;
+    const {srcChainTx,destChainTx,from,to,pairId,status,srcAmount,destAmount,destChainTimestamp , srcChainTimestamp,srcChainID, destChainID}:any = data;
     const destdate = new Date(destChainTimestamp*1000).toUTCString();
     const srcdate = new Date(srcChainTimestamp*1000).toUTCString();
-    console.log(destdate,srcdate,"hola")
+    const srcChainName = srcChainID==97? "Binance TestNet" :srcChainID==1807?"Tarality Testnet": srcChainID==4369?"Rabbit Testnet":srcChainID==80001?"Matic Testnet":""
+    const destChainName = destChainID==97? "Binance TestNet" :destChainID==1807?"Tarality Testnet": destChainID==4369?"Rabbit Testnet":destChainID==80001?"Matic Testnet":""
+    // console.log(destdate,srcdate,"hola")
 
  
   return (
@@ -109,18 +111,18 @@ export default function Details() {
         </div>
         <div className="col9 anchor"> <p> <a href="#">{status==1?destChainTx:<span style={{color:"#fff"}}>-</span>} </a> </p></div>
       </div>
-      {/* <div className="row">
+      <div className="row">
         <div className="col3">
            <p className='bold'>Source Chain:</p>
         </div>
-        <div className="col9"> <p>Optimism Mainnet</p></div>
+        <div className="col9"> <p>{srcChainName}</p></div>
       </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>Dest Chain:</p>
         </div>
-        <div className="col9"> <p>Fantom Mainnet</p></div>
-      </div> */}
+        <div className="col9"> <p>{destChainName}</p></div>
+      </div>
       <div className="row">
         <div className="col3">
            <p className='bold'>From:</p>
@@ -143,7 +145,7 @@ export default function Details() {
         <div className="col3">
            <p className='bold'>CoinType:</p>
         </div>
-        <div className="col9"> <p>{pairId}</p></div>
+        <div className="col9"> <p>{pairId?.substring(6)}</p></div>
       </div>
       <div className="row">
         <div className="col3">
