@@ -80,7 +80,7 @@ const StyledNavLink = styled(NavLink).attrs({
     background: ${({ theme }) => theme.bgColorLinear};
     border-bottom: none;
     font-weight: 600;
-    box-shadow: 0 0.25rem 0.75rem 0 rgba(115, 75, 226, 0.51);
+   
     .icon {
       background: ${({ theme }) => theme.navBg};
       box-shadow: 0 0.25rem 0.75rem 0 rgba(115, 75, 226, 0.51);

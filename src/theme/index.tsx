@@ -68,7 +68,8 @@ export function colors(darkMode: boolean): Colors {
     bg5: darkMode ? '#ddd' : '#999',
     bg6: darkMode ? "#000" : white,
     bg7: darkMode ? '#141313' : '#F7F8FA',
-    bg8: darkMode? '0b090e':white,
+    bg8: darkMode? '#0b090e':white,
+    recieve: darkMode? '#c9c9c9' :'#898080',
     contentBg: darkMode ? '#21263e' : white,
     contentBg1: darkMode ? '#0b090e' : white,
     contentBg2: darkMode ? "#0b090e"  : white,  
@@ -90,7 +91,7 @@ export function colors(darkMode: boolean): Colors {
     tipBg1: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : 'rgba(58,175,175,0.1)',
     search: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : white,
     tipBorder: darkMode ? '#2b314f' : '#b398f9',
-    tipColor: darkMode ? white : '#734be2',
+    tipColor: darkMode ? white : '#01b2b1',
     hoverEffect: darkMode ?'#231f2a' :"rgb(87 188 188 / 10%)",
 
     lightPuroleBg: darkMode ? '#2b314f' : 'rgb(246, 244, 255)',

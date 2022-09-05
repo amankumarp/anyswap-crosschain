@@ -162,7 +162,7 @@ td {
   font-weight: bold;
 }
 .recieved {
-  color: #c9c9c9;
+  color:${({ theme }) => theme.recieve};
 }
 .address {
   color: ${({ theme }) => theme.anchorColor};
@@ -711,7 +711,7 @@ export default function Explorer() {
                           Sent:{srcAmount / 1e18} <br />
                           <span className="recieved">Recieved:{destAmount / 1e18}</span>
                         </td>
-                        <td className="tdbod tbodyy">
+                        <td className="tdbod tbody">
                           {srcChainName} <br />
                           <a href={`/#/details?params=${srcChainTx}`} className="address">
                             {from.substring(0, 6)}...{to.slice(-3)}
