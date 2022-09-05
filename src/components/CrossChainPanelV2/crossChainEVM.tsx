@@ -60,6 +60,9 @@ import {
   useDestCurrency,
   getFTMSelectPool
 } from './hooks'
+const Cont = styled.div`
+background: ${({ theme }) => theme.bg8};
+`
 
 let intervalFN:any = ''
 
@@ -596,9 +599,7 @@ export default function CrossChain({
     }
   }, [setInputBridgeValue])
 
-  const Cont = styled.div`
-  background: ${({ theme }) => theme.bg8};
-  `
+ 
 
   return (
     <>

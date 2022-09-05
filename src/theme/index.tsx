@@ -69,6 +69,7 @@ export function colors(darkMode: boolean): Colors {
     bg6: darkMode ? "#000" : white,
     bg7: darkMode ? '#141313' : '#F7F8FA',
     bg8: darkMode? '#0b090e':white,
+    bg9: darkMode ?"#0b090e" :"#f7f7f7",
     recieve: darkMode? '#c9c9c9' :'#898080',
     contentBg: darkMode ? '#21263e' : white,
     contentBg1: darkMode ? '#0b090e' : white,
@@ -339,7 +340,7 @@ html {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
-  background-color: ${({ theme }) => theme.bg2};
+  background-color: ${({ theme }) => theme.bg9};
 }
 
 body {

@@ -57,11 +57,15 @@ export const CurrencySelect = styled.button<{ selected: boolean }>`
     background-color: ${({ theme }) => darken(0.1, theme.selectedBorder)};
   }
   ${({ theme }) => theme.mediaWidth.upToLarge`
-    height: 60px;
+  height: 60px;
+  `};
+  ${({ theme }) => theme.mediaWidth.upToLarge`
+    height: 50px;
     width: 100%;
     padding: 0 0.625rem;
     margin: 0 5px;
   `};
+  
 `
 
 export const ErrorSpanBox = styled.div`
@@ -172,6 +176,9 @@ export const StyledDropDownBox = styled.div`
   ${({ theme }) => theme.mediaWidth.upToLarge`
     top: 1rem;
   `};
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+  top: .7rem;
+`};
 `
 export const StyledDropDown = styled(DropDown)<{ selected: boolean }>`
   height: 35%;

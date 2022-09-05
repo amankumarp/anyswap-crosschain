@@ -106,7 +106,7 @@ export default function Details() {
       const destChainId = string3.split('=')[1]
 
       const dataa = await axios.post('http://localhost:3000/v2/transactionDetail/hash', {
-        address: txnHash,
+        address: txnHash.length>0?txnHash:"empty",
         srcChainId: srcChainId,
         destChainId: destChainId
       })
