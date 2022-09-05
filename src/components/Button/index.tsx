@@ -67,6 +67,7 @@ export const ButtonPrimary = styled(Base)`
     outline: none;
     opacity: ${({ altDisabledStyle }) => (altDisabledStyle ? '0.5' : '0.5')};
   }
+
 `
 
 export const ButtonLight = styled(Base)`

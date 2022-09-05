@@ -3,13 +3,322 @@ import React, { useEffect, useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import Pagination from '@material-ui/lab/Pagination'
 import moment from 'moment'
-import BeatLoader from 'react-spinners/BeatLoader'
+import BeatLoader from 'react-spinners/BeatLoader';
+// import { Link } from 'react-router-dom'
 
 // import ClipLoader from "react-spinners/ClipLoader";
 
 // import { math } from 'polished'
+const InputText = styled.input`
+width:90%
+line-height:40px;
+outline:none; 
+border:none;
+padding-left:10px;
+color:${({ theme }) => theme.text7};
+background:${({ theme }) => theme.search};
+border:1px solid;
+border-color: ${({ theme }) => theme.borderBg};
+${({ theme }) => theme.mediaWidth.upToMedium`
+width:80%;
+
+`}`
+
+const Wrap = styled.div`
+width: 1440px;
+padding: 20px;
+
+h1 {
+  color: #fff;
+}
+.MuiPaginationItem-outlined {
+  border: 1px solid ${({ theme }) => theme.text7} ;
+}
+
+.MuiPaginationItem-root {
+color:${({ theme }) => theme.text7};
+}
+.MuiPaginationItem-outlinedSecondary.Mui-selected {
+color: #00b2b0 !important;
+border: 1px solid #00b2b0 ;
+background-color: rgb(0 178 176 / 18%);
+}
+.tab-container {
+  padding: 20px 0px;
+  .tab {
+    font-size: 15px;
+    font-Weight:600;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: ${({ theme }) => theme.text7};
+    background: transparent;
+    border: 1px solid;
+    border-color: ${({ theme }) => theme.borderBg};
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    ${({ theme }) => theme.mediaWidth.upToMedium`
+    font-size: 14px;
+    `}
+  }
+  .active {
+    font-size: 15px;
+    padding: 10px 10px;
+    font-Weight:600;
+    cursor: pointer;
+    color: ${({ theme }) => theme.text7};
+    // background: ${({ theme }) => theme.tabActiveColor1};
+    border-radius: 10px;
+    border-bottom: 3px solid;
+    // border-left: 1px solid;
+    border-right: 1px solid;
+    // border-top: 1px solid;
+    border-color: #01b2b1;
+    margin-left: 5px;
+    margin-right: 5px;
+    ${({ theme }) => theme.mediaWidth.upToMedium`
+    font-size: 14px;
+    `}
+  }
+}
+.table-responsive {
+  overflow: auto;
+  max-height: 70vh;
+}
+.notFound{
+  color: ${({ theme }) => theme.text7};
+}
+
+${({ theme }) => theme.mediaWidth.upToExtraLarge`
+        width:1000px;
+        padding:5px;
+    `}
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+    width:100%
+    padding:5px;
+`}
+${({ theme }) => theme.mediaWidth.upToMedium`
+        width:100%;
+        padding:5px;
+    `}
+`
+const Table = styled.table`
+width: 100%;
+
+padding: 10px;
+overflow: auto;
+border-radius: 10px;
+background: ${({ theme }) => theme.contentBg2};
+color: ${({ theme }) => theme.text7};
+border: 1px solid;
+border-color: ${({ theme }) => theme.borderBg};
+border-spacing: 0px;
+
+.record-message {
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+thead {
+  vertical-align: bottom;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: ${({ theme }) => theme.tipBg1};
+  color: ${({ theme }) => theme.text7};
+}
+a {
+  text-decoration: none;
+  color: blue;
+}
+td {
+  border: none;
+}
+
+.tdhead {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: bold;
+}
+.tbody{
+  min-width:100px;
+}
+.tdbody {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  height: 50px;
+ 
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+  font-size: 12px;
+
+  `}
+}
+.tdbodyhead {
+  font-weight: bold;
+}
+.recieved {
+  color: #c9c9c9;
+}
+.address {
+  color: ${({ theme }) => theme.anchorColor};
+}
+.tdRow {
+  &:hover {
+    background: ${({ theme }) => theme.hoverEffect};
+  }
+}
+`
+const InputWrapper = styled.div`
+width: 70%;
+margin: auto;
+margin-bottom: 20px;
+.btn {
+  width: 44px;
+  line-height: 40px;
+  background: #01b2b1;
+  border: none;
+  outline: none;
+  border: 1px solid;
+  border-color: ${({ theme }) => theme.borderBg};
+  cursor: pointer;
+}
+`
+
+
+
+const Input = styled.input`
+width:100%;
+
+  border:1px solid ;
+  border-color: ${({ theme }) => theme.borderBg};
+
+
+`
+
+const ToolSection = styled.div`
+width: 1000px;
+margin: auto;
+margin-top: 30px;
+border: 1px solid;
+padding: 30px 40px;
+border-radius: 20px;
+border:1px solid;
+border-color: ${({ theme }) => theme.borderBg};
+background: ${({ theme }) => theme.search};
+
+
+${({ theme }) => theme.mediaWidth.upToMedium`
+width:100%;
+padding: 30px 20px;
+
+`}
+`
+const Para = styled.p`
+font-size: 14px;
+color: ${({ theme }) => theme.text7};
+`
+
+const ToolSectionBottom = styled.div`
+width: 600px;
+margin: auto;
+margin-top: 40px;
+
+.dropdown{
+  position:relative;
+  margin-top: 15px ;
+}
+.dropdown-btn{
+  background:white;
+  line-height:28px;
+  min-height:28px;
+  border-radius:6px
+  border:1px solid ;
+  border-color: ${({ theme }) => theme.borderBg};
+}
+.content1{
+  background:#fff;
+  width:100%
+  position: absolute;
+  top: 33px;
+  z-index:1;
+  border-radius:6px;
+  max-height:158px;
+  overflow-y:scroll;
+  background:#fff;
+  box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
+  ul{
+    padding:0px;
+    margin:10px 0
+    text-decoration:none;
+    
+  };
+  li{
+    color:#000;
+    padding:5px 15px;
+    cursor:pointer;
+    &:hover{
+      background:#ccc
+      
+    }
+  }
+}
+.content2{
+  background:#fff;
+  width:100%
+  position: absolute;
+  z-index:200;
+  top: 33px;
+  max-height:158px;
+  overflow-y:scroll;
+  
+  border-radius:6px;
+  box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
+  ul{
+    padding:0px
+    text-decoration:none;
+    
+  };
+  li{
+    color:#000;
+    padding:5px 15px;
+    cursor:pointer;
+    &:hover{
+      background:#ccc;
+    }
+  }
+}
+.chain{
+  font-size:15px;
+  color:${({ theme }) => theme.text7};
+
+}
+.sendButton{
+  background:#01b2b1;
+  color:#fff;
+  border:none;
+  outline:none;
+  border-radius:10px;
+ padding:7px 15px;
+ position:relative;
+ text-decoration:none;
+ left:50%;
+ transform:translateX(-50%);
+ cursor:pointer;
+}
+${({ theme }) => theme.mediaWidth.upToMedium`
+width:80%;
+`};
+
+`
+
 
 export default function Explorer() {
+  
   const [tab1, setTab1] = useState(true)
   const [tab2, setTab2] = useState(false)
   const [tab3, setTab3] = useState(false)
@@ -31,23 +340,37 @@ export default function Explorer() {
   const[content,setContent] = useState(false);
   const[content2,setContent2] = useState(false);
   const[chain, setChain] = useState([]);
+  const[txnhash,SetTxnhash]=useState("");
+  const[srcChainId,setSrcChainId]=useState(0);
+  const[destChainId,setDestChainId]=useState(0)
 
   const handleChange = (e:any,p: number) => {
     setPage(p)
     if(p!=page){
       setLoading(true)
     }
-   
   }
-  console.log(page, 'page')
+
+  const inputChange = (e:any)=>{
+    console.log(e.target.value,"holllllllllllllllllllo0")
+    SetTxnhash(e.target.value)
+  }
+  // console.log(txnHash,"wgfvdcg")
+  // const sendToDetails = ()=>{
+   
+
+  // } 
+  // console.log(selectBox, 'pageselectBox1')
 
   function selectBoxFunc(text1: string,id:number) {
-    console.log(id,"iddd")
+  
+    setDestChainId(id)
     setSelectBox1(text1)
     setDropdown1(false)
   }
-  function selectBoxFunc1(text1: string,id:number) {
 
+  function selectBoxFunc1(text1: string,id:number) {
+    setSrcChainId(id);
     console.log(id,"idddddd")
     setSelectBox(text1)
     setDropdown(false)
@@ -61,6 +384,7 @@ export default function Explorer() {
     left: '50%',
     top: '280px'
   }
+
   async function api() {
     const data = await axios.get(`http://localhost:3000/v2/history?page=${page}&status=${apiStatus}`)
    
@@ -136,305 +460,13 @@ export default function Explorer() {
     }
   }
 
-  const Wrap = styled.div`
-    width: 1440px;
-    padding: 20px;
-
-    h1 {
-      color: #fff;
-    }
-    .MuiPaginationItem-outlined {
-      border: 1px solid ${({ theme }) => theme.text7} ;
-  }
- 
-  .MuiPaginationItem-root {
-    color:${({ theme }) => theme.text7};
-  }
-  .MuiPaginationItem-outlinedSecondary.Mui-selected {
-    color: #00b2b0 !important;
-    border: 1px solid #00b2b0 ;
-    background-color: rgb(0 178 176 / 18%);
-  }
-    .tab-container {
-      padding: 20px 0px;
-      .tab {
-        font-size: 15px;
-        font-Weight:600;
-        padding: 10px 10px;
-        cursor: pointer;
-        color: ${({ theme }) => theme.text7};
-        background: transparent;
-        border: 1px solid;
-        border-color: ${({ theme }) => theme.borderBg};
-        margin-left: 5px;
-        margin-right: 5px;
-        border-radius: 10px;
-        ${({ theme }) => theme.mediaWidth.upToMedium`
-        font-size: 14px;
-        `}
-      }
-      .active {
-        font-size: 15px;
-        padding: 10px 10px;
-        font-Weight:600;
-        cursor: pointer;
-        color: ${({ theme }) => theme.text7};
-        // background: ${({ theme }) => theme.tabActiveColor1};
-        border-radius: 10px;
-        border-bottom: 3px solid;
-        // border-left: 1px solid;
-        border-right: 1px solid;
-        // border-top: 1px solid;
-        border-color: #01b2b1;
-        margin-left: 5px;
-        margin-right: 5px;
-        ${({ theme }) => theme.mediaWidth.upToMedium`
-        font-size: 14px;
-        `}
-      }
-    }
-    .table-responsive {
-      overflow: auto;
-      max-height: 70vh;
-    }
-    .notFound{
-      color: ${({ theme }) => theme.text7};
-    }
-    
-    ${({ theme }) => theme.mediaWidth.upToExtraLarge`
-            width:1000px;
-            padding:5px;
-        `}
-        ${({ theme }) => theme.mediaWidth.upToLarge`
-        width:100%
-        padding:5px;
-    `}
-    ${({ theme }) => theme.mediaWidth.upToMedium`
-            width:100%;
-            padding:5px;
-        `}
-  `
-  const Table = styled.table`
-    width: 100%;
-
-    padding: 10px;
-    overflow: auto;
-    border-radius: 10px;
-    background: ${({ theme }) => theme.contentBg2};
-    color: ${({ theme }) => theme.text7};
-    border: 1px solid;
-    border-color: ${({ theme }) => theme.borderBg};
-    border-spacing: 0px;
-
-    .record-message {
-      color: #fff;
-      text-align: center;
-      position: relative;
-    }
-    thead {
-      vertical-align: bottom;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      background: ${({ theme }) => theme.tipBg1};
-      color: ${({ theme }) => theme.text7};
-    }
-    a {
-      text-decoration: none;
-      color: blue;
-    }
-    td {
-      border: none;
-    }
-
-    .tdhead {
-      padding-top: 10px;
-      padding-bottom: 10px;
-      padding-left: 5px;
-      padding-right: 5px;
-      font-weight: bold;
-    }
-    .tbody{
-      min-width:100px;
-    }
-    .tdbody {
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-left: 5px;
-      padding-right: 5px;
-      font-size: 14px;
-      font-weight: 400;
-      height: 50px;
-     
-      ${({ theme }) => theme.mediaWidth.upToMedium`
-      font-size: 12px;
-   
-      `}
-    }
-    .tdbodyhead {
-      font-weight: bold;
-    }
-    .recieved {
-      color: #c9c9c9;
-    }
-    .address {
-      color: ${({ theme }) => theme.anchorColor};
-    }
-    .tdRow {
-      &:hover {
-        background: ${({ theme }) => theme.hoverEffect};
-      }
-    }
-  `
-  const InputWrapper = styled.div`
-    width: 70%;
-    margin: auto;
-    margin-bottom: 20px;
-    .btn {
-      width: 44px;
-      line-height: 40px;
-      background: #01b2b1;
-      border: none;
-      outline: none;
-      border: 1px solid;
-      border-color: ${({ theme }) => theme.borderBg};
-      cursor: pointer;
-    }
-  `
-  const InputText = styled.input`
-    width:90%
-    line-height:40px;
-    outline:none; 
-    border:none;
-    padding-left:10px;
-    color:${({ theme }) => theme.text7};
-    background:${({ theme }) => theme.search};
-    border:1px solid;
-    border-color: ${({ theme }) => theme.borderBg};
-    ${({ theme }) => theme.mediaWidth.upToMedium`
-    width:80%;
-   
-`}
-
-`
-  const ToolSection = styled.div`
-    width: 1000px;
-    margin: auto;
-    margin-top: 30px;
-    border: 1px solid;
-    padding: 30px 40px;
-    border-radius: 20px;
-    border-color: ${({ theme }) => theme.borderBg};
-    background: ${({ theme }) => theme.search};
-
-    ${({ theme }) => theme.mediaWidth.upToMedium`
-    width:100%;
-    padding: 30px 20px;
-   
-`}
-  `
-  const Para = styled.p`
-    font-size: 14px;
-    color: ${({ theme }) => theme.text7};
-  `
-
-  const ToolSectionBottom = styled.div`
-    width: 600px;
-    margin: auto;
-    margin-top: 40px;
-    .dropdown{
-      position:relative;
-      margin-top: 15px ;
-    }
-    .dropdown-btn{
-      background:white;
-      line-height:28px;
-      min-height:28px;
-      border-radius:6px
-      border:1px solid ;
-      border-color: ${({ theme }) => theme.borderBg};
-    }
-    .content1{
-      background:#fff;
-      width:100%
-      position: absolute;
-      top: 33px;
-      z-index:1;
-      border-radius:6px;
-      max-height:158px;
-      overflow-y:scroll;
-      background:#fff;
-      box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
-      ul{
-        padding:0px;
-        margin:10px 0
-        text-decoration:none;
-        
-      };
-      li{
-        color:#000;
-        padding:5px 15px;
-        cursor:pointer;
-        &:hover{
-          background:#ccc
-          
-        }
-      }
-    }
-    .content2{
-      background:#fff;
-      width:100%
-      position: absolute;
-      z-index:200;
-      top: 33px;
-      max-height:158px;
-      overflow-y:scroll;
-      
-      border-radius:6px;
-      box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
-      ul{
-        padding:0px
-        text-decoration:none;
-        
-      };
-      li{
-        color:#000;
-        padding:5px 15px;
-        cursor:pointer;
-        &:hover{
-          background:#ccc;
-        }
-      }
-    }
-    .chain{
-      font-size:15px;
-      color:${({ theme }) => theme.text7};
-    
-    }
-    .sendButton{
-      background:#01b2b1;
-      color
-      border:none;
-      outline:none;
-      border-radius:10px;
-      width:150px;
-      height:40px;
-     position:relative;
-     left:50%;
-     transform:translateX(-50%);
-     cursor:pointer;
-    }
-    ${({ theme }) => theme.mediaWidth.upToMedium`
-    width:80%;
-`};
-    
-  `
-
+  
   return (
     <Wrap>
       <BeatLoader color="#01b2b1" loading={loading} cssOverride={override} size={20} />
       {!tab3 && (
         <InputWrapper>
-          <InputText type="text" placeholder="Hash/Address" onChange={e => setSearch(e.target.value)} value={search} />
+          <InputText type="text" placeholder="Hash/Address" value={search} onChange={e => setSearch(e.target.value)} />
           <button className="btn" onClick={fetchOnClick}>
             <i className="fa-solid fa-magnifying-glass" style={{ color: '#fff', fontSize: '20px' }}></i>
           </button>
@@ -759,13 +791,15 @@ export default function Explorer() {
           </ToolSection>
           <ToolSectionBottom>
             <span className="chain">TXN Hash</span>
-            <input
+            <Input
+             placeholder='Enter Transaction Hash'
               type="text"
-              placeholder='Enter Transaction Hash'
+              onChange={(e)=>inputChange(e)}
+              className="inputHash"
+              value={txnhash}
               style={{
                 width: '100%',
                 lineHeight: '28px',
-                border: 'none',
                 outline: 'none',
                 marginTop: '15px',
                 borderRadius: '6px',
@@ -797,7 +831,7 @@ export default function Explorer() {
                         const {blockChainName,chainId}:any=element;
                           return (
                             <>
-                            <li onClick={() => selectBoxFunc1(blockChainName,chainId)}>{blockChainName}</li>
+                            <li onClick={() => selectBoxFunc1(blockChainName,chainId)} style={{display:blockChainName===selectBox1?"none":"block"}}>{blockChainName}</li>
                             </>
                           )
                       })
@@ -831,7 +865,7 @@ export default function Explorer() {
                         const {blockChainName,chainId}:any=element;
                           return (
                             <>
-                            <li onClick={() => selectBoxFunc(blockChainName,chainId)}>{blockChainName}</li>
+                            <li onClick={() => selectBoxFunc(blockChainName,chainId)} style={{display:blockChainName===selectBox?"none":"block"}}>{blockChainName}</li>
                             </>
                           )
                       })
@@ -840,7 +874,7 @@ export default function Explorer() {
                 )}
               </div>
             </div>
-            <button className="sendButton">Send</button>
+            <a className="sendButton" href={`/#/details?hash=${txnhash.trim()}&srcChainId=${srcChainId}&destChainId=${destChainId}`}>Send</a>
           </ToolSectionBottom>
         </>
       )}

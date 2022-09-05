@@ -68,6 +68,7 @@ export function colors(darkMode: boolean): Colors {
     bg5: darkMode ? '#ddd' : '#999',
     bg6: darkMode ? "#000" : white,
     bg7: darkMode ? '#141313' : '#F7F8FA',
+    bg8: darkMode? '0b090e':white,
     contentBg: darkMode ? '#21263e' : white,
     contentBg1: darkMode ? '#0b090e' : white,
     contentBg2: darkMode ? "#0b090e"  : white,  

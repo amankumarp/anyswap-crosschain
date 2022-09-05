@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import { Route, Switch, Redirect, } from 'react-router-dom'
 import styled from 'styled-components'
 import Header from '../components/Header'
 import NavList from '../components/Header/NavList'

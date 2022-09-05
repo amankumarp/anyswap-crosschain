@@ -43,6 +43,7 @@ import LiquidityPool from '../LiquidityPool'
 
 import ConfirmView from './confirmModal'
 import ErrorTip from './errorTip'
+import styled from 'styled-components'
 
 import {
   LogoBox,
@@ -595,6 +596,10 @@ export default function CrossChain({
     }
   }, [setInputBridgeValue])
 
+  const Cont = styled.div`
+  background: ${({ theme }) => theme.bg8};
+  `
+
   return (
     <>
       <ModalContent
@@ -730,7 +735,7 @@ export default function CrossChain({
         </ConfirmContent>
       </ModalContent>
 
-            <div className='border' style={{border:`1px solid ${theme.borderBg}`, padding:"10px 10px 30px 10px", borderRadius:"10px"}}>
+            <Cont className='border' style={{border:`1px solid ${theme.borderBg}`, padding:"10px 10px 30px 10px", borderRadius:"10px"}}>
       <AutoColumn gap={'sm'}>
 
         <SelectCurrencyInputPanel
@@ -907,7 +912,7 @@ export default function CrossChain({
           
         )
       }
-      </div>
+      </Cont>
     </>
   )
 }

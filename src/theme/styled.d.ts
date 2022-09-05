@@ -28,6 +28,7 @@ export interface Colors {
   bg5: Color
   bg6: Color
   bg7: Color
+  bg8:Color
   bluecolor:Color
   contentBg: Color
   contentBg1: Color
