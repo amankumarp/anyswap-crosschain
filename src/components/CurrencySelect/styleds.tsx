@@ -174,7 +174,7 @@ export const StyledDropDownBox = styled.div`
   top:0.7rem;
   right: -6px;
   ${({ theme }) => theme.mediaWidth.upToLarge`
-    top: 1rem;
+    top: .7rem;
   `};
   ${({ theme }) => theme.mediaWidth.upToMedium`
   top: .7rem;
