@@ -130,6 +130,7 @@ export default function CrossChain({
   }
 
   function changeNetwork (chainID:any) {
+    // console.log(chainID,"chainId")
     selectNetwork(chainID).then((res: any) => {
       console.log(res)
       if (res.msg === 'Error') {

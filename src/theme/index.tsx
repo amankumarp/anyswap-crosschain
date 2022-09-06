@@ -52,6 +52,7 @@ export function colors(darkMode: boolean): Colors {
     text6: darkMode ? '#ddd' : '#999',
     text7: darkMode ? '#fff' : '#000',
     text8: darkMode ? "#000" :"#fff",
+    text9: darkMode ? `#FFFFFF` : "#787b82",
     textNav: darkMode ? '#979dac' : '#062536',
     textColor: darkMode ? 'white' : '#031a6e',
     textColorBold: darkMode ? white : '#062536',
@@ -120,7 +121,7 @@ export function colors(darkMode: boolean): Colors {
     swapBg: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.1)',
 
     chaliceGray: darkMode ? '#7B7B7B' : '#AEAEAE',
-    royalBlue: darkMode ? '#734be2' : '#734be2',
+    royalBlue: darkMode ? '#01b2b1' : '#01b2b1',
     placeholderGray: darkMode ? '#5F5F5F' : '#E1E1E1',
     activeGray: darkMode ? '#363d5f' : '#F7F8FA',
     activeGray1: darkMode ? '#120f0f' : '#F7F8FA',
@@ -339,7 +340,7 @@ html {
 
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
-  color: ${({ theme }) => theme.text1};
+  color: ${({ theme }) => theme.text9};
   background-color: ${({ theme }) => theme.bg9};
 }
 

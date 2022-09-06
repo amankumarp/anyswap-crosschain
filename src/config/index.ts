@@ -35,7 +35,7 @@ const config: ConFig = {
   baseCurrency: 'ANY',
   localDataDeadline: 1624700942896,
   farmUrl: '#/',
-  explorerUrl: '/explorer',
+  explorerUrl: '/#/explorer',
   isStopSystem: 0,
   getBaseCoin (value:any, chainId:any, type?: number, name?: string) {
     // console.log(value)

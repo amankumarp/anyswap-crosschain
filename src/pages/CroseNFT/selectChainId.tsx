@@ -79,6 +79,8 @@ export default function SelectChainIDPanel ({
       >
         {
           chainList.map((item, index) => {
+            console.log(chainId,"chainIdchainIdchainIdddd");
+            
             return (
               <OptionCardClickable
                 key={index}

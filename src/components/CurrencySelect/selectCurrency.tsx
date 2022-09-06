@@ -77,6 +77,7 @@ interface SelectCurrencyInputPanelProps {
   isRouter?: any // showETH
 }
 
+
 export default function SelectCurrencyInputPanel({
   value,
   onUserInput,
@@ -122,7 +123,7 @@ export default function SelectCurrencyInputPanel({
 
   // const useTokenList = Object.keys(allTokens).length > 0 ? allTokens : allTokensList
   const useTokenList = allTokens
-  // console.log(useTokenList)
+  //  console.log(useTokenList,"currencytokenlistcurrencytokenlistcurrencytokenlist")
   // console.log(allTokens)
   //   console.log(allTokensList)
   const handleDismissSearch = useCallback(() => {
@@ -192,7 +193,7 @@ export default function SelectCurrencyInputPanel({
   }, [isViewModal])
 
   const logoUrl = useMemo(() => {
-    // console.log(currency)
+    //  console.log(currency,"curerencycurerencycurerencycurerency")
     if (useTokenList && currency?.address) {
       for (const t in useTokenList) {
         if (
@@ -200,14 +201,15 @@ export default function SelectCurrencyInputPanel({
           || useTokenList[t]?.underlying?.address?.toLowerCase() === currency?.address?.toLowerCase()
           || useTokenList[t]?.tokenInfo?.underlying?.address?.toLowerCase() === currency?.address?.toLowerCase()
         ) {
-          // console.log(useTokenList[t])
+    
+          
           return useTokenList[t]?.tokenInfo?.logoUrl ?? useTokenList[t]?.logoUrl
         }
       }
     }
-    return ''
+    return currency?.logoUrl
   }, [useTokenList, currency])
-  // console.log(currency)
+  //  console.log(currency,"currencycurrency")
   return (
     <InputPanel id={id} className={isError ? 'error' : ''}>
       <Container hideInput={hideInput}>

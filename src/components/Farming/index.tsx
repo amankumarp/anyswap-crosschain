@@ -595,7 +595,7 @@ export default function Farming ({
         console.log(err)
         backInit()
       })
-    } catch (error) {
+    } catch (error){
       alert(error.toString())
     }
   }

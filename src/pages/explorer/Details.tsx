@@ -11,6 +11,11 @@ font-size:14px;
 color: ${({ theme }) => theme.text7};
 border 1px solid;
 border-color: ${({ theme }) => theme.borderBg};
+background:${({ theme }) => theme.contentBg1}
+.msg{
+  color: ${({ theme }) => theme.text7};
+ 
+};
 .row{
     display:flex;
     ${({ theme }) => theme.mediaWidth.upToMedium`
@@ -63,6 +68,7 @@ border-color: ${({ theme }) => theme.borderBg};
 .bold{
     font-weight:bold;
 }
+
 ${({ theme }) => theme.mediaWidth.upToMedium`
 
 width: 100%;
@@ -73,7 +79,7 @@ export default function Details() {
   const location = useLocation();
   const [data, setData] = useState([]);
   
-  const [textStatus,setTextStatus] =useState(false);
+   const [textStatus,setTextStatus] =useState(false);
 
   // console.log(location.search.split('&'), 'location............')
   const qs = location.search.split('&')
@@ -88,18 +94,19 @@ export default function Details() {
 
 
   async function fetchDetails() {
-    if (qs.length == 1) {
-      // console.log(qs.length, 'qs.lengthqs.lengtqs.lengthh')
-      const data = await axios.post('http://localhost:3000/v2/transactionDetail', { address: txnHash })
-      console.log(data.status,"data.data.lengtdata.statusdata.statusdata.statusdata.statusdata.status");
-      setData(data.data)
+    // if (qs.length == 1) {
+    //    console.log(qs.length, 'qs.lengthqs.lengtqs.lengthh')
+    //   const data = await axios.post('http://localhost:3000/v2/transactionDetail', { address: txnHash })
+    //   console.log(data.status,"data.data.lengtdata.statusdata.statusdata.statusdata.statusdata.status");
+    //   setData(data.data)
       
-      if(data.status==400){
+    //   if(data.status==400){
         
-        setTextStatus(true)
-      }
+    //     setTextStatus(true)
+    //   }
      
-    } else if (qs.length == 3) {
+    // } else 
+    if (qs.length == 3) {
       const string2 = qs[1]
       const string3 = qs[2]
       const srcChainId = string2.split('=')[1]
@@ -109,12 +116,15 @@ export default function Details() {
         address: txnHash.length>0?txnHash:"empty",
         srcChainId: srcChainId,
         destChainId: destChainId
-      })
-      console.log(dataa,"data.data.lengtdata.statusdata.statusdata.statusdata.statusdata.status");
+      });
+
+      console.log(dataa.data.status);
       
       setData(dataa.data);
-      if(dataa.status==400){
-       
+      // if(dataa){
+      //   setTextStatus(true)
+      // }
+      if(dataa.data.status===false){
         setTextStatus(true)
       }
       
@@ -123,7 +133,6 @@ export default function Details() {
 
   useEffect(() => {
     fetchDetails()
-
     // console.log(apidata.),"apiData")
   }, [])
   console.log(data, 'datatata')
@@ -168,9 +177,8 @@ export default function Details() {
   return (
     <div>
       <Wrap>
-       {!textStatus ? (
-        <>
-       <div className="row">
+       
+      {!textStatus?(<><div className="row">
           <div className="col3">
             <p className="bold">Source Hash:</p>
           </div>
@@ -276,14 +284,21 @@ export default function Details() {
           </div>
           <div className="col9">
             {' '}
-            <p>{status == 1 ? 'Success' : 'Pending'}</p>
+            <p >{status == 1 ? <span style={{color:"#08a708", fontWeight:"bold"}}><i className="fa-regular fa-clock" style={{paddingRight:"5px"}} />Success</span>: <span style={{color:"red", fontWeight:"bold"}}> <i className="fa-light fa-clock" style={{paddingRight:"5px"}}></i>Pending</span>}</p>
           </div>
         </div>
+        </> 
+        ):
+        <div className="msg">
+          <h2 style={{textAlign:"center"}}>No record found.</h2>
+        </div>
+
+        }
         
-        </>):
-          <div className="msg">
-          <h2 style={{textAlign:"center"}}>No transactions found.</h2>
-        </div>}
+       
+          {/* <div className="msg">
+          <h2 style={{textAlign:"center"}}>No record found.</h2>
+        </div>} */}
       </Wrap>
     </div>
   )

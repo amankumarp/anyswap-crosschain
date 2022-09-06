@@ -332,7 +332,7 @@ export function Option ({
   const item = config.getCurChainInfo(curChainId)
   const [viewUrl, setViewUrl] = useState<string>(item.nodeRpc)
   const [viewLoading, setViewLoading] = useState<boolean>(false)
-  // console.log(viewUrl)
+  // console.log(item,"curChainIdcurChainId")
   return (
     <>
       <WalletLogoBox>
@@ -432,6 +432,7 @@ function ChainListBox ({
   openUrl: (value:any) => void
   searchQuery: any
 }) {
+  //  console.log(useChainId,openUrl,"useChainIduseChainIduseChainIduseChainId")
   return (
     <>
       <NetWorkList style={{height: height}}>
@@ -446,6 +447,7 @@ function ChainListBox ({
               ))
               || !searchQuery
             ) {
+              // console.log(useChainId,"useChainIduseChainIduseChainIdccc")
               return (
                 <OptionCardClickable key={index} className={
                   useChainId?.toString() === item?.toString()  ? 'active' : ''} onClick={() => {openUrl(chainInfo[item])}}>
@@ -512,6 +514,7 @@ export default function SelectNetwork () {
     }
     return chainId
   }, [selectNetworkInfo, chainId])
+  
 
   const handleInput = useCallback(event => {
     const input = event.target.value

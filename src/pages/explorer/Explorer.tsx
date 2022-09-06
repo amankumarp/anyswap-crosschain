@@ -69,10 +69,10 @@ background-color: rgb(0 178 176 / 18%);
     color: ${({ theme }) => theme.text7};
     // background: ${({ theme }) => theme.tabActiveColor1};
     border-radius: 10px;
-    border-bottom: 3px solid;
-    // border-left: 1px solid;
+    border-bottom: 1px solid;
+     border-left: 1px solid;
     border-right: 1px solid;
-    // border-top: 1px solid;
+     border-top: 1px solid;
     border-color: #01b2b1;
     margin-left: 5px;
     margin-right: 5px;
@@ -203,13 +203,13 @@ width:100%;
 const ToolSection = styled.div`
 width: 1000px;
 margin: auto;
-margin-top: 30px;
+margin-top: 0px;
 border: 1px solid;
 padding: 30px 40px;
 border-radius: 20px;
 border:1px solid;
 border-color: ${({ theme }) => theme.borderBg};
-background: ${({ theme }) => theme.search};
+background: ${({ theme }) => theme.tipBg1};
 
 
 ${({ theme }) => theme.mediaWidth.upToMedium`
@@ -303,8 +303,8 @@ margin-top: 40px;
   border:none;
   outline:none;
   border-radius:10px;
- padding:7px 15px;
- position:relative;
+ padding:7px 50px;
+ position:absolute;
  text-decoration:none;
  left:50%;
  transform:translateX(-50%);
@@ -363,7 +363,6 @@ export default function Explorer() {
   // console.log(selectBox, 'pageselectBox1')
 
   function selectBoxFunc(text1: string,id:number) {
-  
     setDestChainId(id)
     setSelectBox1(text1)
     setDropdown1(false)
@@ -391,6 +390,7 @@ export default function Explorer() {
     if ((data.status = 200)) {
       setLoading(false);
       setPagiStatus(true);
+      setContent(false)
       
       if(data?.data?.trx.length==0){
       
@@ -434,7 +434,7 @@ export default function Explorer() {
 
    const fetchChainRecord = async ()=>{
     const chainData = await axios.get(`http://localhost:3000/v2/chainConfig`);
-    console.log(chainData.data,"chainDatachainDatachainData")
+    // console.log(chainData.data,"chainDatachainDatachainData")
     setChain(chainData.data)
 
 
@@ -449,7 +449,7 @@ export default function Explorer() {
   async function fetchOnClick() {
     // console.log(search, 'searchsearchsearchsearchsearch')
 
-    const fetchedData: any = await axios.post(`http://localhost:3000/v2/transactionSearch`, { data: search.trim() })
+    const fetchedData: any = await axios.post(`http://localhost:3000/v2/transactionSearch`, { data: search.length>0?search.trim():"empty" });
     if (fetchedData.status === 200) {
       setTab1(true)
       setTab2(false)
@@ -457,7 +457,14 @@ export default function Explorer() {
       setSuccessData(fetchedData.data.trx)
       setSearch('')
       setPagiStatus(false)
+       if(fetchedData?.data?.trx.length===0){
+        console.log(fetchedData.data.trx.length,"fetchedDatafetchedData")
+        setContent(true)
+      }
+    
     }
+    
+    
   }
 
   
@@ -584,7 +591,7 @@ export default function Explorer() {
 
                       return (
                         <>
-                          <tr key={i} className="tdRow">
+                          <tr key={(i)} className="tdRow">
                             <td className="tdbody tdbodyhead">{(page - 1) * 10 + (i + 1)}</td>
                             <td className="tdbody tbody">{pairId.substring(6)}</td>
                             <td className="tdbody tbody">
@@ -593,13 +600,13 @@ export default function Explorer() {
                             </td>
                             <td className="tdbody tbody">
                               {srcChainName} <br />
-                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}`} className="address">
+                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
                                 {from.substring(0, 6)}...{from.slice(-3)}
                               </a>
                             </td>
                             <td className="tdbody tbody">
                               {destChainName} <br />
-                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}`} className="address">
+                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
                                 {to.substring(0, 6)}...{to.slice(-3)}
                               </a>
                             </td>
@@ -628,7 +635,7 @@ export default function Explorer() {
             
             {content && 
               <p className="notFound" style={{ textAlign: 'center' }}>
-                No Transactions Found.
+                No Record Found.
               </p>
             }
           </div>
@@ -704,7 +711,7 @@ export default function Explorer() {
 
                   return (
                     <>
-                      <tr key={i} className="tdRow">
+                      <tr key={(i)} className="tdRow" >
                         <td className="tdbody tdbodyhead">{i + 1}</td>
                         <td className="tdbody tbody">{pairId.substring(6)}</td>
                         <td className="tdbody tbody">
@@ -713,13 +720,13 @@ export default function Explorer() {
                         </td>
                         <td className="tdbody tbody">
                           {srcChainName} <br />
-                          <a href={`/#/details?params=${srcChainTx}`} className="address">
+                          <a href={`/#/details?params=${srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
                             {from.substring(0, 6)}...{to.slice(-3)}
                           </a>
                         </td>
                         <td className="tdbody tbody">
                           {destChainName} <br />
-                          <a href={`/#/details?params=${srcChainTx}`} className="address">
+                          <a href={`/#/details?params=${srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
                             {to?.substring(0, 6)}...{to.slice(-3)}
                           </a>
                         </td>
@@ -743,7 +750,7 @@ export default function Explorer() {
           </Table>
           {content2 && 
               <p className="notFound" style={{ textAlign: 'center' }}>
-                No Transactions Found.
+                No Record Found.
               </p>
             }
           </div>
@@ -831,7 +838,7 @@ export default function Explorer() {
                         const {blockChainName,chainId}:any=element;
                           return (
                             <>
-                            <li onClick={() => selectBoxFunc1(blockChainName,chainId)} style={{display:blockChainName===selectBox1?"none":"block"}}>{blockChainName}</li>
+                            <li key={(index)}onClick={() => selectBoxFunc1(blockChainName,chainId)} style={{display:blockChainName===selectBox1?"none":"block"}}>{blockChainName}</li>
                             </>
                           )
                       })
@@ -865,7 +872,7 @@ export default function Explorer() {
                         const {blockChainName,chainId}:any=element;
                           return (
                             <>
-                            <li onClick={() => selectBoxFunc(blockChainName,chainId)} style={{display:blockChainName===selectBox?"none":"block"}}>{blockChainName}</li>
+                            <li key={(index)} onClick={() => selectBoxFunc(blockChainName,chainId)} style={{display:blockChainName===selectBox?"none":"block"}}>{blockChainName}</li>
                             </>
                           )
                       })
@@ -874,7 +881,9 @@ export default function Explorer() {
                 )}
               </div>
             </div>
+            <div style={{position:"relative", minHeight:"50px"}}>
             <a className="sendButton" href={`/#/details?hash=${txnhash.trim()}&srcChainId=${srcChainId}&destChainId=${destChainId}`}>Send</a>
+            </div>
           </ToolSectionBottom>
         </>
       )}

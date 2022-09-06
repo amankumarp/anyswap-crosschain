@@ -349,7 +349,7 @@ export default function SelectChainIdInputPanel({
                     ) {
                       return ''
                     }
-                    // console.log(selectChainId)
+                    //  console.log(selectChainId,"chainIdchainIdchainIdbbb")
                     return (
                       <OptionCardClickable
                         key={index}
