@@ -284,7 +284,7 @@ export default function Details() {
           </div>
           <div className="col9">
             {' '}
-            <p >{status == 1 ? <span style={{color:"#08a708", fontWeight:"bold"}}><i className="fa-regular fa-clock" style={{paddingRight:"5px"}} />Success</span>: <span style={{color:"red", fontWeight:"bold"}}> <i className="fa-light fa-clock" style={{paddingRight:"5px"}}></i>Pending</span>}</p>
+            <p >{status == 1 ? <span style={{color:"#08a708", fontWeight:"bold"}}><i className="fa-regular fa-clock" style={{paddingRight:"5px"}} />Success</span>: <span style={{color:"red", fontWeight:"bold"}}> <i className="fa-solid fa-clock-rotate-left" style={{paddingRight:"5px"}}></i>Pending</span>}</p>
           </div>
         </div>
         </> 
