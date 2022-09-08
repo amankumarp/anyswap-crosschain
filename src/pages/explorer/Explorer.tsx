@@ -32,6 +32,8 @@ h1 {
 }
 
 .MuiPaginationItem-root {
+  height:30px;
+  width:28px;
 color:${({ theme }) => theme.text7};
 }
 .MuiPaginationItem-rounded {
@@ -160,6 +162,7 @@ td {
   font-size: 14px;
   font-weight: 400;
   height: 50px;
+  border-bottom: 1px solid ${({ theme }) => theme.borderBg};
  
   ${({ theme }) => theme.mediaWidth.upToMedium`
   font-size: 12px;
