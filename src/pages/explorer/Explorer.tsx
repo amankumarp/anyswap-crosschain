@@ -35,7 +35,7 @@ h1 {
 color:${({ theme }) => theme.text7};
 }
 .MuiPaginationItem-rounded {
-  border-radius: 9px;
+  border-radius: 7px;
 }
 .MuiPaginationItem-outlinedSecondary.Mui-selected {
 color: #00b2b0 !important;
