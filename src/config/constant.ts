@@ -70,6 +70,8 @@ export const bridgeApi = 'http://192.168.1.107:3000'
 // export const bridgeApi = 'http://192.168.19.68:8107'
 export const explorer = 'https://anyswap.net'
 
+export const nodeApi = "http://localhost:3000"
+
 export enum BRIDGE_KEY {
   routerTokenList = 'routerTokenList',
   bridgeTokenList = 'bridgeTokenList',

@@ -4,11 +4,7 @@ import styled from 'styled-components'
 import Pagination from '@material-ui/lab/Pagination'
 import moment from 'moment'
 import BeatLoader from 'react-spinners/BeatLoader';
-// import { Link } from 'react-router-dom'
-
-// import ClipLoader from "react-spinners/ClipLoader";
-
-// import { math } from 'polished'
+import { nodeApi } from '../../config/constant'
 const InputText = styled.input`
 width:90%
 line-height:40px;
@@ -38,17 +34,23 @@ h1 {
 .MuiPaginationItem-root {
 color:${({ theme }) => theme.text7};
 }
+.MuiPaginationItem-rounded {
+  border-radius: 9px;
+}
 .MuiPaginationItem-outlinedSecondary.Mui-selected {
 color: #00b2b0 !important;
 border: 1px solid #00b2b0 ;
 background-color: rgb(0 178 176 / 18%);
 }
+.MuiPaginationItem-outlinedSecondary.Mui-selected:hover{
+  background-color: #00b2b030;
+}
 .tab-container {
   padding: 20px 0px;
   .tab {
-    font-size: 15px;
+    font-size: 14px;
     font-Weight:600;
-    padding: 10px 10px;
+    padding: 5px 10px;
     cursor: pointer;
     color: ${({ theme }) => theme.text7};
     background: transparent;
@@ -56,19 +58,19 @@ background-color: rgb(0 178 176 / 18%);
     border-color: ${({ theme }) => theme.borderBg};
     margin-left: 5px;
     margin-right: 5px;
-    border-radius: 10px;
+    border-radius: 7px;
     ${({ theme }) => theme.mediaWidth.upToMedium`
     font-size: 14px;
     `}
   }
   .active {
-    font-size: 15px;
-    padding: 10px 10px;
+    font-size: 14px;
+    padding: 5px 10px;
     font-Weight:600;
     cursor: pointer;
     color: ${({ theme }) => theme.text7};
     // background: ${({ theme }) => theme.tabActiveColor1};
-    border-radius: 10px;
+    border-radius: 7px;
     border-bottom: 1px solid;
      border-left: 1px solid;
     border-right: 1px solid;
@@ -126,6 +128,9 @@ thead {
   background: ${({ theme }) => theme.tipBg1};
   color: ${({ theme }) => theme.text7};
 }
+.thead{
+  font-size:15px;
+}
 a {
   text-decoration: none;
   color: blue;
@@ -133,13 +138,16 @@ a {
 td {
   border: none;
 }
-
+.tdRow{
+  border:1px solid #ccc;
+}
 .tdhead {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 5px;
   padding-right: 5px;
   font-weight: bold;
+  font-size:15px;
 }
 .tbody{
   min-width:100px;
@@ -385,7 +393,7 @@ export default function Explorer() {
   }
 
   async function api() {
-    const data = await axios.get(`http://localhost:3000/v2/history?page=${page}&status=${apiStatus}`)
+    const data = await axios.get(`${nodeApi}/v2/history?page=${page}&status=${apiStatus}`)
    
     if ((data.status = 200)) {
       setLoading(false);
@@ -433,7 +441,7 @@ export default function Explorer() {
   }
 
    const fetchChainRecord = async ()=>{
-    const chainData = await axios.get(`http://localhost:3000/v2/chainConfig`);
+    const chainData = await axios.get(`${nodeApi}/v2/chainConfig`);
     // console.log(chainData.data,"chainDatachainDatachainData")
     setChain(chainData.data)
 
@@ -449,7 +457,7 @@ export default function Explorer() {
   async function fetchOnClick() {
     // console.log(search, 'searchsearchsearchsearchsearch')
 
-    const fetchedData: any = await axios.post(`http://localhost:3000/v2/transactionSearch`, { data: search.length>0?search.trim():"empty" });
+    const fetchedData: any = await axios.post(`${nodeApi}/v2/transactionSearch`, { data: search.length>0?search.trim():"empty" });
     if (fetchedData.status === 200) {
       setTab1(true)
       setTab2(false)
@@ -559,6 +567,7 @@ export default function Explorer() {
                         srcAmount,
                         destAmount,
                         destChainTimestamp,
+                        srcChainTimestamp,
                         status,
                         destChainTx,
                         srcChainTx,
@@ -586,7 +595,7 @@ export default function Explorer() {
                           ? 'Matic Testnet'
                           : ''
 
-                      const date: any = destChainTimestamp * 1000
+                      const date: any =destChainTimestamp !==0  ? destChainTimestamp * 1000:srcChainTimestamp * 1000
                       const Updateddate = moment(date).fromNow()
 
                       return (
