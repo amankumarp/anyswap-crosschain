@@ -450,7 +450,7 @@ export default function Explorer() {
     const pp =
       Number.isInteger(data?.data?.tr0 / 10) == false ? Math.floor(data?.data?.tr0 / 10) + 1 : data?.data?.tr0 / 10
     console.log(sp, pp, 'sp pp')
-    setPagination(s)
+    setPagination(sp)
     setPPagination(pp)
     if(sp<=1){
       setPagiStatus(false)
@@ -519,7 +519,7 @@ export default function Explorer() {
       setPage(1)
       setSuccessData(fetchedData.data.trx)
       setSearch('')
-      setPagiStatus(false)
+      // setPagiStatus(false)
        if(fetchedData?.data?.trx.length===0){
         // console.log(fetchedData.data.trx.length,"fetchedDatafetchedData")
         setContent(true)
@@ -699,7 +699,7 @@ export default function Explorer() {
                                 <span
                                   style={{ border: '1px solid red', padding: '0px 10px', borderRadius: '10px', color:"red", fontWeight:"600" }}
                                 >
-                                  Failed
+                                  Pending
                                 </span>
                               )}
                             </td>

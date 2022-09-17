@@ -83,7 +83,7 @@ const StyledNavLink = styled(NavLink).attrs({
   &.${activeClassName} {
     color: #00c675;
     // background: ${({ theme }) => theme.bgColorLinear};
-    border-top: 2px solid #00c675;
+    // border-top: 2px solid #00c675;
     font-weight: 600;
    
     .icon {
