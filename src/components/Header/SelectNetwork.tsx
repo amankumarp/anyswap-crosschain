@@ -44,13 +44,20 @@ export const WalletLogoBox2 = styled.div`
     width: 100%;
    
   }
+  .tick{
+    right:45px !important
+  }
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  .tick{
+    right:25px !important
+  }
+  `}
+  
  &:hover{
    .tick{
-    display:block !important;
+    display:none !important;
    }
   }
- 
-
 `
 
 export const IconWrapper = styled.div`
@@ -60,9 +67,9 @@ export const IconWrapper = styled.div`
   margin-right: 1.25rem;
   border: solid 0.0625rem rgba(0, 0, 0, 0.1);
   background:#fff;
-  width:46px;
-  min-width:46px;
-  height:46px;
+  width:40px;
+  min-width:40px;
+  height:40px;
   border-radius:100%;
   & > img,
   span {
@@ -338,7 +345,7 @@ export function Option ({
       <WalletLogoBox>
         <WalletLogoBox2>
           <div className="left">
-          <i className="fa-solid fa-check tick" style={{color:"#01b2b1", position:"absolute", right:"45px" , paddingTop:"3px", display:"none", fontSize:"24px"}}></i>
+          <i className="fa-solid fa-check tick" style={{color:"#00c675", position:"absolute" , paddingTop:"3px", display:"none", fontSize:"24px"}}></i>
             <IconWrapper>
               {/* <img src={icon} alt={'Icon'} /> */}
               <TokenLogo symbol={item?.networkLogo ?? item?.symbol} size={'46px'}></TokenLogo>
@@ -357,7 +364,7 @@ export function Option ({
                   //     <div />
                   //   </GreenCircle>
                   // </CircleWrapper>
-                  <i className="fa-solid fa-check" style={{color:"#01b2b1", position:"absolute", right:"45px" , paddingTop:"3px", fontSize:"24px"}}></i>
+                  <i className="fa-solid fa-check tick" style={{color:"#00c675", position:"absolute" , paddingTop:"3px", fontSize:"24px"}}></i>
                 ) : (
                   ''
                 )}

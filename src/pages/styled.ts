@@ -33,7 +33,7 @@ export const ConfirmText = styled.div`
   font-size: 0.75rem;
   font-weight: bold;
   text-align: center;
-  color: #01b2b1;
+  color: #00c675;
   padding: 0.8rem 0;
   border-top: 0.0625rem solid rgba(0, 0, 0, 0.08);
   margin-top:1.25rem

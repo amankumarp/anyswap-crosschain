@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState , CSSProperties} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom';
 import { nodeApi } from '../../config/constant';
+import BeatLoader from 'react-spinners/BeatLoader';
+import moment from 'moment';
 
 const Wrap = styled.div`
 width: 1000px;
-padding: 20px;
 margin-top:50px;
 font-size:14px;
 color: ${({ theme }) => theme.text7};
@@ -17,12 +18,31 @@ background:${({ theme }) => theme.contentBg1}
   color: ${({ theme }) => theme.text7};
  
 };
+.ml{
+
+  margin-left:15px;
+  font-weight:600;
+  
+  font-size:30px;
+  line-height:45px;
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+  font-size:24px;
+  line-height:38px
+  `}
+}
 .row{
     display:flex;
+    margin-bottom:15px; 
+    margin-left:20px;
+    margin-right:20px;
     ${({ theme }) => theme.mediaWidth.upToMedium`
+    margin-bottom:8px; 
     width: 100%;
     flex-direction:column;
-    padding:5px 0px
+    padding:5px 10px;
+    margin-left:0px;
+    margin-right:0px;
+    
 `}
    
 }
@@ -79,34 +99,30 @@ margin-top:30px;
 export default function Details() {
   const location = useLocation();
   const [data, setData] = useState([]);
-  
-   const [textStatus,setTextStatus] =useState(false);
+  const[loading,setLoading] =useState(true)
+  const [textStatus,setTextStatus] =useState(false);
 
-  // console.log(location.search.split('&'), 'location............')
+   const override: CSSProperties = {
+    display: 'block',
+    margin: '0 auto',
+    borderColor: 'red',
+    position: 'relative',
+    left: '40%',
+    top:'60%',
+    // transform:'translateX(-50%)'
+    
+    
+  }
+
+
+
   const qs = location.search.split('&')
   const string1 = qs[0]
-
   const txnHash = string1.split('=')[1]
-
-  
- 
-  
-
 
 
   async function fetchDetails() {
-    // if (qs.length == 1) {
-    //    console.log(qs.length, 'qs.lengthqs.lengtqs.lengthh')
-    //   const data = await axios.post('http://localhost:3000/v2/transactionDetail', { address: txnHash })
-    //   console.log(data.status,"data.data.lengtdata.statusdata.statusdata.statusdata.statusdata.status");
-    //   setData(data.data)
-      
-    //   if(data.status==400){
-        
-    //     setTextStatus(true)
-    //   }
-     
-    // } else 
+   
     if (qs.length == 3) {
       const string2 = qs[1]
       const string3 = qs[2]
@@ -118,25 +134,32 @@ export default function Details() {
         srcChainId: srcChainId,
         destChainId: destChainId
       });
+    
 
-      console.log(dataa.data.status);
+      console.log(dataa.data.flag,"dataa.data.status........");
       
-      setData(dataa.data);
-      // if(dataa){
-      //   setTextStatus(true)
-      // }
-      if(dataa.data.status===false){
-        setTextStatus(true)
+      
+      
+      
+      if(dataa.data?.flag ===false){
+        setLoading(false);
+      setTextStatus(true) ;
+
+      }else if(dataa.data?.flag === undefined){
+        
+        setTextStatus(false)
+        setLoading(false)
+        setData(dataa.data);
+       
       }
+     
       
     }
   }
 
   useEffect(() => {
     fetchDetails()
-    // console.log(apidata.),"apiData")
   }, [])
-  console.log(data, 'datatata')
   const {
     srcChainTx,
     destChainTx,
@@ -150,9 +173,14 @@ export default function Details() {
     srcChainTimestamp,
     srcChainID,
     destChainID
-  }: any = data
+  }: any = data;
+  
+  const time = new Date(destChainTimestamp==0 || destChainTimestamp==undefined ? srcChainTimestamp*1000 :destChainTimestamp * 1000)
+  
   const destdate = new Date(destChainTimestamp * 1000).toUTCString()
   const srcdate = new Date(srcChainTimestamp * 1000).toUTCString()
+  const Updateddate = moment(time).fromNow()
+ 
   const srcChainName =
     srcChainID == 97
       ? 'Binance TestNet'
@@ -178,15 +206,20 @@ export default function Details() {
   return (
     <div>
       <Wrap>
+     
        
-      {!textStatus?(<><div className="row">
+       
+      {!textStatus?(<>
+        <h2 className='text-bold pb-2 ml'>Transaction Details</h2><br/>
+      { !loading && (<><div className="row">
+      
           <div className="col3">
             <p className="bold">Source Hash:</p>
           </div>
           <div className="col9 anchor">
-            {' '}
+           
             <p>
-              <a href="#">{srcChainTx?srcChainTx:"-"}</a>
+              {srcChainTx?<a href="#">{srcChainTx}</a>:"-"}
             </p>
           </div>
         </div>
@@ -195,10 +228,10 @@ export default function Details() {
             <p className="bold">Dest Hash:</p>
           </div>
           <div className="col9 anchor">
-            {' '}
+            
             <p>
-              {' '}
-              <a href="#">{status == 1 ? destChainTx : <span>-</span>} </a>{' '}
+             
+              {status == 1 ?<a href="#">{ destChainTx } </a>: <span>-</span>}
             </p>
           </div>
         </div>
@@ -249,7 +282,7 @@ export default function Details() {
           </div>
           <div className="col9">
             {' '}
-            <p>{status == 1 ? destdate?destdate:"-" : srcdate?srcdate:"-"}</p>
+            <p>{Updateddate} | {status == 1 ? destdate?destdate:"-" : srcdate?srcdate:"-"}</p>
           </div>
         </div>
         <div className="row">
@@ -288,10 +321,11 @@ export default function Details() {
             <p >{status == 1 ? <span style={{color:"#08a708", fontWeight:"bold"}}><i className="fa-regular fa-clock" style={{paddingRight:"5px"}} />Success</span>: <span style={{color:"red", fontWeight:"bold"}}> <i className="fa-solid fa-clock-rotate-left" style={{paddingRight:"5px"}}></i>Pending</span>}</p>
           </div>
         </div>
+        </>)}
         </> 
         ):
         <div className="msg">
-          <h2 style={{textAlign:"center"}}>No record found.</h2>
+          <h2 style={{textAlign:"center", padding:"40px"}}>No record found.</h2>
         </div>
 
         }
@@ -300,6 +334,7 @@ export default function Details() {
           {/* <div className="msg">
           <h2 style={{textAlign:"center"}}>No record found.</h2>
         </div>} */}
+         {loading && <BeatLoader color="#00c675" loading={loading} cssOverride={override} size={20} />}
       </Wrap>
     </div>
   )

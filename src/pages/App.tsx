@@ -1,10 +1,11 @@
 import React, { Suspense } from 'react'
 import { Route, Switch, Redirect, } from 'react-router-dom'
 import styled from 'styled-components'
+import Home from './main_page/Home'
 import Header from '../components/Header'
 import NavList from '../components/Header/NavList'
 import Polling from '../components/Header/Polling'
-import URLWarning from '../components/Header/URLWarning'
+// import URLWarning from '../components/Header/URLWarning'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import TxnsDtilsModal from '../components/CrossChainPanelV2/txnsDtilsModal'
@@ -40,6 +41,8 @@ import config from '../config'
 import farmlist from '../config/farmlist'
 import Explorer from './explorer/Explorer'
 import Details from './explorer/Details'
+import Privacy from './main_page/Privacy'
+import TermandCondition from './main_page/TermandCondition'
 
 
 // import '../hooks/xrp'
@@ -150,7 +153,7 @@ export default function App() {
   } else if (config.getCurConfigInfo().isOpenBridge) {
     initUrl = '/bridge'
   } else if (config.getCurConfigInfo().isOpenMerge) {
-    initUrl = '/router'
+    initUrl = '/home'
   }
   return (
     <Suspense fallback={null}>
@@ -158,7 +161,7 @@ export default function App() {
       {/* <Route component={DarkModeQueryParamReader} /> */}
       <AppWrapper>
         <HeaderWrapper>
-          <URLWarning />
+          {/* <URLWarning /> */}
           <Header />
         </HeaderWrapper>
         <BodyWrapper>
@@ -173,9 +176,13 @@ export default function App() {
           {/* <TopLevelModals /> */}
           <Web3ReactManager>
             <Switch>
+            <Route exact strict path="/home" component={() => <Home />} />
               <Route exact strict path="/dashboard" component={() => <Dashboard />} />
               <Route exact strict path="/pool" component={() => <PoolList />} />
               <Route exact strict path="/explorer" component={() => <Explorer />} />
+              <Route exact strict path="/privacy-policy" component={() => <Privacy />} />
+              <Route exact strict path="/term&amp;condition" component={() => <TermandCondition />} />
+              <Route exact strict path="/explorer/:tab" component={() => <Explorer />} />
               <Route exact strict path="/details" component={() => <Details/>} />
               <Route exact strict path="/pool/add" component={() => <Pools />} />
               <Route exact strict path="/farm" component={() => <FarmList />} />

@@ -1,0 +1,655 @@
+import React from 'react'
+
+import { HomePage } from './style/style'
+import './css/flexslider.css'
+// import "./css/font-awesome.min.css"
+import './css/bootstrap.min.css'
+
+export default function Home() {
+  return (
+    <>
+      <HomePage>
+        {/* <!-- banner --> */}
+        <div id="banner" className="container-fluid ">
+          <div className="row">
+            <div className="col-md-6 banner_block banner_img">
+              <img src="images/banner_img.jpg" className="i100" />
+            </div>
+            <div className="col-md-6 banner_block">
+              <div className="banner_text">
+                <h1 className="css-typing">
+                  <h2 className="type1">Transfer tokens between</h2>
+                  <span className="text_1">Ethereum &amp; Analog Chain</span>
+                  <span className="text_2">BSC &amp; Analog Chain</span>
+                  <span className="text_3">Polygon &amp; Analog Chain</span>
+                  <span className="text_4">Tron &amp; Analog Chain</span>
+                  <h2 className="type3">via decentralized Bridge</h2>
+                </h1>
+                <p>
+                  <span className="robo type3">The Xtring Bridge </span> facilitates fast cross-chain transfers in any
+                  direction within a <span className="robo type3">single interface.</span>
+                </p>
+                <a href="" target="_blank" className="main_btn">
+                  Try bridge
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <!-- banner --> */}
+
+        {/* <!-- bridged --> */}
+        <div id="bridged" className="container-fluid ">
+          <div className="row">
+            <div className="col-md-12 col-sm-12 col-xs-12 mb20">
+              <p className="bridged_heading">
+                $<span id="count1" data-number="1000"></span>{' '}
+                <a href="">
+                  <i className="fa fa-line-chart" aria-hidden="true"></i>
+                </a>
+              </p>
+              <p>Total bridged over time</p>
+            </div>
+            <div className="col-md-6 col-sm-6 col-xs-6">
+              <p className="bridged_heading">1-5 Min</p>
+              <p>Transfer time</p>
+            </div>
+            <div className="col-md-6 col-sm-6 col-xs-6">
+              <p className="bridged_heading">$0.50</p>
+              <p>
+                Bridge fee{' '}
+                <span>
+                  (regular <span className="robo">0.3%</span>)
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* <!-- bridged --> */}
+
+        {/* <!-- Our features --> */}
+        <div id="our_features_area" className="container-fluid our_features mt100">
+          <div className="row">
+            <div className="col-md-12">
+              <h2 className="features_title ">
+                <img src="images/our-features-main-icon.svg" /> Our features
+              </h2>
+            </div>
+            <div className="col-md-6">
+              <div className="our_features_block ">
+                <img src="images/features-chains.svg" />
+                <h4>Realistically Decentralised</h4>
+                <p>
+                  The DEO is able to limit the power of developers and prevent consolidation since it has ultimate say
+                  over all property and transactions.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="our_features_block">
+                <img src="images/features-security.svg" />
+                <h4>Multichain</h4>
+                <p>Use resources from different blockchains by linking them together via a single Bridge.</p>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="our_features_block">
+                <img src="images/features-transfer.svg" />
+                <h4>Blazingly Quick Transaction</h4>
+                <p>
+                  The Analog blockchain allows for very fast financial transactions. Three seconds is the typical wait
+                  time for a block.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="our_features_block">
+                <img src="images/features-time.svg" />
+                <h4>Just almost liberated</h4>
+                <p>
+                  Analog&apos;s token transactions are orders of magnitude cheaper than those on Ethereum and similar
+                  platforms.
+                </p>
+              </div>
+            </div>
+
+            {/* <div className="col-md-6 our_features_center">
+              <div className="our_features_block">
+                <img src="images/features-coin.svg" />
+                <h4>Scalable</h4>
+                <p>The Linear Sharding technique makes it feasible to achieve throughputs of millions of TPS.</p>
+              </div>
+            </div> */}
+
+            {/* <div className="col-md-6">
+                    <div className="our_features_block" >
+                        <img src="images/features-chat.svg"/>
+                        <h4>User-friendly design</h4>
+                        <p>We aim to create a straightforward design that does not require users to read guides and documentation.</p>
+                    </div>       
+                </div> */}
+          </div>
+        </div>
+        {/* <!-- Our features --> */}
+
+        {/* <!-- our_supported_area --> */}
+        <div id="our_supported_area" className="container-fluid our_features our_supported_area mt100">
+          <div className="row">
+            <div className="col-md-12">
+              <h2 className="features_title ">
+                <img src="images/blockchains-main-icon.svg" /> Our supported blockchains and tokens
+              </h2>
+            </div>
+
+            <div className="col-md-12 mptb30">
+              <div className="nav_li_area">
+                <ul className="nav nav-tabs" role="tablist">
+                  <li className="active">
+                    <a href="#1" role="tab" data-toggle="tab">
+                      <img src="images/eth.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#2" role="tab" data-toggle="tab">
+                      <img src="images/solana.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#3" role="tab" data-toggle="tab">
+                      <img src="images/polygon.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#4" role="tab" data-toggle="tab">
+                      <img src="images/bsc.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#5" role="tab" data-toggle="tab">
+                      <img src="images/heco.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#6" role="tab" data-toggle="tab">
+                      <img src="images/celo.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#7" role="tab" data-toggle="tab">
+                      <img src="images/avalanche.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#8" role="tab" data-toggle="tab">
+                      <img src="images/fantom.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#9" role="tab" data-toggle="tab">
+                      <img src="images/terra.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#10" role="tab" data-toggle="tab">
+                      <img src="images/near.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#11" role="tab" data-toggle="tab">
+                      <img src="images/aurora.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#12" role="tab" data-toggle="tab">
+                      <img src="images/harmony.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#13" role="tab" data-toggle="tab">
+                      <img src="images/fuse.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#14" role="tab" data-toggle="tab">
+                      <img src="images/xrpl.svg" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* <!-- Tab panes --> */}
+              <div className="tab-content">
+                <div className="tab-pane fade in active" id="1">
+                  <ul className="tab_area">
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                  </ul>
+                </div>
+                <div className="tab-pane fade " id="2">
+                  <ul className="tab_area">
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                  </ul>
+                </div>
+                <div className="tab-pane fade " id="3">
+                  <ul className="tab_area">
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                  </ul>
+                </div>
+                <div className="tab-pane fade " id="4">
+                  <ul className="tab_area">
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                    <li>
+                      <img src="images/1.png" /> FTX Token
+                    </li>
+                    <li>
+                      <img src="images/2.png" /> HAPI{' '}
+                    </li>
+                    <li>
+                      <img src="images/3.png" /> HGET{' '}
+                    </li>
+                    <li>
+                      <img src="images/4.png" /> USDC{' '}
+                    </li>
+                    <li>
+                      <img src="images/5.png" /> USDT{' '}
+                    </li>
+                  </ul>
+                </div>
+                <div className="tab-pane fade " id="5"></div>
+                <div className="tab-pane fade " id="6"></div>
+                <div className="tab-pane fade " id="7"></div>
+                <div className="tab-pane fade " id="8"></div>
+                <div className="tab-pane fade " id="9"></div>
+                <div className="tab-pane fade " id="10"></div>
+                <div className="tab-pane fade " id="11"></div>
+                <div className="tab-pane fade " id="12"></div>
+                <div className="tab-pane fade " id="13"></div>
+                <div className="tab-pane fade " id="14"></div>
+              </div>
+              {/* <!-- Tab panes --> */}
+              <div className="col-md-12 text-center">
+                <a href="" target="_blank" className="stroked_btn">
+                  Apply to get your token listed
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <!-- our_supported_area --> */}
+
+        {/* <!-- Our features --> */}
+        <div id="use_allbridge_area" className="container-fluid our_features use_allbridge mt100">
+          <div className="row">
+            <div className="col-md-12">
+              <h2 className="features_title ">
+                <img src="images/how-to-use-main-icon.svg" /> How to use Allbridge?
+              </h2>
+            </div>
+
+            <div className="col-md-12 relative">
+              <span className="use_allbridge_left">
+                <span>
+                  <strong>1.</strong> Connect wallet A
+                </span>
+                <span>
+                  <strong>2.</strong> Connect wallet A
+                </span>
+              </span>
+
+              <span className="use_allbridge_right">
+                <span>
+                  <strong>3.</strong> Connect wallet B
+                </span>
+                <span>
+                  <strong>4.</strong> Receive assets
+                </span>
+              </span>
+              <img src="images/use-Allbridge.jpg" className="i100 db" />
+              <img src="images/how-to-use-mob.png" className="i100 dn" />
+            </div>
+          </div>
+        </div>
+        {/* <!-- Our features --> */}
+
+        {/* <!-- Our token --> */}
+       
+        {/* <!-- Our token --> */}
+
+
+        {/* <!-- Reports --> */}
+        <div id="Reports_area" className="container-fluid our_features Reports mt100">
+          <div className="row">
+            <div className="col-md-12">
+              <h2 className="features_title ">
+                <img src="images/reports-main-icon.svg" /> How to use Xtring?
+              </h2>
+            </div>
+
+            <div className="col-md-6">
+              <div className="reports_block " >
+                <div className="row">
+                <div className="reports_icon col-md-3 col-lg-2" >
+                  <img src="images/Allbridge_report.svg" />
+                  
+                </div>
+                <div className="col-md-9 col-lg-10">
+                  <h4> Connect Pepper Wallet and MetaMask</h4>
+                  <p>It is possible that you may want their installation before you can transmit money.</p>
+                </div>
+                </div>
+                
+                {/* <a href="" target="_blank" className="stroked_btn">
+                  Go to report
+                </a> */}
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="reports_block">
+                <div className="row">
+                <div className="reports_icon col-md-3 col-lg-2">
+                  <img src="images/Allbridge_report.svg" />
+                </div>
+                <div className="col-md-9 col-lg-10">
+                  <h4> Select the route</h4>
+                  <p>
+                  To get started, you need to make a decision about which route on the blockchain you wish to pursue.
+                  Diagonal token exchange{' '}
+                </p>
+                </div>
+                </div>
+               
+                {/* <a href="" target="_blank" className="stroked_btn">
+                  Go to report
+                </a> */}
+              </div>
+            </div>
+
+            <div className="col-md-6">
+            <div className="reports_block">
+                <div className="row">
+                <div className="reports_icon col-md-3 col-lg-2">
+                  <img src="images/Allbridge_report.svg" />
+                </div>
+                <div className="col-md-9 col-lg-9">
+                  <h4> Select a desired token</h4>
+                  <p>
+                  Pick a token from one or both networks to use for sending and receiving on the other network.
+                </p>
+                </div>
+                </div>
+               
+                {/* <a href="" target="_blank" className="stroked_btn">
+                  Go to report
+                </a> */}
+              </div>
+            </div>
+
+            <div className="col-md-6">
+            <div className="reports_block">
+                <div className="row">
+                <div className="reports_icon col-lg-2 col-md-3">
+                  <img src="images/Allbridge_report.svg" />
+                </div>
+                <div className="col-lg-10 col-md-9">
+                  <h4> Transfer your tokens</h4>
+                  <p>
+                  Token transfers that occur on different chains need authorisation from a wallet.
+                </p>
+                </div>
+                </div>
+               
+                {/* <a href="" target="_blank" className="stroked_btn">
+                  Go to report
+                </a> */}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <!-- Reports --> */}
+
+        {/* <!-- Our contacts --> */}
+        {/* <div id="our_contacts" className="container-fluid our_features our_contacts mt100">
+            <div className="row">
+                <div className="col-md-12">
+                    <h2 className="features_title "><img src="images/contacts-main-icon.svg"/> Our contacts</h2>
+                </div>
+
+                <div className="col-md-12">
+                    <ul className="our_contacts_list"> 
+                        <li><a href=""><i className="fa fa-paper-plane" aria-hidden="true"></i> Telegram chat</a></li>
+                        <li><a href=""><i className="fa-brands fa-twitter fa" aria-hidden="true"></i> Twitter</a></li>
+                        <li><a href=""><i className="fa-brands fa-medium fa" aria-hidden="true"></i> Medium</a></li>
+                        <li><a href=""><i className="fa-brands fa-telegram fa" aria-hidden="true"></i> Telegram group</a></li>
+                        <li><a href=""><i className="fa-brands fa-reddit fa" aria-hidden="true"></i>Reddit</a></li>
+                        <li><a href=""><i className="fa fa-file-text" aria-hidden="true"></i> Documentation</a></li>
+                        <li><a href=""><i className="fa-brands fa-discord fa" aria-hidden="true"></i> Discord</a></li>
+                        <li><a href=""><i className="fa fa-user-plus" aria-hidden="true"></i> Collaboration</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>  */}
+        {/* <!-- Our contacts --> */}
+
+        {/* <!--==============================footer end================================--> */}
+        <div id="footer" className="container-fluid our_features our_contacts mt100">
+          <div className="row">
+            <div className="col-md-4 col-sm-4">
+              <img src="images/allbridge-small.svg" />
+            </div>
+            <div className="col-md-4 col-sm-4 text-center">
+              <div className="sm_logo ">
+                <a href="">
+                  <i className="fa-brands fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa-brands fa-telegram" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa-brands fa-medium" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa-brands fa-github-square" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa fa-file-text" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i className="fa-brands fa-github-alt" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+            <div className="col-md-4 col-sm-4">
+              <div className="fr_side">
+                Have questions?{' '}
+                <a href="">
+                  <i className="fa fa-paper-plane" aria-hidden="true"></i>
+                </a>{' '}
+                <a href="mailto:support@speciex.network">
+                  <i className="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-6 col-sm-8">
+              <div className="footer_link">
+                <a href="">Disclaimer</a>
+                <a href="/#/privacy-policy">Privacy And GDPR Policy</a>
+                <a href="/#/term&amp;condition">Terms And Conditions</a>
+                <a href="">Cookies Policy</a>
+              </div>
+            </div>
+            <div className="col-md-6 col-sm-4">
+              <div className="cr_area">
+                Copyright <span className="robo">© 2022</span> All rights reserved. Xtring
+              </div>
+            </div>
+          </div>
+        </div>
+      </HomePage>
+    </>
+  )
+}

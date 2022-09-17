@@ -52,7 +52,7 @@ const LinkStyle = styled.div.attrs({
     border-bottom: 2px solid transparent;;
   
     &:hover {
-      color: ${({ theme }) => theme.textColor};
+      color: ${({ theme }) => theme.tabActiveColor};
       font-weight: 600;
     }
     &.${activeClassName} {
@@ -82,6 +82,9 @@ const StyledNavLink = styled(NavLink).attrs({
   activeClassName
 })`
   text-decoration: auto;
+  .logoBottom{
+    margin-right:5px
+  }
   &:hover {
     text-decoration: auto;
   }
@@ -128,6 +131,7 @@ export default function NavList() {
                     }}
                     className={(item.className ? item.className : '')} 
                   >
+                    < i className={item.logo}></i>
                     {t(item.textKey)}
                   </StyledNavLink>
                 )

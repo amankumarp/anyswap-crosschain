@@ -7,7 +7,7 @@ export const BodyWrapper = styled.div`
   height: 100%;
   // max-width: 1100px;
   padding: 2.5rem 70px;
-  overflow:auto;
+  overflow-x:hidden;
   margin:auto;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     padding: 0rem 0px;

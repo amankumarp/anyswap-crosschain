@@ -1,4 +1,5 @@
 import config from '../../config'
+import {HiHome} from "react-icons/hi"
 
 export const LinkList = [
   // {
@@ -10,12 +11,24 @@ export const LinkList = [
   //   isView: config.getCurConfigInfo().isOpenMerge,
   // },
   {
+    path: '/home',
+    textKey: 'Home',
+    regex: /\//,
+    className: 'otherInfo',
+    logo:'fa-solid fa-house logoBottom',
+    isOutLink: false,
+    isView:config.getCurConfigInfo().isOpenMerge,
+   
+  },
+  {
     path: '/router',
-    textKey: 'router',
+    textKey: 'Bridge',
     regex: /\/router/,
     className: 'otherInfo',
     isOutLink: false,
+    logo:'fa-solid fa-shuffle logoBottom',
     isView: config.getCurConfigInfo().isOpenMerge,
+    isActive: ['/add', '/remove']
   },
   {
     path: '/cross-chain-txns',
@@ -30,6 +43,7 @@ export const LinkList = [
     textKey: 'pool',
     regex: /\/pool/,
     className: 'otherInfo',
+    logo:'fa-solid fa-cube logoBottom',
     isOutLink: false,
     isView: 1,
     isActive: ['/add', '/remove']
@@ -49,6 +63,7 @@ export const LinkList = [
     textKey: 'router',
     regex: /\/v1\/router/,
     className: 'otherInfo',
+    logo:'fa-solid fa-house logoBottom',
     isOutLink: false,
     isView: config.getCurConfigInfo().isOpenRouter
   },
@@ -89,6 +104,7 @@ export const LinkList = [
     textKey: 'explorer',
     regex: /\/explorer/,
     className: 'otherInfo',
+    logo:'fa-solid fa-rectangle-list logoBottom',
     isOutLink: false,
     isView: 1,
   },

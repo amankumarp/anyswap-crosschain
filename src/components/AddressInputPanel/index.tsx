@@ -40,6 +40,7 @@ const InputContainer = styled.div`
   ${({ theme }) => theme.mediaWidth.upToLarge`
     padding: 1rem 1rem;
   `}
+
 `
 
 const Input = styled.input<{ error?: boolean }>`

@@ -66,11 +66,11 @@ export const USE_VERSION:any = INIT_VERSION
 export const tokenListUrl = 'https://list.htswap.io/tokenList/'
 // export const bridgeApi = USE_VERSION === VERSION.V7_TEST || USE_VERSION === VERSION.V7_BAS_TEST ? 'https://l2api.anyswap.exchange' : 'https://bridgeapi.anyswap.exchange'
 // export const bridgeApi = 'https://l2api.anyswap.exchange'
-export const bridgeApi = 'http://192.168.1.107:3000'
+export const bridgeApi = 'https://xtring.network/api'
 // export const bridgeApi = 'http://192.168.19.68:8107'
 export const explorer = 'https://anyswap.net'
 
-export const nodeApi = "http://localhost:3000"
+export const nodeApi = "https://xtring.network/api"
 
 export enum BRIDGE_KEY {
   routerTokenList = 'routerTokenList',

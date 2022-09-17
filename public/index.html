@@ -2,18 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="192x192" href="%PUBLIC_URL%/images/192x192_App_Icon.png" />
-    <link rel="apple-touch-icon" sizes="512x512" href="%PUBLIC_URL%/images/512x512_App_Icon.png" />
+    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/images/fav.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="%PUBLIC_URL%/images/fav.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="%PUBLIC_URL%/images/fav.png" />
     <link rel ="stylesheet" href="fonts/fonts.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#2483fe" />
     <meta name="fortmatic-site-verification" content="j93LgcVZk79qcgyo" />
 
-    <meta name="title" content="Multichain APP">
-    <meta name="keywords" content="Multichain, Multichain APP, Multichain router, Multichain bridge">
-    <meta name="description" content="Unified cross-chain interface, average transaction speed within 100 secs, no-slippage swap">
+    <meta name="title" content="Xtring APP">
+    <meta name="keywords" content="Xtring, Xtring APP, Xtring router, Xtring bridge">
+    <meta name="description" content="Xtring Bridge is a protocol for inter-chain routing; it's an infrastructure layer for multi-chain ecosystems that aspires to be the best router on the third-generation Internet. Xtring Router, Non-Slippage Swap, Non-Custodial+MPC">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -29,8 +29,8 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
 
-    <title>XTRING - Cross Chain Router Protocol</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Xtring Network : Cross Chain Transcation</title>
+   
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
@@ -38,31 +38,14 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
    
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>  
     <!-- CSS only -->
+    <!-- <script src="./js/typist.js"></script> -->
 
 
     <style>
-      body{
-        font-family: 'Montserrat', sans-serif;
-        font-family: 'Noto Sans', sans-serif;
-
-      }
-      /* ::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
 
       .btn11{
         width: 100% !important;
@@ -90,10 +73,105 @@
       window.ethereum.on("chainChanged", () => {
         window.location.reload();
       });
-      // window.ethereum.on("accountsChanged", () => {
-      //   window.location.reload();
-      // });
+    
     }
     </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="js/jquery-1.9.1.js"></script>
+      <script defer src="js/jquery.flexslider.js"></script>
+
+      <!-- <script type="text/javascript" src="js/script.js"></script> -->
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+      <script type="text/javascript">
+             var $h = jQuery.noConflict();
+           (function() {
+
+              var $hwindow = $h(window),
+                  flexslider;
+
+              function getGridSize() {
+                return (window.innerWidth < 500) ? 1:
+                       (window.innerWidth < 600) ? 1:
+                       (window.innerWidth < 767) ? 3 :
+                       (window.innerWidth < 900) ? 4 :
+                       (window.innerWidth < 1000) ? 5 : 5;
+              }
+
+              $hwindow.load(function() {
+                $h('.slider-top').flexslider({
+                  animation: "slide",
+                  animationLoop: true,
+                  itemWidth: 110,
+                  itemMargin: 0,
+                  move:1,
+                  drag: true,
+                  randomize: true, 
+                  minItems: getGridSize(), // use function to pull in initial value
+                  maxItems: getGridSize() // use function to pull in initial value
+                });
+              }); 
+            }());
+
+      </script>
+
+
+
+
+      <script type="text/javascript">
+          $("#toogle_menu").on("click", function () {
+              $(".menu").toggle();
+          });
+      </script>
+
+      <script type="text/javascript">
+          $(".drop_menu_link").on("click", function () {
+              $(".drop_menu").toggle();
+          });
+
+
+          var a = 0;
+$(window).scroll(function () {
+    var oTop = $("#count1").offset().top - window.innerHeight;
+   
+    if (a == 0 && ($(window).scrollTop() > oTop  )) {
+        $("#count1").each(function () {
+            var $this = $(this),
+                countTo = $this.attr("data-number");
+            $({
+                countNum: $this.text()
+            }).animate(
+                {
+                    countNum: countTo
+                },
+
+                {
+                    duration: 850,
+                    easing: "swing",
+                    step: function () {
+                        //$this.text(Math.ceil(this.countNum));
+                        $this.text(
+                            Math.ceil(this.countNum).toLocaleString("en")
+                        );
+                    },
+                    complete: function () {
+                        $this.text(
+                            Math.ceil(this.countNum).toLocaleString("en")
+                        );
+                        //alert('finished');
+                    }
+                }
+            );
+        });
+        a = 1;
+    }
+});
+
+
+
+
+      </script>
+      
+
   </body>
 </html>

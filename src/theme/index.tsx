@@ -13,8 +13,9 @@ import { Colors } from './styled'
 export * from './components'
 
 const MEDIA_WIDTHS = {
+  upToEs:400,
   upToExtraSmall: 500,
-  upToSmall: 720,
+  upToSmall: 768,
   upToMedium: 960,
   upToLarge: 1180,
   upToExtraLarge:1350
@@ -45,7 +46,7 @@ export function colors(darkMode: boolean): Colors {
     // text
     //C3C5CB
     text1: darkMode ? '#FFFFFF' : '#96989e',
-    text2: darkMode ? '#54b2b3' : '#565A69',
+    text2: darkMode ? '#00c675' : '#565A69',
     text3: darkMode ? '#ddd' : '#fff',
     text4: darkMode ? '#565A69' : '#C3C5CB',
     text5: darkMode ? 'rgb(21, 26, 47)' : '#EDEEF2',
@@ -54,7 +55,7 @@ export function colors(darkMode: boolean): Colors {
     text8: darkMode ? "#000" :"#fff",
     text9: darkMode ? `#FFFFFF` : "#787b82",
     textNav: darkMode ? '#979dac' : '#062536',
-    textColor: darkMode ? 'white' : '#031a6e',
+    textColor: darkMode ? 'white' : '#000',
     textColorBold: darkMode ? white : '#062536',
 
     // backgrounds / greys
@@ -64,13 +65,14 @@ export function colors(darkMode: boolean): Colors {
     bg1: darkMode ? '#212429' : '#FFFFFF',
    
     bg2: darkMode ? '#0b090e' : '#F7F8FA',
-    bg3: darkMode ? '#40444F' : '#EDEEF2',
+    bg3: darkMode ? '#40444F' : '#c9cacf',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#ddd' : '#999',
     bg6: darkMode ? "#000" : white,
     bg7: darkMode ? '#141313' : '#F7F8FA',
     bg8: darkMode? '#0b090e':white,
     bg9: darkMode ?"#0b090e" :"#f7f7f7",
+    text10:darkMode ? '#a4a2a7' : '#ccc',
     recieve: darkMode? '#c9c9c9' :'#898080',
     contentBg: darkMode ? '#21263e' : white,
     contentBg1: darkMode ? '#0b090e' : white,
@@ -80,20 +82,20 @@ export function colors(darkMode: boolean): Colors {
     navIconBg: darkMode ? '#363d5f' : 'rgba(0,0,0,0.05)',
     navBg: darkMode ? '#21263e' : '#031a6e',
     navBg2: darkMode ? '#363d5f' : '#031a6e',
-    bgColorLinear: 'linear-gradient(to right,#54b2b3 ,#2a8b8b)',
+    bgColorLinear: 'linear-gradient(to right,#00c679 ,#34bb93)',
     outLinkIconBg: darkMode ? '#2b314f' : '#ecf6ff',
     bodyBg: darkMode ? '#151a2f' : '#f9fafb',
     tabBg: darkMode ? '#2b314f' : white,
     tabActiveBg: darkMode ? '#6725fc' : 'none',
     tabColor: darkMode ? white : '#96989e',
-    tabActiveColor: darkMode ? white : '#01b2b1',
-    tabActiveColor1: darkMode ? "#01b2b1" : 'white',
+    tabActiveColor: darkMode ? '#00c675' : '#00c675',
+    tabActiveColor1: darkMode ? "#00c675" : 'white',
     tabBdColor: darkMode ? 'none' : '#734be2',
-    tipBg: darkMode ? '#2b314f' : '#f2edff',
-    tipBg1: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : 'rgba(58,175,175,0.1)',
+    tipBg: darkMode ? 'transparent' : '#f2edff',
+    tipBg1: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : '#80fdda1a',
     search: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : white,
     tipBorder: darkMode ? '#2b314f' : '#b398f9',
-    tipColor: darkMode ? white : '#01b2b1',
+    tipColor: darkMode ? white : '#00c675',
     hoverEffect: darkMode ?'#231f2a' :"rgb(87 188 188 / 10%)",
 
     lightPuroleBg: darkMode ? '#2b314f' : 'rgb(246, 244, 255)',
@@ -121,13 +123,13 @@ export function colors(darkMode: boolean): Colors {
     swapBg: darkMode ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.1)',
 
     chaliceGray: darkMode ? '#7B7B7B' : '#AEAEAE',
-    royalBlue: darkMode ? '#01b2b1' : '#01b2b1',
+    royalBlue: darkMode ? '#00c675' : '#00c675',
     placeholderGray: darkMode ? '#5F5F5F' : '#E1E1E1',
     activeGray: darkMode ? '#363d5f' : '#F7F8FA',
     activeGray1: darkMode ? '#120f0f' : '#F7F8FA',
     borderBg:darkMode ? 'rgb(255,255,255,0.1)' : 'rgb(0,0,0,0.1)',
     bluecolor:darkMode ? '#c9c9c9':`#2172E5`,
-    anchorColor:darkMode ? "#01b2b1": "#2172E5",
+    anchorColor:darkMode ? "#00c675": "#2172E5",
 
     // backgrounds
     // bgc1: darkMode ? '#21263e' : '#FFFFFF',
@@ -141,11 +143,11 @@ export function colors(darkMode: boolean): Colors {
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 //primary4: darkMode ? '#5f6bfb' : '#5f6bfb',
     //primary colors
-    primary1: 'linear-gradient(to right,#54b2b3 ,#2a8b8b)',
+    primary1: 'linear-gradient(to right,#00c679 ,#34bb93)',
     primary2: darkMode ? '#3680E7' : '#FF8CC3',
     primary3: darkMode ? '#4D8FEA' : '#5f6bfb',
-    primary4: darkMode ? '#3db2b2' : '#3db2b2',
-    primary5: darkMode ? '3db2b2' : '#3db2b2',
+    primary4: darkMode ? '#00c675' : '#00c675',
+    primary5: darkMode ? '#00c675' : '#00c675',
 
     // color text
     primaryText1: darkMode ? '#fff' : '#fff',
@@ -165,9 +167,19 @@ export function colors(darkMode: boolean): Colors {
     // birdgeStateBg: '#fff5e0',
     // birdgeStateBorder: '#e3d1aa',
     // birdgeStateBg1: '#e2f9e5',
-    // birdgeStateBorder1: '#a3daab',
+    // birdgedarkModeStateBorder1: '#a3daab',
     // birdgeStateBg2: 'rgb(255,104,113,.2)',
     // birdgeStateBorder2: 'rgb(255,104,113)',
+
+     // homePage
+     homeBorder: darkMode ? 'rgb(255,255,255,0.1)' : 'rgb(0,0,0,0.1)',
+     homeText1: darkMode ? 'rgb(255,255,255,0.7)' : 'rgb(0,0,0,0.7)',
+     homeText2: darkMode? 'rgb(255,255,255,0.6)':'rgb(0,0,0,0.6)',
+     homeText3: darkMode? 'rgb(255,255,255,0.3)':'rgb(0,0,0,0.7)',
+     homeBackground: darkMode ? "#0b090e":"#FFF",
+     homeBackground1: darkMode ? "#0b090e":"rgba(58,175,175,0.1)",
+     homeBackground2:darkMode ? "#0f0c11":"rgba(58,175,175,0.1)",
+     homeLogo: darkMode ? "rgb(255,255,255,0.4)":"rgb(0,0,0,0.4)",
 
     // other
     red1: '#FF6871',
@@ -351,20 +363,20 @@ body {
 }
 /* 滚动条凹槽的颜色，还可以设置边框属性 */
 ::-webkit-scrollbar-track-piece {
-background-color:#f8f8f8;
+  background-color:rgba(0,0,0,0.4);
 }
 /* 滚动条的宽度 */
 ::-webkit-scrollbar {
-width:0px;
-height:0px;
+width:8px;
+height:8px;
 }
 /* 滚动条的设置 */
 ::-webkit-scrollbar-thumb {
-background-color:#dddddd;
+background-color:rgba(255,255,255,0.3);
 background-clip:padding-box;
 min-height:28px;
 }
 ::-webkit-scrollbar-thumb:hover {
-background-color:#bbb;
+background-color:rgba(255,255,255,0.4);
 }
 `

@@ -57,6 +57,7 @@ const Cont = styled.div`
   background: ${({ theme }) => theme.bg8};
   ${({ theme }) => theme.mediaWidth.upToSmall`
   border:none !important;
+  padding:10px 5px 30px !important
   `}
 `
 
@@ -847,7 +848,7 @@ export default function CrossChain({ bridgeKey }: { bridgeKey: any }) {
                   backgroundColor: `${theme.bg6}`
                 }}
               >
-                <ArrowDown size="24" color={'#54b2b3'} />
+                <ArrowDown size="24" color={'#00c675'} />
               </div>
             </ArrowWrapper>
             {destConfig?.type !== 'swapin' && !isNaN(selectChain) ? (

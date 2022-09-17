@@ -18,7 +18,8 @@ const HeaderLinks = styled.div`
   border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.06);
   ${({ theme }) => theme.mediaWidth.upToMedium`
     ${({ theme }) => theme.flexBC}
-    padding: 0.5rem 1rem;
+    padding: 0rem 1rem;
+    // min-height:65px;
   `};
 `
 
@@ -32,7 +33,7 @@ const StyledNavLink = styled(NavLink).attrs({
   outline: none;
   cursor: pointer;
   text-decoration: none;
-
+ 
   width: 100%;
   font-weight: 500;
   color: ${({ theme }) => theme.textNav};
@@ -42,10 +43,13 @@ const StyledNavLink = styled(NavLink).attrs({
   padding: 1rem 0.875rem;
   line-height: 1rem;
   margin: 6px 0;
-  height: 48px;
-  border-radius: 0.5625rem;
+  height: 54px;
+  // border-radius: 0.5625rem;
   position: relative;
   white-space: nowrap;
+  .logoBottom{
+    font-size:24px
+  }
 
   .icon {
     ${({ theme }) => theme.flexC};
@@ -60,6 +64,7 @@ const StyledNavLink = styled(NavLink).attrs({
     .off {
       display: block;
     }
+  
   }
 
   &:hover {
@@ -76,9 +81,9 @@ const StyledNavLink = styled(NavLink).attrs({
     }
   }
   &.${activeClassName} {
-    color: #ffffff;
-    background: ${({ theme }) => theme.bgColorLinear};
-    border-bottom: none;
+    color: #00c675;
+    // background: ${({ theme }) => theme.bgColorLinear};
+    border-top: 2px solid #00c675;
     font-weight: 600;
    
     .icon {
@@ -310,6 +315,8 @@ export default function NavList() {
             if (!item.isView) return ''
             if (!item.isOutLink) {
               return (
+                <>
+                
                 <StyledNavLink
                   key={index}
                   to={item.path}
@@ -332,8 +339,10 @@ export default function NavList() {
                   }}
                   className={(item.className ? item.className : '')} 
                 >
-                  {t(item.textKey)}
+                < i className={item.logo}></i>
+                  {/* {t(item.textKey)} */}
                 </StyledNavLink>
+                </>
               )
             } else {
               return (
@@ -427,7 +436,7 @@ export default function NavList() {
           <h5>
             Powered by <span>Fusion DCRM</span>
           </h5>
-          <p>© 2020 Anyswap. All rights reserved.</p>
+          <p>© 2022 Xtring. All rights reserved.</p>
         </CopyRightBox>
       </OutLink>
     </>

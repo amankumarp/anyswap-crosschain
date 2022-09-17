@@ -32,7 +32,7 @@ export const CurrencySelect = styled.button<{ selected: boolean }>`
   font-size: ${({ selected }) => (selected ? '1rem' : '12px')};
   height: 50px;
   font-family: 'Manrope';
- width:100%
+  width:100%
   border: 0.0625rem solid ${({ theme }) => theme.selectedBorder1};
   border-radius: 0.75rem;
   background-color: transparent;
@@ -214,6 +214,9 @@ export const Container = styled.div<{ hideInput: boolean }>`
   ${({ theme }) => theme.mediaWidth.upToLarge`
     padding: 1rem 1rem;
   `}
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  padding: 1rem .2rem;
+`}
 `
 //font-size: 1rem;
 export const StyledTokenName = styled.span<{ active?: boolean }>`

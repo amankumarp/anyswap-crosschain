@@ -39,7 +39,7 @@ export const MenuItem = styled(RowBetween)`
 export const SearchInput = styled.input`
   position: relative;
   display: flex;
-  padding: 16px;
+  padding: 12px;
   align-items: center;
   width: 100%;
   white-space: nowrap;

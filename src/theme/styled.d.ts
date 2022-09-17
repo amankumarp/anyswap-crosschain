@@ -16,6 +16,7 @@ export interface Colors {
   text7:Color
   text8:Color
   text9:Color
+  text10:Color
   recieve:Color
   textNav: Color
   textColor: Color
@@ -122,6 +123,16 @@ export interface Colors {
   blue1: Color
 
   moreBtn: Color
+
+  // Home
+  homeBorder:Color
+  homeText1:Color
+  homeText2:Color
+  homeText3:Color
+  homeBackground:Color
+  homeBackground1:Color
+  homeBackground2:Color
+  homeLogo:Color
 }
 
 export interface Grids {
@@ -142,6 +153,7 @@ declare module 'styled-components' {
 
     // media queries
     mediaWidth: {
+      upToEs: ThemedCssFunction<DefaultTheme>
       upToExtraSmall: ThemedCssFunction<DefaultTheme>
       upToSmall: ThemedCssFunction<DefaultTheme>
       upToMedium: ThemedCssFunction<DefaultTheme>
