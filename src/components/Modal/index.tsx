@@ -36,16 +36,16 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
   &[data-reach-dialog-content] {
     margin: 0 0 2rem 0;
     background-color: ${({ theme }) => theme.bg6};
-    border:1px solid #54b2b3;
+    border:1px solid #00c675;
     box-shadow: 0 4px 8px 0 ${({ theme }) => transparentize(0.95, theme.shadow1)};
     padding: 0px;
     width: 50vw;
-    overflow-y: ${({ mobile }) => (mobile ? 'scroll' : 'scroll')};
+    overflow-y: ${({ mobile }) => (mobile ? 'hidden' : 'hidden')};
     overflow-x: hidden;
+    align-self: ${({ mobile }) => (mobile ? 'center ' : 'center')};
+   
 
-    align-self: ${({ mobile }) => (mobile ? 'flex-end' : 'center')};
-
-    max-width: 420px;
+    max-width: 370px;
     ${({ maxHeight }) =>
       maxHeight &&
       css`
@@ -54,22 +54,21 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
     ${({ minHeight }) =>
       minHeight &&
       css`
-        min-height: ${minHeight}vh;
+        min-height: 60vh;
       `}
     display: flex;
-    border-radius: 20px;
+    border-radius: 10px;
     ${({ theme }) => theme.mediaWidth.upToMedium`
       width: 65vw;
       margin: 0;
     `}
     ${({ theme, mobile }) => theme.mediaWidth.upToSmall`
-      width:  85vw;
+    width:  85vw;
       ${mobile &&
         css`
-          width: 100vw;
-          border-radius: 20px;
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
+          width:  90vw;
+          border-radius: 10px;
+         
         `}
     `}
   }

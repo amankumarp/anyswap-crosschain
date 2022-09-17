@@ -4,9 +4,12 @@ import styled from 'styled-components'
 import Pagination from '@material-ui/lab/Pagination'
 import moment from 'moment'
 import BeatLoader from 'react-spinners/BeatLoader';
-import { nodeApi } from '../../config/constant'
+import { nodeApi } from '../../config/constant';
+import { useLocation } from 'react-router-dom'
+
+
 const InputText = styled.input`
-width:90%
+width:90%;
 line-height:40px;
 outline:none; 
 border:none;
@@ -17,18 +20,21 @@ border:1px solid;
 border-color: ${({ theme }) => theme.borderBg};
 ${({ theme }) => theme.mediaWidth.upToMedium`
 width:80%;
-
 `}`
 
 const Wrap = styled.div`
 width: 1440px;
 padding: 20px;
-
+.main-wrapper{
+  background: ${({ theme }) => theme.contentBg2};
+  border-radius:10px;
+  padding:3px;
+}
 h1 {
   color: #fff;
 }
 .MuiPaginationItem-outlined {
-  border: 1px solid ${({ theme }) => theme.text7} ;
+  border: 1px solid ${({ theme }) => theme.text10} ;
 }
 
 .MuiPaginationItem-root {
@@ -40,12 +46,13 @@ color:${({ theme }) => theme.text7};
   border-radius: 7px;
 }
 .MuiPaginationItem-outlinedSecondary.Mui-selected {
-color: #00b2b0 !important;
-border: 1px solid #00b2b0 ;
-background-color: rgb(0 178 176 / 18%);
+color: ${({ theme }) => theme.text7} !important;
+border: 1px solid #00c675 ;
+background-color: #00c675 ;
+font-weight:600
 }
 .MuiPaginationItem-outlinedSecondary.Mui-selected:hover{
-  background-color: #00b2b030;
+  background-color: #00c675;
 }
 .tab-container {
   padding: 20px 0px;
@@ -54,7 +61,7 @@ background-color: rgb(0 178 176 / 18%);
     font-Weight:600;
     padding: 5px 10px;
     cursor: pointer;
-    color: ${({ theme }) => theme.text7};
+    color: ${({ theme }) => theme.textNav};
     background: transparent;
     border: 1px solid;
     border-color: ${({ theme }) => theme.borderBg};
@@ -77,7 +84,7 @@ background-color: rgb(0 178 176 / 18%);
      border-left: 1px solid;
     border-right: 1px solid;
      border-top: 1px solid;
-    border-color: #01b2b1;
+    border-color: #00c675;
     margin-left: 5px;
     margin-right: 5px;
     ${({ theme }) => theme.mediaWidth.upToMedium`
@@ -88,6 +95,9 @@ background-color: rgb(0 178 176 / 18%);
 .table-responsive {
   overflow: auto;
   max-height: 70vh;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  max-height: 100vh;
+    `}
 }
 .notFound{
   color: ${({ theme }) => theme.text7};
@@ -108,7 +118,6 @@ ${({ theme }) => theme.mediaWidth.upToMedium`
 `
 const Table = styled.table`
 width: 100%;
-
 padding: 10px;
 overflow: auto;
 border-radius: 10px;
@@ -141,7 +150,7 @@ td {
   border: none;
 }
 .tdRow{
-  border:1px solid #ccc;
+  // border:1px solid #ccc;
 }
 .tdhead {
   padding-top: 10px;
@@ -169,6 +178,13 @@ td {
 
   `}
 }
+.resposive{
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  min-width:130px;
+
+  `}
+
+}
 .tdbodyhead {
   font-weight: bold;
 }
@@ -188,23 +204,27 @@ const InputWrapper = styled.div`
 width: 70%;
 margin: auto;
 margin-bottom: 20px;
-.btn {
+.btn1 {
   width: 44px;
   line-height: 40px;
-  background: #01b2b1;
+  background: #00c675;
   border: none;
   outline: none;
   border: 1px solid;
   border-color: ${({ theme }) => theme.borderBg};
   cursor: pointer;
 }
+${({ theme }) => theme.mediaWidth.upToMedium`
+  
+  width: 90%
+  `}
 `
 
 
 
 const Input = styled.input`
 width:100%;
-
+color: ${({ theme }) => theme.text8} ;
   border:1px solid ;
   border-color: ${({ theme }) => theme.borderBg};
 
@@ -245,8 +265,8 @@ margin-top: 40px;
 }
 .dropdown-btn{
   background:white;
-  line-height:28px;
-  min-height:28px;
+  line-height:30px;
+  min-height:30px;
   border-radius:6px
   border:1px solid ;
   border-color: ${({ theme }) => theme.borderBg};
@@ -259,7 +279,7 @@ margin-top: 40px;
   z-index:1;
   border-radius:6px;
   max-height:158px;
-  overflow-y:scroll;
+  overflow-y:auto;
   background:#fff;
   box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
   ul{
@@ -285,8 +305,7 @@ margin-top: 40px;
   z-index:200;
   top: 33px;
   max-height:158px;
-  overflow-y:scroll;
-  
+  overflow-y:auto;
   border-radius:6px;
   box-shadow: 1px 7px 17px 1px rgb(0 0 0 / 10%);
   ul{
@@ -309,7 +328,7 @@ margin-top: 40px;
 
 }
 .sendButton{
-  background:#01b2b1;
+  background:#00c675;
   color:#fff;
   border:none;
   outline:none;
@@ -329,6 +348,8 @@ width:80%;
 
 
 export default function Explorer() {
+  const location = useLocation();
+    // console.log(location,"location")
   
   const [tab1, setTab1] = useState(true)
   const [tab2, setTab2] = useState(false)
@@ -366,12 +387,7 @@ export default function Explorer() {
     console.log(e.target.value,"holllllllllllllllllllo0")
     SetTxnhash(e.target.value)
   }
-  // console.log(txnHash,"wgfvdcg")
-  // const sendToDetails = ()=>{
-   
-
-  // } 
-  // console.log(selectBox, 'pageselectBox1')
+ 
 
   function selectBoxFunc(text1: string,id:number) {
     setDestChainId(id)
@@ -390,9 +406,10 @@ export default function Explorer() {
     display: 'block',
     margin: '0 auto',
     borderColor: 'red',
-    position: 'relative',
+    position: 'absolute',
     left: '50%',
-    top: '280px'
+    top: '300px',
+    transform:"translate(-50%)"
   }
 
   async function api() {
@@ -423,9 +440,9 @@ export default function Explorer() {
     }else{
       setContent2(false)
     }
-    const successLength = transactionSuccess.length
-    const pendingLength = pendingTransaction.length
-    console.log(pendingLength, successLength, 'successLengthsuccessLength')
+    // const successLength = transactionSuccess.length
+    // const pendingLength = pendingTransaction.length
+    // console.log(pendingLength, successLength, 'successLengthsuccessLength')
     setSuccessData(transactionSuccess)
     setPendingData(pendingTransaction)
     const sp =
@@ -433,7 +450,7 @@ export default function Explorer() {
     const pp =
       Number.isInteger(data?.data?.tr0 / 10) == false ? Math.floor(data?.data?.tr0 / 10) + 1 : data?.data?.tr0 / 10
     console.log(sp, pp, 'sp pp')
-    setPagination(sp)
+    setPagination(s)
     setPPagination(pp)
     if(sp<=1){
       setPagiStatus(false)
@@ -456,8 +473,43 @@ export default function Explorer() {
     api()
     fetchChainRecord()
   }, [page])
+  useEffect(()=>{
+    if(location.pathname=="/explorer/viewTxn"){
+      setTab1(true)
+      setTab2(false)
+      setTab3(false)
+      setApiStatus(1)
+      setPage(1)
+      api()
+    }
+    else if(location.pathname=="/explorer/pendingTxn"){
+      setTab2(true)
+      setTab1(false)
+      setTab3(false)
+      setApiStatus(0)
+      setPage(1)
+      api()
+    }
+    else if(location.pathname==="/explorer/tools"){
+      setTab3(true)
+      setTab2(false)
+      setTab1(false)
+      setLoading(false)
 
-  async function fetchOnClick() {
+    }
+
+  },[location.pathname]);
+  useEffect(()=>{
+    setTimeout(() => {
+      setLoading(false)
+    }, 5000);
+  },[])
+ 
+
+
+
+  async function fetchOnClick(e:any) {
+    e.preventDefault();
     // console.log(search, 'searchsearchsearchsearchsearch')
 
     const fetchedData: any = await axios.post(`${nodeApi}/v2/transactionSearch`, { data: search.length>0?search.trim():"empty" });
@@ -469,11 +521,12 @@ export default function Explorer() {
       setSearch('')
       setPagiStatus(false)
        if(fetchedData?.data?.trx.length===0){
-        console.log(fetchedData.data.trx.length,"fetchedDatafetchedData")
+        // console.log(fetchedData.data.trx.length,"fetchedDatafetchedData")
         setContent(true)
       }
     
     }
+    
     
     
   }
@@ -481,15 +534,18 @@ export default function Explorer() {
   
   return (
     <Wrap>
-      <BeatLoader color="#01b2b1" loading={loading} cssOverride={override} size={20} />
+      <BeatLoader color="#00c675" loading={loading} cssOverride={override} size={20} />
       {!tab3 && (
         <InputWrapper>
-          <InputText type="text" placeholder="Hash/Address" value={search} onChange={e => setSearch(e.target.value)} />
-          <button className="btn" onClick={fetchOnClick}>
+        <form onSubmit={(e)=>fetchOnClick(e)}>
+          <InputText type="text" placeholder="Hash/Address" onChange={e => setSearch(e.target.value)} value={search}/>
+          <button className="btn1"  type="submit">
             <i className="fa-solid fa-magnifying-glass" style={{ color: '#fff', fontSize: '20px' }}></i>
           </button>
+          </form>
         </InputWrapper>
       )}
+    
       <div className="tab-container">
         <span
           className={tab1 ? 'active' : 'tab'}
@@ -500,7 +556,9 @@ export default function Explorer() {
             setApiStatus(1)
             setPage(1)
             api()
-            setPagiStatus(true)
+           
+            // location.createHref('/#/explorer/viewTxn');
+            window.location.href= '/#/explorer/viewTxn'
           }}
         >
           View Txns
@@ -514,6 +572,9 @@ export default function Explorer() {
             setApiStatus(0)
             setPage(1)
             api()
+            // location.pathname=`/#/explorer/pendingTxn`
+            window.location.href= '/#/explorer/pendingTxn'
+           
           }}
         >
           Pending Txns
@@ -524,14 +585,18 @@ export default function Explorer() {
             setTab3(true)
             setTab2(false)
             setTab1(false)
+            setLoading(false)
+            // location.pathname=`/#/explorer/tools`
+            window.location.href= '/#/explorer/tools'
           }}
         >
           Tools
         </span>
       </div>
       <div className="table-responsive">
+        <div className="table11">
         {tab1 && (
-          // <Pagination count={10} />
+          
           <div className="table1">
              
               <Table className="table">
@@ -603,20 +668,20 @@ export default function Explorer() {
 
                       return (
                         <>
-                          <tr key={(i)} className="tdRow">
+                          <tr key={i.toString()} className="tdRow">
                             <td className="tdbody tdbodyhead">{(page - 1) * 10 + (i + 1)}</td>
                             <td className="tdbody tbody">{pairId.substring(6)}</td>
                             <td className="tdbody tbody">
                               Sent:{srcAmount / 1e18} <br />
                               <span className="recieved">Recieved:{destAmount / 1e18}</span>
                             </td>
-                            <td className="tdbody tbody">
+                            <td className="tdbody tbody resposive">
                               {srcChainName} <br />
                               <a href={`/#/details?params=${status?destChainTx:srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
                                 {from.substring(0, 6)}...{from.slice(-3)}
                               </a>
                             </td>
-                            <td className="tdbody tbody">
+                            <td className="tdbody tbody resposive">
                               {destChainName} <br />
                               <a href={`/#/details?params=${status?destChainTx:srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
                                 {to.substring(0, 6)}...{to.slice(-3)}
@@ -652,7 +717,8 @@ export default function Explorer() {
             }
           </div>
         )}
-
+        </div>
+        <div className="table22">
         {tab2 && (
           <div className="table2">
           <Table className="table">
@@ -722,8 +788,8 @@ export default function Explorer() {
                   const Updateddate = moment(date).fromNow()
 
                   return (
-                    <>
-                      <tr key={(i)} className="tdRow" >
+                    < >
+                      <tr key={i.toString()} className="tdRow" >
                         <td className="tdbody tdbodyhead">{i + 1}</td>
                         <td className="tdbody tbody">{pairId.substring(6)}</td>
                         <td className="tdbody tbody">
@@ -765,9 +831,13 @@ export default function Explorer() {
                 No Record Found.
               </p>
             }
+            
           </div>
         )}
+        </div>
       </div>
+      
+      
       <div className="pagination" style={{ display: 'flex', justifyContent: 'center', marginTop: '25px' }}>
         {tab1 && pagiStatus && (
           <Pagination
@@ -818,11 +888,12 @@ export default function Explorer() {
               value={txnhash}
               style={{
                 width: '100%',
-                lineHeight: '28px',
+                lineHeight: '30px',
                 outline: 'none',
                 marginTop: '15px',
                 borderRadius: '6px',
-                paddingLeft:"10px"
+                paddingLeft:"10px",
+              
               }}
             />
           </ToolSectionBottom>
@@ -850,7 +921,7 @@ export default function Explorer() {
                         const {blockChainName,chainId}:any=element;
                           return (
                             <>
-                            <li key={(index)}onClick={() => selectBoxFunc1(blockChainName,chainId)} style={{display:blockChainName===selectBox1?"none":"block"}}>{blockChainName}</li>
+                            <li key={index.toString()} onClick={() => selectBoxFunc1(blockChainName,chainId)} style={{display:blockChainName===selectBox1?"none":"block"}}>{blockChainName}</li>
                             </>
                           )
                       })
@@ -883,8 +954,8 @@ export default function Explorer() {
                         console.log(element,"elementelementelement")
                         const {blockChainName,chainId}:any=element;
                           return (
-                            <>
-                            <li key={(index)} onClick={() => selectBoxFunc(blockChainName,chainId)} style={{display:blockChainName===selectBox?"none":"block"}}>{blockChainName}</li>
+                            < >
+                            <li  key={index.toString()} onClick={() => selectBoxFunc(blockChainName,chainId)} style={{display:blockChainName===selectBox?"none":"block"}}>{blockChainName}</li>
                             </>
                           )
                       })
