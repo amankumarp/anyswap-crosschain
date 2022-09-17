@@ -519,7 +519,7 @@ export default function Explorer() {
       setPage(1)
       setSuccessData(fetchedData.data.trx)
       setSearch('')
-      // setPagiStatus(false)
+   setPagiStatus(false)
        if(fetchedData?.data?.trx.length===0){
         // console.log(fetchedData.data.trx.length,"fetchedDatafetchedData")
         setContent(true)
