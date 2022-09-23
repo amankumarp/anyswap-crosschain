@@ -1,43 +1,42 @@
 import styled, { keyframes } from 'styled-components'
 
 
-const text4 = keyframes`
+const text4 =(data:number)=>keyframes`
 0%,25%, 50%,75%, 100%  {
     width: 0;
-    
   }
   
   80%, 95% {
-    width: 70%;
+    width:${data}%;
   }
+ 
+
 `
 
-const text3 = keyframes`
+const text3 =(data:number)=> keyframes`
 0%,25%, 50%,75%, 100%  {
     width: 0;
     
   }
   
   55%, 70% {
-    width: 82%;
+    width:${data}%;
   }
 `
-const text2 = keyframes`
+const text2 = (data:number)=> keyframes`
 0%,25%, 50%,75%, 100%  {
     width: 0;
-    
   }
-  
   30%, 45% {
-    width: 70%;
+    width:${data}%;
   }
 `
-const text1 = keyframes`
+const text1 = (data:number)=> keyframes`
 0%,25%, 50%,75%, 100% {
     width: 0;
   }
   5%,20% {
-    width: 90%;
+    width:${data}%;
   }
 `
 const caret = keyframes`
@@ -54,10 +53,16 @@ export const HomePage = styled.div`
 
 width:1440px !important;
 font-size:62.5%;
+overflow-x:hidden;
+.rot{
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    transform:rotate(90deg)
+    `}
+}
 
 
   .text_1 {
-    animation: ${text1};
+    animation: ${text1(90)};
     &:after{
         content: "|";
   position: absolute;
@@ -66,10 +71,16 @@ font-size:62.5%;
   animation-duration: 1s;
   animation-timing-function: steps(1, end);
     }
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+    animation: ${text1(92)};
+    `}
+    ${({ theme }) => theme.mediaWidth.upToEs`
+    animation: ${text1(92)};
+    `}
   }
   
   .text_2 {
-    animation: ${text2};
+    animation: ${text2(70)};
     &:after{
         content: "|";
   position: absolute;
@@ -78,9 +89,16 @@ font-size:62.5%;
   animation-duration: 1s;
   animation-timing-function: steps(1, end);
     }
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+    animation: ${text2(72)};
+    `}
+    ${({ theme }) => theme.mediaWidth.upToEs`
+    animation: ${text2(72)};
+    `}
+    
   }
   .text_3 {
-    animation: ${text3};
+    animation: ${text3(82)};
     &:after{
         content: "|";
   position: absolute;
@@ -89,9 +107,15 @@ font-size:62.5%;
   animation-duration: 1s;
   animation-timing-function: steps(1, end);
     }
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+    animation: ${text3(84)};
+    `}
+    ${({ theme }) => theme.mediaWidth.upToEs`
+    animation: ${text3(84)};
+    `}
   }
   .text_4 {
-    animation: ${text4};
+    animation: ${text4(70)};
     &:after{
         content: "|";
   position: absolute;
@@ -100,6 +124,12 @@ font-size:62.5%;
   animation-duration: 1s;
   animation-timing-function: steps(1, end);
     }
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+    animation: ${text4(72)};
+    `}
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+    animation: ${text4(72)};
+    `}
   }
   .text_1, .text_2,.text_3,.text_4 {
     overflow: hidden;
@@ -110,6 +140,18 @@ font-size:62.5%;
     animation-timing-function: steps(25, end);
     animation-iteration-count: infinite;
   }
+  .break_block{
+    display:none;
+    ${({ theme }) => theme.mediaWidth.upToEs`
+    display:block;`
+  }
+}
+.tokenSpan{
+    ${({ theme }) => theme.mediaWidth.upToEs`
+    padding:11%
+    `
+  }
+}
 
 
 a{
@@ -127,7 +169,7 @@ li{
 }
 h1, h2, h3, h4, h5, h6{
     font-family: 'CodecColdTrial-ExtraLight';
-    font-weight: 300;
+    font-weight: 600;
 }width:1350px;
 a:hover{
     text-decoration: none;
@@ -167,10 +209,25 @@ a:hover{
     justify-content:center;
     color: ${({ theme }) => theme.homeText2};
 }
+.selectRoute{
+    padding-bottom:32px;
+    ${({ theme }) => theme.mediaWidth.upToExtraLarge`
+    padding: 40px;
+    `}
+}
+.desiredToken{
+    padding-bottom:32px;
+    ${({ theme }) => theme.mediaWidth.upToExtraLarge`
+    padding: 40px;
+    `}
+   
+}
+
 .reports_block p{
     font-size:14px;
     color: ${({ theme }) => theme.homeText2};
 }
+
 
 
 /*------- transitions -------*/
@@ -315,8 +372,27 @@ color:#00c675;
 .our_features_block p{
     font-size:14px
 }
+.feature-img{
+    width:60px;
+    height:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+
+    border:1px solid #00c675
+}
+.feature-img img{
+    width:30px;
+    height:30px;
+   margin:auto
+}
 .mptb30{
     margin: 30px 0;
+}
+.nav-tabs{
+    display:flex;
+    justify-content:center;
 }
 .nav-tabs > li > a {
     border: 0;
@@ -340,6 +416,7 @@ color:#00c675;
 .nav-tabs > li.active > a:focus{
     border: 0!important;
 }
+
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: transparent;
@@ -506,6 +583,7 @@ a:focus {
 .reports_icon {
     font-size: 18px;
 }
+
 .reports_block .stroked_btn {
     display: block;
     text-align: center;
@@ -521,40 +599,86 @@ a:focus {
 #Reports_area .col-md-6{
     margin-bottom: 30px;
 }
-.our_contacts_list{
-    float: left;
-    width: 100%;
-}
-.our_contacts_list li{
-     border: 1px solid ${({ theme }) => theme.homeBorder};
-     float: left;
-     width: 31.3%;
-     margin-right: 3%;     
-     border-radius: 5px;
-     margin-bottom: 20px;
+
+.rc-accordion-toggle {
+    display: flex;
    
+    cursor: pointer;
+    justify-content: space-between;
+    align-items:center;
+    padding:15px 20px;
+    background-color: ${({ theme }) => theme.homeBackground} ;
+    transition: 0.3s;
 }
-.our_contacts_list li a .fa {
-    color: ##00c675: 23px;
-    margin-right: 10px;
+.rc-accordion-toggle.active{
+    background-color: #00c6799c;
 }
-.our_contacts_list li a {
-    display: block;
-    padding: 27px 32px;
-    color: ${({ theme }) => theme.homeText2};;
-    background: ${({ theme }) => theme.homeBackground2};
-    font-size: 18px;
-}
-.our_contacts_list li a:hover{
-    text-decoration: none;
-    background-color: #00c675;
-}
-.our_contacts_list li a:hover .fa {
+.rc-accordion-toggle.active .rc-accordion-icon{
+    transform: rotate(180deg);
     color: #fff;
 }
-.our_contacts_list li:nth-child(3n){
-     margin-right: 0;
+.rc-accordion-card{
+    border: 1px solid ${({ theme }) => theme.homeBorder};
+    border-radius: 5px;
+    margin-bottom: 10px;
+    overflow: hidden;
 }
+.rc-accordion-card:last-child{
+    margin-bottom: 0;
+}
+.accordian-margin{
+   position:relative;
+   left:50%;
+   transform:translateX(-50%)
+  
+}
+.rc-accordion-title{
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    margin-bottom: 0;
+    color:  #00c679;
+    transition: 0.3s;
+}
+.rc-accordion-toggle.active .rc-accordion-title{
+    color: #fff;
+}
+.rc-accordion-icon{
+    position: relative;
+   
+    color: #475F7B;
+    transition: 0.35s;
+    font-size: 12px;
+}
+.rc-accordion-body{
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 15px;
+}
+.rc-accordion-body p{
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #727E8C;
+    padding:5px 0;
+}
+.rc-collapse{
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+    background:${({ theme }) => theme.text8};
+}
+.span-faqs{
+    ${({ theme }) => theme.mediaWidth.upToEs`
+        display:none !important;
+    `}
+}
+.rc-collapse.show{
+    height: auto;
+}
+
 .sm_logo {
     margin-top: 5px;
 }
@@ -923,6 +1047,9 @@ a:focus {
 #our_features_area .col-md{
     overflow: hidden;
 }
+.footer-logo{
+    width:150px
+}
 
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
 max-width:1200px !important
@@ -944,6 +1071,9 @@ max-width:1150px !important
 }
 .banner_text .type1{
     line-height:50px
+ }
+ .our_features_block {
+    padding:30px
  }
 
 `}
@@ -1100,7 +1230,9 @@ ${({ theme }) => theme.mediaWidth.upToSmall`
     display: flex;
 }
 #our_supported_area .nav-tabs > li, #our_token_area .nav-tabs > li {
-    width: 13.14% !important;        
+    width: 20% !important;  
+    display:flex;
+    justify-content:center      
 }
 .nav > li > a {
     display: inline-block;        
@@ -1123,7 +1255,7 @@ ${({ theme }) => theme.mediaWidth.upToSmall`
     width: 100%;
 }
 .mt100 {
-    margin-top: 10px;
+    margin-top: 50px;
 }
 #footer .col-md-4.col-sm-4 {
     width: 100%;
@@ -1150,6 +1282,10 @@ ${({ theme }) => theme.mediaWidth.upToSmall`
 }
 .features_title {
     font-size:20px
+    ${({ theme }) => theme.mediaWidth.upToEs`
+        font-size:18px;
+    
+    `}
 }
 .reports_icon{
     font-size:16px;

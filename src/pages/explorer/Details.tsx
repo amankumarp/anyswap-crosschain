@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import { useLocation } from 'react-router-dom';
 import { nodeApi } from '../../config/constant';
-import BeatLoader from 'react-spinners/BeatLoader';
+import BarLoader from 'react-spinners/BarLoader';
 import moment from 'moment';
 
 const Wrap = styled.div`
@@ -16,10 +16,8 @@ border-color: ${({ theme }) => theme.borderBg};
 background:${({ theme }) => theme.contentBg1}
 .msg{
   color: ${({ theme }) => theme.text7};
- 
 };
 .ml{
-
   margin-left:15px;
   font-weight:600;
   
@@ -89,6 +87,15 @@ background:${({ theme }) => theme.contentBg1}
 .bold{
     font-weight:bold;
 }
+.loading{
+    width:100%;
+    position:relative;
+    height:100px
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
 
 ${({ theme }) => theme.mediaWidth.upToMedium`
 
@@ -102,16 +109,9 @@ export default function Details() {
   const[loading,setLoading] =useState(true)
   const [textStatus,setTextStatus] =useState(false);
 
-   const override: CSSProperties = {
+ const override: CSSProperties = {
     display: 'block',
     margin: '0 auto',
-    borderColor: 'red',
-    position: 'relative',
-    left: '40%',
-    top:'60%',
-    // transform:'translateX(-50%)'
-    
-    
   }
 
 
@@ -201,7 +201,7 @@ export default function Details() {
       : destChainID == 80001
       ? 'Matic Testnet'
       : ''
-  // console.log(destdate,srcdate,"hola")
+ 
 
   return (
     <div>
@@ -219,7 +219,7 @@ export default function Details() {
           <div className="col9 anchor">
            
             <p>
-              {srcChainTx?<a href="#">{srcChainTx}</a>:"-"}
+              {srcChainTx?<a href={`${srcChainID}==97 ? https://testnet.bscscan.com/tx/${srcChainTx}`} >{srcChainTx}</a>:"-"}
             </p>
           </div>
         </div>
@@ -231,7 +231,7 @@ export default function Details() {
             
             <p>
              
-              {status == 1 ?<a href="#">{ destChainTx } </a>: <span>-</span>}
+              {status == 1 ?<a href={`https://testnet.bscscan.com/tx/${destChainTx}`}>{ destChainTx } </a>: <span>-</span>}
             </p>
           </div>
         </div>
@@ -331,10 +331,11 @@ export default function Details() {
         }
         
        
-          {/* <div className="msg">
-          <h2 style={{textAlign:"center"}}>No record found.</h2>
-        </div>} */}
-         {loading && <BeatLoader color="#00c675" loading={loading} cssOverride={override} size={20} />}
+          
+         {loading && 
+        <div className="loading">
+         <BarLoader color="#00c675" loading={loading} cssOverride={override} width={100} />
+         </div>}
       </Wrap>
     </div>
   )

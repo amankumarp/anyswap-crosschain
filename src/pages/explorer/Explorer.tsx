@@ -2,10 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import Pagination from '@material-ui/lab/Pagination'
-import moment from 'moment'
-import BeatLoader from 'react-spinners/BeatLoader';
+// import moment from 'moment'
+import BarLoader from 'react-spinners/BarLoader';
 import { nodeApi } from '../../config/constant';
 import { useLocation } from 'react-router-dom'
+import ExplorerTable from './component/ExplorerTable'
 
 
 const InputText = styled.input`
@@ -19,7 +20,7 @@ background:${({ theme }) => theme.search};
 border:1px solid;
 border-color: ${({ theme }) => theme.borderBg};
 ${({ theme }) => theme.mediaWidth.upToMedium`
-width:80%;
+width:86%;
 `}`
 
 const Wrap = styled.div`
@@ -48,7 +49,7 @@ color:${({ theme }) => theme.text7};
 .MuiPaginationItem-outlinedSecondary.Mui-selected {
 color: ${({ theme }) => theme.text7} !important;
 border: 1px solid #00c675 ;
-background-color: #00c675 ;
+background-color: #00c67982 ;
 font-weight:600
 }
 .MuiPaginationItem-outlinedSecondary.Mui-selected:hover{
@@ -93,16 +94,22 @@ font-weight:600
   }
 }
 .table-responsive {
-  overflow: auto;
-  max-height: 70vh;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-  max-height: 100vh;
+  overflow-y: auto;
+ 
+}
+
+.loader{
+  min-height:60vh;
+  width:100%;
+  background: ${({ theme }) => theme.bg8};
+   border:1px solid ${({ theme }) => theme.borderBg};
+   ${({ theme }) => theme.mediaWidth.upToSmall`
+       min-width:40vh;
     `}
 }
 .notFound{
   color: ${({ theme }) => theme.text7};
 }
-
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
         width:1000px;
         padding:5px;
@@ -119,13 +126,15 @@ ${({ theme }) => theme.mediaWidth.upToMedium`
 const Table = styled.table`
 width: 100%;
 padding: 10px;
-overflow: auto;
+overflow-x: auto;
 border-radius: 10px;
 background: ${({ theme }) => theme.contentBg2};
 color: ${({ theme }) => theme.text7};
-border: 1px solid;
-border-color: ${({ theme }) => theme.borderBg};
 border-spacing: 0px;
+max-height: 70vh;
+${({ theme }) => theme.mediaWidth.upToSmall`
+max-height: 100vh;
+  `}
 
 .record-message {
   color: #fff;
@@ -133,7 +142,6 @@ border-spacing: 0px;
   position: relative;
 }
 thead {
-  vertical-align: bottom;
   padding-top: 20px;
   padding-bottom: 20px;
   background: ${({ theme }) => theme.tipBg1};
@@ -149,9 +157,7 @@ a {
 td {
   border: none;
 }
-.tdRow{
-  // border:1px solid #ccc;
-}
+
 .tdhead {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -384,7 +390,7 @@ export default function Explorer() {
   }
 
   const inputChange = (e:any)=>{
-    console.log(e.target.value,"holllllllllllllllllllo0")
+    // console.log(e.target.value,"holllllllllllllllllllo0")
     SetTxnhash(e.target.value)
   }
  
@@ -408,7 +414,7 @@ export default function Explorer() {
     borderColor: 'red',
     position: 'absolute',
     left: '50%',
-    top: '300px',
+    top: '50%',
     transform:"translate(-50%)"
   }
 
@@ -534,7 +540,7 @@ export default function Explorer() {
   
   return (
     <Wrap>
-      <BeatLoader color="#00c675" loading={loading} cssOverride={override} size={20} />
+      {/* *********************************Input-Top**************************************** */}
       {!tab3 && (
         <InputWrapper>
         <form onSubmit={(e)=>fetchOnClick(e)}>
@@ -545,7 +551,7 @@ export default function Explorer() {
           </form>
         </InputWrapper>
       )}
-    
+    {/* *********************************Tab-Button**************************************** */}
       <div className="tab-container">
         <span
           className={tab1 ? 'active' : 'tab'}
@@ -572,7 +578,6 @@ export default function Explorer() {
             setApiStatus(0)
             setPage(1)
             api()
-            // location.pathname=`/#/explorer/pendingTxn`
             window.location.href= '/#/explorer/pendingTxn'
            
           }}
@@ -586,7 +591,7 @@ export default function Explorer() {
             setTab2(false)
             setTab1(false)
             setLoading(false)
-            // location.pathname=`/#/explorer/tools`
+            
             window.location.href= '/#/explorer/tools'
           }}
         >
@@ -594,9 +599,8 @@ export default function Explorer() {
         </span>
       </div>
       <div className="table-responsive">
-        <div className="table11">
+      {/* *********************************Tab1**************************************** */}
         {tab1 && (
-          
           <div className="table1">
              
               <Table className="table">
@@ -628,82 +632,47 @@ export default function Explorer() {
                 <tbody>
                   {successData &&
                     successData.map((data, i) => {
-                      const {
-                        from,
-                        to,
-                        pairId,
-                        srcAmount,
-                        destAmount,
-                        destChainTimestamp,
-                        srcChainTimestamp,
-                        status,
-                        destChainTx,
-                        srcChainTx,
-                        srcChainID,
-                        destChainID
-                      }: any = data
-                      const srcChainName =
-                        srcChainID == 97
-                          ? 'Binance TestNet'
-                          : srcChainID == 1807
-                          ? 'Tarality Testnet'
-                          : srcChainID == 4369
-                          ? 'Rabbit Testnet'
-                          : srcChainID == 80001
-                          ? 'Matic Testnet'
-                          : ''
-                      const destChainName =
-                        destChainID == 97
-                          ? 'Binance TestNet'
-                          : destChainID == 1807
-                          ? 'Tarality Testnet'
-                          : destChainID == 4369
-                          ? 'Rabbit Testnet'
-                          : destChainID == 80001
-                          ? 'Matic Testnet'
-                          : ''
+                      // const {
+                      //   from,
+                      //   to,
+                      //   pairId,
+                      //   srcAmount,
+                      //   destAmount,
+                      //   destChainTimestamp,
+                      //   srcChainTimestamp,
+                      //   status,
+                      //   destChainTx,
+                      //   srcChainTx,
+                      //   srcChainID,
+                      //   destChainID
+                      // }: any = data
+                      // const srcChainName =
+                      //   srcChainID == 97
+                      //     ? 'Binance TestNet'
+                      //     : srcChainID == 1807
+                      //     ? 'Tarality Testnet'
+                      //     : srcChainID == 4369
+                      //     ? 'Rabbit Testnet'
+                      //     : srcChainID == 80001
+                      //     ? 'Matic Testnet'
+                      //     : ''
+                      // const destChainName =
+                      //   destChainID == 97
+                      //     ? 'Binance TestNet'
+                      //     : destChainID == 1807
+                      //     ? 'Tarality Testnet'
+                      //     : destChainID == 4369
+                      //     ? 'Rabbit Testnet'
+                      //     : destChainID == 80001
+                      //     ? 'Matic Testnet'
+                      //     : ''
 
-                      const date: any =destChainTimestamp !==0  ? destChainTimestamp * 1000:srcChainTimestamp * 1000
-                      const Updateddate = moment(date).fromNow()
+                      // const date: any =destChainTimestamp !==0  ? destChainTimestamp * 1000:srcChainTimestamp * 1000
+                      // const Updateddate = moment(date).fromNow()
 
                       return (
                         <>
-                          <tr key={i.toString()} className="tdRow">
-                            <td className="tdbody tdbodyhead">{(page - 1) * 10 + (i + 1)}</td>
-                            <td className="tdbody tbody">{pairId.substring(6)}</td>
-                            <td className="tdbody tbody">
-                              Sent:{srcAmount / 1e18} <br />
-                              <span className="recieved">Recieved:{destAmount / 1e18}</span>
-                            </td>
-                            <td className="tdbody tbody resposive">
-                              {srcChainName} <br />
-                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
-                                {from.substring(0, 6)}...{from.slice(-3)}
-                              </a>
-                            </td>
-                            <td className="tdbody tbody resposive">
-                              {destChainName} <br />
-                              <a href={`/#/details?params=${status?destChainTx:srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
-                                {to.substring(0, 6)}...{to.slice(-3)}
-                              </a>
-                            </td>
-                            <td className="tdbody tbody">{Updateddate}</td>
-                            <td className="tdbody ">
-                              {status == 1 ? (
-                                <span
-                                  style={{ border: '1px solid green', padding: '0px 10px', borderRadius: '10px', color:"green", fontWeight:"600" }}
-                                >
-                                  Success
-                                </span>
-                              ) : (
-                                <span
-                                  style={{ border: '1px solid red', padding: '0px 10px', borderRadius: '10px', color:"red", fontWeight:"600" }}
-                                >
-                                  Pending
-                                </span>
-                              )}
-                            </td>
-                          </tr>
+                         {!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()}/>}
                         </>
                       )
                     })}
@@ -717,10 +686,11 @@ export default function Explorer() {
             }
           </div>
         )}
-        </div>
-        <div className="table22">
+      
+
+        {/* *********************************Tab2**************************************** */}
         {tab2 && (
-          <div className="table2">
+          <div className="table2" >
           <Table className="table">
             <thead>
               <tr>
@@ -750,77 +720,46 @@ export default function Explorer() {
             <tbody>
               {pendingData &&
                 pendingData.map((data, i) => {
-                  const {
-                    from,
-                    to,
-                    pairId,
-                    srcAmount,
-                    destAmount,
-                    srcChainTimestamp,
-                    status,
-                    srcChainTx,
-                    srcChainID,
-                    destChainID
-                  }: any = data
+                  // const {
+                  //   from,
+                  //   to,
+                  //   pairId,
+                  //   srcAmount,
+                  //   destAmount,
+                  //   srcChainTimestamp,
+                  //   status,
+                  //   srcChainTx,
+                  //   srcChainID,
+                  //   destChainID
+                  // }: any = data
 
-                  const srcChainName =
-                    srcChainID == 97
-                      ? 'Binance TestNet'
-                      : srcChainID == 1807
-                      ? 'Tarality Testnet'
-                      : srcChainID == 4369
-                      ? 'Rabbit Testnet'
-                      : srcChainID == 80001
-                      ? 'Matic Testnet'
-                      : ''
-                  const destChainName =
-                    destChainID == 97
-                      ? 'Binance TestNet'
-                      : destChainID == 1807
-                      ? 'Tarality Testnet'
-                      : destChainID == 4369
-                      ? 'Rabbit Testnet'
-                      : destChainID == 80001
-                      ? 'Matic Testnet'
-                      : ''
+                  // const srcChainName =
+                  //   srcChainID == 97
+                  //     ? 'Binance TestNet'
+                  //     : srcChainID == 1807
+                  //     ? 'Tarality Testnet'
+                  //     : srcChainID == 4369
+                  //     ? 'Rabbit Testnet'
+                  //     : srcChainID == 80001
+                  //     ? 'Matic Testnet'
+                  //     : ''
+                  // const destChainName =
+                  //   destChainID == 97
+                  //     ? 'Binance TestNet'
+                  //     : destChainID == 1807
+                  //     ? 'Tarality Testnet'
+                  //     : destChainID == 4369
+                  //     ? 'Rabbit Testnet'
+                  //     : destChainID == 80001
+                  //     ? 'Matic Testnet'
+                  //     : ''
 
-                  const date: any = srcChainTimestamp * 1000
-                  const Updateddate = moment(date).fromNow()
+                  // const date: any = srcChainTimestamp * 1000
+                  // const Updateddate = moment(date).fromNow()
 
                   return (
                     < >
-                      <tr key={i.toString()} className="tdRow" >
-                        <td className="tdbody tdbodyhead">{i + 1}</td>
-                        <td className="tdbody tbody">{pairId.substring(6)}</td>
-                        <td className="tdbody tbody">
-                          Sent:{srcAmount / 1e18} <br />
-                          <span className="recieved">Recieved:{destAmount / 1e18}</span>
-                        </td>
-                        <td className="tdbody tbody">
-                          {srcChainName} <br />
-                          <a href={`/#/details?params=${srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
-                            {from.substring(0, 6)}...{to.slice(-3)}
-                          </a>
-                        </td>
-                        <td className="tdbody tbody">
-                          {destChainName} <br />
-                          <a href={`/#/details?params=${srcChainTx}&srcChainId=${srcChainID}&destChainId=${destChainID}`} className="address">
-                            {to?.substring(0, 6)}...{to.slice(-3)}
-                          </a>
-                        </td>
-                        <td className="tdbody tbody">{Updateddate}</td>
-                        <td className="tdbody">
-                          {status == 1 ? (
-                            <span style={{ border: '1px solid green', padding: '0px 10px', borderRadius: '10px',color:"green" }}>
-                              Success
-                            </span>
-                          ) : (
-                            <span style={{ border: '1px solid red', padding: '0px 10px', borderRadius: '10px',color:"red" }}>
-                             Pending
-                            </span>
-                          )}
-                        </td>
-                      </tr>
+                      {!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()}/>}
                     </>
                   )
                 })}
@@ -834,10 +773,15 @@ export default function Explorer() {
             
           </div>
         )}
-        </div>
+
+      {loading && <div className="loader">
+      <BarLoader color="#00c675" loading={loading} cssOverride={override} width={100} />
+      </div>}
       </div>
+
       
-      
+       {/* *********************************Pagination**************************************** */}
+
       <div className="pagination" style={{ display: 'flex', justifyContent: 'center', marginTop: '25px' }}>
         {tab1 && pagiStatus && (
           <Pagination
@@ -862,6 +806,8 @@ export default function Explorer() {
           />
         )}
       </div>
+
+           {/* *********************************Tab3**************************************** */}
       {tab3 && (
         <>
           <ToolSection>

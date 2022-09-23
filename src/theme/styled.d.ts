@@ -37,6 +37,7 @@ export interface Colors {
   contentBg: Color
   contentBg1: Color
   contentBg2: Color
+  contentBg3: Color
   borderBg:Color
   anchorColor:color
   search:color

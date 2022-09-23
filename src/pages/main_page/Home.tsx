@@ -1,11 +1,36 @@
 import React from 'react'
-
+import Lottie from 'react-lottie'
 import { HomePage } from './style/style'
-import './css/flexslider.css'
-// import "./css/font-awesome.min.css"
 import './css/bootstrap.min.css'
+import animationData from './final_hero.json'
+import animationDataMobile from './mobile.json'
+import animationBottom from './bottom_hero.json'
+import FAQs from './FAQs'
+import { useDarkModeManager } from '../../state/user/hooks'
+import Logo from "../../assets/svg/xtring_logo_wt.png";
+import DarkLogo from "../../assets/svg/xtring_logo-bk.png";
+
+
 
 export default function Home() {
+   const [isDark] = useDarkModeManager()
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData
+  }
+  const defaultOptionsMobile = {
+    loop: true,
+    autoplay: true,
+    animationData: animationDataMobile
+  }
+  const defaultsBottom = {
+    loop: true,
+    autoplay: true,
+    animationData: animationBottom
+  }
+
   return (
     <>
       <HomePage>
@@ -13,7 +38,14 @@ export default function Home() {
         <div id="banner" className="container-fluid ">
           <div className="row">
             <div className="col-md-6 banner_block banner_img">
-              <img src="images/banner_img.jpg" className="i100" />
+              {window.innerWidth > 900 && (
+                <Lottie
+                  options={defaultOptions}
+                  height={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 360 : 380}
+                  width={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 330 : 380}
+                />
+              )}
+              {window.innerWidth < 900 && <Lottie options={defaultOptionsMobile} height={400} width={300} />}
             </div>
             <div className="col-md-6 banner_block">
               <div className="banner_text">
@@ -29,7 +61,7 @@ export default function Home() {
                   <span className="robo type3">The Xtring Bridge </span> facilitates fast cross-chain transfers in any
                   direction within a <span className="robo type3">single interface.</span>
                 </p>
-                <a href="" target="_blank" className="main_btn">
+                <a href="/#/router" target="_blank" className="main_btn" data-aos="zoom-in">
                   Try bridge
                 </a>
               </div>
@@ -43,20 +75,27 @@ export default function Home() {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12 mb20">
               <p className="bridged_heading">
-                $<span id="count1" data-number="1000"></span>{' '}
+                $
+                <span id="count1" className="count" data-number="1000">
+                  {' '}
+                </span>{' '}
                 <a href="">
                   <i className="fa fa-line-chart" aria-hidden="true"></i>
                 </a>
               </p>
-              <p>Total bridged over time</p>
+              <p data-aos="zoom-in">Total bridged over time</p>
             </div>
             <div className="col-md-6 col-sm-6 col-xs-6">
-              <p className="bridged_heading">1-5 Min</p>
-              <p>Transfer time</p>
+              <p className="bridged_heading" data-aos="zoom-in">
+                1-5 Min
+              </p>
+              <p data-aos="zoom-in">Transfer time</p>
             </div>
             <div className="col-md-6 col-sm-6 col-xs-6">
-              <p className="bridged_heading">$0.50</p>
-              <p>
+              <p className="bridged_heading" data-aos="zoom-in">
+                $0.50
+              </p>
+              <p data-aos="zoom-in">
                 Bridge fee{' '}
                 <span>
                   (regular <span className="robo">0.3%</span>)
@@ -72,12 +111,14 @@ export default function Home() {
           <div className="row">
             <div className="col-md-12">
               <h2 className="features_title ">
-                <img src="images/our-features-main-icon.svg" /> Our features
+                <img src="images/Our-features.png" style={{ width: '30px', marginRight: '8px' }} /> Our features
               </h2>
             </div>
             <div className="col-md-6">
-              <div className="our_features_block ">
-                <img src="images/features-chains.svg" />
+              <div className="our_features_block" data-aos="fade-right">
+                <div className="feature-img">
+                  <img src="images/decentralized-icon.png" />
+                </div>
                 <h4>Realistically Decentralised</h4>
                 <p>
                   The DEO is able to limit the power of developers and prevent consolidation since it has ultimate say
@@ -86,16 +127,24 @@ export default function Home() {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="our_features_block">
-                <img src="images/features-security.svg" />
+              <div className="our_features_block" data-aos="fade-left">
+                <div className="feature-img">
+                  <img src="images/Multichain.png" />
+                </div>
                 <h4>Multichain</h4>
-                <p>Use resources from different blockchains by linking them together via a single Bridge.</p>
+                {/* <p>Use resources from different blockchains by linking them together via a single Bridge.</p> */}
+                <p>
+                  By connecting many blockchains with a single Bridge, you may utilise resources from various
+                  blockchains.
+                </p>
               </div>
             </div>
 
             <div className="col-md-6">
-              <div className="our_features_block">
-                <img src="images/features-transfer.svg" />
+              <div className="our_features_block" data-aos="fade-right">
+                <div className="feature-img">
+                  <img src="images/transaction.png" />
+                </div>
                 <h4>Blazingly Quick Transaction</h4>
                 <p>
                   The Analog blockchain allows for very fast financial transactions. Three seconds is the typical wait
@@ -105,8 +154,10 @@ export default function Home() {
             </div>
 
             <div className="col-md-6">
-              <div className="our_features_block">
-                <img src="images/features-time.svg" />
+              <div className="our_features_block" data-aos="fade-left">
+                <div className="feature-img">
+                  <img src="images/almostliberated.png" />
+                </div>
                 <h4>Just almost liberated</h4>
                 <p>
                   Analog&apos;s token transactions are orders of magnitude cheaper than those on Ethereum and similar
@@ -139,7 +190,10 @@ export default function Home() {
           <div className="row">
             <div className="col-md-12">
               <h2 className="features_title ">
-                <img src="images/blockchains-main-icon.svg" /> Our supported blockchains and tokens
+                <img src="images/blockchain.png" style={{ width: '30px', marginRight: '8px' }} />
+                Our supported blockchains 
+                <br className="break_block" />
+                <span className="tokenSpan"> and tokens </span>
               </h2>
             </div>
 
@@ -167,53 +221,8 @@ export default function Home() {
                     </a>
                   </li>
                   <li>
-                    <a href="#5" role="tab" data-toggle="tab">
-                      <img src="images/heco.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#6" role="tab" data-toggle="tab">
-                      <img src="images/celo.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#7" role="tab" data-toggle="tab">
-                      <img src="images/avalanche.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#8" role="tab" data-toggle="tab">
-                      <img src="images/fantom.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#9" role="tab" data-toggle="tab">
-                      <img src="images/terra.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#10" role="tab" data-toggle="tab">
-                      <img src="images/near.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#11" role="tab" data-toggle="tab">
-                      <img src="images/aurora.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#12" role="tab" data-toggle="tab">
-                      <img src="images/harmony.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#13" role="tab" data-toggle="tab">
-                      <img src="images/fuse.svg" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#14" role="tab" data-toggle="tab">
-                      <img src="images/xrpl.svg" />
+                    <a href="#4" role="tab" data-toggle="tab">
+                      <img src="images/tron-trx-logo.svg" />
                     </a>
                   </li>
                 </ul>
@@ -444,62 +453,64 @@ export default function Home() {
           <div className="row">
             <div className="col-md-12">
               <h2 className="features_title ">
-                <img src="images/how-to-use-main-icon.svg" /> How to use Allbridge?
+                <img src="images/useXtring.png" style={{ width: '30px', marginRight: '8px' }} /> How to use Xtring?
               </h2>
             </div>
 
             <div className="col-md-12 relative">
-              <span className="use_allbridge_left">
+              {/* <span className="use_allbridge_left">
                 <span>
                   <strong>1.</strong> Connect wallet A
                 </span>
                 <span>
-                  <strong>2.</strong> Connect wallet A
+                  <strong>2.</strong> Connect wallet B
                 </span>
               </span>
 
               <span className="use_allbridge_right">
                 <span>
-                  <strong>3.</strong> Connect wallet B
+                  <strong>3.</strong> Connect wallet C
                 </span>
                 <span>
                   <strong>4.</strong> Receive assets
                 </span>
-              </span>
-              <img src="images/use-Allbridge.jpg" className="i100 db" />
-              <img src="images/how-to-use-mob.png" className="i100 dn" />
+              </span> */}
+              {/* <img src="images/use-Allbridge.jpg" className="i100 db" /> */}
+              {/* <img src="images/how-to-use-mob.png" className="i100 dn" /> */}
+              <Lottie
+                  options={defaultsBottom}
+                  height={window.innerWidth>900?500:300}
+                  width={window.innerWidth>900?900:300}
+                />
             </div>
           </div>
         </div>
         {/* <!-- Our features --> */}
 
         {/* <!-- Our token --> */}
-       
-        {/* <!-- Our token --> */}
 
+        {/* <!-- Our token --> */}
 
         {/* <!-- Reports --> */}
         <div id="Reports_area" className="container-fluid our_features Reports mt100">
           <div className="row">
             <div className="col-md-12">
-              <h2 className="features_title ">
+              {/* <h2 className="features_title ">
                 <img src="images/reports-main-icon.svg" /> How to use Xtring?
-              </h2>
+              </h2> */}
             </div>
-
             <div className="col-md-6">
-              <div className="reports_block " >
+              <div className="reports_block " data-aos="fade-right">
                 <div className="row">
-                <div className="reports_icon col-md-3 col-lg-2" >
-                  <img src="images/Allbridge_report.svg" />
-                  
+                  <div className="reports_icon col-md-3 col-lg-2">
+                    <img src="images/connect.png" />
+                  </div>
+                  <div className="col-md-9 col-lg-10">
+                    <h4> Connect Pepper Wallet and MetaMask</h4>
+                    <p>It is possible that you may want their installation before you can transmit money.</p>
+                  </div>
                 </div>
-                <div className="col-md-9 col-lg-10">
-                  <h4> Connect Pepper Wallet and MetaMask</h4>
-                  <p>It is possible that you may want their installation before you can transmit money.</p>
-                </div>
-                </div>
-                
+
                 {/* <a href="" target="_blank" className="stroked_btn">
                   Go to report
                 </a> */}
@@ -507,20 +518,20 @@ export default function Home() {
             </div>
 
             <div className="col-md-6">
-              <div className="reports_block">
+              <div className="reports_block selectRoute" data-aos="fade-left">
                 <div className="row">
-                <div className="reports_icon col-md-3 col-lg-2">
-                  <img src="images/Allbridge_report.svg" />
+                  <div className="reports_icon col-md-3 col-lg-2">
+                    <img src="images/route.png" />
+                  </div>
+                  <div className="col-md-9 col-lg-10">
+                    <h4> Select the route</h4>
+                    <p>
+                      To get started, you need to make a decision about which route on the blockchain you wish to
+                      pursue. Diagonal token exchange.
+                    </p>
+                  </div>
                 </div>
-                <div className="col-md-9 col-lg-10">
-                  <h4> Select the route</h4>
-                  <p>
-                  To get started, you need to make a decision about which route on the blockchain you wish to pursue.
-                  Diagonal token exchange{' '}
-                </p>
-                </div>
-                </div>
-               
+
                 {/* <a href="" target="_blank" className="stroked_btn">
                   Go to report
                 </a> */}
@@ -528,19 +539,17 @@ export default function Home() {
             </div>
 
             <div className="col-md-6">
-            <div className="reports_block">
+              <div className="reports_block desiredToken " data-aos="fade-right">
                 <div className="row">
-                <div className="reports_icon col-md-3 col-lg-2">
-                  <img src="images/Allbridge_report.svg" />
+                  <div className="reports_icon col-md-3 col-lg-2">
+                    <img src="images/desiredToken.png" />
+                  </div>
+                  <div className="col-md-9 col-lg-9">
+                    <h4> Select a desired token</h4>
+                    <p>Pick a token from one or both networks to use for sending and receiving on the other network.</p>
+                  </div>
                 </div>
-                <div className="col-md-9 col-lg-9">
-                  <h4> Select a desired token</h4>
-                  <p>
-                  Pick a token from one or both networks to use for sending and receiving on the other network.
-                </p>
-                </div>
-                </div>
-               
+
                 {/* <a href="" target="_blank" className="stroked_btn">
                   Go to report
                 </a> */}
@@ -548,19 +557,17 @@ export default function Home() {
             </div>
 
             <div className="col-md-6">
-            <div className="reports_block">
+              <div className="reports_block " data-aos="fade-left">
                 <div className="row">
-                <div className="reports_icon col-lg-2 col-md-3">
-                  <img src="images/Allbridge_report.svg" />
+                  <div className="reports_icon col-lg-2 col-md-3">
+                    <img src="images/transferTokens.png" />
+                  </div>
+                  <div className="col-lg-10 col-md-9">
+                    <h4>Transfer your tokens</h4>
+                    <p>Token transfers that occur on different chains need authorisation from a wallet.</p>
+                  </div>
                 </div>
-                <div className="col-lg-10 col-md-9">
-                  <h4> Transfer your tokens</h4>
-                  <p>
-                  Token transfers that occur on different chains need authorisation from a wallet.
-                </p>
-                </div>
-                </div>
-               
+
                 {/* <a href="" target="_blank" className="stroked_btn">
                   Go to report
                 </a> */}
@@ -571,33 +578,27 @@ export default function Home() {
         {/* <!-- Reports --> */}
 
         {/* <!-- Our contacts --> */}
-        {/* <div id="our_contacts" className="container-fluid our_features our_contacts mt100">
-            <div className="row">
-                <div className="col-md-12">
-                    <h2 className="features_title "><img src="images/contacts-main-icon.svg"/> Our contacts</h2>
-                </div>
-
-                <div className="col-md-12">
-                    <ul className="our_contacts_list"> 
-                        <li><a href=""><i className="fa fa-paper-plane" aria-hidden="true"></i> Telegram chat</a></li>
-                        <li><a href=""><i className="fa-brands fa-twitter fa" aria-hidden="true"></i> Twitter</a></li>
-                        <li><a href=""><i className="fa-brands fa-medium fa" aria-hidden="true"></i> Medium</a></li>
-                        <li><a href=""><i className="fa-brands fa-telegram fa" aria-hidden="true"></i> Telegram group</a></li>
-                        <li><a href=""><i className="fa-brands fa-reddit fa" aria-hidden="true"></i>Reddit</a></li>
-                        <li><a href=""><i className="fa fa-file-text" aria-hidden="true"></i> Documentation</a></li>
-                        <li><a href=""><i className="fa-brands fa-discord fa" aria-hidden="true"></i> Discord</a></li>
-                        <li><a href=""><i className="fa fa-user-plus" aria-hidden="true"></i> Collaboration</a></li>
-                    </ul>
-                </div>
+        <div id="Faqs" className="container-fluid our_features our_contacts mt100">
+          <div className="row">
+            <div className="col-md-12">
+              <h2 className="features_title ">
+                <img src="images/contacts-main-icon.svg" /> Frequently Asked Questions <span className='span-faqs'>(FAQS)</span> 
+              </h2>
             </div>
-        </div>  */}
+
+            <div className="col-md-12">
+              <FAQs />
+            </div>
+          </div>
+        </div>
         {/* <!-- Our contacts --> */}
 
         {/* <!--==============================footer end================================--> */}
         <div id="footer" className="container-fluid our_features our_contacts mt100">
           <div className="row">
             <div className="col-md-4 col-sm-4">
-              <img src="images/allbridge-small.svg" />
+              <img src={isDark?`${Logo}`:`${DarkLogo}`} alt="logo" className='footer-logo' />
+             
             </div>
             <div className="col-md-4 col-sm-4 text-center">
               <div className="sm_logo ">
@@ -636,10 +637,10 @@ export default function Home() {
           <div className="row">
             <div className="col-md-6 col-sm-8">
               <div className="footer_link">
-                <a href="">Disclaimer</a>
+                <a href="/#/disclaimer">Disclaimer</a>
                 <a href="/#/privacy-policy">Privacy And GDPR Policy</a>
                 <a href="/#/term&amp;condition">Terms And Conditions</a>
-                <a href="">Cookies Policy</a>
+                {/* <a href="">Cookies Policy</a> */}
               </div>
             </div>
             <div className="col-md-6 col-sm-4">

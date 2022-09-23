@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Policy = styled.div`
-width:100%
+width:1200px
 .text-center{
     text-align:center;
     padding:20px
@@ -13,6 +13,14 @@ p{
 .heading{
   margin-top:20px
 }
+}
+${({ theme }) => theme.mediaWidth.upToMedium`
+width:100%
+padding:10px
+.mainHeading{
+  font-size:20px;
+}
+`}
 `
 
 export default function Privacy() {

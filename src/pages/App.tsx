@@ -43,6 +43,7 @@ import Explorer from './explorer/Explorer'
 import Details from './explorer/Details'
 import Privacy from './main_page/Privacy'
 import TermandCondition from './main_page/TermandCondition'
+import Disclaimer from './main_page/Disclaimer'
 
 
 // import '../hooks/xrp'
@@ -67,7 +68,7 @@ const HeaderWrapper = styled.div`
   // justify-content: space-between;
   justify-content: center;
   box-shadow: ${({ theme }) => theme.contentShadow};
-  background: ${({ theme }) => theme.contentBg1};
+  background: ${({ theme }) => theme.contentBg3};
   position: absolute;
   top: 0;
   left: 0;
@@ -97,7 +98,7 @@ const NavBottom = styled.div`
   padding-top: 0px;
   width: 100%;
   box-shadow: ${({ theme }) => theme.contentShadow};
-  background: ${({ theme }) => theme.contentBg1};
+  background: ${({ theme }) => theme.contentBg3};
   overflow: auto;
   display: none;
   ${({ theme }) => theme.mediaWidth.upToMedium`
@@ -182,6 +183,7 @@ export default function App() {
               <Route exact strict path="/explorer" component={() => <Explorer />} />
               <Route exact strict path="/privacy-policy" component={() => <Privacy />} />
               <Route exact strict path="/term&amp;condition" component={() => <TermandCondition />} />
+              <Route exact strict path="/disclaimer" component={() => <Disclaimer />} />
               <Route exact strict path="/explorer/:tab" component={() => <Explorer />} />
               <Route exact strict path="/details" component={() => <Details/>} />
               <Route exact strict path="/pool/add" component={() => <Pools />} />

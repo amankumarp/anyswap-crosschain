@@ -20,6 +20,7 @@ const HeaderLinks = styled.div`
     ${({ theme }) => theme.flexBC}
     padding: 0rem 1rem;
     // min-height:65px;
+    border-top: 1px solid #00c679;
   `};
 `
 

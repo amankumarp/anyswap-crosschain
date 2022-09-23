@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 const Term = styled.div`
-  width:100%;
+  width:1200px;
    .text-center {
     text-align: center;
     padding: 20px;
@@ -13,7 +13,11 @@ const Term = styled.div`
     margin-top: 20px;
   }
   ${({ theme }) => theme.mediaWidth.upToMedium`
+  width:100%
   padding:10px
+  .mainHeading{
+    font-size:20px;
+  }
   `}
 `
 
@@ -21,8 +25,8 @@ export default function TermandCondition() {
   return (
     <>
       <Term>
-        <h2>
-          <strong className="text-center">Terms and Conditions</strong>
+        <h2 className="text-center mainHeading">
+          <strong className="text-center mainHeading">Terms and Conditions</strong>
         </h2>
 
         <p>Welcome to Xtring!</p>

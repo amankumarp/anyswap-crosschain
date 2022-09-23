@@ -65,7 +65,7 @@ export function colors(darkMode: boolean): Colors {
     bg1: darkMode ? '#212429' : '#FFFFFF',
    
     bg2: darkMode ? '#0b090e' : '#F7F8FA',
-    bg3: darkMode ? '#40444F' : '#c9cacf',
+    bg3: darkMode ? '#40444F' : '#f1f1f1',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#ddd' : '#999',
     bg6: darkMode ? "#000" : white,
@@ -76,8 +76,11 @@ export function colors(darkMode: boolean): Colors {
     recieve: darkMode? '#c9c9c9' :'#898080',
     contentBg: darkMode ? '#21263e' : white,
     contentBg1: darkMode ? '#0b090e' : white,
+    contentBg3:darkMode? "#212122" :white,
     contentBg2: darkMode ? "#0b090e"  : white,  
     drop:darkMode ? "#0b090e" : white,
+ 
+
     
     navIconBg: darkMode ? '#363d5f' : 'rgba(0,0,0,0.05)',
     navBg: darkMode ? '#21263e' : '#031a6e',
@@ -92,7 +95,7 @@ export function colors(darkMode: boolean): Colors {
     tabActiveColor1: darkMode ? "#00c675" : 'white',
     tabBdColor: darkMode ? 'none' : '#734be2',
     tipBg: darkMode ? 'transparent' : '#f2edff',
-    tipBg1: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : '#80fdda1a',
+    tipBg1: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : '#00c6791c',
     search: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : white,
     tipBorder: darkMode ? '#2b314f' : '#b398f9',
     tipColor: darkMode ? white : '#00c675',
@@ -174,8 +177,8 @@ export function colors(darkMode: boolean): Colors {
      // homePage
      homeBorder: darkMode ? 'rgb(255,255,255,0.1)' : 'rgb(0,0,0,0.1)',
      homeText1: darkMode ? 'rgb(255,255,255,0.7)' : 'rgb(0,0,0,0.7)',
-     homeText2: darkMode? 'rgb(255,255,255,0.6)':'rgb(0,0,0,0.6)',
-     homeText3: darkMode? 'rgb(255,255,255,0.3)':'rgb(0,0,0,0.7)',
+     homeText2: darkMode? 'rgb(255,255,255,0.6)':'rgb(0,0,0,0.8)',
+     homeText3: darkMode? 'rgb(255,255,255,0.5)':'rgb(0,0,0,0.7)',
      homeBackground: darkMode ? "#0b090e":"#FFF",
      homeBackground1: darkMode ? "#0b090e":"rgba(58,175,175,0.1)",
      homeBackground2:darkMode ? "#0f0c11":"rgba(58,175,175,0.1)",
@@ -311,12 +314,12 @@ export const TYPE = {
 
 export const FixedGlobalStyle = createGlobalStyle`
 html, input, textarea, button {
-  font-family: 'Manrope', sans-serif !important;
+  font-family:sans-serif !important;
   font-display: fallback;
 }
 @supports (font-variation-settings: normal) {
   html, input, textarea, button {
-    font-family: 'Manrope', sans-serif !important;
+    font-family: sans-serif !important;
   }
 }
 

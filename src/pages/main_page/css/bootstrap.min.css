@@ -1479,7 +1479,7 @@ th {
 }
 .table {
   width: 100%;
-  margin-bottom: 20px;
+ 
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -3563,11 +3563,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   max-width: none;
 }
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
+ 
 }
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px;
+  
 }
 .nav-tabs > li > a {
   
