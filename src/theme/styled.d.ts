@@ -134,6 +134,15 @@ export interface Colors {
   homeBackground1:Color
   homeBackground2:Color
   homeLogo:Color
+  faqBackground:Color
+  faqActive:Color
+
+  expoTab:Color
+  expoActive:Color
+  expoContainer:Color
+  expoHeading:Color
+  expoContent:Color
+  contentBg4:Color
 }
 
 export interface Grids {
@@ -151,6 +160,7 @@ declare module 'styled-components' {
     shadow2: string
     contentShadow: string
     tableShadow: string
+    bgImg:string
 
     // media queries
     mediaWidth: {

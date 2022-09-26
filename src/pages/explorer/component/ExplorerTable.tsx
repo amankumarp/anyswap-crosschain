@@ -1,5 +1,20 @@
 import React from 'react'
 import moment from 'moment';
+import styled from 'styled-components';
+
+const RowContent = styled.div`
+background:${({ theme }) => theme.expoContent};
+padding:5px 5px;
+margin:5px 5px;
+border-radius:10px;
+.col{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  height:50px;
+  font-size:15px;
+}
+`
 
 export default function ExplorerTable({data,i,page}:any) {
   const {
@@ -59,49 +74,93 @@ export default function ExplorerTable({data,i,page}:any) {
   }
 
   return (
-   
-      <tr  className="tdRow" onClick = {navigate} style={{cursor:"pointer"}}>
-        <td className="tdbody tdbodyhead">{(page - 1) * 10 + (i + 1)}</td>
-        <td className="tdbody tbody">{pairId.substring(6)}</td>
-        <td className="tdbody tbody">
-          Sent:{srcAmount / 1e18} <br />
-          <span className="recieved">Recieved:{destAmount / 1e18}</span>
-        </td>
-        <td className="tdbody tbody resposive">
-          {srcChainName} <br />
+    <>
+    <RowContent className="row" onClick = {navigate} style={{cursor:"pointer"}}>
+      <div className="col-sm-1 col-xs-1 col">{(page - 1) * 10 + (i + 1)}</div>
+      <div className="col-sm-2 col-xs-2 col">{pairId.substring(6)}</div>
+      <div className="col-sm-2 col-xs-2 col"> Sent:{srcAmount / 1e18} <br />
+      <span className="recieved">Recieved:{destAmount / 1e18}</span>
+      </div>
+      <div className="col-sm-2 col-xs-2 col">
+      {srcChainName} <br />
           <a
-            href={`/#/details?params=${
+           href={`/#/details?params=${
               status ? destChainTx : srcChainTx
             }&srcChainId=${srcChainID}&destChainId=${destChainID}`}
             className="address"
           >
-            {from.substring(0, 6)}...{from.slice(-3)}
+           {from.substring(0, 6)}...{from.slice(-3)}
           </a>
-        </td>
-        <td className="tdbody tbody resposive">
-          {destChainName} <br />
-          <a
-            href={`/#/details?params=${
-              status ? destChainTx : srcChainTx
+      </div>
+      <div className="col-sm-2 col-xs-2 col">
+      {destChainName} <br />
+           <a
+             href={`/#/details?params=${
+               status ? destChainTx : srcChainTx
             }&srcChainId=${srcChainID}&destChainId=${destChainID}`}
-            className="address"
+           className="address"
           >
             {to.substring(0, 6)}...{to.slice(-3)}
-          </a>
-        </td>
-        <td className="tdbody tbody">{Updateddate}</td>
-        <td className="tdbody">
-          {status == 1 ? (
-            <span style={{ border: '1px solid #00c679', padding: '0px 10px', borderRadius: '10px', color: '#00c679' }}>
-              Success
-            </span>
+         </a>
+      </div>
+      <div className="col-sm-2 col-xs-2 col">{Updateddate}</div>
+      <div className="col-sm-1 col-xs-1 col">
+      {status == 1 ? (
+           <span style={{ border: '1px solid #00c679', padding: '3px 10px', borderRadius: '10px', color: '#00c679' }}>
+             Success
+             </span>
           ) : (
-            <span style={{ border: '1px solid red', padding: '0px 10px', borderRadius: '10px', color: 'red' }}>
+            <span style={{ border: '1px solid red', padding: '3px 10px', borderRadius: '10px', color: 'red' }}>
               Pending
-            </span>
+           </span>
           )}
-        </td>
-      </tr>
-    
+      </div>
+        
+      </RowContent>
+   
+      {/* // <tr  className="tdRow" onClick = {navigate} style={{cursor:"pointer"}}>
+      //   <td className="tdbody tdbodyhead">{(page - 1) * 10 + (i + 1)}</td>
+      //   <td className="tdbody tbody">{pairId.substring(6)}</td>
+      //   <td className="tdbody tbody">
+      //     Sent:{srcAmount / 1e18} <br />
+      //     <span className="recieved">Recieved:{destAmount / 1e18}</span>
+      //   </td>
+      //   <td className="tdbody tbody resposive">
+      //     {srcChainName} <br />
+      //</td>    <a
+      //       href={`/#/details?params=${
+      //         status ? destChainTx : srcChainTx
+      //       }&srcChainId=${srcChainID}&destChainId=${destChainID}`}
+      //       className="address"
+      //     >
+      //       {from.substring(0, 6)}...{from.slice(-3)}
+      //     </a>
+      //   </td>
+      //   <td className="tdbody tbody resposive">
+      //     {destChainName} <br />
+      //     <a
+      //       href={`/#/details?params=${
+      //         status ? destChainTx : srcChainTx
+      //       }&srcChainId=${srcChainID}&destChainId=${destChainID}`}
+      //       className="address"
+      //     >
+      //       {to.substring(0, 6)}...{to.slice(-3)}
+      //     </a>
+      //   </td>
+      //   <td className="tdbody tbody">{Updateddate}</td>
+      //   <td className="tdbody">
+      //     {status == 1 ? (
+      //       <span style={{ border: '1px solid #00c679', padding: '0px 10px', borderRadius: '10px', color: '#00c679' }}>
+      //         Success
+      //       </span>
+      //     ) : (
+      //       <span style={{ border: '1px solid red', padding: '0px 10px', borderRadius: '10px', color: 'red' }}>
+      //         Pending
+      //       </span>
+      //     )}
+      //   </td>
+      // </tr>
+       */}
+      </>
   )
 }

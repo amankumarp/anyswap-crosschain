@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components'
+// import backImg from "../../../assets/images/Graphic-Hero-Blur.jpg"
 
 
 const text4 =(data:number)=>keyframes`
@@ -48,16 +49,41 @@ const caret = keyframes`
   }
 `
 
-
+// background: url(${backImg});
+//background-size:100% 100%;;
 export const HomePage = styled.div`
 
 width:1440px !important;
 font-size:62.5%;
 overflow-x:hidden;
+.Order1{
+    order:1
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    order:2
+    `}
+}
+.Order2{
+    order:2
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    order:1
+    `}
+}
+.Order3{
+    order:3
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    order:3
+    `}
+}
+
+
 .rot{
     ${({ theme }) => theme.mediaWidth.upToSmall`
     transform:rotate(90deg)
     `}
+}
+.div-center{
+    display:flex;
+    justify-content:center;
 }
 
 
@@ -210,15 +236,15 @@ a:hover{
     color: ${({ theme }) => theme.homeText2};
 }
 .selectRoute{
-    padding-bottom:32px;
+    padding-bottom:10px !important;
     ${({ theme }) => theme.mediaWidth.upToExtraLarge`
-    padding: 40px;
+    padding: 30px !important;
     `}
 }
 .desiredToken{
-    padding-bottom:32px;
+    padding-bottom:10px !important;
     ${({ theme }) => theme.mediaWidth.upToExtraLarge`
-    padding: 40px;
+    padding: 30px !important;
     `}
    
 }
@@ -227,6 +253,7 @@ a:hover{
     font-size:14px;
     color: ${({ theme }) => theme.homeText2};
 }
+
 
 
 
@@ -266,7 +293,10 @@ a:hover{
     color: rgb(255,255,255,0.7);
 }
 .banner_text {
-    padding-top: 80px;
+    padding: 100px 0;
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+   padding:10px
+`}
 }
 .banner_text h1,.banner_text h2 {
     font-size: 45px;
@@ -283,9 +313,16 @@ a:hover{
 }
 .banner_text p{
     color: ${({ theme }) => theme.text7};
-    font-size: 16px;
+    font-size: 24px;
+    padding:7px 0px;
+    line-height:45px;
+    letter-spacing: 1px;
     font-weight: 300;
     margin:30px 0; 
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+        font-size:16px;
+        line-height:30px;
+    `}
 }
 .main_btn{
     padding:14px 30px; 
@@ -348,7 +385,7 @@ a:hover{
 .our_features_block {
     padding: 40px;
     border: 1px solid  ${({ theme }) => theme.homeBorder};
-    background: ${({ theme }) => theme.homeBackground};
+    
     border-radius: 10px;
     min-height: 220px;
     margin-top: 20px;
@@ -569,12 +606,28 @@ a:focus {
     text-decoration: none;
     color:${({ theme }) => theme.text8};
 }
+.minorMargin{
+    margin:10px 0;
+}
+.minorRight{
+    padding-right:70px !important;
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding-right: 10px !important;
+    `}
+
+}
+.minorLeft{
+    padding-left:70px !important;
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding-left: 10px !important;
+    `}
+}
 .reports_block{
     border: 1px solid  ${({ theme }) => theme.homeBorder};
     border-radius: 5px;
-    padding: 40px;
+    padding: 10px 20px;
     color: ${({ theme }) => theme.text7};
-    background-color: ${({ theme }) => theme.homeBackground};;
+    
     font-size: 16px;
     ${({ theme }) => theme.mediaWidth.upToSmall`
     padding: 30px;
@@ -607,11 +660,12 @@ a:focus {
     justify-content: space-between;
     align-items:center;
     padding:15px 20px;
-    background-color: ${({ theme }) => theme.homeBackground} ;
+    background:${({ theme }) => theme.faqBackground};
+   
     transition: 0.3s;
 }
 .rc-accordion-toggle.active{
-    background-color: #00c6799c;
+    background-color:${({ theme }) => theme.faqActive} ;
 }
 .rc-accordion-toggle.active .rc-accordion-icon{
     transform: rotate(180deg);
@@ -627,11 +681,13 @@ a:focus {
     margin-bottom: 0;
 }
 .accordian-margin{
-   position:relative;
-   left:50%;
-   transform:translateX(-50%)
+padding:10px 20px
+${({ theme }) => theme.mediaWidth.upToSmall`
+padding: 10px 10px;
+`}
   
 }
+
 .rc-accordion-title{
     font-weight: 600;
     font-size: 16px;
@@ -668,7 +724,7 @@ a:focus {
     height: 0;
     overflow: hidden;
     transition: height 0.35s ease;
-    background:${({ theme }) => theme.text8};
+    background:${({ theme }) => theme.faqBackground};
 }
 .span-faqs{
     ${({ theme }) => theme.mediaWidth.upToEs`
@@ -911,7 +967,12 @@ a:focus {
     cursor: pointer;
 }
 .banner_img {
+    padding:50px 0;
     float: right !important;
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: 0px;
+    float: none !important
+    `}
 }
 .banner_img .i100 {
     margin-top: 80px;
@@ -1364,6 +1425,7 @@ ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     .reports_block1{
         padding-bottom:40px !important
     }
+   
     
 `}
 

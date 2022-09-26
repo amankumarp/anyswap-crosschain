@@ -6,9 +6,12 @@ export const BodyWrapper = styled.div`
   width: 100%;
   height: 100%;
   // max-width: 1100px;
-  padding: 2.5rem 70px;
+  padding: 2.5rem 23rem;
   overflow-x:hidden;
   margin:auto;
+  ${({ theme }) => theme.mediaWidth.upToExtraLarge`
+  padding: 2.5rem 10rem;
+`};
   ${({ theme }) => theme.mediaWidth.upToMedium`
     padding: 0rem 0px;
   `};

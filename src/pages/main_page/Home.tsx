@@ -3,12 +3,13 @@ import Lottie from 'react-lottie'
 import { HomePage } from './style/style'
 import './css/bootstrap.min.css'
 import animationData from './final_hero.json'
-import animationDataMobile from './mobile.json'
-import animationBottom from './bottom_hero.json'
+// import animationDataMobile from './mobile.json'
+import animationBottom from './bottom_hero2.json'
 import FAQs from './FAQs'
 import { useDarkModeManager } from '../../state/user/hooks'
 import Logo from "../../assets/svg/xtring_logo_wt.png";
 import DarkLogo from "../../assets/svg/xtring_logo-bk.png";
+
 
 
 
@@ -20,11 +21,11 @@ export default function Home() {
     autoplay: true,
     animationData: animationData
   }
-  const defaultOptionsMobile = {
-    loop: true,
-    autoplay: true,
-    animationData: animationDataMobile
-  }
+  // const defaultOptionsMobile = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: animationDataMobile
+  // }
   const defaultsBottom = {
     loop: true,
     autoplay: true,
@@ -38,24 +39,26 @@ export default function Home() {
         <div id="banner" className="container-fluid ">
           <div className="row">
             <div className="col-md-6 banner_block banner_img">
-              {window.innerWidth > 900 && (
+             
                 <Lottie
                   options={defaultOptions}
                   height={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 360 : 380}
                   width={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 330 : 380}
                 />
-              )}
-              {window.innerWidth < 900 && <Lottie options={defaultOptionsMobile} height={400} width={300} />}
+            
+              {/* {window.innerWidth < 900 && <Lottie options={defaultOptionsMobile} height={400} width={300} />} */}
             </div>
             <div className="col-md-6 banner_block">
               <div className="banner_text">
                 <h1 className="css-typing">
-                  <h2 className="type1">Transfer tokens between</h2>
+                  <span className="type1">Transfer tokens between</span><br/>
+                  <span>
                   <span className="text_1">Ethereum &amp; Analog Chain</span>
                   <span className="text_2">BSC &amp; Analog Chain</span>
                   <span className="text_3">Polygon &amp; Analog Chain</span>
                   <span className="text_4">Tron &amp; Analog Chain</span>
-                  <h2 className="type3">via decentralized Bridge</h2>
+                  </span><br/>
+                  <span className="type3">via decentralized Bridge</span>
                 </h1>
                 <p>
                   <span className="robo type3">The Xtring Bridge </span> facilitates fast cross-chain transfers in any
@@ -109,7 +112,7 @@ export default function Home() {
         {/* <!-- Our features --> */}
         <div id="our_features_area" className="container-fluid our_features mt100">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 div-center">
               <h2 className="features_title ">
                 <img src="images/Our-features.png" style={{ width: '30px', marginRight: '8px' }} /> Our features
               </h2>
@@ -188,7 +191,7 @@ export default function Home() {
         {/* <!-- our_supported_area --> */}
         <div id="our_supported_area" className="container-fluid our_features our_supported_area mt100">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 div-center">
               <h2 className="features_title ">
                 <img src="images/blockchain.png" style={{ width: '30px', marginRight: '8px' }} />
                 Our supported blockchains 
@@ -451,7 +454,7 @@ export default function Home() {
         {/* <!-- Our features --> */}
         <div id="use_allbridge_area" className="container-fluid our_features use_allbridge mt100">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 div-center">
               <h2 className="features_title ">
                 <img src="images/useXtring.png" style={{ width: '30px', marginRight: '8px' }} /> How to use Xtring?
               </h2>
@@ -477,11 +480,7 @@ export default function Home() {
               </span> */}
               {/* <img src="images/use-Allbridge.jpg" className="i100 db" /> */}
               {/* <img src="images/how-to-use-mob.png" className="i100 dn" /> */}
-              <Lottie
-                  options={defaultsBottom}
-                  height={window.innerWidth>900?500:300}
-                  width={window.innerWidth>900?900:300}
-                />
+             
             </div>
           </div>
         </div>
@@ -492,14 +491,11 @@ export default function Home() {
         {/* <!-- Our token --> */}
 
         {/* <!-- Reports --> */}
-        <div id="Reports_area" className="container-fluid our_features Reports mt100">
+        <div id="Reports_area" className="container-fluid our_features Reports">
           <div className="row">
-            <div className="col-md-12">
-              {/* <h2 className="features_title ">
-                <img src="images/reports-main-icon.svg" /> How to use Xtring?
-              </h2> */}
-            </div>
-            <div className="col-md-6">
+            <div className="col-md-4 col-12 Order1">
+              <div className="row">
+            <div className="col-md-12  minorRight minorMargin">
               <div className="reports_block " data-aos="fade-right">
                 <div className="row">
                   <div className="reports_icon col-md-3 col-lg-2">
@@ -516,9 +512,8 @@ export default function Home() {
                 </a> */}
               </div>
             </div>
-
-            <div className="col-md-6">
-              <div className="reports_block selectRoute" data-aos="fade-left">
+            <div className="col-md-12 minorMargin">
+              <div className="reports_block selectRoute" data-aos="fade-right">
                 <div className="row">
                   <div className="reports_icon col-md-3 col-lg-2">
                     <img src="images/route.png" />
@@ -537,9 +532,24 @@ export default function Home() {
                 </a> */}
               </div>
             </div>
+            </div>
 
-            <div className="col-md-6">
-              <div className="reports_block desiredToken " data-aos="fade-right">
+            </div>
+           {window.innerWidth>=768 && <div className="col-md-4 col-12 Order2">
+            <Lottie
+                  options={defaultsBottom}
+                  height={375}
+                  width={375}
+                />
+            </div>}
+          
+            
+          
+            <div className="col-md-4 col-12 Order3">
+              <div className="row">
+                <div className="col-md-12 minorMargin minorLeft">
+               
+              <div className="reports_block desiredToken " data-aos="fade-left">
                 <div className="row">
                   <div className="reports_icon col-md-3 col-lg-2">
                     <img src="images/desiredToken.png" />
@@ -549,14 +559,11 @@ export default function Home() {
                     <p>Pick a token from one or both networks to use for sending and receiving on the other network.</p>
                   </div>
                 </div>
-
-                {/* <a href="" target="_blank" className="stroked_btn">
-                  Go to report
-                </a> */}
               </div>
-            </div>
+              </div>
+            
 
-            <div className="col-md-6">
+            <div className="col-md-12 minorMargin">
               <div className="reports_block " data-aos="fade-left">
                 <div className="row">
                   <div className="reports_icon col-lg-2 col-md-3">
@@ -567,12 +574,20 @@ export default function Home() {
                     <p>Token transfers that occur on different chains need authorisation from a wallet.</p>
                   </div>
                 </div>
-
-                {/* <a href="" target="_blank" className="stroked_btn">
-                  Go to report
-                </a> */}
               </div>
             </div>
+                
+              </div>
+            
+
+            </div>
+
+           
+
+
+          
+
+           
           </div>
         </div>
         {/* <!-- Reports --> */}
@@ -580,9 +595,9 @@ export default function Home() {
         {/* <!-- Our contacts --> */}
         <div id="Faqs" className="container-fluid our_features our_contacts mt100">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-12 div-center">
               <h2 className="features_title ">
-                <img src="images/contacts-main-icon.svg" /> Frequently Asked Questions <span className='span-faqs'>(FAQS)</span> 
+                <img src="images/faq.png" style={{width:"30px",marginRight:"8px"}}/> Frequently Asked Questions <span className='span-faqs'>(FAQS)</span> 
               </h2>
             </div>
 

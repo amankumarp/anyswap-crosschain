@@ -9,6 +9,8 @@ import styled, {
 import { useIsDarkMode } from '../state/user/hooks'
 import { Text, TextProps } from 'rebass'
 import { Colors } from './styled'
+import bgImg  from "../assets/images/Graphic-Hero-Blur.jpg"
+import bgImgLight  from "../assets/images/v960-ning-29.jpg"
 
 export * from './components'
 
@@ -62,23 +64,25 @@ export function colors(darkMode: boolean): Colors {
     // rgb(21, 26, 47)
     // navBg: darkMode ? '#21263e' : '#031a6e',
    // contentBg: darkMode ? '#21263e' : white,
-    bg1: darkMode ? '#212429' : '#FFFFFF',
+    bg1: darkMode ? 'transparent' : 'transparent',
    
-    bg2: darkMode ? '#0b090e' : '#F7F8FA',
+    bg2: darkMode ? 'transparent' : '#e4edf9',
     bg3: darkMode ? '#40444F' : '#f1f1f1',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#ddd' : '#999',
-    bg6: darkMode ? "#000" : white,
+    bg6: darkMode ? "#002b56" : '#f1effc',
     bg7: darkMode ? '#141313' : '#F7F8FA',
-    bg8: darkMode? '#0b090e':white,
+    bg8: darkMode? 'transparent':'transparent',
     bg9: darkMode ?"#0b090e" :"#f7f7f7",
     text10:darkMode ? '#a4a2a7' : '#ccc',
     recieve: darkMode? '#c9c9c9' :'#898080',
     contentBg: darkMode ? '#21263e' : white,
-    contentBg1: darkMode ? '#0b090e' : white,
-    contentBg3:darkMode? "#212122" :white,
+    contentBg1: darkMode ? 'transparent' : white,
+    contentBg3:darkMode? "#092c58" :'#c6ebf3',
     contentBg2: darkMode ? "#0b090e"  : white,  
     drop:darkMode ? "#0b090e" : white,
+    contentBg4: darkMode ? '#092c5847' : "#c6ebf32b",
+ 
  
 
     
@@ -95,8 +99,8 @@ export function colors(darkMode: boolean): Colors {
     tabActiveColor1: darkMode ? "#00c675" : 'white',
     tabBdColor: darkMode ? 'none' : '#734be2',
     tipBg: darkMode ? 'transparent' : '#f2edff',
-    tipBg1: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : '#00c6791c',
-    search: darkMode ? 'radial-gradient(circle, #15111d, #181420, #1b1723, #1e1927, #211c2a)' : white,
+    tipBg1: darkMode ? '#002b56' : '#00c6791c',
+    search: darkMode ? '#002b56' : white,
     tipBorder: darkMode ? '#2b314f' : '#b398f9',
     tipColor: darkMode ? white : '#00c675',
     hoverEffect: darkMode ?'#231f2a' :"rgb(87 188 188 / 10%)",
@@ -129,7 +133,7 @@ export function colors(darkMode: boolean): Colors {
     royalBlue: darkMode ? '#00c675' : '#00c675',
     placeholderGray: darkMode ? '#5F5F5F' : '#E1E1E1',
     activeGray: darkMode ? '#363d5f' : '#F7F8FA',
-    activeGray1: darkMode ? '#120f0f' : '#F7F8FA',
+    activeGray1: darkMode ? 'transparent' :'transparent',
     borderBg:darkMode ? 'rgb(255,255,255,0.1)' : 'rgb(0,0,0,0.1)',
     bluecolor:darkMode ? '#c9c9c9':`#2172E5`,
     anchorColor:darkMode ? "#00c675": "#2172E5",
@@ -182,7 +186,16 @@ export function colors(darkMode: boolean): Colors {
      homeBackground: darkMode ? "#0b090e":"#FFF",
      homeBackground1: darkMode ? "#0b090e":"rgba(58,175,175,0.1)",
      homeBackground2:darkMode ? "#0f0c11":"rgba(58,175,175,0.1)",
+     faqBackground: darkMode ? 'transparent':"#ffffff73",
+     faqActive: darkMode ? '#002b56':"#bad5ef00",
      homeLogo: darkMode ? "rgb(255,255,255,0.4)":"rgb(0,0,0,0.4)",
+
+     //explorer
+     expoTab: darkMode ? "#16255f":"#caf0f8",
+     expoActive:  darkMode ? "linear-gradient(245.22deg, rgb(218, 46, 239), rgb(43, 106, 255), rgb(57, 208, 216)) 0% center / 400% 100%":"linear-gradient(245.22deg,rgb(135 40 147),rgb(142 164 217),rgb(204 239 241)) 0% center / 400% 100%",
+     expoContainer:darkMode ? "linear-gradient(140.14deg,rgba(0,182,191,.15),rgba(27,22,89,.1) 86.61%),linear-gradient(321.82deg,#18134d,#1b1659)":"linear-gradient(140.14deg,rgb(158 224 227 / 15%),rgb(233 243 250) 86.61%),linear-gradient(321.82deg,#deecf3,#e8f5f7)",
+     expoHeading:darkMode ? "#151a53":"#afe0e9",
+     expoContent:darkMode ? "#130f3f":"#f7fdffe8",
 
     // other
     red1: '#FF6871',
@@ -215,7 +228,9 @@ export function theme(darkMode: boolean): DefaultTheme {
     shadow2: darkMode ? '7px 2px 26px 0 rgba(5, 6, 13, 0.24)' : '7px 2px 26px 0 rgba(0, 0, 0, 0.06)',
     contentShadow: darkMode ? '7px 2px 26px 0 rgba(5, 6, 13, 0.24)' : '7px 2px 26px 0 rgba(0, 0, 0, 0.06)',
     tableShadow: darkMode ? '0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.4)' : '0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.04)',
-
+    bgImg: darkMode ? `${bgImg}`:`${bgImgLight}`,
+    
+    
 
     // media queries
     mediaWidth: mediaWidthTemplates,
@@ -356,7 +371,10 @@ html {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text9};
-  background-color: ${({ theme }) => theme.bg9};
+  // background-color: ${({ theme }) => theme.bg9};
+  background:url(${({ theme }) => theme.bgImg});
+  background-size:100% 100%;
+  
 }
 
 body {

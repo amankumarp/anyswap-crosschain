@@ -13,7 +13,7 @@ font-size:14px;
 color: ${({ theme }) => theme.text7};
 border 1px solid;
 border-color: ${({ theme }) => theme.borderBg};
-background:${({ theme }) => theme.contentBg1}
+background:${({ theme }) => theme.contentBg4}
 .msg{
   color: ${({ theme }) => theme.text7};
 };
