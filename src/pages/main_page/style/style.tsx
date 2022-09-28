@@ -315,13 +315,13 @@ a:hover{
     color: ${({ theme }) => theme.text7};
     font-size: 24px;
     padding:7px 0px;
-    line-height:45px;
+    line-height:40px;
     letter-spacing: 1px;
     font-weight: 300;
     margin:30px 0; 
     ${({ theme }) => theme.mediaWidth.upToSmall`
         font-size:16px;
-        line-height:30px;
+        line-height:25px;
     `}
 }
 .main_btn{
@@ -666,10 +666,11 @@ a:focus {
 }
 .rc-accordion-toggle.active{
     background-color:${({ theme }) => theme.faqActive} ;
+    
 }
 .rc-accordion-toggle.active .rc-accordion-icon{
     transform: rotate(180deg);
-    color: #fff;
+    color:${({ theme }) => theme.homeText4};
 }
 .rc-accordion-card{
     border: 1px solid ${({ theme }) => theme.homeBorder};
@@ -685,6 +686,10 @@ padding:10px 20px
 ${({ theme }) => theme.mediaWidth.upToSmall`
 padding: 10px 10px;
 `}
+.rc-accordion-toggle.active h5{
+    color:${({ theme }) => theme.homeText4};
+
+}
   
 }
 

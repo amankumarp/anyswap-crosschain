@@ -148,6 +148,7 @@ font-weight:600
 .table-responsive {
   overflow-y: auto;
   background:${({ theme }) => theme.expoContainer};
+  max-height:800px;
   border-radius:10px
   padding:20px
   color:${({ theme }) => theme.text7};
@@ -168,10 +169,16 @@ font-weight:600
         min-width:1250px;
        
     `}
+    ${({ theme }) => theme.mediaWidth.upToLarge`
+    min-width:1000px;
+   
+`}
   
  
 }
 .notFound{
+  font-size:24px;
+  margin:20px
   color: ${({ theme }) => theme.text7};
 }
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
@@ -566,17 +573,7 @@ export default function Explorer() {
 
   return (
     <Wrap>
-      {/* *********************************Input-Top**************************************** */}
-      {/* {!tab3 && (
-        <InputWrapper>
-        <form onSubmit={(e)=>fetchOnClick(e)}>
-          <InputText type="text" placeholder="Hash/Address" onChange={e => setSearch(e.target.value)} value={search}/>
-          <button className="btn1"  type="submit">
-            <i className="fa-solid fa-magnifying-glass" style={{ color: '#fff', fontSize: '20px' }}></i>
-          </button>
-          </form>
-        </InputWrapper>
-      )} */}
+      
       {/* *********************************Tab-Button**************************************** */}
       <div className="tab-container">
         <span className="tabSpan">
@@ -590,7 +587,6 @@ export default function Explorer() {
               setPage(1)
               api()
 
-              // location.createHref('/#/explorer/viewTxn');
               window.location.href = '/#/explorer/viewTxn'
             }}
           >
@@ -685,7 +681,7 @@ export default function Explorer() {
               <div className="contentContainer">
               <Row className="row">
                 <div className="col-sm-1 col-xs-1">S.No</div>
-                <div className="col-sm-2 col-xs-2">Coin-Type</div>
+                <div className="col-sm-2 col-xs-2">CoinType</div>
                 <div className="col-sm-2 col-xs-2">Value</div>
                 <div className="col-sm-2 col-xs-2">From</div>
                 <div className="col-sm-2 col-xs-2">To</div>

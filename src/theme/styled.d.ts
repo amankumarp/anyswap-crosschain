@@ -130,6 +130,7 @@ export interface Colors {
   homeText1:Color
   homeText2:Color
   homeText3:Color
+  homeText4:Color
   homeBackground:Color
   homeBackground1:Color
   homeBackground2:Color
@@ -143,6 +144,8 @@ export interface Colors {
   expoHeading:Color
   expoContent:Color
   contentBg4:Color
+
+  mainCard:Color
 }
 
 export interface Grids {

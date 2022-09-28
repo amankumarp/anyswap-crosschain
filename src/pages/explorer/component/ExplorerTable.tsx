@@ -106,11 +106,11 @@ export default function ExplorerTable({data,i,page}:any) {
       <div className="col-sm-2 col-xs-2 col">{Updateddate}</div>
       <div className="col-sm-1 col-xs-1 col">
       {status == 1 ? (
-           <span style={{ border: '1px solid #00c679', padding: '3px 10px', borderRadius: '10px', color: '#00c679' }}>
+           <span style={{ border: '1px solid #00c679', padding: '3px 5px', borderRadius: '10px', color: '#00c679',width:"75px",textAlign:"center" }}>
              Success
              </span>
           ) : (
-            <span style={{ border: '1px solid red', padding: '3px 10px', borderRadius: '10px', color: 'red' }}>
+            <span style={{ border: '1px solid red', padding: '3px 5px', borderRadius: '10px', color: 'red', width:"75px", textAlign:"center" }}>
               Pending
            </span>
           )}

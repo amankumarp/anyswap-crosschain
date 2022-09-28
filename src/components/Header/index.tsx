@@ -6,7 +6,7 @@ import styled from 'styled-components'
 // import LogoDark from '../../assets/svg/logo_white.svg'
 import Logo from '../../assets/svg/xtring_logo-bk.png'
 import LogoDark from '../../assets/svg/xtring_logo_wt.png'
-import LogoColor from '../../assets/svg/Xtring_logo.png'
+// import LogoColor from '../../assets/svg/Xtring_logo.png'
 import IconDay from '../../assets/images/icon/day.svg'
 import IconNight from '../../assets/images/icon/night.svg'
 
@@ -223,7 +223,7 @@ export default function Header() {
           <Title href="/" target="__blank">
             <UniIcon>
               <img src={isDark ? LogoDark : Logo} alt="logo" className='viewImg' />
-              <img src={LogoColor} alt="logo" className='hiddenImg' />
+              <img src={isDark ? LogoDark : Logo} alt="logo" className='hiddenImg' />
             </UniIcon>
           </Title>
           <VersionLinkBox href='https://v1.anyswap.exchange'>

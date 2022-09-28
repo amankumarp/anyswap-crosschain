@@ -66,8 +66,8 @@ export function colors(darkMode: boolean): Colors {
    // contentBg: darkMode ? '#21263e' : white,
     bg1: darkMode ? 'transparent' : 'transparent',
    
-    bg2: darkMode ? 'transparent' : '#e4edf9',
-    bg3: darkMode ? '#40444F' : '#f1f1f1',
+    bg2: darkMode ? 'transparent' : '#e7ebf942',
+    bg3: darkMode ? '#120e3d' : '#79c6d745',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#ddd' : '#999',
     bg6: darkMode ? "#002b56" : '#f1effc',
@@ -99,7 +99,7 @@ export function colors(darkMode: boolean): Colors {
     tabActiveColor1: darkMode ? "#00c675" : 'white',
     tabBdColor: darkMode ? 'none' : '#734be2',
     tipBg: darkMode ? 'transparent' : '#f2edff',
-    tipBg1: darkMode ? '#002b56' : '#00c6791c',
+    tipBg1: darkMode ? '#002b56' : '#daf4fdc7',
     search: darkMode ? '#002b56' : white,
     tipBorder: darkMode ? '#2b314f' : '#b398f9',
     tipColor: darkMode ? white : '#00c675',
@@ -183,6 +183,7 @@ export function colors(darkMode: boolean): Colors {
      homeText1: darkMode ? 'rgb(255,255,255,0.7)' : 'rgb(0,0,0,0.7)',
      homeText2: darkMode? 'rgb(255,255,255,0.6)':'rgb(0,0,0,0.8)',
      homeText3: darkMode? 'rgb(255,255,255,0.5)':'rgb(0,0,0,0.7)',
+     homeText4:darkMode ?"#fff":"#00c675",
      homeBackground: darkMode ? "#0b090e":"#FFF",
      homeBackground1: darkMode ? "#0b090e":"rgba(58,175,175,0.1)",
      homeBackground2:darkMode ? "#0f0c11":"rgba(58,175,175,0.1)",
@@ -196,6 +197,9 @@ export function colors(darkMode: boolean): Colors {
      expoContainer:darkMode ? "linear-gradient(140.14deg,rgba(0,182,191,.15),rgba(27,22,89,.1) 86.61%),linear-gradient(321.82deg,#18134d,#1b1659)":"linear-gradient(140.14deg,rgb(158 224 227 / 15%),rgb(233 243 250) 86.61%),linear-gradient(321.82deg,#deecf3,#e8f5f7)",
      expoHeading:darkMode ? "#151a53":"#afe0e9",
      expoContent:darkMode ? "#130f3f":"#f7fdffe8",
+
+     //proposal
+     mainCard:darkMode ? "#002b56":"#c1ebf2",
 
     // other
     red1: '#FF6871',
@@ -384,20 +388,20 @@ body {
 }
 /* 滚动条凹槽的颜色，还可以设置边框属性 */
 ::-webkit-scrollbar-track-piece {
-  background-color:rgba(0,0,0,0.4);
+  background-color:#ccd4ef;
 }
 /* 滚动条的宽度 */
 ::-webkit-scrollbar {
-width:8px;
-height:8px;
+width:12px;
+height:12px;
 }
 /* 滚动条的设置 */
 ::-webkit-scrollbar-thumb {
-background-color:rgba(255,255,255,0.3);
+background-color:skyblue;
 background-clip:padding-box;
 min-height:28px;
 }
 ::-webkit-scrollbar-thumb:hover {
-background-color:rgba(255,255,255,0.4);
+background-color:#c1ebf2;
 }
 `
