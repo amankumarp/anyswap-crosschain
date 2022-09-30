@@ -197,6 +197,7 @@ export function colors(darkMode: boolean): Colors {
      expoContainer:darkMode ? "linear-gradient(140.14deg,rgba(0,182,191,.15),rgba(27,22,89,.1) 86.61%),linear-gradient(321.82deg,#18134d,#1b1659)":"linear-gradient(140.14deg,rgb(158 224 227 / 15%),rgb(233 243 250) 86.61%),linear-gradient(321.82deg,#deecf3,#e8f5f7)",
      expoHeading:darkMode ? "#151a53":"#afe0e9",
      expoContent:darkMode ? "#130f3f":"#f7fdffe8",
+     votingAct:darkMode ? "#07071d":"#b3ddef",
 
      //proposal
      mainCard:darkMode ? "#002b56":"#c1ebf2",

@@ -45,6 +45,8 @@ import Privacy from './main_page/Privacy'
 import TermandCondition from './main_page/TermandCondition'
 import Disclaimer from './main_page/Disclaimer'
 import Proposal from './main_page/proposal/Proposal'
+import Vote from './main_page/vote/Vote'
+import VotesList from './main_page/VotesList/VotesList'
 
 
 // import '../hooks/xrp'
@@ -188,7 +190,11 @@ export default function App() {
               <Route exact strict path="/disclaimer" component={() => <Disclaimer />} />
               <Route exact strict path="/explorer/:tab" component={() => <Explorer />} />
               <Route exact strict path="/details" component={() => <Details/>} />
-              <Route exact strict path="/proposal" component={() => <Proposal/>} />
+              
+              <Route exact strict path="/voting" component={() => <Vote/>} />
+              <Route exact strict path="/voting/proposal" component={() => <Proposal/>} />
+              <Route exact strict path="/voting/proposal/" component={() => <Proposal/>} />
+              <Route exact strict path="/voting/proposal/items" component={() => <VotesList/>} />
               <Route exact strict path="/pool/add" component={() => <Pools />} />
               <Route exact strict path="/farm" component={() => <FarmList />} />
               <Route exact strict path="/nft" component={() => <CrossNFT />} />

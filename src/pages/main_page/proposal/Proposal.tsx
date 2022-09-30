@@ -66,14 +66,19 @@ export default function Proposal() {
     }
   }, [quill])
   const deleteInput = (i: number) => {
-    // console.log(i,"iiiiiiiiiiiiii")
+    
     const data = arr.filter(item => item.id !== i)
     setArr(data)
   }
 
   return (
     <ProposalContainer>
+      
       <div className="innerProposal">
+        
+        {/* <span className='fa-sharp fa-solid fa-arrow-left'></span>
+      <span className='' style={{margin:0,marginLeft:"5px",}}>Back to vote</span> */}
+      
       <h2 className="proposalHeading">MAKE A PROPOSAL</h2>
       <div className="row">
         <div className="col-md-8 col-xs-12">
@@ -84,7 +89,7 @@ export default function Proposal() {
             <input type="text" style={{ width: '100%', lineHeight: '30px' }} placeholder="Enter Title" className='title'/>
           </div>
 
-          <div className="quillParent" style={{ width: '100%', height: 200, marginBottom: '80px' }}>
+          <div className="quillParent" style={{ width: '100%', height: 400, marginBottom: '80px' }}>
             <div ref={quillRef} />
           </div>
           {textAreaStatus ? (
@@ -171,7 +176,9 @@ export default function Proposal() {
               {/* <button className="actionBtn1">Submit</button> */}
             </div>
             </div>
+            
           </div>
+     
         </div>
       </div>
       </div>

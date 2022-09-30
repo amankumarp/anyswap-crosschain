@@ -82,7 +82,8 @@ margin-bottom:110px !important;
     margin:0px
     label{
         font-size:20px;
-        color:${({ theme }) => theme.text7}
+        color:${({ theme }) => theme.text7};
+        
         font-weight:500;
     }
     .inputDiv{
@@ -104,7 +105,14 @@ margin-bottom:110px !important;
         border-bottom:1px solid #6b7fb9;
         border-radius:10px;
         text-align:center;
-        color:${({ theme }) => theme.text7}
+        color:${({ theme }) => theme.text7};
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-color: red;
+        background-image: linear-gradient(91.24deg,#da2eef 30.86%,#2b6aff 70.43%);
+        background-repeat: repeat;
+        background-size: 100%;
     }
    
     .cardContent{
@@ -149,6 +157,7 @@ margin-bottom:110px !important;
     border:1px solid #6b7fb9;
     outline:none
     color:${({ theme }) => theme.text7};
+    
     ::placeholder{
         color:#6b7fb9
     }

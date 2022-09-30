@@ -144,6 +144,7 @@ export interface Colors {
   expoHeading:Color
   expoContent:Color
   contentBg4:Color
+  votingAct:Color
 
   mainCard:Color
 }

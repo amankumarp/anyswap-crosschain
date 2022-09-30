@@ -108,6 +108,15 @@ export const LinkList = [
     isOutLink: false,
     isView: 1,
   },
+  // {
+  //   path:"/proposal",
+  //   textKey: 'proposal',
+  //   regex: /\/proposal/,
+  //   className: 'otherInfo',
+  //   logo:'fa-solid fa-pen-to-square',
+  //   isOutLink: false,
+  //   isView: 1,
+  // },
 
   // {
   //   path: config.explorer,
