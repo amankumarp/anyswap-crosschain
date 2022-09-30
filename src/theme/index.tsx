@@ -15,12 +15,14 @@ import bgImgLight  from "../assets/images/v960-ning-29.jpg"
 export * from './components'
 
 const MEDIA_WIDTHS = {
+  upToEes:375,
   upToEs:400,
   upToExtraSmall: 500,
   upToSmall: 768,
   upToMedium: 960,
   upToLarge: 1180,
-  upToExtraLarge:1350
+  upToExtraLarge:1350,
+  upToEeL:1400
 }
 
 const mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } = Object.keys(MEDIA_WIDTHS).reduce(
@@ -393,8 +395,8 @@ body {
 }
 /* 滚动条的宽度 */
 ::-webkit-scrollbar {
-width:12px;
-height:12px;
+width:8px;
+height:8px;
 }
 /* 滚动条的设置 */
 ::-webkit-scrollbar-thumb {

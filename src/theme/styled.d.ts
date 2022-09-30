@@ -168,12 +168,14 @@ declare module 'styled-components' {
 
     // media queries
     mediaWidth: {
+      upToEes: ThemedCssFunction<DefaultTheme>
       upToEs: ThemedCssFunction<DefaultTheme>
       upToExtraSmall: ThemedCssFunction<DefaultTheme>
       upToSmall: ThemedCssFunction<DefaultTheme>
       upToMedium: ThemedCssFunction<DefaultTheme>
       upToLarge: ThemedCssFunction<DefaultTheme>
       upToExtraLarge: ThemedCssFunction<DefaultTheme>
+      upToEeL: ThemedCssFunction<DefaultTheme>
     }
 
     // css snippets

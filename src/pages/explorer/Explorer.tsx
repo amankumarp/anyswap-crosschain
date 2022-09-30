@@ -22,13 +22,21 @@ const InputWrapper = styled.div`
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     outline: none;
-   
     border: 1px solid #6e7aae;
     cursor: pointer;
+    .form{
+      ${({ theme }) => theme.mediaWidth.upToSmall`
+        margin:7px 0
+      `}
+
+    }
+  
+    
     .searchIcon{
       color:${({ theme }) => theme.text7};
     }
   }
+ 
   ${({ theme }) => theme.mediaWidth.upToMedium`
   
   width: 100%
@@ -145,14 +153,20 @@ font-weight:600
   padding:2px;
   border-radius:10px
 }
-.table-responsive {
-  overflow-y: auto;
+.table-responsive1 {
+ 
   background:${({ theme }) => theme.expoContainer};
-  max-height:800px;
+ 
   border-radius:10px
-  padding:20px
+  padding:20px 0 10px 
   color:${({ theme }) => theme.text7};
  
+}
+.table-responsive{
+  max-height:721px;
+}
+
+
 }
 
 .loader{
@@ -162,12 +176,15 @@ font-weight:600
    ${({ theme }) => theme.mediaWidth.upToSmall`
        min-width:40vh;
     `}
+    
 }
 .contentContainer{
+ 
   min-width:1300px;
+  max-height:700px;
+  padding:0 30px
   ${({ theme }) => theme.mediaWidth.upToExtraLarge`
         min-width:1250px;
-       
     `}
     ${({ theme }) => theme.mediaWidth.upToLarge`
     min-width:1000px;
@@ -404,6 +421,8 @@ const Row = styled.div`
   padding: 10px 0px;
   border-radius: 10px;
   font-size: 16px;
+  margin:7px;
+
     font-weight: 600;
 `
 
@@ -623,50 +642,13 @@ export default function Explorer() {
       </div>
       {(tab1 || tab2) && (
         <div className="mainDiv">
-          <div className="table-responsive">
+          <div className="table-responsive1">
             {/* *********************************Tab1**************************************** */}
 
             <div className="table1">
-              {/* <Table className="table">
-                <thead>
-                  <tr>
-                    <td scope="col" className="tdhead">
-                      #
-                    </td>
-                    <td scope="col" className="tdhead">
-                      CoinType
-                    </td>
-                    <td scope="col" className="tdhead">
-                      Value
-                    </td>
-                    <td scope="col" className="tdhead">
-                      From
-                    </td>
-                    <td scope="col" className="tdhead">
-                      To
-                    </td>
-                    <td scope="col" className="tdhead">
-                      Date
-                    </td>
-                    <td scope="col" className="tdhead">
-                      Status
-                    </td>
-                  </tr>
-                </thead>
-                <tbody>
-                  {successData &&
-                    successData.map((data, i) => {
-                     
-                      return (
-                        <>
-                         {!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()}/>}
-                        </>
-                      )
-                    })}
-                </tbody>
-              </Table> */}
+            
               <InputWrapper>
-                <form onSubmit={e => fetchOnClick(e)}>
+                <form className='form' onSubmit={e => fetchOnClick(e)} style={{display:"flex", justifyContent:"center"}}>
                   <InputText
                     type="text"
                     placeholder="Hash/Address"
@@ -678,8 +660,9 @@ export default function Explorer() {
                   </button>
                 </form>
               </InputWrapper>
+              <div className="table-responsive" style={{overflow:"auto"}}>
               <div className="contentContainer">
-              <Row className="row">
+              <Row className="row" >
                 <div className="col-sm-1 col-xs-1">S.No</div>
                 <div className="col-sm-2 col-xs-2">CoinType</div>
                 <div className="col-sm-2 col-xs-2">Value</div>
@@ -699,6 +682,7 @@ export default function Explorer() {
                 pendingData.map((data, i) => {
                   return <>{!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()} />}</>
                 })}
+                </div>
                 </div>
 
               {tab1 && content && (

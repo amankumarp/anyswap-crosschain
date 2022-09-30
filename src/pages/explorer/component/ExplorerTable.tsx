@@ -14,6 +14,12 @@ border-radius:10px;
   height:50px;
   font-size:15px;
 }
+.status{
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  width:68px !important
+  
+  `}
+}
 `
 
 export default function ExplorerTable({data,i,page}:any) {
@@ -31,18 +37,18 @@ export default function ExplorerTable({data,i,page}:any) {
     srcChainID,
     destChainID
   }:any = data;
-  console.log( from,
-    to,
-    pairId,
-    srcAmount,
-    destAmount,
-    destChainTimestamp,
-    srcChainTimestamp,
-    status,
-    destChainTx,
-    srcChainTx,
-    srcChainID,
-    destChainID,"hooolll")
+  // console.log( from,
+  //   to,
+  //   pairId,
+  //   srcAmount,
+  //   destAmount,
+  //   destChainTimestamp,
+  //   srcChainTimestamp,
+  //   status,
+  //   destChainTx,
+  //   srcChainTx,
+  //   srcChainID,
+  //   destChainID,"hooolll")
 
   const srcChainName =
     srcChainID == 97
@@ -106,7 +112,7 @@ export default function ExplorerTable({data,i,page}:any) {
       <div className="col-sm-2 col-xs-2 col">{Updateddate}</div>
       <div className="col-sm-1 col-xs-1 col">
       {status == 1 ? (
-           <span style={{ border: '1px solid #00c679', padding: '3px 5px', borderRadius: '10px', color: '#00c679',width:"75px",textAlign:"center" }}>
+           <span className="status" style={{ border: '1px solid #00c679', padding: '3px 5px', borderRadius: '10px', color: '#00c679',width:"75px",textAlign:"center" }}>
              Success
              </span>
           ) : (

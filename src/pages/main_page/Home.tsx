@@ -2,9 +2,9 @@ import React from 'react'
 import Lottie from 'react-lottie'
 import { HomePage } from './style/style'
 import './css/bootstrap.min.css'
-import animationData from './final_hero.json'
-// import animationDataMobile from './mobile.json'
-import animationBottom from './bottom_hero2.json'
+import animationData from './json/final_hero2.json'
+// import animationDataMobile from './json/final_hero.json'
+import animationBottom from './json/bottom_hero2.json'
 import FAQs from './FAQs'
 import { useDarkModeManager } from '../../state/user/hooks'
 import Logo from "../../assets/svg/xtring_logo_wt.png";
@@ -496,7 +496,7 @@ export default function Home() {
             <div className="col-md-4 col-12 Order1">
               <div className="row">
             <div className="col-md-12  minorRight minorMargin">
-              <div className="reports_block " data-aos="fade-right">
+              <div className="reports_block connectPepper" data-aos="fade-right">
                 <div className="row">
                   <div className="reports_icon col-md-3 col-lg-2">
                     <img src="images/connect.png" />
@@ -564,7 +564,7 @@ export default function Home() {
             
 
             <div className="col-md-12 minorMargin">
-              <div className="reports_block " data-aos="fade-left">
+              <div className="reports_block transferToken " data-aos="fade-left">
                 <div className="row">
                   <div className="reports_icon col-lg-2 col-md-3">
                     <img src="images/transferTokens.png" />
