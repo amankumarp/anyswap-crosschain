@@ -1180,6 +1180,9 @@ max-width:1150px !important
  .our_features_block {
     padding:30px
  }
+ .blockblock{
+    padding-bottom:50px
+ }
 
 `}
 ${({ theme }) => theme.mediaWidth.upToMedium`

@@ -130,7 +130,7 @@ export default function Home() {
               </div>
             </div>
             <div className="col-md-6">
-              <div className="our_features_block" data-aos="fade-left">
+              <div className="our_features_block blockblock" data-aos="fade-left">
                 <div className="feature-img">
                   <img src="images/Multichain.png" />
                 </div>
@@ -535,11 +535,11 @@ export default function Home() {
             </div>
 
             </div>
-           {window.innerWidth>=768 && <div className="col-md-4 col-12 Order2">
+           {window.innerWidth>=768 && <div className="col-md-4 col-12 Order2" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
             <Lottie
                   options={defaultsBottom}
-                  height={375}
-                  width={375}
+                  height={window.innerWidth>=1300?375:300}
+                  width={window.innerWidth>=1300?375:300}
                 />
             </div>}
           
