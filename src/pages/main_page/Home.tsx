@@ -117,8 +117,8 @@ export default function Home() {
                 <img src="images/Our-features.png" style={{ width: '30px', marginRight: '8px' }} /> Our features
               </h2>
             </div>
-            <div className="col-md-6">
-              <div className="our_features_block" data-aos="fade-right">
+            <div className="col-md-6 col-sm-12">
+              <div className="our_features_block our-features1" data-aos="fade-right">
                 <div className="feature-img">
                   <img src="images/decentralized-icon.png" />
                 </div>
@@ -129,7 +129,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 col-sm-12">
               <div className="our_features_block blockblock" data-aos="fade-left">
                 <div className="feature-img">
                   <img src="images/Multichain.png" />
@@ -535,7 +535,7 @@ export default function Home() {
             </div>
 
             </div>
-           {window.innerWidth>=768 && <div className="col-md-4 col-12 Order2" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+           {window.innerWidth>=992 && <div className="col-md-4 col-12 Order2" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
             <Lottie
                   options={defaultsBottom}
                   height={window.innerWidth>=1300?375:300}

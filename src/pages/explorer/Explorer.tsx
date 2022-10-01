@@ -10,7 +10,7 @@ import ExplorerTable from './component/ExplorerTable'
 
 
 const InputWrapper = styled.div`
-  width: 30%;
+  width: 50%;
   margin-left: auto;
   margin-bottom: 20px;
   border-radius: 20px;
@@ -25,6 +25,7 @@ const InputWrapper = styled.div`
     border: 1px solid #6e7aae;
     cursor: pointer;
     .form{
+      margin:0px 10px;
       ${({ theme }) => theme.mediaWidth.upToSmall`
         margin:7px 0
       `}
@@ -147,6 +148,15 @@ font-weight:600
     font-size: 14px;
     `}
   }
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+  font-size: 14px;
+  padding:50px 0 20px 
+  `}
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  font-size: 14px;
+  padding:20px 0 20px 
+  `}
+  
 }
 .mainDiv{
   background:linear-gradient(var(--gradient-rotate, 246deg), #da2eef 7.97%, #2b6aff 49.17%, #39d0d8 92.1%);

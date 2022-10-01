@@ -19,8 +19,9 @@ const MEDIA_WIDTHS = {
   upToEs:400,
   upToExtraSmall: 500,
   upToSmall: 768,
-  upToMedium: 960,
-  upToLarge: 1180,
+  upToMedium: 992,
+  upToLarge: 1200,
+  upToTwelve:1290,
   upToExtraLarge:1350,
   upToEeL:1400
 }

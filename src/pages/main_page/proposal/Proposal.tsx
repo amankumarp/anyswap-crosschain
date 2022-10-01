@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useQuill } from 'react-quilljs'
 import 'quill/dist/quill.snow.css'
-import { ProposalContainer } from './style'
+import { ProposalContainer } from './style';
+// import {useActiveReact} from "../../../hooks/useActiveReact"
+import { connectWallet , voting} from '../hook/getWeb3';
+import { web3 } from '../hook/getWeb3';
 
 export default function Proposal() {
-  const [textArea, setTextArea] = useState('')
-  const [textAreaStatus, setTextAreaStatus] = useState(false)
-  const [textMsg, setTextMsg] = useState('')
-  const [choice1, setChoice1] = useState('')
-  //  const [getId,setId] =useState("")
-
-  const { quill, quillRef } = useQuill()
   const inputArr = [
     {
       type: 'text',
@@ -18,7 +14,34 @@ export default function Proposal() {
       value: ''
     }
   ]
-  const [arr, setArr] = useState(inputArr)
+  const [title,setTitle] = useState("")
+  const [textArea, setTextArea] = useState('')
+  const [textAreaStatus, setTextAreaStatus] = useState(false)
+  const [textMsg, setTextMsg] = useState('')
+  // const [choice1, setChoice1] = useState('');
+  const [userAddress, setUserAddress] = useState("");
+  const [choiceData, setChoiceData] = useState("");
+  const [choice, setChoice] = useState("");
+  const [arr, setArr] = useState(inputArr);
+  const [startn, setStartDate] = useState("");
+  const [endn, setEndDate] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [chainId,setChainId] =useState(0)
+  
+  
+  const choiceArr = {
+    value: choice
+  };
+  const choiceDatan = [choiceArr, ...arr];
+  console.log(choiceDatan,"choiceDatanchoiceDatanchoiceDatan");
+  
+  console.log(userAddress.length,"userAddress")
+  // console.log(start,end,title,choiceData,textArea,userAddress.userAddress,"wallet")
+
+  const { quill, quillRef } = useQuill()
+
+
 
   const addInput = () => {
     setArr((s: any) => {
@@ -41,12 +64,43 @@ export default function Proposal() {
       const newArr = s.slice()
       newArr[index].value = e.target.value
       // console.log(newArr,"newArrnewArr")
-
       return newArr
     })
   }
+  const submit = () => {
+      voting(userAddress,title,textArea,choiceData,start,end)
 
-  React.useEffect(() => {
+  }
+
+
+  useEffect(()=>{
+    connectWallet().then((d:any)=>{setUserAddress(d.userAddress);});
+
+  },[]);
+
+
+  useEffect(()=>{
+    web3.eth.getChainId().then((d)=>{console.log(d,"chainIdddd"); setChainId(d);});
+  },[chainId]);
+
+
+  useEffect(() => {
+    choiceDatan.map((item:any, i) => {
+      console.log(item.value, "item.value:::VOTING")
+      
+      // console.log(item.value?.join(','),"items")
+      setChoiceData(item.value);
+    })
+    const startDate = new Date(startn).getTime().toString();
+    const endDate = new Date(endn).getTime().toString();
+    console.log(startDate,"START>>>>>>>>>>>")
+    console.log(endDate,"END:::>>>>>>>>>>>")
+    setStart(startDate);
+    setEnd(endDate);
+  });
+
+
+  useEffect(() => {
     if (quill) {
       quill.on('text-change', () => {
         console.log(quill.getText().length, 'quill.getText()')
@@ -64,20 +118,18 @@ export default function Proposal() {
         }
       })
     }
-  }, [quill])
+  }, [quill]);
+
   const deleteInput = (i: number) => {
     
     const data = arr.filter(item => item.id !== i)
     setArr(data)
-  }
+  };
 
   return (
     <ProposalContainer>
       
       <div className="innerProposal">
-        
-        {/* <span className='fa-sharp fa-solid fa-arrow-left'></span>
-      <span className='' style={{margin:0,marginLeft:"5px",}}>Back to vote</span> */}
       
       <h2 className="proposalHeading">MAKE A PROPOSAL</h2>
       <div className="row">
@@ -86,7 +138,7 @@ export default function Proposal() {
             <label htmlFor="">Title:</label>
           </h5>
           <div className="inputDiv" style={{ margin: '0px 0px 20px 0' }}>
-            <input type="text" style={{ width: '100%', lineHeight: '30px' }} placeholder="Enter Title" className='title'/>
+            <input type="text" style={{ width: '100%', lineHeight: '30px' }} placeholder="Enter Title" className='title' value={title} onChange={(e)=>setTitle(e.target.value)}/>
           </div>
 
           <div className="quillParent" style={{ width: '100%', height: 400, marginBottom: '80px' }}>
@@ -117,10 +169,10 @@ export default function Proposal() {
                 type="text"
                 className="choicesInput"
                 placeholder="Enter Choice"
-                value={choice1}
-                onChange={e => setChoice1(e.target.value)}
+                value={choice}
+                onChange={(e:any) =>setChoice(e.target.value)}
               />
-              {/* <input type="text" className='choicesInput' placeholder='Enter Choice'value = {choice2} onChange={(e)=>setChoice2(e.target.value)}/> */}
+            
               {arr.map((item: any, i: any) => {
                 console.log(i, 'itemitem')
                 return (
@@ -153,7 +205,7 @@ export default function Proposal() {
             <div className="actionInputDiv">
               <label htmlFor="sDate">Start Date</label>
               <br />
-              <input type="date" name="" id="sDate" className="actionsInput" placeholder="Start Date" />
+              <input type="date" name="" id="sDate" className="actionsInput" placeholder="Start Date" onChange={(e:any) => setStartDate((e.target.value)?.split("-"))}/>
             </div>
            
             <div>
@@ -161,7 +213,7 @@ export default function Proposal() {
                 End Date
               </label>
               <br />
-              <input type="date" name="" id="edate" className="actionsInput" placeholder="End Date" />
+              <input type="date" name="" id="edate" className="actionsInput" placeholder="End Date" onChange={(e:any) => setEndDate((e.target.value)?.split("-"))}/>
             </div>
 
             {/* <div>
@@ -172,8 +224,11 @@ export default function Proposal() {
               <input type="time" name="" id="" className="actionsInput" />
             </div> */}
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <button className="actionBtn">Connect Wallet</button>
-              {/* <button className="actionBtn1">Submit</button> */}
+             {/* { userAddress.status? */}
+               {/* <button className="actionBtn">Submit</button> */}
+              {/* <button className="actionBtn" onClick={()=>connectWallet().then((d:any)=>{setUserAddress({userAddress:d.userAddress, status:d.status});})}>Connect Wallet</button>} */}
+             {chainId==97 && userAddress ?<button className="actionBtn1" onClick={submit}>Submit</button>: <button className="actionBtn" onClick={()=>connectWallet().then((d:any)=>{setUserAddress(d.userAddress);})}>Connect Wallet</button>
+              }
             </div>
             </div>
             

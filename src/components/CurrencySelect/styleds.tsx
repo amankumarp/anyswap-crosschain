@@ -159,8 +159,8 @@ export const TokenLogoBox = styled.div`
   top: 0.625rem;
   left: 0;
   ${({ theme }) => theme.mediaWidth.upToLarge`
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
   `};
 `
 
