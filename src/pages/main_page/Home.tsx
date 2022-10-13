@@ -5,17 +5,15 @@ import './css/bootstrap.min.css'
 import animationData from './json/final_hero2.json'
 // import animationDataMobile from './json/final_hero.json'
 import animationBottom from './json/bottom_hero2.json'
-import FAQs from './FAQs'
-import { useDarkModeManager } from '../../state/user/hooks'
-import Logo from "../../assets/svg/xtring_logo_wt.png";
-import DarkLogo from "../../assets/svg/xtring_logo-bk.png";
+import Typewriter from 'typewriter-effect'
+import CountUp from 'react-countup'
+// import FAQs from './FAQs'
+// import Footer from './Footer'
 
-
-
+// import Logo from "../../assets/svg/xtring_logo_wt.png";
+// import DarkLogo from "../../assets/svg/xtring_logo-bk.png";
 
 export default function Home() {
-   const [isDark] = useDarkModeManager()
-
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -39,25 +37,37 @@ export default function Home() {
         <div id="banner" className="container-fluid ">
           <div className="row">
             <div className="col-md-6 banner_block banner_img">
-             
-                <Lottie
-                  options={defaultOptions}
-                  height={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 360 : 380}
-                  width={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 330 : 380}
-                />
-            
+              <Lottie
+                options={defaultOptions}
+                height={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 360 : 380}
+                width={window.innerWidth >= 500 ? 450 : window.innerWidth < 400 ? 330 : 380}
+              />
+
               {/* {window.innerWidth < 900 && <Lottie options={defaultOptionsMobile} height={400} width={300} />} */}
             </div>
             <div className="col-md-6 banner_block">
               <div className="banner_text">
                 <h1 className="css-typing">
-                  <span className="type1">Transfer tokens between</span><br/>
-                  <span>
+                  <span className="type1">Transfer tokens between</span>
+                  <br />
+                  {/* <span>
                   <span className="text_1">Ethereum &amp; Analog Chain</span>
                   <span className="text_2">BSC &amp; Analog Chain</span>
                   <span className="text_3">Polygon &amp; Analog Chain</span>
                   <span className="text_4">Tron &amp; Analog Chain</span>
-                  </span><br/>
+                  </span><br/> */}
+                  <Typewriter
+                    options={{
+                      strings: [
+                        'Ethereum & Analog Chain',
+                        'BSC & Analog Chain',
+                        'Polygon & Analog Chain',
+                        'Tron & Analog Chain'
+                      ],
+                      autoStart: true,
+                      loop: true
+                    }}
+                  />
                   <span className="type3">via decentralized Bridge</span>
                 </h1>
                 <p>
@@ -79,12 +89,13 @@ export default function Home() {
             <div className="col-md-12 col-sm-12 col-xs-12 mb20">
               <p className="bridged_heading">
                 $
-                <span id="count1" className="count" data-number="1000">
+                {/* <span id="count1" className="count" data-number="1000">
                   {' '}
-                </span>{' '}
-                <a href="">
+                </span>{' '} */}
+                <CountUp delay={2} end={1000} />
+                {/* <a href="">
                   <i className="fa fa-line-chart" aria-hidden="true"></i>
-                </a>
+                </a> */}
               </p>
               <p data-aos="zoom-in">Total bridged over time</p>
             </div>
@@ -143,7 +154,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-6 col-sm-12">
               <div className="our_features_block" data-aos="fade-right">
                 <div className="feature-img">
                   <img src="images/transaction.png" />
@@ -156,7 +167,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-md-6 col-sm-12">
               <div className="our_features_block" data-aos="fade-left">
                 <div className="feature-img">
                   <img src="images/almostliberated.png" />
@@ -194,7 +205,7 @@ export default function Home() {
             <div className="col-md-12 div-center">
               <h2 className="features_title ">
                 <img src="images/blockchain.png" style={{ width: '30px', marginRight: '8px' }} />
-                Our supported blockchains 
+                Our supported blockchains
                 <br className="break_block" />
                 <span className="tokenSpan"> and tokens </span>
               </h2>
@@ -480,7 +491,6 @@ export default function Home() {
               </span> */}
               {/* <img src="images/use-Allbridge.jpg" className="i100 db" /> */}
               {/* <img src="images/how-to-use-mob.png" className="i100 dn" /> */}
-             
             </div>
           </div>
         </div>
@@ -495,105 +505,96 @@ export default function Home() {
           <div className="row">
             <div className="col-md-4 col-12 Order1">
               <div className="row">
-            <div className="col-md-12  minorRight minorMargin">
-              <div className="reports_block connectPepper" data-aos="fade-right">
-                <div className="row">
-                  <div className="reports_icon col-md-3 col-lg-2">
-                    <img src="images/connect.png" />
-                  </div>
-                  <div className="col-md-9 col-lg-10">
-                    <h4> Connect Pepper Wallet and MetaMask</h4>
-                    <p>It is possible that you may want their installation before you can transmit money.</p>
-                  </div>
-                </div>
+                <div className="col-md-12  minorRight minorMargin">
+                  <div className="reports_block connectPepper" data-aos="fade-right">
+                    <div className="row">
+                      <div className="reports_icon col-md-3 col-lg-2">
+                        <img src="images/connect.png" />
+                      </div>
+                      <div className="col-md-9 col-lg-10">
+                        <h4> Connect Pepper Wallet and MetaMask</h4>
+                        <p>It is possible that you may want their installation before you can transmit money.</p>
+                      </div>
+                    </div>
 
-                {/* <a href="" target="_blank" className="stroked_btn">
+                    {/* <a href="" target="_blank" className="stroked_btn">
                   Go to report
                 </a> */}
-              </div>
-            </div>
-            <div className="col-md-12 minorMargin">
-              <div className="reports_block selectRoute" data-aos="fade-right">
-                <div className="row">
-                  <div className="reports_icon col-md-3 col-lg-2">
-                    <img src="images/route.png" />
-                  </div>
-                  <div className="col-md-9 col-lg-10">
-                    <h4> Select the route</h4>
-                    <p>
-                      To get started, you need to make a decision about which route on the blockchain you wish to
-                      pursue. Diagonal token exchange.
-                    </p>
                   </div>
                 </div>
+                <div className="col-md-12 minorMargin">
+                  <div className="reports_block selectRoute" data-aos="fade-right">
+                    <div className="row">
+                      <div className="reports_icon col-md-3 col-lg-2">
+                        <img src="images/route.png" />
+                      </div>
+                      <div className="col-md-9 col-lg-10">
+                        <h4> Select the route</h4>
+                        <p>
+                          To get started, you need to make a decision about which route on the blockchain you wish to
+                          pursue. Diagonal token exchange.
+                        </p>
+                      </div>
+                    </div>
 
-                {/* <a href="" target="_blank" className="stroked_btn">
+                    {/* <a href="" target="_blank" className="stroked_btn">
                   Go to report
                 </a> */}
+                  </div>
+                </div>
               </div>
             </div>
-            </div>
-
-            </div>
-           {window.innerWidth>=992 && <div className="col-md-4 col-12 Order2" style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
-            <Lottie
+            {window.innerWidth >= 992 && (
+              <div
+                className="col-md-4 col-12 Order2"
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <Lottie
                   options={defaultsBottom}
-                  height={window.innerWidth>=1300?375:300}
-                  width={window.innerWidth>=1300?375:300}
+                  height={window.innerWidth >= 1300 ? 375 : 300}
+                  width={window.innerWidth >= 1300 ? 375 : 300}
                 />
-            </div>}
-          
-            
-          
+              </div>
+            )}
+
             <div className="col-md-4 col-12 Order3">
               <div className="row">
                 <div className="col-md-12 minorMargin minorLeft">
-               
-              <div className="reports_block desiredToken " data-aos="fade-left">
-                <div className="row">
-                  <div className="reports_icon col-md-3 col-lg-2">
-                    <img src="images/desiredToken.png" />
-                  </div>
-                  <div className="col-md-9 col-lg-9">
-                    <h4> Select a desired token</h4>
-                    <p>Pick a token from one or both networks to use for sending and receiving on the other network.</p>
+                  <div className="reports_block desiredToken " data-aos="fade-left">
+                    <div className="row">
+                      <div className="reports_icon col-md-3 col-lg-2">
+                        <img src="images/desiredToken.png" />
+                      </div>
+                      <div className="col-md-9 col-lg-9">
+                        <h4> Select a desired token</h4>
+                        <p>
+                          Pick a token from one or both networks to use for sending and receiving on the other network.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              </div>
-            
-
-            <div className="col-md-12 minorMargin">
-              <div className="reports_block transferToken " data-aos="fade-left">
-                <div className="row">
-                  <div className="reports_icon col-lg-2 col-md-3">
-                    <img src="images/transferTokens.png" />
-                  </div>
-                  <div className="col-lg-10 col-md-9">
-                    <h4>Transfer your tokens</h4>
-                    <p>Token transfers that occur on different chains need authorisation from a wallet.</p>
+                <div className="col-md-12 minorMargin">
+                  <div className="reports_block transferToken " data-aos="fade-left">
+                    <div className="row">
+                      <div className="reports_icon col-lg-2 col-md-3">
+                        <img src="images/transferTokens.png" />
+                      </div>
+                      <div className="col-lg-10 col-md-9">
+                        <h4>Transfer your tokens</h4>
+                        <p>Token transfers that occur on different chains need authorisation from a wallet.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-                
-              </div>
-            
-
-            </div>
-
-           
-
-
-          
-
-           
           </div>
         </div>
         {/* <!-- Reports --> */}
 
         {/* <!-- Our contacts --> */}
-        <div id="Faqs" className="container-fluid our_features our_contacts mt100">
+        {/* <div id="Faqs" className="container-fluid our_features our_contacts mt100">
           <div className="row">
             <div className="col-md-12 div-center">
               <h2 className="features_title ">
@@ -605,66 +606,11 @@ export default function Home() {
               <FAQs />
             </div>
           </div>
-        </div>
+        </div> */}
         {/* <!-- Our contacts --> */}
 
         {/* <!--==============================footer end================================--> */}
-        <div id="footer" className="container-fluid our_features our_contacts mt100">
-          <div className="row">
-            <div className="col-md-4 col-sm-4">
-              <img src={isDark?`${Logo}`:`${DarkLogo}`} alt="logo" className='footer-logo' />
-             
-            </div>
-            <div className="col-md-4 col-sm-4 text-center">
-              <div className="sm_logo ">
-                <a href="">
-                  <i className="fa-brands fa-twitter" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i className="fa-brands fa-telegram" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i className="fa-brands fa-medium" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i className="fa-brands fa-github-square" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i className="fa fa-file-text" aria-hidden="true"></i>
-                </a>
-                <a href="">
-                  <i className="fa-brands fa-github-alt" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-4">
-              <div className="fr_side">
-                Have questions?{' '}
-                <a href="">
-                  <i className="fa fa-paper-plane" aria-hidden="true"></i>
-                </a>{' '}
-                <a href="mailto:support@speciex.network">
-                  <i className="fa fa-envelope" aria-hidden="true"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 col-sm-8">
-              <div className="footer_link">
-                <a href="/#/disclaimer">Disclaimer</a>
-                <a href="/#/privacy-policy">Privacy And GDPR Policy</a>
-                <a href="/#/term&amp;condition">Terms And Conditions</a>
-                {/* <a href="">Cookies Policy</a> */}
-              </div>
-            </div>
-            <div className="col-md-6 col-sm-4">
-              <div className="cr_area">
-                Copyright <span className="robo">© 2022</span> All rights reserved. Xtring
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* <Footer/> */}
       </HomePage>
     </>
   )
