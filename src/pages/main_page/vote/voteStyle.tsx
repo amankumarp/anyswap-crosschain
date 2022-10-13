@@ -42,12 +42,12 @@ width:1400px;
 
     }
     .votingBtn{
-        color:${({ theme }) => theme.text7}
+        color:${({ theme }) => theme.text7};
         height:50px;
         border:none;
         outline:none;
         border-radius:10px;
-        background:linear-gradient(245.22deg,rgb(218,46,239),rgb(43,106,255),rgb(57,208,216)) 0% center / 400% 100%;
+        background:${({ theme }) => theme.votingGradient};
         padding:0 024px;
         margin:8px 0;
        
@@ -150,10 +150,10 @@ width:1400px;
     .proposeBox{
         padding:20px;
         border-top:1px solid #6b7fb9;
-        border-bottom:1px solid #6b7fb9;
-        cursor:pointer;
+       
+     
         &:hover{
-            background:#11245d38;
+            background:#11245d0a;
         }
         h4{
             color:#4a5a87;
@@ -167,24 +167,26 @@ width:1400px;
             letter-spacing:1px
         }
         .voteBtn{
-             background:linear-gradient(245.22deg,rgb(218,46,239),rgb(43,106,255),rgb(57,208,216)) 0% center / 400% 100%;
+             background:${({ theme }) => theme.votingGradient};
              border:none;
              outline:none
              border-radius:10px;
-             margin:0 10px 0 0
+             margin:0px 10px 0 0;
              padding:5px 15px;
              color:${({ theme }) => theme.text7};
 
         }
+        .div{
+            margin:10px 0
+        }
         .communityBtn{
             background:transparent;
-
-            border:1px solid red;
+            border:1px solid #ff00008c;
             outline:none
             border-radius:10px;
             margin:0 10px 0 0
             padding:5px 15px;
-            color:${({ theme }) => theme.text7};
+            color:#ff0000ad;
             .icon{
                 font-size:25px;
                 margin-right:5px;
@@ -200,7 +202,12 @@ width:1400px;
     position:absolute;
     top:50%;
     right:20px;
-    transform:translateY(-50%)
+    transform:translateY(-50%);
+    cursor:pointer
+}
+.date-time{
+    display:flex;
+    font size:10px
 }
 
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`

@@ -29,7 +29,7 @@ export default function Disclaimer() {
     <Disclaim>
         <h1 className="heading mainHeading text-center">Disclaimer for Xtring</h1>
 
-<p>If you require any more information or have any questions about our site&apos;s disclaimer, please feel free to contact us by email at support@xtring.network. Our Disclaimer was generated with the help of the <a href="https://www.disclaimergenerator.net/">Free Disclaimer Generator</a>.</p>
+<p>If you require any more information or have any questions about our site&apos;s disclaimer, please feel free to contact us by email at support@xtring.network .</p>
 
 <h2>Disclaimers for Xtring</h2>
 

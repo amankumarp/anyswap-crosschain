@@ -3,14 +3,19 @@ import styled from 'styled-components'
 
 export const BodyWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 1440px;
   height: 100%;
   // max-width: 1100px;
-  padding: 2.5rem 23rem;
+  // padding: 2.5rem 23rem;
   overflow-x:hidden;
   margin:auto;
+  ${({ theme }) => theme.mediaWidth.upToFourty`
+ 
+  width:100%;
+`};
   ${({ theme }) => theme.mediaWidth.upToExtraLarge`
-  padding: 2.5rem 10rem;
+  // padding: 2.5rem 10rem;
+  width:100%;
 `};
   ${({ theme }) => theme.mediaWidth.upToMedium`
     padding: 0rem 0px;

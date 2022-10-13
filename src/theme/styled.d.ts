@@ -145,7 +145,7 @@ export interface Colors {
   expoContent:Color
   contentBg4:Color
   votingAct:Color
-
+  votingGradient:Color
   mainCard:Color
 }
 
@@ -177,6 +177,7 @@ declare module 'styled-components' {
       upToTwelve: ThemedCssFunction<DefaultTheme>
       upToExtraLarge: ThemedCssFunction<DefaultTheme>
       upToEeL: ThemedCssFunction<DefaultTheme>
+      upToFourty:ThemedCssFunction<DefaultTheme>
     }
 
     // css snippets

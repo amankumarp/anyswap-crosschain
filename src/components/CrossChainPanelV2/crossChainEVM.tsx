@@ -53,12 +53,54 @@ import styled from 'styled-components'
 import { LogoBox, ConfirmContent, TxnsInfoText, ConfirmText, FlexEC } from '../../pages/styled'
 
 import { outputValue, useInitSelectCurrency, useDestChainid, useDestCurrency, getFTMSelectPool } from './hooks'
+
+
 const Cont = styled.div`
-  background: ${({ theme }) => theme.bg8};
+width:1000px;
+margin:auto;
+margin-top:50px;
+
+
+.outerContainer{
+  border-radius:10px;
+  background: linear-gradient(var(--gradient-rotate, 246deg), #da2eef 7.97%, #2b6aff 49.17%, #39d0d8 92.1%);
+  padding:2px;
+}
+
+.innerContainer{
+  width:100%;
+  border-radius:10px;
+  padding: 10px 10px 30px 10px;
+  background: ${({ theme }) => theme.expoContainer};
+
+}
+
+
+${({ theme }) => theme.mediaWidth.upToLarge`
+
+width:800px;
+
+
+`}
+${({ theme }) => theme.mediaWidth.upToMedium`
+
+width:100%;
+
+`}
+  
   ${({ theme }) => theme.mediaWidth.upToSmall`
   border:none !important;
-  padding:10px 5px 30px !important
+    padding:0px 5px;
+ 
   `}
+  .innerContainer{
+   
+    border-radius:10px;
+    padding: 10px 10px 30px 10px;
+   
+  
+  }
+  
 `
 
 let intervalFN: any = ''
@@ -775,8 +817,10 @@ export default function CrossChain({ bridgeKey }: { bridgeKey: any }) {
 
       <Cont
         className="border"
-        style={{ border: `1px solid ${theme.borderBg}`, padding: '10px 10px 30px 10px', borderRadius: '10px' }}
+        style={{ border: `1px solid ${theme.borderBg}`, borderRadius: '10px' }}
       >
+        <div className="outerContainer">
+        <div className="innerContainer">
         <AutoColumn gap={'sm'}>
           <SelectCurrencyInputPanel
             label={t('From')}
@@ -997,6 +1041,8 @@ export default function CrossChain({ bridgeKey }: { bridgeKey: any }) {
             )}
           </BottomGrouping>
         )}
+        </div>
+        </div>
       </Cont>
     </>
   )

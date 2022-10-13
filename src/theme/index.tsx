@@ -23,7 +23,9 @@ const MEDIA_WIDTHS = {
   upToLarge: 1200,
   upToTwelve:1290,
   upToExtraLarge:1350,
-  upToEeL:1400
+  upToEeL:1400,
+  upToFourty:1440,
+
 }
 
 const mediaWidthTemplates: { [width in keyof typeof MEDIA_WIDTHS]: typeof css } = Object.keys(MEDIA_WIDTHS).reduce(
@@ -83,7 +85,7 @@ export function colors(darkMode: boolean): Colors {
     contentBg1: darkMode ? 'transparent' : white,
     contentBg3:darkMode? "#092c58" :'#c6ebf3',
     contentBg2: darkMode ? "#0b090e"  : white,  
-    drop:darkMode ? "#0b090e" : white,
+    drop:darkMode ? "transparent" : "transparent",
     contentBg4: darkMode ? '#092c5847' : "#c6ebf32b",
  
  
@@ -102,7 +104,7 @@ export function colors(darkMode: boolean): Colors {
     tabActiveColor1: darkMode ? "#00c675" : 'white',
     tabBdColor: darkMode ? 'none' : '#734be2',
     tipBg: darkMode ? 'transparent' : '#f2edff',
-    tipBg1: darkMode ? '#002b56' : '#daf4fdc7',
+    tipBg1: darkMode ? '#002b56' : '#a2dfad36',
     search: darkMode ? '#002b56' : white,
     tipBorder: darkMode ? '#2b314f' : '#b398f9',
     tipColor: darkMode ? white : '#00c675',
@@ -114,8 +116,8 @@ export function colors(darkMode: boolean): Colors {
     selectedBg: darkMode ? '#2b314f' : '#ecf6ff',
     selectedHoverBg: darkMode ? '#252b49' : '#deefff',
 
-    selectedBorder: darkMode ? '#363d5f' : '#c0d6ea',
-    selectedBorder1: darkMode ? 'rgba(255,255,255,0.2)' : '#c0d6ea',
+    selectedBorder: darkMode ? '#18144f' : '#c0d6ea',
+    selectedBorder1: darkMode ? 'rgba(255,255,255,0.1)' : '#c0d6ea',
     selectedHoverBorder: darkMode ? '#4a5482' : '#6d9cc6',
 
     selectedBgNo: darkMode ? '#2b314f' : '#f8f8f9',
@@ -201,6 +203,7 @@ export function colors(darkMode: boolean): Colors {
      expoHeading:darkMode ? "#151a53":"#afe0e9",
      expoContent:darkMode ? "#130f3f":"#f7fdffe8",
      votingAct:darkMode ? "#07071d":"#b3ddef",
+     votingGradient:darkMode?"linear-gradient(245.22deg,rgb(218,46,239),rgb(43,106,255),rgb(57,208,216)) 0% center / 400% 100%":"linear-gradient(245.22deg,rgb(218,46,239),rgb(231 231 231),rgb(120 235 241)) 0% center / 400% 100%",
 
      //proposal
      mainCard:darkMode ? "#002b56":"#c1ebf2",
@@ -337,12 +340,12 @@ export const TYPE = {
 
 export const FixedGlobalStyle = createGlobalStyle`
 html, input, textarea, button {
-  font-family:sans-serif !important;
+
   font-display: fallback;
 }
 @supports (font-variation-settings: normal) {
   html, input, textarea, button {
-    font-family: sans-serif !important;
+   
   }
 }
 

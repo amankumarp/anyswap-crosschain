@@ -6,10 +6,10 @@ import Icon from "../../../assets/svg/calendaar.png"
 export const ProposalContainer = styled.div`
 
 width:1400px;
-background:linear-gradient(var(--gradient-rotate, 246deg), #da2eef 7.97%, #2b6aff 49.17%, #39d0d8 92.1%);
+
 margin:20px 0 20px;
-padding:2px;
-border-radius:10px;
+padding:10px;
+
 input[type="date"]::-webkit-calendar-picker-indicator {
     color: rgba(0, 0, 0, 0);
     opacity: 1;
@@ -23,6 +23,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     
    
 }
+.outerProposal{
+    background:linear-gradient(var(--gradient-rotate, 246deg), #da2eef 7.97%, #2b6aff 49.17%, #39d0d8 92.1%);
+    padding:2px;
+border-radius:10px;
+
+}
 .innerProposal{
     padding:0 15px 40px;
     background:${({ theme }) => theme.mainCard};
@@ -32,6 +38,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .quillParent{
     ${({ theme }) => theme.mediaWidth.upToSmall`
 margin-bottom:110px !important;
+height:300px !important
 `}
 
 }
@@ -57,7 +64,9 @@ margin-bottom:110px !important;
 
 
 }
-
+.ql-image,.ql-video{
+    display:none !important
+}
 
 .proposalHeading{
     text-align:center;
@@ -169,13 +178,15 @@ margin-bottom:110px !important;
     margin:0px 0 20px;
     
 
-    textarea{
+    .textA{
         width:100%
         color:${({ theme }) => theme.text7};
         border:1px solid #6b7fb9;
         outline:none;
         background-color:#05071b0d;
         padding:10px 10px 8px ;
+        border-radius:10px
+        height:165px;
         
         
     }
@@ -233,8 +244,13 @@ margin-bottom:110px !important;
 }
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
 width:100%
+margin:0px 10px
+`}
+${({ theme }) => theme.mediaWidth.upToMedium`
+margin: 60px 0;
 `}
 ${({ theme }) => theme.mediaWidth.upToSmall`
-width:98%
+width:98%;
+margin: 10px 0;
 `}
 `

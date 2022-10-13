@@ -21,7 +21,7 @@ position:relative;
     padding-top:50px
     h2{
         color:#00b5df
-        margin:30px 0 15px
+        margin:20px 0 15px
 
     }
     p{
@@ -30,6 +30,7 @@ position:relative;
     }
    
 }
+
 
 .voteBox {
     border:1px solid #6b7fb9;
@@ -71,6 +72,17 @@ position:relative;
     }
    
 }
+.details{
+    display:flex;
+    justify-content:space-between;
+    padding:5px 5px;
+    fontWeight:600;
+    font-size:14px;
+    color:${({ theme }) => theme.text7};
+}
+.label{
+    display:none
+}
 .cast{
     margin:10px;
     height:40px
@@ -78,11 +90,14 @@ position:relative;
     padding:5px 40px
     border:none;
     outline:none
-    background:linear-gradient(245.22deg,rgb(218,46,239),rgb(43,106,255),rgb(57,208,216)) 0% center / 400% 100%;
+    background:${({ theme }) => theme.votingGradient};
     color:${({ theme }) => theme.text7};
 }
+.opac{
+    opacity:.6
+}
 .voteBtn1{
-    background:linear-gradient(245.22deg,rgb(218,46,239),rgb(43,106,255),rgb(57,208,216)) 0% center / 400% 100%;
+    background:${({ theme }) => theme.votingGradient};
     border:none;
     outline:none
     border-radius:10px;
@@ -114,9 +129,42 @@ position:relative;
   }
  
   .votesData{
-    padding:10px 10px !important
+    padding:10px 20px !important
     line-height:30px;
     color:${({ theme }) => theme.text7};
+  }
+  .rr{
+    padding:10px 15px 10px 15px !important
+   
+        width: 100%;
+        
+        border-top: 1px solid ${({ theme }) => theme.homeBorder};;
+        margin: 0;
+    
+  }
+  .v1{
+    text-align:left;
+    color:rgb(57, 208, 216);
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size:14px;
+    `
+    }
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    font-size:14px
+    `
+    }
+
+  }
+  .v2{
+    text-align:right;
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size:14px
+    `
+    }
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    font-size:14px
+    `
+    }
   }
   .results{
   
@@ -152,11 +200,23 @@ position:relative;
     
     ${({ theme }) => theme.mediaWidth.upToSmall`
 width:100%;
+padding:0px 15px
 
 `
 }
   }
   
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+padding-top:50px
+
+`
+}
+${({ theme }) => theme.mediaWidth.upToSmall`
+padding-top:0px
+
+`
+}
+
 
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
 width:100%;

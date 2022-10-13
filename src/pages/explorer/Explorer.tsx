@@ -492,7 +492,7 @@ export default function Explorer() {
     borderColor: 'red',
     position: 'absolute',
     left: '50%',
-    top: '50%',
+    top: '500px',
     transform: 'translate(-50%)'
   }
 

@@ -1,5 +1,101 @@
 import React, { useState, useRef } from 'react'
+import styled from 'styled-components'
 //  import ReactDOM from "https://cdn.skypack.dev/react-dom@17.0.1";
+
+const AccordionStyle = styled.div``;
+const FaqsStyle=styled.div`
+max-width:1440px;
+padding-bottom:40px
+.rc-accordion-toggle {
+  display: flex;
+ 
+  cursor: pointer;
+  justify-content: space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:${({ theme }) => theme.faqBackground};
+ 
+  transition: 0.3s;
+}
+.rc-accordion-toggle.active{
+  background-color:${({ theme }) => theme.faqActive} ;
+  
+}
+.rc-accordion-toggle.active .rc-accordion-icon{
+  transform: rotate(180deg);
+  color:${({ theme }) => theme.homeText4};
+}
+.rc-accordion-card{
+   border: 1px solid ${({ theme }) => theme.homeBorder};
+  border-radius: 5px;
+  margin-bottom: 10px ;
+  overflow: hidden;
+}
+
+.accordian-margin{
+padding:10px 20px
+${({ theme }) => theme.mediaWidth.upToMedium`
+padding: 0px 10px;
+`}
+.rc-accordion-toggle.active h5{
+  color:${({ theme }) => theme.homeText4};
+
+}
+
+}
+.rc-accordion-header{
+  margin:0px 0 0
+}
+
+
+.rc-accordion-title{
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+  margin-top:0px;
+  margin-bottom: 0;
+  color:  #00c679;
+  transition: 0.3s;
+  padding:5px 0;
+}
+.rc-accordion-toggle.active .rc-accordion-title{
+  color: #fff;
+}
+.rc-accordion-icon{
+  position: relative;
+ 
+  color: #475F7B;
+  transition: 0.35s;
+  font-size: 12px;
+}
+.rc-accordion-body{
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 15px;
+}
+.rc-accordion-body p{
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #727E8C;
+  padding:5px 0;
+}
+.rc-collapse{
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+  background:${({ theme }) => theme.faqBackground};
+}
+
+.rc-collapse.show{
+  height: auto;
+}
+${({ theme }) => theme.mediaWidth.upToExtraLarge`
+width:100%;`}
+`;
+
 
 const faqs = [
   {
@@ -79,6 +175,7 @@ const AccordionItem = (props: any) => {
   const { header, id, text, text2, text3, a } = faq
 
   return (
+    <AccordionStyle>
     <div className="rc-accordion-card">
       <div className="rc-accordion-header">
         <div className={`rc-accordion-toggle ${active === id ? 'active' : ''}`} onClick={() => handleToggle(id)}>
@@ -101,10 +198,11 @@ const AccordionItem = (props: any) => {
         </div>
       </div>
     </div>
+    </AccordionStyle>
   )
 }
 
-export default function fAQs() {
+export default function FAQs() {
   const [active, setActive] = useState(null)
 
   const handleToggle = (index: any) => {
@@ -117,9 +215,10 @@ export default function fAQs() {
 
   return (
     <>
+    <FaqsStyle>
       <div className="container-fluid mt-5 mb-5">
         <div className="row justify-content-center">
-        <div className="col-md-6 col-12 accordian-margin">
+        <div className="col-md-6 col-12 accordian-margin" >
         <div className="card">
                     <div className="card-body">
           {faqs.map((faq, index) => {
@@ -148,6 +247,7 @@ export default function fAQs() {
           </div>
         </div>
       </div>
+      </FaqsStyle>
     </>
   )
 }

@@ -33,8 +33,8 @@ export const CurrencySelect = styled.button<{ selected: boolean }>`
   height: 50px;
   font-family: 'Manrope';
   width:100%
-  border: 0.0625rem solid ${({ theme }) => theme.selectedBorder1};
-  border-radius: 0.75rem;
+  border: 0.0325rem solid ${({ theme }) => theme.selectedBorder1};
+  border-radius: 8px;
   background-color: transparent;
   font-weight:400;
   outline: none;
@@ -54,7 +54,7 @@ export const CurrencySelect = styled.button<{ selected: boolean }>`
   }
 
   :active {
-    background-color: ${({ theme }) => darken(0.1, theme.selectedBorder)};
+    background-color: ${({ theme }) => darken(0, theme.selectedBorder)};
   }
   ${({ theme }) => theme.mediaWidth.upToLarge`
   height: 60px;

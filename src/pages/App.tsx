@@ -47,6 +47,12 @@ import Disclaimer from './main_page/Disclaimer'
 import Proposal from './main_page/proposal/Proposal'
 import Vote from './main_page/vote/Vote'
 import VotesList from './main_page/VotesList/VotesList'
+import Footer from './main_page/Footer'
+// import FAQs from './main_page/FAQs'
+import FaqsSection from './main_page/FaqsSection'
+// import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from 'react-hot-toast'
 
 
 // import '../hooks/xrp'
@@ -165,11 +171,13 @@ export default function App() {
       {/* <Route component={GoogleAnalyticsReporter} /> */}
       {/* <Route component={DarkModeQueryParamReader} /> */}
       <AppWrapper>
+      <Toaster toastOptions={{ position: 'top-center' }} />
         <HeaderWrapper>
           {/* <URLWarning /> */}
           <Header />
         </HeaderWrapper>
         <BodyWrapper>
+        
           {/* <NavLeft>
             <NavList />
           </NavLeft> */}
@@ -233,6 +241,8 @@ export default function App() {
             </Switch>
           </Web3ReactManager>
           <Marginer />
+          <FaqsSection/>
+          <Footer/>
           <NavBottom>
             <NavList />
           </NavBottom>
