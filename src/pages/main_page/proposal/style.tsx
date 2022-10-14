@@ -176,6 +176,7 @@ height:300px !important
 
 .textArea{
     margin:0px 0 20px;
+   
     
 
     .textA{
@@ -187,6 +188,7 @@ height:300px !important
         padding:10px 10px 8px ;
         border-radius:10px
         height:165px;
+        word-break:break-word;
         
         
     }
