@@ -534,7 +534,7 @@ export default function Home() {
             {window.innerWidth >= 992 && (
               <div
                 className="col-md-4 col-12 Order2"
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop:"20px" }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
                 <Lottie
                   options={defaultsBottom}

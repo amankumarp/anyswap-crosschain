@@ -175,6 +175,9 @@ overflow-x:hidden;
 }
 .Order2{
     order:2
+    ${({ theme }) => theme.mediaWidth.upToExtraLarge`
+   padding-top:20;
+    `}
     ${({ theme }) => theme.mediaWidth.upToSmall`
     order:1
     `}
