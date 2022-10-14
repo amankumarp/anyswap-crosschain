@@ -158,7 +158,8 @@ position:relative;
   .v2{
     text-align:right;
     ${({ theme }) => theme.mediaWidth.upToSmall`
-    font-size:14px
+    font-size:14px;
+    line-height:20px;
     `
     }
     ${({ theme }) => theme.mediaWidth.upToExtraSmall`

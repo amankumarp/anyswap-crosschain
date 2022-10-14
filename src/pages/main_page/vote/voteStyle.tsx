@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const VoteContainer = styled.div`
 padding-top:20px;
@@ -29,6 +29,7 @@ width:1400px;
         font-size:40px;
         
         `}
+        
        
     }
     .votingInfo{
@@ -50,12 +51,15 @@ width:1400px;
         background:${({ theme }) => theme.votingGradient};
         padding:0 024px;
         margin:8px 0;
-       
         font-weight:500;
         letter-spacing:0.03em;
         font-size:24px;
+        &:hover{
+            opacity:0.7;
+        }
         ${({ theme }) => theme.mediaWidth.upToSmall`
         height:40px;
+      
         
         `}
     }
@@ -122,10 +126,16 @@ width:1400px;
             display:flex;
             justify-content:flex-start;
             align-items:center;
+            ${({ theme }) => theme.mediaWidth.upToEes`
+            padding:8px 8px
+            `}
 
             .icon{
                 font-size:20px;
-                margin-right:5px
+                margin-right:5px;
+                ${({ theme }) => theme.mediaWidth.upToEes`
+                font-size:18px;
+                `}
             }
 
         }
@@ -135,7 +145,10 @@ width:1400px;
     .form{
         display:flex
         .form-check{
-            margin:10px 20px
+            margin:10px 20px;
+            ${({ theme }) => theme.mediaWidth.upToEes`
+            margin:10px 15px;
+`}
         }
         .form-check-input{
            
@@ -174,6 +187,9 @@ width:1400px;
              margin:0px 10px 0 0;
              padding:5px 15px;
              color:${({ theme }) => theme.text7};
+             &:hover{
+                opacity:0.7;
+            }
 
         }
         .div{
@@ -213,19 +229,16 @@ width:1400px;
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
 width:100%;
 padding:10px
-`
-}
+`}
 ${({ theme }) => theme.mediaWidth.upToMedium`
 width:100%;
 padding:10px;
 margin-top:50px;
-`
-}
+`}
 ${({ theme }) => theme.mediaWidth.upToSmall`
 width:100%;
 padding:10px;
 margin-top:20px;
-`
-}
+`}
 
-`;
+`

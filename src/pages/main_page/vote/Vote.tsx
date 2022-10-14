@@ -191,7 +191,7 @@ export default function Vote() {
                   <div className="div">
                     <a className="voteBtn" href ={`#/voting/proposal/items?proposalId=${proposalId}`}> <i className="fa-solid fa-check-to-slot" style={{marginRight:"5px"}}></i>Vote Now</a>
                    
-                    <button className="communityBtn"><i className="fa-solid fa-users" style={{marginRight:"5px"}}></i>{mods?.includes(data[6]) ? "Community":"Core"}</button>
+                    <button className="communityBtn" disabled><i className="fa-solid fa-users" style={{marginRight:"5px"}}></i>{mods?.includes(data[6]) ? "Community":"Core"}</button>
                     {/* <IoIosPeople className='icon'/> */}
                   </div>
                   <AiOutlineArrowRight className="arrow" onClick={() => (window.location.href = `/#/voting/proposal/items?proposalId=${proposalId}`)} />

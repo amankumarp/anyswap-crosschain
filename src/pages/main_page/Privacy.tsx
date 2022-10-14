@@ -2,23 +2,45 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Policy = styled.div`
-width:1200px
+width:1440px;
+padding:20px;
 .text-center{
     text-align:center;
-    padding:20px
+  
 }
 p{
-    font-size:14px
+    font-size:16px
 }
 .heading{
   margin-top:20px
+  font-size:28px;
 }
+h1,.h1 {
+  font-size: 38px;
+  padding-bottom: 10px;
 }
+
+${({ theme }) => theme.mediaWidth.upToFourty`
+width:100%
+
+`}
 ${({ theme }) => theme.mediaWidth.upToMedium`
 width:100%
 padding:10px
 .mainHeading{
   font-size:20px;
+}
+ul, ol {
+
+  padding-left: 25px;
+}
+.heading{
+  margin-top:20px
+  font-size:26px;
+}
+h1,.h1 {
+  font-size: 34px;
+  padding-bottom: 10px;
 }
 `}
 `

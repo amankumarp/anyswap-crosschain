@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 const Disclaim = styled.div`
-width:1200px
+width:1440px;
+padding:20px;
+
 .text-center{
 text-align:center;
 padding:20px
 }
 p{
 font-size:14px
+}
+.mainHeading{
+  font-size:30px;
 }
 .heading{
 margin-top:20px
@@ -17,7 +22,7 @@ ${({ theme }) => theme.mediaWidth.upToMedium`
 width:100%
 padding:10px
 .mainHeading{
-font-size:20px;
+font-size:28px;
 }
 `}
 `
@@ -27,7 +32,7 @@ export default function Disclaimer() {
   return (
     <>
     <Disclaim>
-        <h1 className="heading mainHeading text-center">Disclaimer for Xtring</h1>
+        <h1 className=" mainHeading text-center">Disclaimer for Xtring</h1>
 
 <p>If you require any more information or have any questions about our site&apos;s disclaimer, please feel free to contact us by email at support@xtring.network .</p>
 

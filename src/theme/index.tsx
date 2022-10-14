@@ -110,7 +110,7 @@ export function colors(darkMode: boolean): Colors {
     tipColor: darkMode ? white : '#00c675',
     hoverEffect: darkMode ?'#231f2a' :"rgb(87 188 188 / 10%)",
 
-    lightPuroleBg: darkMode ? '#2b314f' : 'rgb(246, 244, 255)',
+    lightPuroleBg: darkMode ? '#07091d' : 'rgb(246, 244, 255)',
     viewMoreBtn: darkMode ? '#2b314f' : '#f9fafb',
 
     selectedBg: darkMode ? '#2b314f' : '#ecf6ff',

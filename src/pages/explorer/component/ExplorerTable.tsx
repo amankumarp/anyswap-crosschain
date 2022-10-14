@@ -13,6 +13,10 @@ border-radius:10px;
   justify-content:center;
   height:50px;
   font-size:15px;
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+  padding:5px
+  
+  `}
 }
 .status{
   ${({ theme }) => theme.mediaWidth.upToSmall`

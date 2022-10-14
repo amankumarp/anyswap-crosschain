@@ -8,7 +8,6 @@ import { nodeApi } from '../../config/constant'
 import { useLocation } from 'react-router-dom'
 import ExplorerTable from './component/ExplorerTable'
 
-
 const InputWrapper = styled.div`
   width: 50%;
   margin-left: auto;
@@ -24,20 +23,18 @@ const InputWrapper = styled.div`
     outline: none;
     border: 1px solid #6e7aae;
     cursor: pointer;
-    .form{
-      margin:0px 10px;
+    .form {
+      margin: 0px 10px;
       ${({ theme }) => theme.mediaWidth.upToSmall`
         margin:7px 0
       `}
-
     }
-  
-    
-    .searchIcon{
-      color:${({ theme }) => theme.text7};
+
+    .searchIcon {
+      color: ${({ theme }) => theme.text7};
     }
   }
- 
+
   ${({ theme }) => theme.mediaWidth.upToMedium`
   
   width: 100%
@@ -60,16 +57,14 @@ const InputText = styled.input`
   padding-left: 15px;
   color: #6e7aae;
   background: transparent;
-  &::placeholder{
+  &::placeholder {
     color: #6e7aae;
-
   }
-  
- 
+
   ${({ theme }) => theme.mediaWidth.upToMedium`
 width:92%;
 `}
-${({ theme }) => theme.mediaWidth.upToMedium`
+  ${({ theme }) => theme.mediaWidth.upToMedium`
 width:85%;
 `}
 `
@@ -200,6 +195,10 @@ font-weight:600
     min-width:1000px;
    
 `}
+${({ theme }) => theme.mediaWidth.upToExtraSmall`
+   
+padding:0 20px
+`}
   
  
 }
@@ -305,10 +304,9 @@ ${({ theme }) => theme.mediaWidth.upToMedium`
 // }
 // `
 
-
 const Input = styled.input`
   width: 100%;
-  color: ${({ theme }) => theme.text8};
+  color:#000;
   border: 1px solid;
   border-color: ${({ theme }) => theme.borderBg};
 `
@@ -427,13 +425,13 @@ width:80%;
 
 `
 const Row = styled.div`
-  background:${({ theme }) => theme.expoHeading};
+  background: ${({ theme }) => theme.expoHeading};
   padding: 10px 0px;
   border-radius: 10px;
   font-size: 16px;
-  margin:7px;
+  margin: 7px;
 
-    font-weight: 600;
+  font-weight: 600;
 `
 
 export default function Explorer() {
@@ -503,7 +501,7 @@ export default function Explorer() {
       setLoading(false)
       setPagiStatus(true)
       setContent(false)
-      console.log(data?.data?.trx?.length,"ata?.data?.trx?.length");
+      console.log(data?.data?.trx?.length, 'ata?.data?.trx?.length')
 
       if (data?.data?.trx?.length == 0) {
         setContent(true)
@@ -513,7 +511,6 @@ export default function Explorer() {
       } // const successLength = transactionSuccess.length
       // const pendingLength = pendingTransaction.length
       // console.log(pendingLength, successLength, 'successLengthsuccessLength')
-      
     }
 
     const transactionSuccess = data?.data?.trx
@@ -523,7 +520,7 @@ export default function Explorer() {
     } else {
       setContent2(false)
     }
-   
+
     setSuccessData(transactionSuccess)
     setPendingData(pendingTransaction)
     const sp =
@@ -602,7 +599,6 @@ export default function Explorer() {
 
   return (
     <Wrap>
-      
       {/* *********************************Tab-Button**************************************** */}
       <div className="tab-container">
         <span className="tabSpan">
@@ -656,9 +652,12 @@ export default function Explorer() {
             {/* *********************************Tab1**************************************** */}
 
             <div className="table1">
-            
               <InputWrapper>
-                <form className='form' onSubmit={e => fetchOnClick(e)} style={{display:"flex", justifyContent:"center"}}>
+                <form
+                  className="form"
+                  onSubmit={e => fetchOnClick(e)}
+                  style={{ display: 'flex', justifyContent: 'center' }}
+                >
                   <InputText
                     type="text"
                     placeholder="Hash/Address"
@@ -670,30 +669,30 @@ export default function Explorer() {
                   </button>
                 </form>
               </InputWrapper>
-              <div className="table-responsive" style={{overflow:"auto"}}>
-              <div className="contentContainer">
-              <Row className="row" >
-                <div className="col-sm-1 col-xs-1">S.No</div>
-                <div className="col-sm-2 col-xs-2">CoinType</div>
-                <div className="col-sm-2 col-xs-2">Value</div>
-                <div className="col-sm-2 col-xs-2">From</div>
-                <div className="col-sm-2 col-xs-2">To</div>
-                <div className="col-sm-2 col-xs-2">Date</div>
-                <div className="col-sm-1 col-xs-1">Status</div>
-              </Row>
-              {tab1 &&
-                successData &&
-                successData.map((data, i) => {
-                  return <>{!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()} />}</>
-                })}
+              <div className="table-responsive" style={{ overflow: 'auto' }}>
+                <div className="contentContainer">
+                  <Row className="row">
+                    <div className="col-sm-1 col-xs-1">S.No</div>
+                    <div className="col-sm-2 col-xs-2">CoinType</div>
+                    <div className="col-sm-2 col-xs-2">Value</div>
+                    <div className="col-sm-2 col-xs-2">From</div>
+                    <div className="col-sm-2 col-xs-2">To</div>
+                    <div className="col-sm-2 col-xs-2">Date</div>
+                    <div className="col-sm-1 col-xs-1">Status</div>
+                  </Row>
+                  {tab1 &&
+                    successData &&
+                    successData.map((data, i) => {
+                      return <>{!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()} />}</>
+                    })}
 
-              {tab2 &&
-                pendingData &&
-                pendingData.map((data, i) => {
-                  return <>{!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()} />}</>
-                })}
+                  {tab2 &&
+                    pendingData &&
+                    pendingData.map((data, i) => {
+                      return <>{!loading && <ExplorerTable data={data} i={i} page={page} key={i.toString()} />}</>
+                    })}
                 </div>
-                </div>
+              </div>
 
               {tab1 && content && (
                 <p className="notFound" style={{ textAlign: 'center' }}>

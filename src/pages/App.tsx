@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Route, Switch, Redirect, } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 import Home from './main_page/Home'
 import Header from '../components/Header'
@@ -53,7 +53,7 @@ import FaqsSection from './main_page/FaqsSection'
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import { Toaster } from 'react-hot-toast'
-
+// import HashLoader from 'react-spinners/HashLoader'
 
 // import '../hooks/xrp'
 
@@ -148,7 +148,7 @@ const BodyWrapper = styled.div`
 `
 
 const Marginer = styled.div`
-  margin-top: 5rem;
+  margin-top: 2rem;
 `
 
 // function TopLevelModals() {
@@ -158,6 +158,8 @@ const Marginer = styled.div`
 // }
 
 export default function App() {
+  // const[loader,setLoader] = useState(false);
+  // const[faq,setFaq] = useState(false)
   let initUrl = '/dashboard'
   if (config.getCurConfigInfo().isOpenRouter) {
     initUrl = '/v1/router'
@@ -166,18 +168,30 @@ export default function App() {
   } else if (config.getCurConfigInfo().isOpenMerge) {
     initUrl = '/home'
   }
+  // useEffect(()=>{
+  //   // setLoader(true)
+  //   // setTimeout(()=>{setLoader(false)},2000);
+  //   setTimeout(()=>{setFaq(true)},3000);
+
+  // },[]);
+  // const override: CSSProperties = {
+  //   display: 'block',
+
+  // }
   return (
     <Suspense fallback={null}>
       {/* <Route component={GoogleAnalyticsReporter} /> */}
       {/* <Route component={DarkModeQueryParamReader} /> */}
+      {/* {  loader?<div style={{width:"100%",height:"100vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+    <HashLoader color="#00c675" loading={loader} cssOverride={override} size={80} />
+    </div>: */}
       <AppWrapper>
-      <Toaster toastOptions={{ position: 'top-center' }} />
+        <Toaster toastOptions={{ position: 'top-center' }} />
         <HeaderWrapper>
           {/* <URLWarning /> */}
           <Header />
         </HeaderWrapper>
         <BodyWrapper>
-        
           {/* <NavLeft>
             <NavList />
           </NavLeft> */}
@@ -189,7 +203,7 @@ export default function App() {
           {/* <TopLevelModals /> */}
           <Web3ReactManager>
             <Switch>
-            <Route exact strict path="/home" component={() => <Home />} />
+              <Route exact strict path="/home" component={() => <Home />} />
               <Route exact strict path="/dashboard" component={() => <Dashboard />} />
               <Route exact strict path="/pool" component={() => <PoolList />} />
               <Route exact strict path="/explorer" component={() => <Explorer />} />
@@ -197,12 +211,11 @@ export default function App() {
               <Route exact strict path="/term&amp;condition" component={() => <TermandCondition />} />
               <Route exact strict path="/disclaimer" component={() => <Disclaimer />} />
               <Route exact strict path="/explorer/:tab" component={() => <Explorer />} />
-              <Route exact strict path="/details" component={() => <Details/>} />
-              
-              <Route exact strict path="/voting" component={() => <Vote/>} />
-              <Route exact strict path="/voting/proposal" component={() => <Proposal/>} />
-              <Route exact strict path="/voting/proposal/" component={() => <Proposal/>} />
-              <Route exact strict path="/voting/proposal/items" component={() => <VotesList/>} />
+              <Route exact strict path="/details" component={() => <Details />} />
+              <Route exact strict path="/voting" component={() => <Vote />} />
+              <Route exact strict path="/voting/proposal" component={() => <Proposal />} />
+              <Route exact strict path="/voting/proposal/" component={() => <Proposal />} />
+              <Route exact strict path="/voting/proposal/items" component={() => <VotesList />} />
               <Route exact strict path="/pool/add" component={() => <Pools />} />
               <Route exact strict path="/farm" component={() => <FarmList />} />
               <Route exact strict path="/nft" component={() => <CrossNFT />} />
@@ -215,34 +228,42 @@ export default function App() {
               <Route exact strict path="/vest" component={() => <Vest />} />
               <Route exact strict path="/vest/create" component={() => <CreateLock />} />
               <Route exact strict path="/vest/manger" component={() => <MangerVest />} />
-              <Route exact strict path={config.getCurConfigInfo().isOpenBridge ? "/v1/router" : "/swap"} component={() => <CrossChain />} />
-  
               <Route
-                path={[
-                  '/router'
-                ]}
-                component={() => <MergeCrossChainV2 />}
+                exact
+                strict
+                path={config.getCurConfigInfo().isOpenBridge ? '/v1/router' : '/swap'}
+                component={() => <CrossChain />}
               />
-              {
-                Object.keys(farmlist).map((key, index) => {
-                  if (farmlist[key].farmtype === 'noany') {
-                    return (
-                      <Route exact strict path={'/' + farmlist[key].url} component={() => <NoanyFarming farmkey={key} />} key={index} />
-                    )
-                  }
-                  return (
-                    <Route exact strict path={'/' + farmlist[key].url} component={() => <ANYFarming farmkey={key} />} key={index} />
-                  )
-                })
-              }
 
-              
+              <Route path={['/router']} component={() => <MergeCrossChainV2 />} />
+              {Object.keys(farmlist).map((key, index) => {
+                if (farmlist[key].farmtype === 'noany') {
+                  return (
+                    <Route
+                      exact
+                      strict
+                      path={'/' + farmlist[key].url}
+                      component={() => <NoanyFarming farmkey={key} />}
+                      key={index}
+                    />
+                  )
+                }
+                return (
+                  <Route
+                    exact
+                    strict
+                    path={'/' + farmlist[key].url}
+                    component={() => <ANYFarming farmkey={key} />}
+                    key={index}
+                  />
+                )
+              })}
               <Redirect to={{ pathname: initUrl }} />
             </Switch>
           </Web3ReactManager>
           <Marginer />
-          <FaqsSection/>
-          <Footer/>
+          <FaqsSection />
+          <Footer />
           <NavBottom>
             <NavList />
           </NavBottom>

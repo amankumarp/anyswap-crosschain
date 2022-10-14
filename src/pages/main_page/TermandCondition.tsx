@@ -1,16 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 const Term = styled.div`
-  width:1200px;
+  width:1440px;
+  padding:20px;
    .text-center {
     text-align: center;
     padding: 20px;
   }
   p {
-    font-size: 14px;
+    font-size: 16px;
   }
+ .mainHeading {
+    font-size: 38px;
+    padding-bottom: 10px;
+}
   .heading {
     margin-top: 20px;
+    font-size:28px;
   }
   ${({ theme }) => theme.mediaWidth.upToMedium`
   width:100%
@@ -18,6 +24,13 @@ const Term = styled.div`
   .mainHeading{
     font-size:20px;
   }
+  ul, ol {
+    padding-left: 25px;
+  }
+  .mainHeading {
+    font-size: 34px;
+    padding-bottom: 10px;
+}
   `}
 `
 

@@ -200,12 +200,12 @@ overflow-x:hidden;
 
   .break_block{
     display:none;
-    ${({ theme }) => theme.mediaWidth.upToEs`
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     display:block;`
   }
 }
 .tokenSpan{
-    ${({ theme }) => theme.mediaWidth.upToEs`
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding:11%
     `
   }
@@ -368,7 +368,7 @@ a:hover{
     color: ${({ theme }) => theme.text7};
     font-size: 24px;
     padding:7px 0px;
-    line-height:40px;
+    line-height:35px;
     letter-spacing: 1px;
     font-weight: 300;
     margin:30px 0; 
@@ -390,7 +390,7 @@ a:hover{
     margin-top:10px;
 }
 .main_btn:hover{
-    background-color: #00c675;
+    opacity:.7;
     color: #fff;
     text-decoration: none;
 }
@@ -692,11 +692,15 @@ a:focus {
     font-size: 16px;
     ${({ theme }) => theme.mediaWidth.upToLarge`
     padding: 30px 15px;
-    height:190px;
+    height:200px;
     
     `}
     ${({ theme }) => theme.mediaWidth.upToSmall`
     padding: 30px;
+
+    `}
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+    height:210px;
 
     `}
 }
@@ -1081,7 +1085,7 @@ a:focus {
  }
  .our-features1{
     ${({ theme }) => theme.mediaWidth.upToLarge`
-    padding:20px !important;
+    padding:30px !important;
     `}
    
 
@@ -1403,6 +1407,7 @@ ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     }
     .choose_blockchain .main_btn {
         min-width: 169px !important;
+       
     }
     .finish_transfer {
         right: 0;

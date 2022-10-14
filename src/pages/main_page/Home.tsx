@@ -7,11 +7,7 @@ import animationData from './json/final_hero2.json'
 import animationBottom from './json/bottom_hero2.json'
 import Typewriter from 'typewriter-effect'
 import CountUp from 'react-countup'
-// import FAQs from './FAQs'
-// import Footer from './Footer'
 
-// import Logo from "../../assets/svg/xtring_logo_wt.png";
-// import DarkLogo from "../../assets/svg/xtring_logo-bk.png";
 
 export default function Home() {
   const defaultOptions = {
@@ -19,11 +15,7 @@ export default function Home() {
     autoplay: true,
     animationData: animationData
   }
-  // const defaultOptionsMobile = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: animationDataMobile
-  // }
+
   const defaultsBottom = {
     loop: true,
     autoplay: true,
@@ -33,7 +25,7 @@ export default function Home() {
   return (
     <>
       <HomePage>
-        {/* <!-- banner --> */}
+       
         <div id="banner" className="container-fluid ">
           <div className="row">
             <div className="col-md-6 banner_block banner_img">
@@ -50,12 +42,7 @@ export default function Home() {
                 <h1 className="css-typing">
                   <span className="type1">Transfer tokens between</span>
                   <br />
-                  {/* <span>
-                  <span className="text_1">Ethereum &amp; Analog Chain</span>
-                  <span className="text_2">BSC &amp; Analog Chain</span>
-                  <span className="text_3">Polygon &amp; Analog Chain</span>
-                  <span className="text_4">Tron &amp; Analog Chain</span>
-                  </span><br/> */}
+                  
                   <Typewriter
                     options={{
                       strings: [
@@ -547,7 +534,7 @@ export default function Home() {
             {window.innerWidth >= 992 && (
               <div
                 className="col-md-4 col-12 Order2"
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop:"20px" }}
               >
                 <Lottie
                   options={defaultsBottom}

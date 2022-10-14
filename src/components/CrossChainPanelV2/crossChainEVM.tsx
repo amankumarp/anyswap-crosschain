@@ -91,12 +91,13 @@ width:100%;
   ${({ theme }) => theme.mediaWidth.upToSmall`
   border:none !important;
     padding:0px 5px;
+    margin-top:25px;
  
   `}
   .innerContainer{
    
     border-radius:10px;
-    padding: 10px 10px 30px 10px;
+    padding: 10px 5px 30px 5px;
    
   
   }
