@@ -167,7 +167,7 @@ export default function Vote() {
             </label>
           </div>
         </div>
-        {reportData &&
+        {reportData.length>0 ?
           reportData.map((data, i) => {
             // console.log(data,"dataa")
             
@@ -198,7 +198,11 @@ export default function Vote() {
                 </div>
               </>
             )
-          }).reverse()}
+          }).reverse():
+          <h3 style={{textAlign:"center",padding:"20px 0px"}}>No Proposal found.</h3>
+          
+          }
+
        
 
         {/* {tabActive.core && (

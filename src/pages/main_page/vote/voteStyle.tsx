@@ -3,6 +3,13 @@ import styled from 'styled-components'
 export const VoteContainer = styled.div`
 padding-top:20px;
 width:1400px;
+ input[type='radio'] {
+    box-sizing: border-box;
+    padding: 0;
+    wodth: 30px;
+    width: 20px;
+    height: 20px;
+}
 
 .topBox{
     background:linear-gradient(var(--gradient-rotate,246deg),#da2eef 7.97%,#2b6aff 49.17%,#39d0d8 92.1%);
@@ -97,7 +104,7 @@ width:1400px;
     padding:30px 0 15px;
 }
 .tabBox{
-    border:1px solid #6b7fb9
+    border:2px solid #6b7fb9
     border-radius:10px;
     padding-bottom:5px;
     .box{
@@ -156,13 +163,20 @@ width:1400px;
             // width:20px;
         }
         .form-check-label{
+            position:relative;
             margin-left:4px;
+            font-size:18px
+            bottom:2px;
+            ${({ theme }) => theme.mediaWidth.upToEes`
             font-size:16px
+            bottom:5px;
+`}
+
         }
     }
     .proposeBox{
         padding:20px;
-        border-top:1px solid #6b7fb9;
+        border-top:2px solid #6b7fb9;
        
      
         &:hover{

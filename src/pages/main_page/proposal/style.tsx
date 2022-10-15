@@ -177,8 +177,6 @@ height:300px !important
 .textArea{
     margin:0px 0 20px;
    
-    
-
     .textA{
         width:100%
         color:${({ theme }) => theme.text7};
@@ -187,7 +185,7 @@ height:300px !important
         background-color:#05071b0d;
         padding:10px 10px 8px ;
         border-radius:10px
-        height:165px;
+        min-height:165px;
         word-break:break-word;
         
         

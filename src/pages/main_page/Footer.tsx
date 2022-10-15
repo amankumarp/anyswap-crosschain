@@ -117,7 +117,7 @@ export default function Footer() {
             </div>
             <div className="col-md-6 col-sm-4">
               <div className="cr_area">
-                Copyright <span className="robo">© 2022</span> All rights reserved. Xtring
+                Copyright <span className="robo">© {new Date().getFullYear()}</span> All rights reserved. Xtring
               </div>
             </div>
           </div>

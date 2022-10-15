@@ -50,7 +50,7 @@ export const CurrencySelect = styled.button<{ selected: boolean }>`
   }
 
   :focus {
-    border: 0.0625rem solid ${({ theme }) => darken(0.1, theme.selectedBorder)};
+    border: 0.0625rem solid ${({ theme }) => darken(0, theme.selectedBorder)};
   }
 
   :active {

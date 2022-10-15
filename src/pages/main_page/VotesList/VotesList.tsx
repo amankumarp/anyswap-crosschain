@@ -169,7 +169,7 @@ export default function VotesList() {
                     <>
                       <div className="row rr">
                         <div className="col-md-6 col-xs-7 votesData v1 text-start" onClick={()=>window.location.href=`https://rabbit.analogscan.com/address/${item[0]}`} style={{cursor:"pointer"}}>
-                          {item[0].substring(0, 9)}...{item[0].slice(-5)}
+                          {window.innerWidth>=768?item[0]:item[0].substring(0, 9)+"..." +item[0].slice(-5)}
                         </div>
                         {/* <div className="col-md-2 col-xs-2 votesData text-center">Yes</div> */}
                         <div className="col-md-6 col-xs-5 votesData v2 text-right">{item[1]}</div>
