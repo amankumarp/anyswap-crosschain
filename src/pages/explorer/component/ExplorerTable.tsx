@@ -56,7 +56,7 @@ export default function ExplorerTable({data,i,page}:any) {
 
   const srcChainName =
     srcChainID == 97
-      ? 'Binance TestNet'
+      ? 'Binance Testnet'
       : srcChainID == 1807
       ? 'Tarality Testnet'
       : srcChainID == 4369
@@ -66,7 +66,7 @@ export default function ExplorerTable({data,i,page}:any) {
       : ''
   const destChainName =
     destChainID == 97
-      ? 'Binance TestNet'
+      ? 'Binance Testnet'
       : destChainID == 1807
       ? 'Tarality Testnet'
       : destChainID == 4369

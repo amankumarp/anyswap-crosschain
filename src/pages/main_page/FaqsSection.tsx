@@ -13,9 +13,9 @@ width:1440px;
     padding-bottom:15px;
 }
 .features_title {
-    font-size:20px
-    ${({ theme }) => theme.mediaWidth.upToEs`
-        font-size:18px;
+    font-size:30px
+    ${({ theme }) => theme.mediaWidth.upToSmall`
+        font-size:20px;
     
     `}
 }

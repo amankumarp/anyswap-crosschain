@@ -162,9 +162,9 @@ export default function VotesList() {
               <div className="h3">
                 <h3>Votes &nbsp;({votingDetails.length})</h3>
               </div>
-              {votingDetails &&
+              {votingDetails.length>0 ?
                 votingDetails?.map((item: any, i) => {
-                  console.log(item[0],"item[0]")
+                  // console.log(item[0],"item[0]")
                   return (
                     <>
                       <div className="row rr">
@@ -176,7 +176,10 @@ export default function VotesList() {
                       </div>
                     </>
                   )
-                })}
+                }):
+                <h4 className='noData'>No data found.</h4>
+                
+              }
             </div>
           </div>
           <div className="col-md-5 col-sm-12">

@@ -148,7 +148,7 @@ const BodyWrapper = styled.div`
 `
 
 const Marginer = styled.div`
-  margin-top: 2rem;
+  margin-top: 3rem;
 `
 
 // function TopLevelModals() {

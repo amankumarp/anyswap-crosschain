@@ -690,7 +690,7 @@ a:focus {
     border-radius: 5px;
     padding: 30px 30px;
     color: ${({ theme }) => theme.text7};
-    height:180px;
+    height:160px;
     
     font-size: 16px;
     ${({ theme }) => theme.mediaWidth.upToLarge`
@@ -718,7 +718,6 @@ a:focus {
 
 .reports_block h4{
     color:#00c675
-   
 }
 .reports_block p{
     margin: 20px 0 15px; 
@@ -727,9 +726,6 @@ a:focus {
     margin-bottom: 30px;
 }
 
-//togle
-
-//footer
 
 .stroked_btn.Launch_btn {
     position: absolute;

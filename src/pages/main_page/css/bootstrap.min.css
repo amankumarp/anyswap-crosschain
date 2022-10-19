@@ -486,7 +486,7 @@ a.text-primary:hover {
   color: #3071a9;
 }
 .text-success {
-  color: #3c763d;
+  color: #21c524;
 }
 a.text-success:hover {
   color: #2b542c;
@@ -504,7 +504,7 @@ a.text-warning:hover {
   color: #66512c;
 }
 .text-danger {
-  color: #a94442;
+  color: #ff5f5b;
 }
 a.text-danger:hover {
   color: #843534;

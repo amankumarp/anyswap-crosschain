@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import Lottie from 'react-lottie'
 import { HomePage } from './style/style'
 import './css/bootstrap.min.css'
@@ -6,7 +6,10 @@ import animationData from './json/final_hero2.json'
 // import animationDataMobile from './json/final_hero.json'
 import animationBottom from './json/bottom_hero2.json'
 import Typewriter from 'typewriter-effect'
-import CountUp from 'react-countup'
+import CountUp from 'react-countup';
+import axios from 'axios';
+import { nodeApi } from '../../config/constant'
+
 
 
 export default function Home() {
@@ -16,11 +19,40 @@ export default function Home() {
     animationData: animationData
   }
 
+  const [totalData,setData]=useState("");
+  const [diffAmount,setDiffAmount]=useState("0.1");
+  const[diffTime,setDiffTime] = useState("")
+  console.log(totalData,"daqtyatgjh")
+
   const defaultsBottom = {
     loop: true,
     autoplay: true,
     animationData: animationBottom
+  };
+  async function api() {
+    const data = await axios.get(`${nodeApi}/v2/history`)
+    // console.log(data.data,"datyajhsdvh");
+    setData(`${data.data.tr1}`)
+    const transactinData= data.data.trx[0];
+    console.log(transactinData,"transactinDatatransactinData");
+    const srcAmount = transactinData.srcAmount/1e18;
+    const destAmount = transactinData.destAmount/1e18;
+    // console.log(srcAmount,destAmount,"destAmountdestAmount")
+    const differnce:any = ((srcAmount - destAmount)/100)*10;
+    setDiffAmount(differnce);
+    const srcChainTimestamp = transactinData.srcChainTimestamp;
+    const destChainTimestamp = transactinData.destChainTimestamp;
+    const diffTime:any = destChainTimestamp-srcChainTimestamp
+    console.log(destChainTimestamp-srcChainTimestamp,".................................")
+    console.log(srcChainTimestamp,destChainTimestamp,"srcChainTimestampsrcChainTimestamp")
+    setDiffTime(diffTime)
+
   }
+  useEffect(()=>{
+
+    api()
+   
+  },[])
 
   return (
     <>
@@ -75,11 +107,11 @@ export default function Home() {
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12 mb20">
               <p className="bridged_heading">
-                $
+                
                 {/* <span id="count1" className="count" data-number="1000">
                   {' '}
                 </span>{' '} */}
-                <CountUp delay={2} end={1000} />
+                <CountUp delay={1} end={totalData?Number(totalData):0} />
                 {/* <a href="">
                   <i className="fa fa-line-chart" aria-hidden="true"></i>
                 </a> */}
@@ -88,19 +120,19 @@ export default function Home() {
             </div>
             <div className="col-md-6 col-sm-6 col-xs-6">
               <p className="bridged_heading" data-aos="zoom-in">
-                1-5 Min
+                {Number(diffTime)>60?"1-2 Min":Number(diffTime)>120?"1-2 Min":"1-2 Min"}
               </p>
               <p data-aos="zoom-in">Transfer time</p>
             </div>
             <div className="col-md-6 col-sm-6 col-xs-6">
               <p className="bridged_heading" data-aos="zoom-in">
-                $0.50
+              {diffAmount}%
               </p>
               <p data-aos="zoom-in">
                 Bridge fee{' '}
-                <span>
-                  (regular <span className="robo">0.3%</span>)
-                </span>
+                {/* <span style={{width:"10px !important"}}>
+                  (Min: <span className="robo">1 BUSD</span>, Max: <span className="robo">10 BUSD</span>)
+                </span> */}
               </p>
             </div>
           </div>

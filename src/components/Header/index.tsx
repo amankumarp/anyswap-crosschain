@@ -226,7 +226,7 @@ export default function Header() {
               <img src={isDark ? LogoDark : Logo} alt="logo" className='hiddenImg' />
             </UniIcon>
           </Title>
-          <VersionLinkBox href='https://v1.anyswap.exchange'>
+          <VersionLinkBox href='https://xtring.network/#/router'>
             V1↗
           </VersionLinkBox>
         </HeaderRow>

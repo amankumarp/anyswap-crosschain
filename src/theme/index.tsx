@@ -75,7 +75,7 @@ export function colors(darkMode: boolean): Colors {
     bg3: darkMode ? '#120e3d' : '#79c6d745',
     bg4: darkMode ? '#565A69' : '#CED0D9',
     bg5: darkMode ? '#ddd' : '#999',
-    bg6: darkMode ? "#002b56" : '#f1effc',
+    bg6: darkMode ? "#002b56" : '#d7efe9',
     bg7: darkMode ? '#141313' : '#F7F8FA',
     bg8: darkMode? 'transparent':'transparent',
     bg9: darkMode ?"#0b090e" :"#f7f7f7",
@@ -411,4 +411,15 @@ min-height:28px;
 ::-webkit-scrollbar-thumb:hover {
 background-color:#c1ebf2;
 }
+::-moz-scrollbar-track-piece {
+  background-color:#ccd4ef;
+}
+::-moz-scrollbar-thumb {
+  background-color:skyblue;
+  background-clip:padding-box;
+  min-height:28px;
+  }
+::-moz-scrollbar-thumb:hover {
+  background-color:#c1ebf2;
+  }
 `

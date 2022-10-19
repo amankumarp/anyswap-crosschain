@@ -16,9 +16,12 @@ const InputPanel = styled.div`
   border-radius: 1.25rem;
   background: ${({ theme }) => theme.contentBg};
   z-index: 1;
-  width: 100%;
+  width: 96%;
+  border:1px solid ${({ theme }) => theme.selectedBorder1}
+  margin:auto
   ${({ theme }) => theme.mediaWidth.upToLarge`
     flex-wrap:wrap;
+    width: 98%;
     padding: 0;
   `};
 `
@@ -80,8 +83,12 @@ const Input = styled.input<{ error?: boolean }>`
     width: 100%;
     margin-right: 0;
     height: 50px;
-    font-size: 24px;
+    font-size: 18px;
   `};
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  
+  font-size: 14px;
+`};
 `
 
 const LabelBox = styled.div`
@@ -155,7 +162,7 @@ export default function AddressInputPanel({
                 {
                   labelTip ? (
                     <TYPE.black color={theme.red1} fontWeight={500} fontSize={12}>
-                      {labelTip}
+                      {window.innerWidth>=760?labelTip:""}
                     </TYPE.black>
                   ) : ''
                 }

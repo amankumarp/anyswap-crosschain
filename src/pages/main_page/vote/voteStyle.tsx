@@ -6,7 +6,6 @@ width:1400px;
  input[type='radio'] {
     box-sizing: border-box;
     padding: 0;
-    wodth: 30px;
     width: 20px;
     height: 20px;
 }
@@ -81,13 +80,18 @@ width:1400px;
         `}
     }
     .votingCol{
-    padding:30px 0
+    padding:20px 5px
         
     }
 
     .votingColR{
         display:flex;
         justify-content:center
+        img{
+            ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+                width:100%
+            `}
+        }
     }
    
 
@@ -167,7 +171,7 @@ width:1400px;
             margin-left:4px;
             font-size:18px
             bottom:2px;
-            ${({ theme }) => theme.mediaWidth.upToEes`
+            ${({ theme }) => theme.mediaWidth.upToExtraSmall`
             font-size:16px
             bottom:5px;
 `}
@@ -194,7 +198,7 @@ width:1400px;
             letter-spacing:1px
         }
         .voteBtn{
-             background:${({ theme }) => theme.votingGradient};
+             background:#31d0aa;
              border:none;
              outline:none
              border-radius:10px;
@@ -206,17 +210,41 @@ width:1400px;
             }
 
         }
+        .voteBtn2{
+            border:none;
+            outline:none
+            border-radius:10px;
+            margin:0px 10px 0 0;
+            padding:5px 15px;
+            background-color:#f0b90b !important;
+            color:${({ theme }) => theme.text7};
+            &:hover{
+                opacity:0.7;
+            }
+        }
+        .voteBtn1{
+            border:none;
+            outline:none
+            border-radius:10px;
+            margin:0px 10px 0 0;
+            padding:5px 15px;
+            background-color:#bdc2c4 !important;
+            color:${({ theme }) => theme.text7};
+            &:hover{
+                opacity:0.7;
+            }
+        }
         .div{
             margin:10px 0
         }
         .communityBtn{
             background:transparent;
-            border:1px solid #ff00008c;
+            border:1px solid #da2eef;
             outline:none
             border-radius:10px;
             margin:0 10px 0 0
             padding:5px 15px;
-            color:#ff0000ad;
+            color:#da2eef;
             .icon{
                 font-size:25px;
                 margin-right:5px;

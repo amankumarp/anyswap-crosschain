@@ -27,6 +27,9 @@ background:${({ theme }) => theme.contentBg4}
   font-size:24px;
   line-height:38px
   `}
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+  margin-left:5px;
+  `}
 }
 .row{
     display:flex;

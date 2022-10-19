@@ -107,7 +107,7 @@ export default function Vote() {
             <div className="col-md-7 col-sm-12 votingCol">
               <div className="">
                 <h2 className="votingHeader">Voting</h2>
-                <h3 className="votingInfo">Have your say in the future of the Xtring Ecosystem</h3>
+                <h3 className="votingInfo">Have your voice on the Xtring Ecosystem&apos;s future.</h3>
                 <button className="votingBtn " onClick={() => (window.location.href = '/#/voting/proposal')}>
                   <BiMessageAdd className="message" />
                   Make a Proposal
@@ -174,9 +174,12 @@ export default function Vote() {
             const { userProposalTitle,proposalId } = data;
             const start = new Date(Number(data[4]));
             const end = new Date(Number(data[5]));
-           
+            const abs = (new Date().getTime())
+
+            const AbsTime= (moment(Number(abs)).format("DD-MMM-yyyy"))
             const StartTime = (moment(Number(start)).format("DD-MMM-yyyy"));
             const EndTime = (moment(Number(end)).format("DD-MMM-yyyy"));
+            // console.log(AbsTime,StartTime,EndTime,"absTime,StartTime,EndTime")
             return (
               <>
                 <div
@@ -189,7 +192,25 @@ export default function Vote() {
                         <div className='ms-2 text-date text-vote fw-bold'style={{margin:"0 0 8px 20px", fontSize:"14px"}}><span className='text-danger  p-1 rounded' >End:</span> {EndTime}</div>
                   </div>
                   <div className="div">
-                    <a className="voteBtn" href ={`#/voting/proposal/items?proposalId=${proposalId}`}> <i className="fa-solid fa-check-to-slot" style={{marginRight:"5px"}}></i>Vote Now</a>
+                  
+                    
+                    
+                   { AbsTime>=StartTime&&AbsTime<=EndTime?
+                     <a className="voteBtn" href ={`#/voting/proposal/items?proposalId=${proposalId}`}> <i className="fa-solid fa-check-to-slot" style={{marginRight:"5px"}}></i>
+                   Vote Now
+                   </a>:
+                   AbsTime>EndTime?
+                   <a className="voteBtn1" href ={`#/voting/proposal/items?proposalId=${proposalId}`}> <i className="fa-solid fa-ban" style={{marginRight:"5px"}}></i>
+                   Closed
+                   </a>
+                   :
+                   AbsTime<StartTime?
+                   <a className=" voteBtn2" href ={`#/voting/proposal/items?proposalId=${proposalId}`}> <i className="fa-regular fa-clock" style={{marginRight:"5px"}}></i>
+                   Soon
+                   </a>
+                   :null}
+                    
+                   
                    
                     <button className="communityBtn" disabled><i className="fa-solid fa-users" style={{marginRight:"5px"}}></i>{mods?.includes(data[6]) ? "Community":"Core"}</button>
                     {/* <IoIosPeople className='icon'/> */}
@@ -203,108 +224,6 @@ export default function Vote() {
           
           }
 
-       
-
-        {/* {tabActive.core && (
-          <>
-            <div
-              className="proposeBox position-relative"
-              onClick={() => (window.location.href = '/#/voting/proposal/items')}
-            >
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-               
-              </div>
-              <AiOutlineArrowRight className="arrow" />
-            </div>
-            <div className="proposeBox position-relative">
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-               
-              </div>
-              <AiOutlineArrowRight className="arrow" />
-            </div>
-            <div
-              className="proposeBox position-relative"
-              onClick={() => (window.location.href = '/#/voting/proposal/items')}
-            >
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-              
-              </div>
-              <AiOutlineArrowRight className="arrow" />
-            </div>
-          </>
-        )}
-        {tabActive.community && (
-          <>
-            {}
-
-            <div
-              className="proposeBox position-relative"
-              onClick={() => (window.location.href = '/#/voting/proposal/items')}
-            >
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-               
-              </div>
-              <AiOutlineArrowRight className="arrow" />
-            </div>
-            <div className="proposeBox position-relative">
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-                
-              </div>
-              <AiOutlineArrowRight className="arrow" />
-            </div>
-          </>
-        )}
-        {tabActive.all && (
-          <>
-            <div className="proposeBox position-relative">
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-               
-              </div>
-            </div>
-            <div className="proposeBox position-relative">
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-                
-              </div>
-            </div>
-            <div className="proposeBox position-relative">
-              <h4>Marketplace store at Pancakeswap.</h4>
-              <p>Ended Sep 28th,2022 04:30</p>
-              <div className="div">
-                <button className="voteBtn">Vote Now</button>
-                <button className="communityBtn">Community</button>
-                
-              </div>
-            </div>
-          </>
-        )} */}
       </div>
     </VoteContainer>
   )

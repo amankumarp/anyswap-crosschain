@@ -134,13 +134,19 @@ position:relative;
     color:${({ theme }) => theme.text7};
   }
   .rr{
-    padding:10px 15px 10px 15px !important
+    padding:10px 0px 10px 0px !important
    
         width: 100%;
         
         border-top: 1px solid ${({ theme }) => theme.homeBorder};;
         margin: 0;
     
+  }
+  .noData{
+    text-align:center;
+    font-size:24px;
+    color:${({ theme }) => theme.text7};
+    padding:20px 0;
   }
   .v1{
     text-align:left;
