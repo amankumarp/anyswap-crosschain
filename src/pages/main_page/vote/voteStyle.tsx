@@ -239,12 +239,12 @@ width:1400px;
         }
         .communityBtn{
             background:transparent;
-            border:1px solid #da2eef;
+            border:1px solid #2b6aff;
             outline:none
             border-radius:10px;
             margin:0 10px 0 0
             padding:5px 15px;
-            color:#da2eef;
+            color:#2b6aff;
             .icon{
                 font-size:25px;
                 margin-right:5px;
@@ -270,7 +270,7 @@ width:1400px;
 
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
 width:100%;
-padding:10px
+padding:30px
 `}
 ${({ theme }) => theme.mediaWidth.upToMedium`
 width:100%;

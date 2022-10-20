@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const Term = styled.div`
   width:1440px;
   padding:20px;
+  font-family:Helvetica, sans-serif;
    .text-center {
     text-align: center;
     padding: 20px;
@@ -18,6 +19,11 @@ const Term = styled.div`
     margin-top: 20px;
     font-size:28px;
   }
+  ${({ theme }) => theme.mediaWidth.upToFourty`
+width:100%
+
+`}
+  
   ${({ theme }) => theme.mediaWidth.upToMedium`
   width:100%
   padding:10px

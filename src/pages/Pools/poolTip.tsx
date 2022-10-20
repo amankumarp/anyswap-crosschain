@@ -61,6 +61,7 @@ export default function PoolTip ({
   const { t } = useTranslation()
   
   return (
+  
     <SubCurrencySelectBox>
       <dl className='list'>
         

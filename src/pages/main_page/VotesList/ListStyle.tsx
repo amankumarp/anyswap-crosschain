@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const VoteContainer = styled.div`
 width:1440px;
+overflow-x:hidden;
 .back-item{
 text-align:left;
 color:#39d0d8;
@@ -10,6 +11,7 @@ cursor:pointer;
 margin-top:10px
 padding:0px 10px;
 position:relative;
+
 }
 .container-fluid{
     padding:0

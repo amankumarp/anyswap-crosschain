@@ -207,6 +207,9 @@ export function colors(darkMode: boolean): Colors {
 
      //proposal
      mainCard:darkMode ? "#002b56":"#c1ebf2",
+     tokenlogo:darkMode ?"#062c4f3d":"#00231e",
+
+
 
     // other
     red1: '#FF6871',
@@ -215,6 +218,7 @@ export function colors(darkMode: boolean): Colors {
     yellow1: '#FFE270',
     yellow2: 'rgb(3, 26, 110)',
     blue1: '#2172E5',
+
 
     moreBtn: darkMode ? '#363d5f' : '#f9fafb',
 
@@ -400,7 +404,7 @@ body {
 /* 滚动条的宽度 */
 ::-webkit-scrollbar {
 width:8px;
-height:8px;
+height:2px;
 }
 /* 滚动条的设置 */
 ::-webkit-scrollbar-thumb {

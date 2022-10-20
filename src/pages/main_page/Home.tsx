@@ -9,6 +9,14 @@ import Typewriter from 'typewriter-effect'
 import CountUp from 'react-countup';
 import axios from 'axios';
 import { nodeApi } from '../../config/constant'
+// import xtring from "../../assets/svg/xtring_logo_wt.png";
+// import xtringLight from "../../assets/svg/xtring_logo-bk.png"
+import xtrings from "../../assets/images/tokens/icon-03.png";
+import inrx from "../../assets/images/tokens/icon-01.png";
+import ether from "../../assets/images/tokens/icon-02.png";
+import ana from "../../assets/images/tokens/icon-04.png"
+import usdt from "../../assets/images/tokens/icon-05.png"
+// import { useDarkModeManager } from '../../state/user/hooks'
 
 
 
@@ -18,6 +26,7 @@ export default function Home() {
     autoplay: true,
     animationData: animationData
   }
+  // const [dark] = useDarkModeManager()
 
   const [totalData,setData]=useState("");
   const [diffAmount,setDiffAmount]=useState("0.1");
@@ -31,7 +40,6 @@ export default function Home() {
   };
   async function api() {
     const data = await axios.get(`${nodeApi}/v2/history`)
-    // console.log(data.data,"datyajhsdvh");
     setData(`${data.data.tr1}`)
     const transactinData= data.data.trx[0];
     console.log(transactinData,"transactinDatatransactinData");
@@ -111,7 +119,7 @@ export default function Home() {
                 {/* <span id="count1" className="count" data-number="1000">
                   {' '}
                 </span>{' '} */}
-                <CountUp delay={1} end={totalData?Number(totalData):0} />
+                <CountUp delay={1} end={totalData?Number(totalData):0} /> txns
                 {/* <a href="">
                   <i className="fa fa-line-chart" aria-hidden="true"></i>
                 </a> */}
@@ -174,7 +182,7 @@ export default function Home() {
             </div>
 
             <div className="col-md-6 col-sm-12">
-              <div className="our_features_block" data-aos="fade-right">
+              <div className="our_features_block our-features3" data-aos="fade-right">
                 <div className="feature-img">
                   <img src="images/transaction.png" />
                 </div>
@@ -266,196 +274,117 @@ export default function Home() {
                 <div className="tab-pane fade in active" id="1">
                   <ul className="tab_area">
                     <li>
-                      <img src="images/1.png" /> FTX Token
+                      <div className='tokenLogo'>
+                      <img src={inrx} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/2.png" /> HAPI{' '}
+                      <div className='tokenLogo'>
+                      <img src={ana} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/3.png" /> HGET{' '}
+                      <div className='tokenLogo'>
+                      <img src={xtrings} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/4.png" /> USDC{' '}
+                      <div className='tokenLogo'>
+                      <img src={usdt} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/5.png" /> USDT{' '}
+                      <div className='tokenLogo'>
+                      <img src={ether} />
+                      </div>
                     </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
+      
                   </ul>
                 </div>
                 <div className="tab-pane fade " id="2">
                   <ul className="tab_area">
-                    <li>
-                      <img src="images/1.png" /> FTX Token
+                  <li>
+                      <div className='tokenLogo'>
+                      <img src={inrx} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/2.png" /> HAPI{' '}
+                      <div className='tokenLogo'>
+                      <img src={ana} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/3.png" /> HGET{' '}
+                      <div className='tokenLogo'>
+                      <img src={xtrings} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/4.png" /> USDC{' '}
+                      <div className='tokenLogo'>
+                      <img src={usdt} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
+                      <div className='tokenLogo'>
+                      <img src={ether} />
+                      </div>
                     </li>
                   </ul>
                 </div>
                 <div className="tab-pane fade " id="3">
                   <ul className="tab_area">
-                    <li>
-                      <img src="images/1.png" /> FTX Token
+                  <li>
+                      <div className='tokenLogo'>
+                      <img src={inrx} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/2.png" /> HAPI{' '}
+                      <div className='tokenLogo'>
+                      <img src={ana} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/3.png" /> HGET{' '}
+                      <div className='tokenLogo'>
+                      <img src={xtrings} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/4.png" /> USDC{' '}
+                      <div className='tokenLogo'>
+                      <img src={usdt} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
+                      <div className='tokenLogo'>
+                      <img src={ether} />
+                      </div>
                     </li>
                   </ul>
                 </div>
                 <div className="tab-pane fade " id="4">
                   <ul className="tab_area">
-                    <li>
-                      <img src="images/1.png" /> FTX Token
+                  <li>
+                      <div className='tokenLogo'>
+                      <img src={inrx} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/2.png" /> HAPI{' '}
+                      <div className='tokenLogo'>
+                      <img src={ana} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/3.png" /> HGET{' '}
+                      <div className='tokenLogo'>
+                      <img src={xtrings} />
+                      </div>
                     </li>
                     <li>
-                      <img src="images/4.png" /> USDC{' '}
+                      <div className='tokenLogo'>
+                      <img src={usdt} /> 
+                      </div>
                     </li>
                     <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
-                    </li>
-                    <li>
-                      <img src="images/1.png" /> FTX Token
-                    </li>
-                    <li>
-                      <img src="images/2.png" /> HAPI{' '}
-                    </li>
-                    <li>
-                      <img src="images/3.png" /> HGET{' '}
-                    </li>
-                    <li>
-                      <img src="images/4.png" /> USDC{' '}
-                    </li>
-                    <li>
-                      <img src="images/5.png" /> USDT{' '}
+                      <div className='tokenLogo'>
+                      <img src={ether} />
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -491,33 +420,11 @@ export default function Home() {
             </div>
 
             <div className="col-md-12 relative">
-              {/* <span className="use_allbridge_left">
-                <span>
-                  <strong>1.</strong> Connect wallet A
-                </span>
-                <span>
-                  <strong>2.</strong> Connect wallet B
-                </span>
-              </span>
-
-              <span className="use_allbridge_right">
-                <span>
-                  <strong>3.</strong> Connect wallet C
-                </span>
-                <span>
-                  <strong>4.</strong> Receive assets
-                </span>
-              </span> */}
-              {/* <img src="images/use-Allbridge.jpg" className="i100 db" /> */}
-              {/* <img src="images/how-to-use-mob.png" className="i100 dn" /> */}
+              
             </div>
           </div>
         </div>
-        {/* <!-- Our features --> */}
-
-        {/* <!-- Our token --> */}
-
-        {/* <!-- Our token --> */}
+      
 
         {/* <!-- Reports --> */}
         <div id="Reports_area" className="container-fluid our_features Reports">

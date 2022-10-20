@@ -295,6 +295,12 @@ a:hover{
     padding: 45px 30px!important;
     `} 
 }
+.tokenLogo{
+    background: ${({ theme }) => theme.tokenlogo};
+    border-radius: 5px;
+    border: 1px solid #00c679;
+}
+}
 
 
 .reports_block p{
@@ -443,9 +449,21 @@ a:hover{
     max-height: 220px;
     margin-top: 20px;
     ${({ theme }) => theme.mediaWidth.upToMedium`
-   height:auto !important
+   height:220px; 
     
     `}
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+   min-height:220px !important; 
+     
+     `}
+ }
+ .our-features1, .our-features3{
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+   min-height:240px !important; 
+     
+     `}
+
+ }
 }
 .our_features_center{
    position:relative;
@@ -546,11 +564,13 @@ a:focus {
     float: left;
     width: 20%;
     padding: 12px 0;
-    color: ${({ theme }) => theme.homeText2};;
+    color: ${({ theme }) => theme.homeText2};
+    display:flex;
+    justify-content:center;
 }
 .tab_area img{
-    width: 23px;
-    height: 23px;
+    width: 140px;
+    height: 60px;
     margin-right: 9px;
 }
 .stroked-btn {
@@ -671,7 +691,7 @@ a:focus {
     padding-right: 15px !important;
     `}
     ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding-right: 10px !important;
+    padding: 0px 15px !important;
     `}
 
 }
@@ -682,7 +702,7 @@ a:focus {
     `}
     
     ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding-left: 10px !important;
+    padding: 0px 15px !important;
     `}
 }
 .reports_block{
@@ -1256,6 +1276,15 @@ max-width:100% !important;
     margin-bottom:15px;
 }
 
+.tab_area li {
+    float: left;
+    width: 33.33%;
+    padding: 12px 0;
+    
+   
+   
+}
+
     `}
 ${({ theme }) => theme.mediaWidth.upToSmall`
 .banner_block{
@@ -1289,9 +1318,13 @@ ${({ theme }) => theme.mediaWidth.upToSmall`
 }
 .tab_area li {
     float: left;
-    width: 32%;
+    width: 50%;
     padding: 12px 0;
+   
+   
 }
+
+
 .nav.nav-tabs {
     display: flex;
 }
@@ -1430,7 +1463,14 @@ ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     .reports_block1{
         padding-bottom:40px !important
     }
-   
+    .tab_area li {
+        float: left;
+        width: 100%;
+        padding: 12px 0;
+        
+       
+       
+    }
     
 `}
 

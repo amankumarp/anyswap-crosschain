@@ -53,6 +53,7 @@ import FaqsSection from './main_page/FaqsSection'
 // import { ToastContainer } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 import { Toaster } from 'react-hot-toast'
+import ScrollTop from '../config/ScrollTop'
 // import HashLoader from 'react-spinners/HashLoader'
 
 // import '../hooks/xrp'
@@ -201,6 +202,7 @@ export default function App() {
           <TxnsErrorTipModal />
           <NonApprove />
           {/* <TopLevelModals /> */}
+          <ScrollTop/>
           <Web3ReactManager>
             <Switch>
               <Route exact strict path="/home" component={() => <Home />} />

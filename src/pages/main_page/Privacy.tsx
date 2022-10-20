@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Policy = styled.div`
 width:1440px;
 padding:20px;
+font-family:Helvetica, sans-serif;
 .text-center{
     text-align:center;
   
@@ -50,7 +51,7 @@ export default function Privacy() {
     
     <>
         <Policy>
-      <h1 className="text-center">Privacy Policy for Xtring</h1>
+      <h1 className="text-center">Privacy Policy</h1>
 
       <p>
         At Xtring, accessible from https://xtring.network/, one of our main priorities is the privacy of our visitors.

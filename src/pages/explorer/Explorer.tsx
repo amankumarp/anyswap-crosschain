@@ -179,8 +179,11 @@ font-weight:600
   width:100%;
   
    ${({ theme }) => theme.mediaWidth.upToSmall`
-       min-width:40vh;
+       min-height:60vh;
     `}
+    ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+   width:300px;
+ `}
     
 }
 .contentContainer{

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 const Disclaim = styled.div`
 width:1440px;
 padding:20px;
+font-family:Helvetica, sans-serif;
 
 .text-center{
 text-align:center;
@@ -18,6 +19,11 @@ font-size:14px
 margin-top:20px
 }
 }
+${({ theme }) => theme.mediaWidth.upToFourty`
+width:100%
+
+}
+`}
 ${({ theme }) => theme.mediaWidth.upToMedium`
 width:100%
 padding:10px
@@ -32,7 +38,7 @@ export default function Disclaimer() {
   return (
     <>
     <Disclaim>
-        <h1 className=" mainHeading text-center">Disclaimer for Xtring</h1>
+        <h1 className=" mainHeading text-center">Disclaimer</h1>
 
 <p>If you require any more information or have any questions about our site&apos;s disclaimer, please feel free to contact us by email at support@xtring.network .</p>
 

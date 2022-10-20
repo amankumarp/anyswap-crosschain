@@ -147,6 +147,7 @@ export interface Colors {
   votingAct:Color
   votingGradient:Color
   mainCard:Color
+  tokenlogo:color
 }
 
 export interface Grids {
