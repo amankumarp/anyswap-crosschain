@@ -139,6 +139,7 @@ height:300px !important
     line-height:30px;
     border-radius:10px
     border:1px solid #6b7fb9;
+    outline:none;
     color:#fff;
     padding:5px 10px;
     background:#05071b0d;
@@ -161,6 +162,7 @@ height:300px !important
     outline:none;
     color:${({ theme }) => theme.text7}
 }
+
 .title{
     background:#05071b0d;
     border:1px solid #6b7fb9;

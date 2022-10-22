@@ -850,6 +850,7 @@ export default function Vest () {
         <div className="list">
           {
             DataList.map((item:any, index:any) => {
+              // console.log(item,"ejfgvejkbb...............")
               return (
                 <div className="item" key={index}>
                   <div className="content">

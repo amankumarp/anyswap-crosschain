@@ -188,15 +188,19 @@ font-weight:600
 }
 .contentContainer{
  
-  min-width:1300px;
+  min-width:100%;
   max-height:700px;
   padding:0 30px
   ${({ theme }) => theme.mediaWidth.upToExtraLarge`
-        min-width:1250px;
+        min-width:100%;
     `}
     ${({ theme }) => theme.mediaWidth.upToLarge`
-    min-width:1000px;
+    min-width:100%;
    
+`}
+${({ theme }) => theme.mediaWidth.upToMedium`
+min-width:1000px;
+
 `}
 ${({ theme }) => theme.mediaWidth.upToExtraSmall`
    
@@ -210,12 +214,16 @@ padding:0 20px
   margin:20px
   color: ${({ theme }) => theme.text7};
 }
+${({ theme }) => theme.mediaWidth.upToFourty`
+        width:95%;
+        padding:5px;
+    `}
 ${({ theme }) => theme.mediaWidth.upToExtraLarge`
         width:95%;
         padding:5px;
     `}
     ${({ theme }) => theme.mediaWidth.upToLarge`
-    width:100%
+    width:95%
     padding:5px;
 `}
 ${({ theme }) => theme.mediaWidth.upToMedium`

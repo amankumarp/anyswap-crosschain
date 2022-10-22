@@ -92,7 +92,7 @@ function CrossBridge (bridgeConfig:any, currency:any, selectChain:any, bridgeTyp
   const { t } = useTranslation()
   const { chainId } = useActiveWeb3React()
   // console.log(selectChain)
-  // console.log(bridgeConfig)
+  // console.log(bridgeConfig,"wdfgvjewgugvj")
   if (!bridgeConfig || !currency) {
     return (
       <></>
@@ -103,6 +103,7 @@ function CrossBridge (bridgeConfig:any, currency:any, selectChain:any, bridgeTyp
   const viewSymbol = config.getBaseCoin(currency?.symbol, chainId)
   const tipType = bridgeType === 'swapout' ? 'redeemTip' : 'mintTip'
   const dFee = Number(destConfig?.SwapFeeRatePerMillion)
+  // console.log(destConfig,isSwapfeeon,viewSymbol,tipType,dFee,"gbujhefgvjkdcb")
   // console.log(bridgeConfig)
   // console.log(destConfig)
   return (

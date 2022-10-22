@@ -16,7 +16,10 @@ import inrx from "../../assets/images/tokens/icon-01.png";
 import ether from "../../assets/images/tokens/icon-02.png";
 import ana from "../../assets/images/tokens/icon-04.png"
 import usdt from "../../assets/images/tokens/icon-05.png"
+// import { outputValue } from '../../components/CrossChainPanel/hooks'
 // import { useDarkModeManager } from '../../state/user/hooks'
+// import {useDestCurrency} from "../../hooks"
+// import {dFee} from "../../"
 
 
 
@@ -43,23 +46,25 @@ export default function Home() {
     setData(`${data.data.tr1}`)
     const transactinData= data.data.trx[0];
     console.log(transactinData,"transactinDatatransactinData");
-    const srcAmount = transactinData.srcAmount/1e18;
-    const destAmount = transactinData.destAmount/1e18;
+    // const srcAmount = transactinData.srcAmount/1e18;
+    // const destAmount = transactinData.destAmount/1e18;
     // console.log(srcAmount,destAmount,"destAmountdestAmount")
-    const differnce:any = ((srcAmount - destAmount)/100)*10;
-    setDiffAmount(differnce);
+    // const differnce:any = ((srcAmount - destAmount)/100)*10;
+    
     const srcChainTimestamp = transactinData.srcChainTimestamp;
     const destChainTimestamp = transactinData.destChainTimestamp;
     const diffTime:any = destChainTimestamp-srcChainTimestamp
     console.log(destChainTimestamp-srcChainTimestamp,".................................")
     console.log(srcChainTimestamp,destChainTimestamp,"srcChainTimestampsrcChainTimestamp")
-    setDiffTime(diffTime)
+    setDiffTime(diffTime);
+
+    const transaction = await axios.get(`${nodeApi}/v2/tokenpair`);
+    setDiffAmount(transaction.data.swapFeeRatePerMillion);
+    // console.log(,"transactiontransaction")
 
   }
   useEffect(()=>{
-
     api()
-   
   },[])
 
   return (

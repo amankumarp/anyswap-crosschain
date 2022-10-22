@@ -304,7 +304,7 @@ a:hover{
 
 
 .reports_block p{
-    font-size:15px;
+    font-size:16px;
     color: ${({ theme }) => theme.homeText2};
 }
 
@@ -482,7 +482,7 @@ color:#00c675;
     margin-top: 20px;
 }
 .our_features_block p{
-    font-size:15px
+    font-size:16px
 }
 .feature-img{
     width:60px;
@@ -740,7 +740,7 @@ a:focus {
     color:#00c675
 }
 .reports_block p{
-    margin: 20px 0 15px; 
+    margin: 15px 0 15px; 
 }
 #Reports_area .col-md-6{
     margin-bottom: 30px;
@@ -1470,6 +1470,9 @@ ${({ theme }) => theme.mediaWidth.upToExtraSmall`
         
        
        
+    }
+    .tab_area {
+        margin-top: 20px;  
     }
     
 `}

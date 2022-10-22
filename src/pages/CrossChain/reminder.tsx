@@ -103,7 +103,7 @@ function CrossBridge (bridgeConfig:any, currency:any, selectChain:any, bridgeTyp
   const dFee = bridgeType === 'bridgeAssets' ? Number(destConfig?.SwapFeeRatePerMillion) : Number(destConfig?.SwapFeeRatePerMillion) * 100
   // console.log(bridgeConfig)
   const useDfee = destConfig?.MaximumSwapFee === destConfig?.MinimumSwapFee ? 0 : dFee
-  // console.log(destConfig)
+  //  console.log(destConfig,isSwapfeeon,viewSymbol,tipType,dFee,"gbujhefgvjkdcb")
   return (
     <SubCurrencySelectBox>
       <dl className='list'>

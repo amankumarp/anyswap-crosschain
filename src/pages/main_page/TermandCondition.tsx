@@ -3,10 +3,10 @@ import styled from 'styled-components'
 const Term = styled.div`
   width:1440px;
   padding:20px;
-  font-family:Helvetica, sans-serif;
+  font-family:manpore, sans-serif;
    .text-center {
     text-align: center;
-    padding: 20px;
+    padding: 20px 0px;
   }
   p {
     font-size: 16px;
@@ -16,7 +16,7 @@ const Term = styled.div`
     padding-bottom: 10px;
 }
   .heading {
-    margin-top: 20px;
+    padding-top: 30px;
     font-size:28px;
   }
   ${({ theme }) => theme.mediaWidth.upToFourty`
@@ -28,15 +28,16 @@ width:100%
   width:100%
   padding:10px
   .mainHeading{
-    font-size:20px;
+    font-size:26px;
   }
   ul, ol {
     padding-left: 25px;
   }
-  .mainHeading {
-    font-size: 34px;
-    padding-bottom: 10px;
-}
+  .heading{
+    padding-top:22px
+    font-size:22px
+  }
+  
   `}
 `
 
@@ -222,7 +223,7 @@ export default function TermandCondition() {
           license agreement.
         </p>
 
-        <h3>
+        <h3 className="heading">
           <strong>iFrames</strong>
         </h3>
 
@@ -259,7 +260,7 @@ export default function TermandCondition() {
           to and follow these linking terms and conditions.
         </p>
 
-        <h3>
+        <h3 className="heading">
           <strong>Removal of links from our website</strong>
         </h3>
 

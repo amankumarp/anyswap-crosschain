@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Policy = styled.div`
 width:1440px;
 padding:20px;
-font-family:Helvetica, sans-serif;
+font-family:manpore, sans-serif;
 .text-center{
     text-align:center;
   
@@ -13,7 +13,7 @@ p{
     font-size:16px
 }
 .heading{
-  margin-top:20px
+  padding-top:30px
   font-size:28px;
 }
 h1,.h1 {
@@ -29,20 +29,17 @@ ${({ theme }) => theme.mediaWidth.upToMedium`
 width:100%
 padding:10px
 .mainHeading{
-  font-size:20px;
+  font-size:26px;
 }
 ul, ol {
 
   padding-left: 25px;
 }
 .heading{
-  margin-top:20px
-  font-size:26px;
+  padding-top:22px
+  font-size:22px;
 }
-h1,.h1 {
-  font-size: 34px;
-  padding-bottom: 10px;
-}
+
 `}
 `
 
@@ -70,11 +67,11 @@ export default function Privacy() {
         collected offline or via channels other than this website. 
       </p>
 
-      <h2>Consent</h2>
+      <h2 className="heading">Consent</h2>
 
       <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
 
-      <h2>Information we collect</h2>
+      <h2 className="heading">Information we collect</h2>
 
       <p>
         The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be
